@@ -2,15 +2,20 @@
   "expo": {
     "name": "geoforge-academy",
     "slug": "geoforge-academy",
-    "version": "1.0.0",
+    "version": "2",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/applogo.png",
     "scheme": "geoforgeacademy",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.galanisgalactus.geoforgeacademy",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
+    
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
@@ -26,23 +31,33 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router",
-      [
-        "expo-splash-screen",
-        {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff",
-          "dark": {
-            "backgroundColor": "#000000"
-          }
-        }
-      ]
+  "expo-router",
+  [
+    "expo-splash-screen",
+    {
+      "image": "./assets/images/applogo.png",
+      "imageWidth": 200,
+      "resizeMode": "contain",
+      "backgroundColor": "#1589B8"
+    }
+  ]
+
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "54b2831a-4d0a-4d91-a189-a58afe3c3557"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/54b2831a-4d0a-4d91-a189-a58afe3c3557"
     }
   }
 }
