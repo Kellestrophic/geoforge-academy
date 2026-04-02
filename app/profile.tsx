@@ -52,8 +52,16 @@ const filteredHistory =
     : history.filter((h) => h.type === selectedGraph);
   // 🔥 LOAD DATA FUNCTION
   async function loadData() {
-    const { data: userData } = await supabase.auth.getUser();
-    const userId = userData.user?.id;
+   let userId = null;
+
+try {
+  const response = await supabase.auth.getUser();
+  userId = response?.data?.user?.id ?? null;
+} catch (e) {
+  console.log("🚨 getUser crash prevented:", e);
+}
+
+if (!userId) return;
 
     if (!userId) return;
 
@@ -78,9 +86,16 @@ const filteredHistory =
   let channel: any;
 
   async function init() {
-    const { data: userData } = await supabase.auth.getUser();
-    const userId = userData.user?.id;
+  let userId = null;
 
+try {
+  const response = await supabase.auth.getUser();
+  userId = response?.data?.user?.id ?? null;
+} catch (e) {
+  console.log("🚨 getUser crash prevented:", e);
+}
+
+if (!userId) return;
     if (!userId) return;
 
     loadData();
@@ -118,8 +133,16 @@ function getRank(level: number) {
   // 🔥 LEVEL UP DETECTION
  useEffect(() => {
   async function checkLevelUp() {
-    const { data: userData } = await supabase.auth.getUser();
-    const userId = userData.user?.id;
+  let userId = null;
+
+try {
+  const response = await supabase.auth.getUser();
+  userId = response?.data?.user?.id ?? null;
+} catch (e) {
+  console.log("🚨 getUser crash prevented:", e);
+}
+
+if (!userId) return;
 
     if (!userId) return;
 
@@ -411,12 +434,11 @@ const getX = (time: number) => {
     );
   })}
           {/* X AXIS */}
-          {filteredHistory.map((item, i) => {
-            const x =
-              paddingLeft +
-              (i / (filteredHistory.length - 1 || 1))* usableWidth;
+       {filteredHistory.map((item, i) => {
+  const time = new Date(item.date).getTime();
+  const x = getX(time);
 
-            const date = new Date(item.date);
+  const date = new Date(item.date);
 
             return (
               <SvgText
@@ -446,7 +468,7 @@ const getX = (time: number) => {
             <>
               <Rect
                 x={selectedPoint.x - 40}
-                y={selectedPoint.y - 50}
+                y={selectedPoint.y < 60 ? selectedPoint.y + 10 : selectedPoint.y - 50}
                 width="80"
                 height="40"
                 rx="6"
@@ -455,7 +477,7 @@ const getX = (time: number) => {
 
               <SvgText
                 x={selectedPoint.x}
-                y={selectedPoint.y - 30}
+               y={selectedPoint.y < 60 ? selectedPoint.y + 25 : selectedPoint.y - 30}
                 fill="white"
                 fontSize="12"
                 textAnchor="middle"
@@ -465,7 +487,7 @@ const getX = (time: number) => {
 
               <SvgText
                 x={selectedPoint.x}
-                y={selectedPoint.y - 15}
+                y={selectedPoint.y < 60 ? selectedPoint.y + 40 : selectedPoint.y - 15}
                 fill="#94a3b8"
                 fontSize="10"
                 textAnchor="middle"

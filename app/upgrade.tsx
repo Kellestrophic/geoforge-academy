@@ -1,12 +1,14 @@
 import { unlockPro } from "@/lib/pro";
+import { initPurchases } from "@/lib/purchases";
 import { router } from "expo-router";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Pressable, Text, View } from "react-native";
 import Purchases from "react-native-purchases";
 
+
 export default function UpgradeScreen() {
   const tapLock = useRef(false);
-
+const [debugText, setDebugText] = useState("");
   return (
     <View style={{ flex: 1, padding: 20, backgroundColor: "#0f172a", justifyContent: "center" }}>
 
@@ -26,13 +28,24 @@ export default function UpgradeScreen() {
       </Text>
 <Pressable
   onPress={async () => {
-    try {
-      const info = await Purchases.restorePurchases();
+  try {
+  await initPurchases(); // 🔥 ADD THIS
+const info = await Purchases.restorePurchases();
+    const entitlements = info?.entitlements?.active ?? {};
 
-      if (info.entitlements.active["pro"]) {
-        await unlockPro();
-        router.replace("/modes");
-      }
+if (entitlements["GeoForge Pro"]) {
+  try {
+    console.log("🔥 restore → calling unlockPro...");
+    await unlockPro();
+    console.log("✅ restore unlock success");
+  } catch (e) {
+    console.log("❌ restore unlock failed:", e);
+  }
+
+  setTimeout(() => {
+    router.replace("/modes");
+  }, 300);
+}
     } catch (e) {
       console.log("Restore error:", e);
     }
@@ -44,9 +57,22 @@ export default function UpgradeScreen() {
   </Text>
 </Pressable>
       <Pressable
-   onPress={async () => {
+onPress={async () => {
   try {
-    const offerings = await Purchases.getOfferings();
+    await initPurchases(); // 🔥 ADD THIS
+const offerings = await Purchases.getOfferings();
+
+const debug = {
+  current: offerings.current,
+  packages: offerings.current?.availablePackages
+};
+
+console.log("DEBUG:", debug);
+
+setDebugText(JSON.stringify(debug, null, 2));
+
+console.log("OFFERINGS:", offerings);
+    
     const current = offerings.current;
 
     if (!current || current.availablePackages.length === 0) {
@@ -58,16 +84,27 @@ export default function UpgradeScreen() {
       current.availablePackages[0]
     );
 
-    const isPro =
-      purchase.customerInfo.entitlements.active["pro"] !== undefined;
+const entitlements = purchase?.customerInfo?.entitlements?.active ?? {};
 
-    if (isPro) {
-      console.log("✅ Pro unlocked");
+console.log("ENTITLEMENTS:", entitlements);
 
-      await unlockPro(); // sync to Supabase
+const isPro = !!entitlements["GeoForge Pro"];
 
-      router.replace("/modes");
-    }
+if (isPro) {
+  console.log("✅ Pro unlocked");
+
+  try {
+    console.log("🔥 calling unlockPro...");
+    await unlockPro();
+    console.log("✅ unlockPro success");
+  } catch (e) {
+    console.log("❌ unlockPro failed:", e);
+  }
+
+  setTimeout(() => {
+    router.replace("/modes");
+  }, 300);
+}
   } catch (e) {
     console.log("Purchase error:", e);
   }
@@ -80,10 +117,12 @@ export default function UpgradeScreen() {
         }}
       >
         <Text style={{ color: "white", textAlign: "center" }}>
-          Unlock Pro (Test)
-        </Text>
+          Unlock Pro 
+                  </Text>
       </Pressable>
-
+<Text style={{ color: "white", marginTop: 20 }}>
+  {debugText}
+</Text>
     </View>
   );
 }

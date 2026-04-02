@@ -1,29 +1,14 @@
 import { UserProvider } from "@/context/UserContext";
-import { signInAnon } from "@/lib/auth";
-import { ensureProfile } from "@/lib/profile";
 import { theme } from "@/lib/theme";
 import { Stack } from "expo-router";
 import { useEffect } from "react";
-import { Platform } from "react-native";
-import Purchases from "react-native-purchases";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+function Layout() {
+useEffect(() => {
+  console.log("🚀 APP LOADED");
 
-export default function Layout() {
-  useEffect(() => {
-    async function init() {
-      if (Platform.OS !== "web") {
-        await signInAnon();
-        await ensureProfile();
-
-        // 🔥 REVENUECAT SETUP
-        await Purchases.configure({
-          apiKey: "appl_snuDbfMxZUDwVrRvBTgEDGZgOpY",
-        });
-      }
-    }
-
-    init();
-  }, []);
+  // TEMP DISABLE ALL STARTUP CALLS
+}, []);
 
   return (
     <SafeAreaProvider>
@@ -31,14 +16,14 @@ export default function Layout() {
         <Stack
           screenOptions={{
             headerStyle: {
-              backgroundColor: theme.colors.background,
+              backgroundColor: theme?.colors?.background || "#000",
             },
             headerTintColor: theme.colors.text,
             headerTitleStyle: {
               fontWeight: "bold",
             },
             contentStyle: {
-              backgroundColor: theme.colors.background,
+              backgroundColor: theme?.colors?.background || "#000",
             },
           }}
         >
@@ -57,8 +42,12 @@ export default function Layout() {
           <Stack.Screen name="minigames" options={{ title: "Games" }} />
           <Stack.Screen name="match" options={{ title: "Match Game" }} />
           <Stack.Screen name="formula-game" options={{ title: "Formula Game" }} />
+          <Stack.Screen name="timeline" options={{ title: "Timeline Builder" }} />
         </Stack>
       </UserProvider>
     </SafeAreaProvider>
+    
   );
+  
 }
+export default Layout;

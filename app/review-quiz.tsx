@@ -11,8 +11,16 @@ export default function ReviewQuiz() {
 
  useEffect(() => {
   async function loadQuestions() {
-    const { data: userData } = await supabase.auth.getUser();
-    const userId = userData.user?.id;
+let userId = null;
+
+try {
+  const response = await supabase.auth.getUser();
+  userId = response?.data?.user?.id ?? null;
+} catch (e) {
+  console.log("🚨 getUser crash prevented:", e);
+}
+
+if (!userId) return;
 
     if (!userId) return;
 

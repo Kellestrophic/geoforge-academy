@@ -2,29 +2,26 @@
   "expo": {
     "name": "geoforge-academy",
     "slug": "geoforge-academy",
-    "version": "2",
+    "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/applogo.png",
     "scheme": "geoforgeacademy",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.galanisgalactus.geoforgeacademy",
+      "buildNumber": "4",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
     },
-    
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
-      },
-      "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      }
     },
     "web": {
       "output": "static",
@@ -41,8 +38,7 @@
       "backgroundColor": "#1589B8"
     }
   ]
-
-    ],
+],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
@@ -57,6 +53,7 @@
       "policy": "appVersion"
     },
     "updates": {
+      "enabled": false,
       "url": "https://u.expo.dev/54b2831a-4d0a-4d91-a189-a58afe3c3557"
     }
   }

@@ -1,12 +1,81 @@
 
-import { requirePro } from "@/lib/pro";
+import { isProUser, requirePro } from "@/lib/pro";
 import { theme } from "@/lib/theme";
-import { useRef } from "react";
+import { router } from "expo-router";
+import { useEffect, useRef, useState } from "react";
 import { Pressable, Text, View } from "react-native";
+function GameCard({
+  title,
+  subtitle,
+  onPress,
+  locked = false,
+}: {
+  title: string;
+  subtitle: string;
+  onPress: () => void;
+  locked?: boolean;
+}) {
+  return (
+    <Pressable
+      onPress={onPress}
+      style={{
+        backgroundColor: "#1e293b",
+        padding: 20,
+        borderRadius: 16,
+        marginBottom: 16,
+        borderWidth: 2,
+        borderColor: locked ? "#C9A86A" : theme.colors.border,
+        opacity: locked ? 0.6 : 1,
+      }}
+    >
+      <View style={{ flexDirection: "row", alignItems: "center" }}>
+        
+        <View style={{ flex: 1 }}>
+          <Text style={{ color: theme.colors.text, fontSize: 18, fontWeight: "600" }}>
+            {title}
+          </Text>
+
+          <Text style={{ color: theme.colors.subtext, marginTop: 3 }}>
+            {subtitle}
+          </Text>
+        </View>
+
+        {locked && (
+          <View
+            style={{
+              backgroundColor: "#C9A86A",
+              paddingHorizontal: 10,
+              paddingVertical: 4,
+              borderRadius: 8,
+            }}
+          >
+            <Text style={{ color: "#000", fontSize: 12, fontWeight: "bold" }}>
+              PRO
+            </Text>
+          </View>
+        )}
+      </View>
+    </Pressable>
+  );
+}
 export default function MiniGamesScreen() {
   const tapLock = useRef(false);
+const [isPro, setIsPro] = useState(false);
 
+useEffect(() => {
+  const check = async () => {
+    try {
+      const result = await isProUser();
+      console.log("🧠 MiniGames Pro:", result);
+      setIsPro(!!result);
+    } catch (e) {
+      console.log("❌ isProUser crash:", e);
+      setIsPro(false);
+    }
+  };
 
+  check();
+}, []);
 return (
     
 <View
@@ -16,6 +85,7 @@ return (
     backgroundColor: theme.colors.background,
   }}
 >
+  
       <Text
         style={{
           fontSize: 28,
@@ -26,66 +96,52 @@ return (
         Mini Games
       </Text>
 
-      {/* MATCH GAME */}
-      <Pressable
-onPress={async () => {
-  if (tapLock.current) return;
-  tapLock.current = true;
+     <GameCard
+  title="Match Game"
+  subtitle="Match geology terms with their definitions"
+  locked={!isPro}
+  onPress={async () => {
+ const ok = await requirePro();
 
-  await requirePro("/match");
+if (!ok) {
+  router.push("/upgrade");
+  return;
+}
 
-  setTimeout(() => {
-    tapLock.current = false;
-  }, 400);
-}}
-style={{
-  padding: 20,
-  borderWidth: 2,
-  borderColor: "#C9A86A",
-  borderRadius: 12,
-  marginBottom: 15,
-  opacity: 0.6,
-}}
->
-<View>
-  <Text style={{ color: theme.colors.text, fontSize: 16 }}>
-    Match Game 🔒
-  </Text>
-  <Text style={{ color: theme.colors.subtext, marginTop: 4 }}>
-    Match geology terms with their definitions
-  </Text>
-</View>
-      </Pressable>
-{/* FORMULA GAME */}
-<Pressable
-onPress={async () => {
-  if (tapLock.current) return;
-  tapLock.current = true;
+router.push("/match");
+  }}
+/>
 
-  await requirePro("/formula-game");
+<GameCard
+  title="Formula Game"
+  subtitle="Build and complete mineral chemical formulas"
+  locked={!isPro}
+  onPress={async () => {
+const ok = await requirePro();
 
-  setTimeout(() => {
-    tapLock.current = false;
-  }, 400);
-}}
-style={{
-  padding: 20,
-  borderWidth: 2,
-  borderColor: "#C9A86A",
-  borderRadius: 12,
-  marginBottom: 15,
-  opacity: 0.6,
-}}
->
-<View>
-  <Text style={{ color: theme.colors.text, fontSize: 16 }}>
-    Formula Game 🔒
-  </Text>
-  <Text style={{ color: theme.colors.subtext, marginTop: 4 }}>
-    Build and complete mineral chemical formulas
-  </Text>
-</View>
-</Pressable>
+if (!ok) {
+  router.push("/upgrade");
+  return;
+}
+
+router.push("/formula-game");
+  }}
+/>
+
+<GameCard
+  title="Timeline Builder"
+  subtitle="Arrange geologic time from oldest to youngest"
+  locked={!isPro}
+  onPress={async () => {
+const ok = await requirePro();
+
+if (!ok) {
+  router.push("/upgrade");
+  return;
+}
+    router.push("/timeline"); // 🔥 FIXED PATH
+  }}
+/>
       {/* FUTURE GAME SLOT */}
       <Pressable
         style={{
@@ -95,10 +151,13 @@ style={{
           opacity: 0.5,
         }}
       >
+        
         <Text style={{ color: "#94a3b8" }}>
           Image Identification (Coming Soon)
         </Text>
       </Pressable>
     </View>
+    
   );
+  
 }

@@ -1,7 +1,6 @@
 import questionsData from "@/data/questions.json";
-import { requirePro } from "@/lib/pro";
 import { theme } from "@/lib/theme";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Animated, KeyboardAvoidingView, Platform, Pressable, Text, TextInput, View } from "react-native";
 function generateFormulaGameQuestions(allQuestions: any[]): FormulaGameQuestion[] {
   
@@ -9,22 +8,44 @@ function generateFormulaGameQuestions(allQuestions: any[]): FormulaGameQuestion[
     (q) => q.category === "Mineral Formulas"
   );
 
-  return formulaQuestions.map((q, index)=> {
-    const correct = q.choices[q.correctAnswer];
-    useEffect(() => {
-  requirePro();
-}, []);
+ return formulaQuestions
+  .map((q, index) => {
+const correct = q.choices?.[q.correctAnswer];
+
+// 🚨 SAFETY CHECK (PREVENT CRASH)
+if (typeof correct !== "string") {
+  console.log("❌ BAD QUESTION DATA:", q);
+  return null;
+}
+
 // 🔥 RANDOMIZE ANSWERS (FIX "A ALWAYS CORRECT")
 const shuffledChoices = [...q.choices].sort(() => Math.random() - 0.5);
 const newCorrectIndex = shuffledChoices.indexOf(correct);
-    const parts = correct.match(/[A-Z][a-z]*\d*/g) || [];
 
-    const pool = formulaQuestions
-      .flatMap((qq) => qq.choices)
-      .flatMap((c: string) => c.match(/[A-Z][a-z]*\d*/g) || []);
+let parts: string[] = [];
+
+try {
+  const result = correct.match(/[A-Z][a-z]*\d*/g);
+  parts = Array.isArray(result) ? result : [];
+} catch (e) {
+  console.log("❌ MATCH FAIL:", correct);
+  return null;
+}
+
+ const pool = formulaQuestions
+.flatMap((c: any) => {
+  try {
+    if (typeof c !== "string") return [];
+    const result = c.match(/[A-Z][a-z]*\d*/g);
+    return Array.isArray(result) ? result : [];
+  } catch (e) {
+    console.log("❌ MATCH CRASH PREVENTED:", c);
+    return [];
+  }
+})
 
     const wrongParts = pool
-      .filter((p: string) => !parts.includes(p))
+      .filter((p: string) => !(Array.isArray(parts) ? parts : []).includes(p))
       .sort(() => Math.random() - 0.5)
       .slice(0, 4);
 
@@ -44,11 +65,12 @@ const newCorrectIndex = shuffledChoices.indexOf(correct);
 return {
   type: "input" as const,
         mineral: q.question.replace("What is the chemical formula of ", "").replace("?", ""),
-        display: parts[0] + " _",
+        display: (parts[0] || "") + " _",
         answer: parts.slice(1).join(""),
       };
     }
-  });
+})
+.filter((q): q is FormulaGameQuestion => q !== null);
 }
 type FormulaGameQuestion =
   | {

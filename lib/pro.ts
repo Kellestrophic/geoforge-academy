@@ -1,5 +1,4 @@
 import { supabase } from "@/lib/supabase";
-import { router } from "expo-router";
 
 export async function isProUser() {
   const { data } = await supabase.auth.getUser();
@@ -17,28 +16,29 @@ export async function isProUser() {
 }
 
 export async function unlockPro() {
+  console.log("🔥 unlockPro START");
+
   const { data } = await supabase.auth.getUser();
   const userId = data.user?.id;
 
-  if (!userId) return;
+  if (!userId) {
+    console.log("❌ No user ID");
+    return;
+  }
 
-  await supabase
+  const { data: result, error } = await supabase
     .from("profiles")
     .update({ is_pro: true })
-    .eq("id", userId);
+    .eq("id", userId)
+    .select();
+
+  console.log("🔥 unlockPro RESULT:", { result, error });
+
+  if (error) {
+    throw error;
+  }
 }
-
-export async function requirePro(route?: string) {
+export async function requirePro() {
   const isPro = await isProUser();
-
-  if (!isPro) {
-    router.push("/upgrade" as any);
-    return false;
-  }
-
-  if (route) {
-    router.push(route as any);
-  }
-
-  return true;
+  return isPro;
 }

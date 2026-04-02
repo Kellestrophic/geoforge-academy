@@ -25,8 +25,16 @@ export function UserProvider({ children }: { children: any }) {
   }
 
   async function refreshUser() {
-    const { data: userData } = await supabase.auth.getUser();
-    const userId = userData.user?.id;
+let userId = null;
+
+try {
+  const response = await supabase.auth.getUser();
+  userId = response?.data?.user?.id ?? null;
+} catch (e) {
+  console.log("🚨 getUser crash prevented:", e);
+}
+
+if (!userId) return;
 
     if (!userId) return;
 
@@ -51,9 +59,16 @@ async function init() {
   let retries = 0;
 
   async function waitForUser() {
-    const { data: userData } = await supabase.auth.getUser();
-    const userId = userData.user?.id;
+let userId = null;
 
+try {
+  const response = await supabase.auth.getUser();
+  userId = response?.data?.user?.id ?? null;
+} catch (e) {
+  console.log("🚨 getUser crash prevented:", e);
+}
+
+if (!userId) return;
     if (userId) return userId;
 
     if (retries < 10) {

@@ -81,8 +81,16 @@ if (correctPair.match === matchText) {
 
   // 🔥 ADD XP
 const updateXp = async () => {
-  const { data: userData } = await supabase.auth.getUser();
-  const userId = userData.user?.id;
+let userId = null;
+
+try {
+  const response = await supabase.auth.getUser();
+  userId = response?.data?.user?.id ?? null;
+} catch (e) {
+  console.log("🚨 getUser crash prevented:", e);
+}
+
+if (!userId) return;
 
   if (!userId) return;
 

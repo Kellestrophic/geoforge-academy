@@ -77,7 +77,21 @@ export default function ExamScreen() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [timeLeft, setTimeLeft] = useState(timeLimit * 60);
   const [finished, setFinished] = useState(false);
+function fixShuffledQuestion(q: any) {
+  if (!q.choices || q.correctAnswer == null) return q;
 
+  const correctValue = q.choices[q.correctAnswer];
+
+  const shuffledChoices = [...q.choices].sort(() => Math.random() - 0.5);
+
+  const newCorrectIndex = shuffledChoices.indexOf(correctValue);
+
+  return {
+    ...q,
+    choices: shuffledChoices,
+    correctAnswer: newCorrectIndex,
+  };
+}
   // ✅ LOAD QUESTIONS (FIXED)
   useEffect(() => {
     let pool = questionsData;
@@ -94,9 +108,9 @@ export default function ExamScreen() {
       pool = questionsData; // fallback 🔥
     }
 
-    const transformed = pool.map((q) =>
-      transformMatchToMC(q, pool)
-    );
+const transformed = pool.map((q) =>
+  fixShuffledQuestion(transformMatchToMC(q, pool))
+);
 
     const shuffled = shuffleArray(transformed).slice(0, count);
 
@@ -131,7 +145,8 @@ export default function ExamScreen() {
       }, 0);
 
       const percent = Math.round((score / questions.length) * 100);
-      const now = new Date().toISOString();
+      const now = new Date();
+const dayKey = now.toISOString().split("T")[0]; // "2026-04-01"
 
       const existing = await AsyncStorage.getItem("examHistory");
       let history = existing ? JSON.parse(existing) : [];
@@ -141,8 +156,16 @@ export default function ExamScreen() {
 
       await AsyncStorage.setItem("examHistory", JSON.stringify(history));
 
-      const { data: userData } = await supabase.auth.getUser();
-      const userId = userData.user?.id;
+let userId = null;
+
+try {
+  const response = await supabase.auth.getUser();
+  userId = response?.data?.user?.id ?? null;
+} catch (e) {
+  console.log("🚨 getUser crash prevented:", e);
+}
+
+if (!userId) return;
 
       if (!userId) return;
 
@@ -163,11 +186,20 @@ await supabase.from("profiles").upsert({
 console.log("Saving exam XP:", userId, percent);
 
 // 🔥 UPDATE XP
+const { data: profile } = await supabase
+  .from("profiles")
+  .select("xp")
+  .eq("id", userId)
+  .single();
+
+const currentXP = profile?.xp || 0;
+
 await supabase
   .from("profiles")
   .update({
-    xp: percent,
+    xp: currentXP + percent,
   })
+  .eq("id", userId);
     }
 
     saveResult();
