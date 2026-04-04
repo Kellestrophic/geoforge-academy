@@ -35,7 +35,7 @@ workflows:
             -archivePath $PWD/build/App.xcarchive \
             DEVELOPMENT_TEAM=QNP2XD3FM5 \
           CODE_SIGN_STYLE=Automatic \
-          allowProvisioningUpdates \
+          -allowProvisioningUpdates \
           archive
 
       - name: Export IPA (APP STORE)
