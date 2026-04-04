@@ -36,8 +36,9 @@ workflows:
       # 🔥 FIXED BUILD STEP (NO WILDCARDS)
       - name: Build IPA
         script: |
-          WORKSPACE=$(ls ios/*.xcworkspace | head -n 1)
-          SCHEME=$(ls ios | grep .xcodeproj | sed 's/.xcodeproj//')
+          WORKSPACE=$(find ios -name "*.xcworkspace" -maxdepth 1)
+          
+          SCHEME=$(basename ios/*.xcodeproj .xcodeproj)
 
           echo "Using workspace: $WORKSPACE"
           echo "Using scheme: $SCHEME"
