@@ -1,10 +1,12 @@
 import questionsData from "@/data/questions.json";
 import { supabase } from "@/lib/supabase";
 import { theme } from "@/lib/theme";
+import { getSafeQuestions } from "@/utils/safeQuestions";
 import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useRef, useState } from "react";
 import { Animated, Image, Pressable, ScrollView, Text, View } from "react-native";
 import { useUser } from "../context/UserContext";
+console.log("SCREEN: Practice loaded");
 function expandMatchQuestions(allQuestions: any[]) {
   const result: any[] = [];
 
@@ -30,15 +32,14 @@ function expandMatchQuestions(allQuestions: any[]) {
       const choices = [...wrongOptions, correct].sort(
         () => Math.random() - 0.5
       );
-
-      result.push({
-        ...question,
-        id: `${question.id}_match_${index}`, // unique ID 🔥
-        type: "multiple_choice",
-        question: pair.term,
-        choices,
-        correctAnswer: choices.indexOf(correct),
-      });
+result.push({
+  id: String(question.id ?? "") + "_match_" + index,
+  type: "multiple_choice",
+  category: String(question.category ?? ""),
+  question: typeof pair.term === "string" ? pair.term : "",
+  choices: Array.isArray(choices) ? choices : [],
+  correctAnswer: choices.indexOf(correct),
+});
     });
   });
 
@@ -64,10 +65,9 @@ function generateSmartChoices(question: any, allQuestions: any[]) {
   const correct = question.choices[question.correctAnswer];
 
   // 🔥 SAME CATEGORY DISTRACTORS
-  const pool = allQuestions
-    .filter((q) => q.category === question.category)
-    .flatMap((q) => q.choices || [])
-    .filter((c: string) => c !== correct);
+const pool = allQuestions
+  .flatMap((q) => (Array.isArray(q.choices) ? q.choices : []))
+  .filter((c) => typeof c === "string");
 
   const wrong = pool
     .sort(() => Math.random() - 0.5)
@@ -77,11 +77,14 @@ function generateSmartChoices(question: any, allQuestions: any[]) {
 if (!choices.includes(correct)) {
   console.log("BROKEN SHUFFLE:", question);
 }
-  return {
-    ...question,
-    choices,
-    correctAnswer: choices.indexOf(correct),
-  };
+return {
+  id: String(question.id ?? ""),
+  type: question.type,
+  category: String(question.category ?? ""),
+  question: typeof question.question === "string" ? question.question : "",
+  choices: Array.isArray(choices) ? choices : [],
+  correctAnswer: choices.indexOf(correct),
+};
 }
 function shuffleArray<T>(array: T[]): T[] {
   return [...array].sort(() => Math.random() - 0.5);
@@ -89,10 +92,24 @@ function shuffleArray<T>(array: T[]): T[] {
 function getTodayDate() {
   const now = new Date();
   const local = new Date(now.getTime() - now.getTimezoneOffset() * 60000);
-  return local.toISOString().split("T")[0];
+ try {
+  const iso =
+    typeof local?.toISOString === "function"
+      ? local.toISOString()
+      : "";
+
+  if (typeof iso !== "string") return "";
+
+  const parts = iso.split("T");
+
+  return Array.isArray(parts) && parts.length > 0 ? parts[0] : "";
+} catch (e) {
+  console.log("❌ DATE CRASH PREVENTED:", e);
+  return "";
+}
 }
 export default function PracticeScreen() {
-  const { user, setUser } = useUser();
+ const { user, setUser } = useUser() || {};
   const [currentIndex, setCurrentIndex] = useState(0);
 const [score, setScore] = useState(0);
 const [answered, setAnswered] = useState(0);
@@ -134,9 +151,12 @@ type:
 };
 
 const allQuestions = questionsData as Question[];
-const baseQuestions = topic
-  ? allQuestions.filter((q) => q.category === topic)
-  : allQuestions;
+
+const baseQuestions = getSafeQuestions(
+  topic
+    ? allQuestions.filter((q) => q.category === topic)
+    : allQuestions
+);
 const [filteredQuestions, setFilteredQuestions] = useState<Question[]>([]);
 
 useEffect(() => {
@@ -188,18 +208,32 @@ async function handleSubmit() {
 let userId = null;
 
 try {
-  const response = await supabase.auth.getUser();
-  userId = response?.data?.user?.id ?? null;
+let userId = null;
+
+try {
+  const response = await supabase?.auth?.getUser?.();
+
+  if (
+    response &&
+    response.data &&
+    response.data.user &&
+    typeof response.data.user.id === "string"
+  ) {
+    userId = response.data.user.id;
+  }
+} catch (e) {
+  console.log("❌ SAFE getUser crash prevented:", e);
+}
 } catch (e) {
   console.log("🚨 getUser crash prevented:", e);
 }
 
 if (!userId) return;
 
-      if (!userId) return;
+     
 
-      const newXp = user.xp + xpGained;
-      const newStreak = user.streak + 1;
+      const newXp = (user?.xp ?? 0) + xpGained;
+      const newStreak = (user?.streak ?? 0) + 1;
 
       console.log("Saving XP:", newXp);
 
@@ -256,26 +290,47 @@ setWrongQuestions((prev) => {
  let userId = null;
 
 try {
-  const response = await supabase.auth.getUser();
-  userId = response?.data?.user?.id ?? null;
+let userId = null;
+
+try {
+  const response = await supabase?.auth?.getUser?.();
+
+  if (
+    response &&
+    response.data &&
+    response.data.user &&
+    typeof response.data.user.id === "string"
+  ) {
+    userId = response.data.user.id;
+  }
+} catch (e) {
+  console.log("❌ SAFE getUser crash prevented:", e);
+}
 } catch (e) {
   console.log("🚨 getUser crash prevented:", e);
 }
 
 if (!userId) return;
-    if (!userId) return;
+    
 
 if (!question) return;
-
 await supabase.from("review_questions").insert({
   user_id: userId,
-  question: question,
+  question: {
+    id: String(question.id ?? ""),
+    question: typeof question.question === "string" ? question.question : "",
+    choices: Array.isArray(question.choices) ? question.choices : [],
+    correctAnswer:
+      typeof question.correctAnswer === "number"
+        ? question.correctAnswer
+        : 0,
+  },
 });
 
     await supabase.from("profiles").upsert(
       {
         id: userId,
-        xp: user.xp,
+        xp: user?.xp ?? 0,
         streak: 0,
       },
       { onConflict: "id" }
@@ -400,7 +455,7 @@ borderColor: theme.colors.border,
 </Text>
 
         <Text style={{ marginTop: 5, color: theme.colors.subtext }}>
-  🔥 Streak: {user.streak} | ⚡ XP: {user.xp}
+  🔥 Streak: {user?.streak ?? 0} | ⚡ XP: {user?.xp ?? 0}
 </Text>
 
 {user.streak >= 5 && (
@@ -438,11 +493,11 @@ borderColor: theme.colors.border,
     {/* QUESTION */}
 <Animated.View style={{ transform: [{ translateX: shakeAnim }] }}>
   <Text style={{ fontSize: 20, marginBottom: 20, color: theme.colors.text }}>
-    {question.question
+(typeof question.question === "string" ? question.question : "")
   .replace(/2/g, "₂")
   .replace(/3/g, "₃")
   .replace(/4/g, "₄")
-  .replace(/6/g, "₆")}
+  .replace(/6/g, "₆")
   </Text>
 </Animated.View>
 
@@ -511,12 +566,11 @@ borderColor: theme.colors.border,
     }}
   >
     <Text style={{ color: theme.colors.text }}>
-  {choice
-    .replace(/2/g, "₂")
-    .replace(/3/g, "₃")
-    .replace(/4/g, "₄")
-    .replace(/6/g, "₆")
-  }
+(typeof choice === "string" ? choice : "")
+  .replace(/2/g, "₂")
+  .replace(/3/g, "₃")
+  .replace(/4/g, "₄")
+  .replace(/6/g, "₆")
 </Text>
   </Pressable>
 </Animated.View>

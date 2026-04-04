@@ -25,24 +25,34 @@ const newCorrectIndex = shuffledChoices.indexOf(correct);
 let parts: string[] = [];
 
 try {
-  const result = correct.match(/[A-Z][a-z]*\d*/g);
-  parts = Array.isArray(result) ? result : [];
+  const result = typeof correct === "string"
+    ? correct.match(/[A-Z][a-z]*\d*/g)
+    : null;
+
+  parts = Array.isArray(result)
+    ? result.filter((p) => typeof p === "string")
+    : [];
+    if (!parts.length) {
+  return null;
+}
 } catch (e) {
   console.log("❌ MATCH FAIL:", correct);
   return null;
 }
 
- const pool = formulaQuestions
-.flatMap((c: any) => {
-  try {
-    if (typeof c !== "string") return [];
-    const result = c.match(/[A-Z][a-z]*\d*/g);
-    return Array.isArray(result) ? result : [];
-  } catch (e) {
-    console.log("❌ MATCH CRASH PREVENTED:", c);
-    return [];
-  }
-})
+
+const pool = formulaQuestions
+  .flatMap((qq: any) =>
+    Array.isArray(qq.choices) ? qq.choices : []
+  )
+  .flatMap((c: any) => {
+    try {
+      const result = (typeof c === "string" ? c : "").match(/[A-Z][a-z]*\d*/g);
+      return Array.isArray(result) ? result : [];
+    } catch {
+      return [];
+    }
+  });
 
     const wrongParts = pool
       .filter((p: string) => !(Array.isArray(parts) ? parts : []).includes(p))
@@ -57,16 +67,21 @@ try {
     if (index % 2 === 0) {
  return {
   type: "builder" as const,
-        mineral: q.question.replace("What is the chemical formula of ", "").replace("?", ""),
-        target: parts,
+mineral: (typeof q.question === "string" ? q.question : "")
+  .replace("What is the chemical formula of ", "")
+  .replace("?", ""),        target: parts,
         options,
       };
     } else {
 return {
   type: "input" as const,
-        mineral: q.question.replace("What is the chemical formula of ", "").replace("?", ""),
-        display: (parts[0] || "") + " _",
-        answer: parts.slice(1).join(""),
+        mineral: (typeof q.question === "string" ? q.question : "")
+  .replace("What is the chemical formula of ", "")
+  .replace("?", ""),
+        display: (typeof parts[0] === "string" ? parts[0] : "") + " _",
+        answer: parts.length > 1
+  ? parts.slice(1).filter((p) => typeof p === "string").join("")
+  : "",
       };
     }
 })

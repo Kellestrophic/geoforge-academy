@@ -1,6 +1,6 @@
 workflows:
   ios-native-build:
-    name: iOS Native Build (No EAS)
+    name: iOS Native Build (Production)
     max_build_duration: 60
 
     environment:
@@ -25,16 +25,19 @@ workflows:
           cd ios
           pod install
 
-      - name: Build iOS app
+      - name: Build iOS app (PRODUCTION SIGNING)
         script: |
           xcodebuild \
             -workspace ios/*.xcworkspace \
             -scheme $(ls ios | grep .xcodeproj | sed 's/.xcodeproj//') \
             -configuration Release \
             -sdk iphoneos \
-            -archivePath $PWD/build/App.xcarchive archive
+            -archivePath $PWD/build/App.xcarchive \
+            DEVELOPMENT_TEAM=QNP2XD3FM5 \
+            CODE_SIGN_STYLE=Manual \
+            archive
 
-      - name: Export IPA
+      - name: Export IPA (APP STORE)
         script: |
           xcodebuild -exportArchive \
             -archivePath $PWD/build/App.xcarchive \

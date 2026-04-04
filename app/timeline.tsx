@@ -97,15 +97,29 @@ async function addXP(amount: number) {
 let userId = null;
 
 try {
-  const response = await supabase.auth.getUser();
-  userId = response?.data?.user?.id ?? null;
+let userId = null;
+
+try {
+  const response = await supabase?.auth?.getUser?.();
+
+  if (
+    response &&
+    response.data &&
+    response.data.user &&
+    typeof response.data.user.id === "string"
+  ) {
+    userId = response.data.user.id;
+  }
+} catch (e) {
+  console.log("❌ SAFE getUser crash prevented:", e);
+}
 } catch (e) {
   console.log("🚨 getUser crash prevented:", e);
 }
 
 if (!userId) return;
 
-    if (!userId) return;
+    
 
     // GET CURRENT XP
     const { data: profile } = await supabase

@@ -1,4 +1,3 @@
-import { requirePro } from "@/lib/pro";
 import { supabase } from "@/lib/supabase";
 import { theme } from "@/lib/theme";
 import { useEffect, useRef, useState } from "react";
@@ -8,23 +7,35 @@ export default function ReviewList() {
   const [questions, setQuestions] = useState<any[]>([]);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const tapLock = useRef(false);
-useEffect(() => {
-  requirePro();
-}, []);
+
 useEffect(() => {
   async function loadQuestions() {
 let userId = null;
 
 try {
-  const response = await supabase.auth.getUser();
-  userId = response?.data?.user?.id ?? null;
+let userId = null;
+
+try {
+  const response = await supabase?.auth?.getUser?.();
+
+  if (
+    response &&
+    response.data &&
+    response.data.user &&
+    typeof response.data.user.id === "string"
+  ) {
+    userId = response.data.user.id;
+  }
+} catch (e) {
+  console.log("❌ SAFE getUser crash prevented:", e);
+}
 } catch (e) {
   console.log("🚨 getUser crash prevented:", e);
 }
 
 if (!userId) return;
 
-    if (!userId) return;
+   
 
     const { data } = await supabase
       .from("review_questions")
@@ -32,7 +43,22 @@ if (!userId) return;
       .eq("user_id", userId);
 
     if (data) {
-      setQuestions(data.map((q) => q.question));
+      setQuestions(
+  data.map((q) => ({
+    id: String(q.question?.id ?? ""),
+    question:
+      typeof q.question?.question === "string"
+        ? q.question.question
+        : "",
+    choices: Array.isArray(q.question?.choices)
+      ? q.question.choices
+      : [],
+    correctAnswer:
+      typeof q.question?.correctAnswer === "number"
+        ? q.question.correctAnswer
+        : 0,
+  }))
+);
     }
   }
 
@@ -43,15 +69,29 @@ async function removeQuestion(id: string) {
 let userId = null;
 
 try {
-  const response = await supabase.auth.getUser();
-  userId = response?.data?.user?.id ?? null;
+let userId = null;
+
+try {
+  const response = await supabase?.auth?.getUser?.();
+
+  if (
+    response &&
+    response.data &&
+    response.data.user &&
+    typeof response.data.user.id === "string"
+  ) {
+    userId = response.data.user.id;
+  }
+} catch (e) {
+  console.log("❌ SAFE getUser crash prevented:", e);
+}
 } catch (e) {
   console.log("🚨 getUser crash prevented:", e);
 }
 
 if (!userId) return;
 
-  if (!userId) return;
+ 
 
   await supabase
     .from("review_questions")

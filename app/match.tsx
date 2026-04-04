@@ -1,6 +1,5 @@
 import { useUser } from "@/context/UserContext";
 import questionsData from "@/data/questions.json";
-import { requirePro } from "@/lib/pro";
 import { supabase } from "@/lib/supabase";
 import { theme } from "@/lib/theme";
 import { useEffect, useRef, useState } from "react";
@@ -11,7 +10,7 @@ function shuffleArray(array: any[]) {
 }
 
 export default function MatchScreen() {
-  const { user, setUser } = useUser();
+ const { user, setUser } = useUser() || {};
 const matchQuestions = (questionsData as any[]).filter(
   (q) => q.type === "match"
 );
@@ -20,9 +19,7 @@ const [xp, setXp] = useState(0);
 const [currentMatch, setCurrentMatch] = useState(
   matchQuestions[Math.floor(Math.random() * matchQuestions.length)]
 );
-useEffect(() => {
-  requirePro();
-}, []);
+
 const [pairs, setPairs] = useState<MatchPair[]>(
   (currentMatch?.matchPairs || []) as MatchPair[]
 );
@@ -84,20 +81,34 @@ const updateXp = async () => {
 let userId = null;
 
 try {
-  const response = await supabase.auth.getUser();
-  userId = response?.data?.user?.id ?? null;
+let userId = null;
+
+try {
+  const response = await supabase?.auth?.getUser?.();
+
+  if (
+    response &&
+    response.data &&
+    response.data.user &&
+    typeof response.data.user.id === "string"
+  ) {
+    userId = response.data.user.id;
+  }
+} catch (e) {
+  console.log("❌ SAFE getUser crash prevented:", e);
+}
 } catch (e) {
   console.log("🚨 getUser crash prevented:", e);
 }
 
 if (!userId) return;
 
-  if (!userId) return;
+
 
 // 🔥 ENSURE PROFILE EXISTS
 await supabase.from("profiles").upsert({
   id: userId,
-  xp: user.xp,
+ xp: user?.xp ?? 0,
 });
 
 const xpGained = 10 + newCombo * 2;
@@ -108,12 +119,12 @@ console.log("Saving to Supabase:", userId, user.xp);
 await supabase
   .from("profiles")
   .update({
-    xp: user.xp + xpGained,
+    xp: (user?.xp ?? 0) + xpGained,
   })
 
 
 // 🔥 UPDATE GLOBAL STATE
-setUser({ xp: user.xp + xpGained });
+setUser({ xp: (user?.xp ?? 0) + xpGained });
 };
 
 updateXp();
@@ -176,7 +187,7 @@ useEffect(() => {
 </Text>
 
 <Text style={{ color: theme.colors.subtext }}>
-  ⚡ XP: {user.xp}
+  ⚡ XP: {user?.xp ?? 0}
 </Text>
 
 <Text

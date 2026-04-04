@@ -53,13 +53,14 @@ function transformMatchToMC(question: any, allQuestions: any[]) {
     () => Math.random() - 0.5
   );
 
-  return {
-    ...question,
-    type: "multiple_choice",
-    question: pair.term,
-    choices,
-    correctAnswer: choices.indexOf(correct),
-  };
+return {
+  id: String(question.id ?? ""),
+  type: "multiple_choice",
+  category: String(question.category ?? ""),
+  question: typeof pair.term === "string" ? pair.term : "",
+  choices: Array.isArray(choices) ? choices : [],
+  correctAnswer: choices.indexOf(correct),
+};
 }
 
 export default function ExamScreen() {
@@ -86,11 +87,14 @@ function fixShuffledQuestion(q: any) {
 
   const newCorrectIndex = shuffledChoices.indexOf(correctValue);
 
-  return {
-    ...q,
-    choices: shuffledChoices,
-    correctAnswer: newCorrectIndex,
-  };
+return {
+  id: String(q.id ?? ""),
+  type: q.type,
+  category: String(q.category ?? ""),
+  question: typeof q.question === "string" ? q.question : "",
+  choices: Array.isArray(shuffledChoices) ? shuffledChoices : [],
+  correctAnswer: newCorrectIndex,
+};
 }
   // ✅ LOAD QUESTIONS (FIXED)
   useEffect(() => {
@@ -146,7 +150,27 @@ const transformed = pool.map((q) =>
 
       const percent = Math.round((score / questions.length) * 100);
       const now = new Date();
-const dayKey = now.toISOString().split("T")[0]; // "2026-04-01"
+const iso = typeof now?.toISOString === "function"
+  ? now.toISOString()
+  : "";
+
+let dayKey = "";
+
+try {
+  const safeIso =
+    typeof iso === "string" ? iso : "";
+
+  const parts = safeIso.split("T");
+
+  dayKey =
+    Array.isArray(parts) && parts.length > 0
+      ? parts[0]
+      : "";
+} catch (e) {
+  console.log("❌ split crash prevented:", e);
+  dayKey = "";
+}
+
 
       const existing = await AsyncStorage.getItem("examHistory");
       let history = existing ? JSON.parse(existing) : [];
@@ -159,15 +183,29 @@ const dayKey = now.toISOString().split("T")[0]; // "2026-04-01"
 let userId = null;
 
 try {
-  const response = await supabase.auth.getUser();
-  userId = response?.data?.user?.id ?? null;
+let userId = null;
+
+try {
+  const response = await supabase?.auth?.getUser?.();
+
+  if (
+    response &&
+    response.data &&
+    response.data.user &&
+    typeof response.data.user.id === "string"
+  ) {
+    userId = response.data.user.id;
+  }
+} catch (e) {
+  console.log("❌ SAFE getUser crash prevented:", e);
+}
 } catch (e) {
   console.log("🚨 getUser crash prevented:", e);
 }
 
 if (!userId) return;
 
-      if (!userId) return;
+     
 
   await supabase.from("exam_history").insert({
   user_id: userId,

@@ -1,7 +1,6 @@
 import questionsData from "@/data/questions.json";
-import { requirePro } from "@/lib/pro";
 import { router } from "expo-router";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { Pressable, ScrollView, Text } from "react-native";
 
 const questions = questionsData as any[];
@@ -15,9 +14,7 @@ const topics = Array.from(
 console.log("ALL QUESTIONS:", questions);
 console.log("TOPICS:", topics);export default function TopicsScreen() {
   const tapLock = useRef(false);
-useEffect(() => {
-  requirePro();
-}, []);
+
   return (
    <ScrollView
   style={{ backgroundColor: "#0f172a" }}
