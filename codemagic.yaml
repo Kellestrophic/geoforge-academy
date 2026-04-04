@@ -25,13 +25,12 @@ workflows:
           cd ios
           pod install
 
-      - name: Build iOS app (FINAL FIX)
+      - name: Fix signing settings (CRITICAL STEP)
         script: |
-          # Get provisioning profile path installed by Codemagic
-          PROFILE_PATH=$(ls ~/Library/MobileDevice/Provisioning\ Profiles/*.mobileprovision | head -n 1)
+          /usr/libexec/PlistBuddy -c "Set :objects:$(/usr/libexec/PlistBuddy -c "Print :rootObject" ios/*.xcodeproj/project.pbxproj):attributes:TargetAttributes:$(/usr/libexec/PlistBuddy -c "Print :rootObject" ios/*.xcodeproj/project.pbxproj):DevelopmentTeam QNP2XD3FM5" ios/*.xcodeproj/project.pbxproj || true
 
-          echo "Using provisioning profile: $PROFILE_PATH"
-
+      - name: Build iOS app
+        script: |
           xcodebuild \
             -workspace ios/*.xcworkspace \
             -scheme $(ls ios | grep .xcodeproj | sed 's/.xcodeproj//') \
@@ -39,8 +38,7 @@ workflows:
             -sdk iphoneos \
             -archivePath $PWD/build/App.xcarchive \
             DEVELOPMENT_TEAM=QNP2XD3FM5 \
-            CODE_SIGN_STYLE=Manual \
-            PROVISIONING_PROFILE="$PROFILE_PATH" \
+            CODE_SIGN_STYLE=Automatic \
             archive
 
       - name: Export IPA (APP STORE)
