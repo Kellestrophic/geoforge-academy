@@ -4,11 +4,9 @@ workflows:
     max_build_duration: 60
     instance_type: mac_mini_m2
 
-    # ✅ THIS CONNECTS YOUR API KEY
     integrations:
       app_store_connect: ZACHARY MASON KELLER
 
-    # ✅ THIS FIXES YOUR SIGNING (MOST IMPORTANT)
     environment:
       ios_signing:
         distribution_type: app_store
@@ -31,21 +29,26 @@ workflows:
         script: |
           cd ios && pod install
 
-      # 🔥 REQUIRED — THIS WAS MISSING BEFORE
       - name: Apply provisioning profiles
         script: |
           xcode-project use-profiles
 
+      # 🔥 FIXED BUILD STEP (NO WILDCARDS)
       - name: Build IPA
         script: |
+          WORKSPACE=$(ls ios/*.xcworkspace | head -n 1)
+          SCHEME=$(ls ios | grep .xcodeproj | sed 's/.xcodeproj//')
+
+          echo "Using workspace: $WORKSPACE"
+          echo "Using scheme: $SCHEME"
+
           xcode-project build-ipa \
-            --workspace "$CM_BUILD_DIR/ios/*.xcworkspace" \
-            --scheme "$(ls ios | grep .xcodeproj | sed 's/.xcodeproj//')"
+            --workspace "$WORKSPACE" \
+            --scheme "$SCHEME"
 
     artifacts:
       - build/ios/ipa/*.ipa
 
-    # ✅ THIS IS WHAT YOU JUST POSTED (UPLOAD STEP)
     publishing:
       app_store_connect:
         auth: integration
