@@ -27,6 +27,11 @@ workflows:
 
       - name: Build iOS app (FINAL FIX)
         script: |
+          # Get provisioning profile path installed by Codemagic
+          PROFILE_PATH=$(ls ~/Library/MobileDevice/Provisioning\ Profiles/*.mobileprovision | head -n 1)
+
+          echo "Using provisioning profile: $PROFILE_PATH"
+
           xcodebuild \
             -workspace ios/*.xcworkspace \
             -scheme $(ls ios | grep .xcodeproj | sed 's/.xcodeproj//') \
