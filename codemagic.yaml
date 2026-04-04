@@ -25,13 +25,7 @@ workflows:
           cd ios
           pod install
 
-      # 🔥 HARD FIX PROJECT SIGNING (THIS IS THE REAL FIX)
-      - name: Fix Xcode signing settings
-        script: |
-          sed -i '' 's/CODE_SIGN_STYLE = Manual;/CODE_SIGN_STYLE = Automatic;/g' ios/*.xcodeproj/project.pbxproj
-          sed -i '' 's/ProvisioningStyle = Manual;/ProvisioningStyle = Automatic;/g' ios/*.xcodeproj/project.pbxproj
-
-      - name: Build iOS app
+      - name: Build iOS app (LET CODEMAGIC HANDLE SIGNING)
         script: |
           xcodebuild \
             -workspace ios/*.xcworkspace \
@@ -39,10 +33,9 @@ workflows:
             -configuration Release \
             -sdk iphoneos \
             -archivePath $PWD/build/App.xcarchive \
-            DEVELOPMENT_TEAM=QNP2XD3FM5 \
             archive
 
-      - name: Export IPA (APP STORE)
+      - name: Export IPA
         script: |
           xcodebuild -exportArchive \
             -archivePath $PWD/build/App.xcarchive \
