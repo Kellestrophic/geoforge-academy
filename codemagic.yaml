@@ -35,7 +35,6 @@ workflows:
             -archivePath $PWD/build/App.xcarchive \
             DEVELOPMENT_TEAM=QNP2XD3FM5 \
             CODE_SIGN_STYLE=Automatic \
-            CODE_SIGN_IDENTITY="Apple Distribution" \
             archive
 
       - name: Export IPA (APP STORE)
