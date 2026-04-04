@@ -34,8 +34,8 @@ workflows:
             -sdk iphoneos \
             -archivePath $PWD/build/App.xcarchive \
             DEVELOPMENT_TEAM=QNP2XD3FM5 \
-          CODE_SIGN_STYLE=Manual \
-          archive
+            CODE_SIGN_STYLE=Manual \
+            archive
 
       - name: Export IPA (APP STORE)
         script: |
