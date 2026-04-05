@@ -19,7 +19,10 @@ export function UserProvider({ children }: any) {
       try {
         // ✅ SAFE GET USER
         let userId: string | null = null;
-
+if (!supabase) {
+  console.log("🚫 Supabase unavailable");
+  return;
+}
         try {
           const res = await supabase?.auth?.getUser?.();
           if (res?.data?.user?.id) {
