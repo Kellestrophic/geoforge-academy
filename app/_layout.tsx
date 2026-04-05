@@ -1,30 +1,3 @@
-// 🔥 GLOBAL ERROR HANDLER (TS SAFE)
-const globalAny: any = global;
-
-if (globalAny.ErrorUtils) {
-  const originalHandler = globalAny.ErrorUtils.getGlobalHandler();
-
-  globalAny.ErrorUtils.setGlobalHandler((error: any, isFatal?: boolean) => {
-    console.log("🔥 GLOBAL ERROR CAUGHT 🔥");
-    console.log("Message:", error?.message);
-    console.log("Stack:", error?.stack);
-    console.log("Fatal:", isFatal);
-alert("ERROR: " + error?.message);
-    globalAny.lastError = {
-      message: error?.message,
-      stack: error?.stack,
-      fatal: isFatal,
-      time: new Date().toISOString(),
-    };
-
-// 🚨 TEMP: DO NOT CRASH APP
-console.log("🔥 ERROR (NON-FATAL):", error?.message);
-console.log(error?.stack);
-
-// DO NOT call originalHandler for now
-  });
-}
-
 import { UserProvider } from "@/context/UserContext";
 import { theme } from "@/lib/theme";
 import { Stack } from "expo-router";
