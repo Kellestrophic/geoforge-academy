@@ -10,7 +10,7 @@ function shuffleArray(array: any[]) {
 }
 
 export default function MatchScreen() {
- const { user, setUser } = useUser() || {};
+const { user, addXp } = useUser();
 const matchQuestions = (questionsData as any[]).filter(
   (q) => q.type === "match"
 );

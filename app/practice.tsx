@@ -6,6 +6,16 @@ import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useRef, useState } from "react";
 import { Animated, Image, Pressable, ScrollView, Text, View } from "react-native";
 import { useUser } from "../context/UserContext";
+async function getUserIdSafe() {
+  if (!supabase) return null;
+
+  try {
+    const res = await supabase.auth.getUser();
+    return res?.data?.user?.id ?? null;
+  } catch {
+    return null;
+  }
+}
 console.log("SCREEN: Practice loaded");
 function expandMatchQuestions(allQuestions: any[]) {
   const result: any[] = [];
@@ -109,7 +119,7 @@ function getTodayDate() {
 }
 }
 export default function PracticeScreen() {
- const { user, setUser } = useUser() || {};
+ const { user, addXp } = useUser();
   const [currentIndex, setCurrentIndex] = useState(0);
 const [score, setScore] = useState(0);
 const [answered, setAnswered] = useState(0);
@@ -189,10 +199,13 @@ async function handleSubmit() {
   if (selected === null || showAnswer) return;
 
   const isCorrect =
-  shuffledChoices.length
-    ? selected === correctIndex
-    : selected === question.correctAnswer;
+    shuffledChoices.length
+      ? selected === correctIndex
+      : selected === question.correctAnswer;
 
+  // =========================
+  // ✅ CORRECT ANSWER
+  // =========================
   if (isCorrect) {
     setScore((prev) => prev + 1);
 
@@ -205,56 +218,21 @@ async function handleSubmit() {
     const xpGained = 10 + bonus;
 
     try {
-let userId = null;
+      addXp(xpGained);
 
-try {
-let userId = null;
+      if (!supabase) return;
 
-try {
-  const response = await supabase?.auth?.getUser?.();
+      const userId = await getUserIdSafe();
+      if (!userId) return;
 
-  if (
-    response &&
-    response.data &&
-    response.data.user &&
-    typeof response.data.user.id === "string"
-  ) {
-    userId = response.data.user.id;
-  }
-} catch (e) {
-  console.log("❌ SAFE getUser crash prevented:", e);
-}
-} catch (e) {
-  console.log("🚨 getUser crash prevented:", e);
-}
-
-if (!userId) return;
-
-     
-
-      const newXp = (user?.xp ?? 0) + xpGained;
-      const newStreak = (user?.streak ?? 0) + 1;
-
-      console.log("Saving XP:", newXp);
-
-      const { error } = await supabase.from("profiles").upsert(
+      await supabase.from("profiles").upsert(
         {
           id: userId,
-          xp: newXp,
-          streak: newStreak,
+          xp: user.xp + xpGained,
+          streak: user.streak + 1,
         },
         { onConflict: "id" }
       );
-
-      if (error) {
-        console.log("SAVE ERROR:", error);
-        return;
-      }
-
-      setUser({
-        xp: newXp,
-        streak: newStreak,
-      });
 
       setFeedback("correct");
       setAnswered((prev) => prev + 1);
@@ -265,6 +243,10 @@ if (!userId) return;
 
     return;
   }
+
+  // =========================
+  // ❌ WRONG ANSWER
+  // =========================
 
   Animated.sequence([
     Animated.timing(shakeAnim, { toValue: 10, duration: 50, useNativeDriver: true }),
@@ -277,66 +259,41 @@ if (!userId) return;
   setAnswered((prev) => prev + 1);
   setShowAnswer(true);
 
-setWrongQuestions((prev) => {
-  if (!question) return prev;
-
-  const alreadyExists = prev.find((q) => q.id === question.id);
-  if (alreadyExists) return prev;
-
-  return [...prev, question];
-});
+  setWrongQuestions((prev) => {
+    if (!question) return prev;
+    const exists = prev.find((q) => q.id === question.id);
+    return exists ? prev : [...prev, question];
+  });
 
   try {
- let userId = null;
+    if (!supabase) return;
 
-try {
-let userId = null;
+    const userId = await getUserIdSafe();
+    if (!userId) return;
 
-try {
-  const response = await supabase?.auth?.getUser?.();
+    if (!question) return;
 
-  if (
-    response &&
-    response.data &&
-    response.data.user &&
-    typeof response.data.user.id === "string"
-  ) {
-    userId = response.data.user.id;
-  }
-} catch (e) {
-  console.log("❌ SAFE getUser crash prevented:", e);
-}
-} catch (e) {
-  console.log("🚨 getUser crash prevented:", e);
-}
-
-if (!userId) return;
-    
-
-if (!question) return;
-await supabase.from("review_questions").insert({
-  user_id: userId,
-  question: {
-    id: String(question.id ?? ""),
-    question: typeof question.question === "string" ? question.question : "",
-    choices: Array.isArray(question.choices) ? question.choices : [],
-    correctAnswer:
-      typeof question.correctAnswer === "number"
-        ? question.correctAnswer
-        : 0,
-  },
-});
+    await supabase.from("review_questions").insert({
+      user_id: userId,
+      question: {
+        id: String(question.id ?? ""),
+        question: typeof question.question === "string" ? question.question : "",
+        choices: Array.isArray(question.choices) ? question.choices : [],
+        correctAnswer:
+          typeof question.correctAnswer === "number"
+            ? question.correctAnswer
+            : 0,
+      },
+    });
 
     await supabase.from("profiles").upsert(
       {
         id: userId,
-        xp: user?.xp ?? 0,
+        xp: user.xp,
         streak: 0,
       },
       { onConflict: "id" }
     );
-
-    setUser({ streak: 0 });
   } catch (err) {
     console.log("Practice wrong save failed:", err);
   }

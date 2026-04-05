@@ -3,6 +3,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 const UserContext = createContext({
   user: { xp: 0, streak: 0 },
+  addXp: (amount: number) => {},
 });
 
 export function useUser() {
@@ -67,8 +68,15 @@ if (!supabase) {
     };
   }, []);
 
-  return (
-    <UserContext.Provider value={{ user }}>
+function addXp(amount: number) {
+  setUser((prev) => ({
+    ...prev,
+    xp: prev.xp + amount,
+  }));
+}
+
+return (
+  <UserContext.Provider value={{ user, addXp }}>
       {children}
     </UserContext.Provider>
   );
