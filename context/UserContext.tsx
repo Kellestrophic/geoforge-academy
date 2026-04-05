@@ -69,10 +69,14 @@ if (!supabase) {
   }, []);
 
 function addXp(amount: number) {
-  setUser((prev) => ({
-    ...prev,
-    xp: prev.xp + amount,
-  }));
+  setUser((prev) => {
+    const newXp = prev.xp + amount;
+
+    return {
+      ...prev,
+      xp: newXp,
+    };
+  });
 }
 
 return (

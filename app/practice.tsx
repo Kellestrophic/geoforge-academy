@@ -69,7 +69,7 @@ function generateSmartChoices(question: any, allQuestions: any[]) {
     !question.choices[question.correctAnswer]
   ) {
     console.log("BAD QUESTION:", question);
-    return question; // 🚨 DO NOT MODIFY BROKEN QUESTIONS
+    return null; // ❌ REMOVE BAD QUESTIONS
   }
 
   const correct = question.choices[question.correctAnswer];
@@ -174,9 +174,9 @@ useEffect(() => {
   console.log("BASE:", baseQuestions.length);
 console.log("TRANSFORMED:", transformed.length);
 
-const improved = transformed.map((q) => {
-  return generateSmartChoices(q, transformed);
-});
+const improved = transformed
+  .map((q) => generateSmartChoices(q, transformed))
+  .filter(Boolean);
 
 setFilteredQuestions(shuffleArray(improved));
   setCurrentIndex(0);
@@ -184,19 +184,32 @@ setFilteredQuestions(shuffleArray(improved));
 }, [topic]);
 const question = filteredQuestions[currentIndex];
 useEffect(() => {
-  if (
-    !question?.choices ||
-    !question.choices.length ||
-    question.correctAnswer === undefined
-  ) {
-    return;
-  }
+if (
+  !question?.choices ||
+  !Array.isArray(question.choices) ||
+  question.choices.length === 0 ||
+  question.correctAnswer === undefined
+) {
+  console.log("❌ INVALID QUESTION SKIPPED:", question);
+
+  setShuffledChoices([]);
+  setCorrectIndex(-1);
+  return;
+}
 
   setShuffledChoices(question.choices);
   setCorrectIndex(question.correctAnswer);
 }, [currentIndex, question]);
 async function handleSubmit() {
-  if (selected === null || showAnswer || hasSubmitted) return;
+  if (
+  selected === null ||
+  showAnswer ||
+  hasSubmitted ||
+  correctIndex === -1 ||
+  !question?.choices
+) {
+  return;
+}
 setHasSubmitted(true);
 
   const correctAnswerText =
@@ -212,47 +225,49 @@ const isCorrect = selectedText === correctAnswerText;
   // =========================
   // ✅ CORRECT ANSWER
   // =========================
-  if (isCorrect) {
-    setScore((prev) => prev + 1);
+if (isCorrect) {
+  const timeTaken = (Date.now() - questionStartTime) / 1000;
 
-    const timeTaken = (Date.now() - questionStartTime) / 1000;
+  let bonus = 0;
+  if (timeTaken < 5) bonus = 10;
+  else if (timeTaken < 10) bonus = 5;
 
-    let bonus = 0;
-    if (timeTaken < 5) bonus = 10;
-    else if (timeTaken < 10) bonus = 5;
+  const xpGained = 10 + bonus;
 
-    const xpGained = 10 + bonus;
+  // ✅ OLD WORKING FLOW (RESTORED)
+  setAnswered((prev) => prev + 1);
+  setFeedback("correct");
+  setShowAnswer(true);
 
+  // ✅ SAFE XP UPDATE
+  const newXp = (user?.xp ?? 0) + xpGained;
+  const newStreak = (user?.streak ?? 0) + 1;
+
+  addXp(xpGained);
+
+  // ✅ SAVE TO SUPABASE (NON-BLOCKING)
+  (async () => {
     try {
-const newXp = user.xp + xpGained;
-const newStreak = user.streak + 1;
+      if (!supabase) return;
 
-// ✅ update ONCE
-addXp(xpGained);
+      const userId = await getUserIdSafe();
+      if (!userId) return;
 
-if (!supabase) return;
-
-const userId = await getUserIdSafe();
-if (!userId) return;
-
-await supabase.from("profiles").upsert(
-  {
-    id: userId,
-    xp: newXp,
-    streak: newStreak,
-  },
-  { onConflict: "id" }
-);
-
-      setFeedback("correct");
-      setAnswered((prev) => prev + 1);
-      setShowAnswer(true);
+      await supabase.from("profiles").upsert(
+        {
+          id: userId,
+          xp: newXp,
+          streak: newStreak,
+        },
+        { onConflict: "id" }
+      );
     } catch (err) {
-      console.log("Practice correct save failed:", err);
+      console.log("Save failed:", err);
     }
+  })();
 
-    return;
-  }
+  return;
+}
 
   // =========================
   // ❌ WRONG ANSWER
@@ -296,12 +311,12 @@ await supabase.from("profiles").upsert(
       },
     });
 
-    await supabase.from("profiles").upsert(
-      {
-        id: userId,
-        xp: user.xp,
-        streak: 0,
-      },
+await supabase.from("profiles").upsert(
+  {
+    id: userId,
+    xp: user?.xp ?? 0,
+    streak: 0,
+  },
       { onConflict: "id" }
     );
   } catch (err) {
@@ -570,42 +585,41 @@ const isCorrect = choiceText === correctAnswerText;
               Submit
             </Text>
           </Pressable>
-        ) : (
-          <View>
+) : (
+  <View>
 
-            {feedback === "correct" && (
-              <Text style={{ color: "#4CAF50", fontSize: 18, marginTop: 10 }}>
-                ✅ Correct!
-              </Text>
-            )}
+    {feedback === "correct" && (
+      <Text style={{ color: "#4CAF50", fontSize: 18, marginTop: 10 }}>
+        ✅ Correct!
+      </Text>
+    )}
 
-            {feedback === "incorrect" && (
-              <Text style={{ color: "#f44336", fontSize: 18, marginTop: 10 }}>
-                ❌ Incorrect
-              </Text>
-            )}
+    {feedback === "incorrect" && (
+      <Text style={{ color: "#f44336", fontSize: 18, marginTop: 10 }}>
+        ❌ Incorrect
+      </Text>
+    )}
 
-            <Text style={{ marginTop: 20, color: theme.colors.text }}>
-              {question.explanation}
-            </Text>
+    <Text style={{ marginTop: 20, color: theme.colors.text }}>
+      {question.explanation}
+    </Text>
 
-            <Pressable
-              onPress={handleNext}
-              style={{
-                marginTop: 20,
-                backgroundColor: "#222",
-                padding: 15,
-                borderRadius: 10,
-              }}
-            >
-              <Text style={{ color: theme.colors.text, textAlign: "center" }}>
-                Next
-              </Text>
-            </Pressable>
+    <Pressable
+      onPress={handleNext}
+      style={{
+        marginTop: 20,
+        backgroundColor: "#222",
+        padding: 15,
+        borderRadius: 10,
+      }}
+    >
+      <Text style={{ color: theme.colors.text, textAlign: "center" }}>
+        Next
+      </Text>
+    </Pressable>
 
-          </View>
-        )}
-
+  </View>
+)}
       </View>
 
     )}
