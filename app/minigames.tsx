@@ -3,7 +3,7 @@ import { useRouter } from "expo-router";
 import { useRef } from "react";
 import { Pressable, Text, View } from "react-native";
 
-export default function ExamMenu() {
+export default function MinigamesScreen() {
   const router = useRouter();
   const tapLock = useRef(false);
 

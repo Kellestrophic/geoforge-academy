@@ -449,13 +449,15 @@ borderColor: theme.colors.border,
 
     {/* QUESTION */}
 <Animated.View style={{ transform: [{ translateX: shakeAnim }] }}>
-  <Text style={{ fontSize: 20, marginBottom: 20, color: theme.colors.text }}>
-(typeof question.question === "string" ? question.question : "")
-  .replace(/2/g, "₂")
-  .replace(/3/g, "₃")
-  .replace(/4/g, "₄")
-  .replace(/6/g, "₆")
-  </Text>
+<Text style={{ fontSize: 20, marginBottom: 20, color: theme.colors.text }}>
+  {(
+    typeof question.question === "string" ? question.question : ""
+  )
+    .replace(/2/g, "₂")
+    .replace(/3/g, "₃")
+    .replace(/4/g, "₄")
+    .replace(/6/g, "₆")}
+</Text>
 </Animated.View>
 
 {/* IMAGE QUESTION */}
@@ -522,12 +524,14 @@ borderColor: theme.colors.border,
       backgroundColor,
     }}
   >
-    <Text style={{ color: theme.colors.text }}>
-(typeof choice === "string" ? choice : "")
-  .replace(/2/g, "₂")
-  .replace(/3/g, "₃")
-  .replace(/4/g, "₄")
-  .replace(/6/g, "₆")
+<Text style={{ color: theme.colors.text }}>
+  {(
+    typeof choice === "string" ? choice : ""
+  )
+    .replace(/2/g, "₂")
+    .replace(/3/g, "₃")
+    .replace(/4/g, "₄")
+    .replace(/6/g, "₆")}
 </Text>
   </Pressable>
 </Animated.View>
