@@ -37,7 +37,8 @@ function getRank(level: number) {
 }
 
 export default function ProfileScreen() {
-  const { user } = useUser();
+ const userContext = useUser();
+const user = userContext?.user ?? { xp: 0, streak: 0 };
   const [ready, setReady] = useState(false);
   const [examCount, setExamCount] = useState(0);
 
@@ -60,41 +61,40 @@ export default function ProfileScreen() {
     if (!ready) return;
 
     let mounted = true;
+async function loadExamCount() {
+  let userId: string | null = null;
 
-    async function loadExamCount() {
-let userId: string | null = null;
+  try {
+    const response = await supabase?.auth?.getUser?.();
 
-try {
-  const response = await supabase.auth.getUser();
-
-  if (
-    response &&
-    response.data &&
-    response.data.user &&
-    typeof response.data.user.id === "string"
-  ) {
-    userId = response.data.user.id;
-  }
-} catch (e) {
-  console.log("❌ SAFE getUser crash prevented:", e);
-}
-
-      if (!userId) return;
-
-      try {
-        const { count } = await supabase
-          .from("exam_history")
-          .select("*", { count: "exact", head: true })
-          .eq("user_id", userId);
-
-        if (mounted) {
-          setExamCount(typeof count === "number" ? count : 0);
-        }
-      } catch (e) {
-        console.log("❌ Profile exam count crash prevented:", e);
-        if (mounted) setExamCount(0);
-      }
+    if (
+      response &&
+      response.data &&
+      response.data.user &&
+      typeof response.data.user.id === "string"
+    ) {
+      userId = response.data.user.id;
     }
+  } catch (e) {
+    console.log("❌ SAFE getUser crash prevented:", e);
+  }
+
+  if (!userId) return;
+
+  try {
+    const { count } = await supabase
+      .from("exam_history")
+      .select("*", { count: "exact", head: true })
+      .eq("user_id", userId);
+
+    if (mounted) {
+      setExamCount(typeof count === "number" ? count : 0);
+    }
+  } catch (e) {
+    console.log("❌ Profile exam count crash prevented:", e);
+    if (mounted) setExamCount(0);
+  }
+}
 
     loadExamCount();
 
@@ -104,7 +104,13 @@ try {
   }, [ready]);
 
   if (!ready) return null;
-
+if (!user) {
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text style={{ color: "white" }}>Loading profile...</Text>
+    </View>
+  );
+}
   return (
     <ScrollView
       contentContainerStyle={{
