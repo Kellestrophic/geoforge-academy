@@ -130,7 +130,7 @@ const [sessionComplete, setSessionComplete] = useState(false);
 const [correctIndex, setCorrectIndex] = useState<number>(0);
   const [wrongQuestions, setWrongQuestions] = useState<Question[]>([]);
 const [showAnswer, setShowAnswer] = useState(false);
-
+const [hasSubmitted, setHasSubmitted] = useState(false);
 const scaleAnim = useRef(new Animated.Value(1)).current;
 const shakeAnim = useRef(new Animated.Value(0)).current;
 
@@ -196,12 +196,18 @@ useEffect(() => {
   setCorrectIndex(question.correctAnswer);
 }, [currentIndex, question]);
 async function handleSubmit() {
-  if (selected === null || showAnswer) return;
+  if (selected === null || showAnswer || hasSubmitted) return;
+setHasSubmitted(true);
 
-  const isCorrect =
-    shuffledChoices.length
-      ? selected === correctIndex
-      : selected === question.correctAnswer;
+  const correctAnswerText =
+  question.choices?.[question.correctAnswer ?? -1];
+
+const selectedText =
+  shuffledChoices.length > 0
+    ? shuffledChoices[selected]
+    : question.choices?.[selected];
+
+const isCorrect = selectedText === correctAnswerText;
 
   // =========================
   // ✅ CORRECT ANSWER
@@ -218,21 +224,25 @@ async function handleSubmit() {
     const xpGained = 10 + bonus;
 
     try {
-      addXp(xpGained);
+const newXp = user.xp + xpGained;
+const newStreak = user.streak + 1;
 
-      if (!supabase) return;
+// ✅ update ONCE
+addXp(xpGained);
 
-      const userId = await getUserIdSafe();
-      if (!userId) return;
+if (!supabase) return;
 
-      await supabase.from("profiles").upsert(
-        {
-          id: userId,
-          xp: user.xp + xpGained,
-          streak: user.streak + 1,
-        },
-        { onConflict: "id" }
-      );
+const userId = await getUserIdSafe();
+if (!userId) return;
+
+await supabase.from("profiles").upsert(
+  {
+    id: userId,
+    xp: newXp,
+    streak: newStreak,
+  },
+  { onConflict: "id" }
+);
 
       setFeedback("correct");
       setAnswered((prev) => prev + 1);
@@ -309,6 +319,7 @@ async function handleSubmit() {
   setSelected(null);
   setShowAnswer(false);
   setFeedback(null);
+  setHasSubmitted(false);
   setCurrentIndex((prev) => prev + 1);
 setQuestionStartTime(Date.now());
 }
@@ -476,9 +487,15 @@ borderColor: theme.colors.border,
 
         {/* ANSWERS */}
         {(shuffledChoices.length ? shuffledChoices : question.choices || []).map((choice: string, index: number) => {
-        const isCorrect = shuffledChoices.length
-  ? index === correctIndex
-  : index === question.correctAnswer;
+      const correctAnswerText =
+  question.choices?.[question.correctAnswer ?? -1];
+
+const choiceText =
+  shuffledChoices.length > 0
+    ? shuffledChoices[index]
+    : question.choices?.[index];
+
+const isCorrect = choiceText === correctAnswerText;
           const isSelected = selected === index;
 
           let backgroundColor = "#1e293b";
