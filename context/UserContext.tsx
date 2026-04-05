@@ -17,25 +17,43 @@ export function UserProvider({ children }: any) {
 
     async function loadUser() {
       try {
-        const res = await supabase?.auth?.getUser?.();
-        const userId = res?.data?.user?.id;
+        // ✅ SAFE GET USER
+        let userId: string | null = null;
+
+        try {
+          const res = await supabase?.auth?.getUser?.();
+          if (res?.data?.user?.id) {
+            userId = res.data.user.id;
+          }
+        } catch (e) {
+          console.log("❌ getUser failed:", e);
+        }
 
         if (!userId) return;
 
-        const { data } = await supabase
-          .from("profiles")
-          .select("xp, streak")
-          .eq("id", userId)
-          .single();
+        // ✅ SAFE QUERY (THIS WAS CRASHING)
+        let data: any = null;
+
+        try {
+          const result = await supabase
+            .from("profiles")
+            .select("xp, streak")
+            .eq("id", userId)
+            .maybeSingle(); // 🔥 IMPORTANT CHANGE
+
+          data = result?.data;
+        } catch (e) {
+          console.log("❌ profile fetch failed:", e);
+        }
 
         if (mounted && data) {
           setUser({
-            xp: data.xp ?? 0,
-            streak: data.streak ?? 0,
+            xp: typeof data.xp === "number" ? data.xp : 0,
+            streak: typeof data.streak === "number" ? data.streak : 0,
           });
         }
       } catch (e) {
-        console.log("❌ User load failed:", e);
+        console.log("❌ User load total failure:", e);
       }
     }
 
