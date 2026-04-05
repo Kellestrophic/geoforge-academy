@@ -11,8 +11,6 @@ workflows:
       ios_signing:
         distribution_type: app_store
         bundle_identifier: com.galanisgalactus.geoforgeacademy
-      vars:
-        APP_STORE_APPLE_ID: 6761349213
 
     scripts:
       - name: Install dependencies
@@ -35,20 +33,6 @@ workflows:
         script: |
           xcode-project use-profiles
 
-      # 🔥 AUTO INCREMENT BUILD NUMBER (THIS FIXES YOUR ERROR)
-      - name: Increment build number
-        script: |
-          cd $CM_BUILD_DIR/ios
-          LATEST_BUILD_NUMBER=$(app-store-connect get-latest-app-store-build-number "$APP_STORE_APPLE_ID")
-          if [ -z "$LATEST_BUILD_NUMBER" ]; then
-            NEW_BUILD_NUMBER=1
-          else
-            NEW_BUILD_NUMBER=$(($LATEST_BUILD_NUMBER + 1))
-          fi
-          echo "New build number: $NEW_BUILD_NUMBER"
-          agvtool new-version -all $NEW_BUILD_NUMBER
-
-      # 🔥 BUILD
       - name: Build IPA
         script: |
           WORKSPACE=$(find ios -name "*.xcworkspace" -maxdepth 1)
