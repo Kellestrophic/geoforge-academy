@@ -1,159 +1,21 @@
-import { supabase } from "@/lib/supabase";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext } from "react";
 
-type UserData = {
-  xp: number;
-  streak: number;
-};
+const UserContext = createContext({
+  user: { xp: 0, streak: 0 },
+});
 
-type UserContextType = {
-  user: UserData;
-  setUser: (data: Partial<UserData>) => void;
-  refreshUser: () => Promise<void>;
-};
-
-const UserContext = createContext<UserContextType | null>(null);
-
-export function UserProvider({ children }: { children: any }) {
-  const [user, setUserState] = useState<UserData>({
-    xp: 0,
-    streak: 0,
-  });
-
-  function setUser(data: Partial<UserData>) {
-    setUserState((prev) => ({ ...prev, ...data }));
-  }
-
-  async function refreshUser() {
-let userId = null;
-
-try {
-let userId = null;
-
-try {
-  const response = await supabase?.auth?.getUser?.();
-
-  if (
-    response &&
-    response.data &&
-    response.data.user &&
-    typeof response.data.user.id === "string"
-  ) {
-    userId = response.data.user.id;
-  }
-} catch (e) {
-  console.log("❌ SAFE getUser crash prevented:", e);
-}
-} catch (e) {
-  console.log("🚨 getUser crash prevented:", e);
+export function useUser() {
+  return useContext(UserContext);
 }
 
-if (!userId) return;
-
-   
-
-    const { data: profile } = await supabase
-      .from("profiles")
-      .select("xp, streak")
-      .eq("id", userId)
-      .single();
-
-    if (profile) {
-      setUserState({
-        xp: profile.xp || 0,
-        streak: profile.streak || 0,
-      });
-    }
-  }
-
-  useEffect(() => {
-    let channel: any;
-
-async function init() {
-  let retries = 0;
-
-  async function waitForUser() {
-let userId = null;
-
-try {
-let userId = null;
-
-try {
-  const response = await supabase?.auth?.getUser?.();
-
-  if (
-    response &&
-    response.data &&
-    response.data.user &&
-    typeof response.data.user.id === "string"
-  ) {
-    userId = response.data.user.id;
-  }
-} catch (e) {
-  console.log("❌ SAFE getUser crash prevented:", e);
-}
-} catch (e) {
-  console.log("🚨 getUser crash prevented:", e);
-}
-
-if (!userId) return;
-    if (userId) return userId;
-
-    if (retries < 10) {
-      retries++;
-      await new Promise((res) => setTimeout(res, 200));
-      return waitForUser();
-    }
-
-    return null;
-  }
-
-  const userId = await waitForUser();
-
-  if (!userId) {
-    console.log("User not ready");
-    return;
-  }
-
-  await refreshUser();
-
-      channel = supabase
-        .channel("user-realtime")
-        .on(
-          "postgres_changes",
-          {
-            event: "UPDATE",
-            schema: "public",
-            table: "profiles",
-            filter: `id=eq.${userId}`,
-          },
-          (payload) => {
-            const updated = payload.new;
-            setUserState({
-              xp: updated.xp || 0,
-              streak: updated.streak || 0,
-            });
-          }
-        )
-        .subscribe();
-    }
-
-    init();
-
-    return () => {
-      if (channel) supabase.removeChannel(channel);
-    };
-  }, []);
+export function UserProvider({ children }: any) {
+  const value = {
+    user: { xp: 0, streak: 0 }, // SAFE DEFAULT
+  };
 
   return (
-    <UserContext.Provider value={{ user, setUser, refreshUser }}>
+    <UserContext.Provider value={value}>
       {children}
     </UserContext.Provider>
   );
-}
-
-export function useUser() {
-  const context = useContext(UserContext);
-  if (!context) throw new Error("useUser must be used inside UserProvider");
-  return context;
 }
