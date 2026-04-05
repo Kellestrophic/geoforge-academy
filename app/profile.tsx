@@ -1,8 +1,16 @@
 import { useUser } from "@/context/UserContext";
-import { theme } from "@/lib/theme";
+import { theme as rawTheme } from "@/lib/theme";
 import { ScrollView, Text, View } from "react-native";
 
-// ✅ LEVEL SYSTEM (SAFE)
+const theme = rawTheme ?? {
+  colors: {
+    background: "#000",
+    text: "#fff",
+    subtext: "#aaa",
+    accent: "#0ea5e9",
+  },
+};
+
 function getLevelData(xp: number) {
   let level = 1;
   let xpRemaining = xp;
@@ -32,21 +40,20 @@ function getRank(level: number) {
 
 export default function ProfileScreen() {
   const { user } = useUser();
-
   const levelData = getLevelData(user.xp);
 
   return (
     <ScrollView
       contentContainerStyle={{
         padding: 20,
-        backgroundColor: theme.colors.background,
+        backgroundColor: theme?.colors?.background ?? "#000",
         paddingBottom: 100,
       }}
       showsVerticalScrollIndicator={false}
     >
       <Text
         style={{
-          color: theme.colors.text,
+          color: theme?.colors?.text ?? "#fff",
           fontSize: 28,
           fontWeight: "bold",
         }}
@@ -55,18 +62,15 @@ export default function ProfileScreen() {
       </Text>
 
       <View style={{ marginTop: 30 }}>
-        {/* XP */}
-        <Text style={{ color: theme.colors.subtext }}>XP</Text>
-        <Text style={{ color: theme.colors.text, fontSize: 22 }}>
+        <Text style={{ color: theme?.colors?.subtext ?? "#aaa" }}>XP</Text>
+        <Text style={{ color: theme?.colors?.text ?? "#fff", fontSize: 22 }}>
           {user.xp} XP
         </Text>
 
-        {/* LEVEL */}
-        <Text style={{ color: theme.colors.accent, marginTop: 5 }}>
+        <Text style={{ color: theme?.colors?.accent ?? "#0ea5e9", marginTop: 5 }}>
           Level {levelData.level} — {getRank(levelData.level)}
         </Text>
 
-        {/* XP BAR */}
         <View
           style={{
             marginTop: 10,
@@ -80,20 +84,19 @@ export default function ProfileScreen() {
             style={{
               width: `${Math.max(0, Math.min(100, levelData.progress * 100))}%`,
               height: "100%",
-              backgroundColor: theme.colors.accent,
+              backgroundColor: theme?.colors?.accent ?? "#0ea5e9",
             }}
           />
         </View>
 
-        <Text style={{ color: theme.colors.subtext, marginTop: 5 }}>
+        <Text style={{ color: theme?.colors?.subtext ?? "#aaa", marginTop: 5 }}>
           {levelData.currentLevelXp} / {levelData.neededXp} XP
         </Text>
 
-        {/* STREAK */}
-        <Text style={{ color: theme.colors.subtext, marginTop: 20 }}>
+        <Text style={{ color: theme?.colors?.subtext ?? "#aaa", marginTop: 20 }}>
           Daily Streak
         </Text>
-        <Text style={{ color: theme.colors.text, fontSize: 22 }}>
+        <Text style={{ color: theme?.colors?.text ?? "#fff", fontSize: 22 }}>
           {user.streak}
         </Text>
       </View>
