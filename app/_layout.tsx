@@ -9,7 +9,7 @@ if (globalAny.ErrorUtils) {
     console.log("Message:", error?.message);
     console.log("Stack:", error?.stack);
     console.log("Fatal:", isFatal);
-
+alert("ERROR: " + error?.message);
     globalAny.lastError = {
       message: error?.message,
       stack: error?.stack,
@@ -17,9 +17,11 @@ if (globalAny.ErrorUtils) {
       time: new Date().toISOString(),
     };
 
-    if (originalHandler) {
-      originalHandler(error, isFatal);
-    }
+// 🚨 TEMP: DO NOT CRASH APP
+console.log("🔥 ERROR (NON-FATAL):", error?.message);
+console.log(error?.stack);
+
+// DO NOT call originalHandler for now
   });
 }
 
