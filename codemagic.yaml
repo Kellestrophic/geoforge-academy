@@ -45,10 +45,18 @@ workflows:
             --workspace "$WORKSPACE" \
             --scheme "$SCHEME"
 
+      # 🔥 NEW: DIRECT UPLOAD (REPLACES BROKEN PUBLISHING)
+      - name: Upload to App Store Connect
+        script: |
+          IPA_PATH=$(find build/ios/ipa -name "*.ipa" | head -n 1)
+
+          echo "Uploading IPA: $IPA_PATH"
+
+          xcrun altool --upload-app \
+            --type ios \
+            --file "$IPA_PATH" \
+            --apiKey $APP_STORE_CONNECT_API_KEY \
+            --apiIssuer $APP_STORE_CONNECT_ISSUER_ID
+
     artifacts:
       - build/ios/ipa/*.ipa
-
-    publishing:
-      app_store_connect:
-        auth: integration
-        submit_to_testflight: true
