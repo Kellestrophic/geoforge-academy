@@ -1,13 +1,102 @@
 import { useUser } from "@/context/UserContext";
-import { Text, View } from "react-native";
+import { theme } from "@/lib/theme";
+import { ScrollView, Text, View } from "react-native";
+
+// ✅ LEVEL SYSTEM (SAFE)
+function getLevelData(xp: number) {
+  let level = 1;
+  let xpRemaining = xp;
+  let neededXp = 100;
+
+  while (xpRemaining >= neededXp) {
+    xpRemaining -= neededXp;
+    level++;
+    neededXp = Math.floor(neededXp * 1.25);
+  }
+
+  return {
+    level,
+    currentLevelXp: xpRemaining,
+    neededXp,
+    progress: neededXp ? xpRemaining / neededXp : 0,
+  };
+}
+
+function getRank(level: number) {
+  if (level <= 3) return "Beginner";
+  if (level <= 6) return "Apprentice";
+  if (level <= 10) return "Field Geologist";
+  if (level <= 15) return "Geologist Spartan";
+  return "Master Geologist";
+}
 
 export default function ProfileScreen() {
   const { user } = useUser();
 
+  const levelData = getLevelData(user.xp);
+
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text style={{ color: "white" }}>XP: {user.xp}</Text>
-      <Text style={{ color: "white" }}>Streak: {user.streak}</Text>
-    </View>
+    <ScrollView
+      contentContainerStyle={{
+        padding: 20,
+        backgroundColor: theme.colors.background,
+        paddingBottom: 100,
+      }}
+      showsVerticalScrollIndicator={false}
+    >
+      <Text
+        style={{
+          color: theme.colors.text,
+          fontSize: 28,
+          fontWeight: "bold",
+        }}
+      >
+        Your Progress
+      </Text>
+
+      <View style={{ marginTop: 30 }}>
+        {/* XP */}
+        <Text style={{ color: theme.colors.subtext }}>XP</Text>
+        <Text style={{ color: theme.colors.text, fontSize: 22 }}>
+          {user.xp} XP
+        </Text>
+
+        {/* LEVEL */}
+        <Text style={{ color: theme.colors.accent, marginTop: 5 }}>
+          Level {levelData.level} — {getRank(levelData.level)}
+        </Text>
+
+        {/* XP BAR */}
+        <View
+          style={{
+            marginTop: 10,
+            height: 10,
+            backgroundColor: "#1e293b",
+            borderRadius: 10,
+            overflow: "hidden",
+          }}
+        >
+          <View
+            style={{
+              width: `${Math.max(0, Math.min(100, levelData.progress * 100))}%`,
+              height: "100%",
+              backgroundColor: theme.colors.accent,
+            }}
+          />
+        </View>
+
+        <Text style={{ color: theme.colors.subtext, marginTop: 5 }}>
+          {levelData.currentLevelXp} / {levelData.neededXp} XP
+        </Text>
+
+        {/* STREAK */}
+        <Text style={{ color: theme.colors.subtext, marginTop: 20 }}>
+          Daily Streak
+        </Text>
+        <Text style={{ color: theme.colors.text, fontSize: 22 }}>
+          {user.streak}
+        </Text>
+      </View>
+    </ScrollView>
   );
 }
