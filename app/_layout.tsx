@@ -35,10 +35,6 @@ function Layout() {
 useEffect(() => {
   console.log("🚀 APP LOADED");
 
-  setTimeout(() => {
-    throw new Error("TEST ERROR");
-  }, 2000);
-
   const task = InteractionManager.runAfterInteractions(() => {});
   return () => task.cancel();
 }, []);
