@@ -8,6 +8,9 @@ workflows:
       app_store_connect: ZACHARY MASON KELLER
 
     environment:
+      groups:
+        - app_store
+
       ios_signing:
         distribution_type: app_store
         bundle_identifier: com.galanisgalactus.geoforgeacademy
@@ -45,7 +48,6 @@ workflows:
             --workspace "$WORKSPACE" \
             --scheme "$SCHEME"
 
-      # 🔥 NEW: DIRECT UPLOAD (REPLACES BROKEN PUBLISHING)
       - name: Upload to App Store Connect
         script: |
           IPA_PATH=$(find build/ios/ipa -name "*.ipa" | head -n 1)
