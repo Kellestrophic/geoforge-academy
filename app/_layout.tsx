@@ -1,3 +1,28 @@
+// 🔥 GLOBAL ERROR HANDLER (TS SAFE)
+const globalAny: any = global;
+
+if (globalAny.ErrorUtils) {
+  const originalHandler = globalAny.ErrorUtils.getGlobalHandler();
+
+  globalAny.ErrorUtils.setGlobalHandler((error: any, isFatal?: boolean) => {
+    console.log("🔥 GLOBAL ERROR CAUGHT 🔥");
+    console.log("Message:", error?.message);
+    console.log("Stack:", error?.stack);
+    console.log("Fatal:", isFatal);
+
+    globalAny.lastError = {
+      message: error?.message,
+      stack: error?.stack,
+      fatal: isFatal,
+      time: new Date().toISOString(),
+    };
+
+    if (originalHandler) {
+      originalHandler(error, isFatal);
+    }
+  });
+}
+
 import { UserProvider } from "@/context/UserContext";
 import { theme } from "@/lib/theme";
 import { Stack } from "expo-router";
@@ -10,9 +35,11 @@ function Layout() {
 useEffect(() => {
   console.log("🚀 APP LOADED");
 
-  const task = InteractionManager.runAfterInteractions(() => {
-  });
+  setTimeout(() => {
+    throw new Error("TEST ERROR");
+  }, 2000);
 
+  const task = InteractionManager.runAfterInteractions(() => {});
   return () => task.cancel();
 }, []);
   return (
