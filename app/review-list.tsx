@@ -44,7 +44,7 @@ if (!userId) return;
 
     if (data) {
       setQuestions(
-  data.map((q) => ({
+  data.map((q: any) => ({
     id: String(q.question?.id ?? ""),
     question:
       typeof q.question?.question === "string"
@@ -99,7 +99,7 @@ if (!userId) return;
     .eq("user_id", userId)
     .eq("question->>id", id);
 
-  setQuestions((prev) => prev.filter((q) => q.id !== id));
+  setQuestions((prev: any[]) => prev.filter((q: any) => q.id !== id));
   setSelectedId(null);
 }
   if (questions.length === 0) {

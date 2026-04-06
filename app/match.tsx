@@ -113,7 +113,7 @@ await supabase.from("profiles").upsert({
 
 const xpGained = 10 + newCombo * 2;
 
-console.log("Saving to Supabase:", userId, user.xp);
+console.log("Saving to Supabase:", userId,user?.xp ?? 0);
 
 // 🔥 UPDATE XP
 await supabase
@@ -123,8 +123,7 @@ await supabase
   })
 
 
-// 🔥 UPDATE GLOBAL STATE
-setUser({ xp: (user?.xp ?? 0) + xpGained });
+addXp(xpGained);
 };
 
 updateXp();

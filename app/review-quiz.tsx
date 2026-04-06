@@ -44,7 +44,7 @@ if (!userId) return;
 
     if (data) {
       setQuestions(
-  data.map((q) => ({
+  data.map((q: any) => ({
     id: String(q.question?.id ?? ""),
     question:
       typeof q.question?.question === "string"

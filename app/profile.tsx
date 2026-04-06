@@ -39,8 +39,16 @@ function getRank(level: number) {
 }
 
 export default function ProfileScreen() {
-  const { user } = useUser();
-  const levelData = getLevelData(user.xp);
+ const { user } = useUser();
+
+if (!user) {
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text style={{ color: theme.colors.text }}>Loading...</Text>
+    </View>
+  );
+}
+ const levelData = getLevelData(user?.xp ?? 0);
 
   return (
     <ScrollView
@@ -64,7 +72,7 @@ export default function ProfileScreen() {
       <View style={{ marginTop: 30 }}>
         <Text style={{ color: theme?.colors?.subtext ?? "#aaa" }}>XP</Text>
         <Text style={{ color: theme?.colors?.text ?? "#fff", fontSize: 22 }}>
-          {user.xp} XP
+          {user?.xp ?? 0}
         </Text>
 
         <Text style={{ color: theme?.colors?.accent ?? "#0ea5e9", marginTop: 5 }}>
@@ -97,7 +105,7 @@ export default function ProfileScreen() {
           Daily Streak
         </Text>
         <Text style={{ color: theme?.colors?.text ?? "#fff", fontSize: 22 }}>
-          {user.streak}
+          {user?.streak ?? 0}
         </Text>
       </View>
     </ScrollView>

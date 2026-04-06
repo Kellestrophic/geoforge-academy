@@ -238,33 +238,9 @@ if (isCorrect) {
   setAnswered((prev) => prev + 1);
   setFeedback("correct");
   setShowAnswer(true);
-
+setScore((prev) => prev + 1);
   // ✅ SAFE XP UPDATE
-  const newXp = (user?.xp ?? 0) + xpGained;
-  const newStreak = (user?.streak ?? 0) + 1;
-
-  addXp(xpGained);
-
-  // ✅ SAVE TO SUPABASE (NON-BLOCKING)
-  (async () => {
-    try {
-      if (!supabase) return;
-
-      const userId = await getUserIdSafe();
-      if (!userId) return;
-
-      await supabase.from("profiles").upsert(
-        {
-          id: userId,
-          xp: newXp,
-          streak: newStreak,
-        },
-        { onConflict: "id" }
-      );
-    } catch (err) {
-      console.log("Save failed:", err);
-    }
-  })();
+addXp(xpGained);
 
   return;
 }
@@ -298,18 +274,16 @@ if (isCorrect) {
 
     if (!question) return;
 
-    await supabase.from("review_questions").insert({
-      user_id: userId,
-      question: {
-        id: String(question.id ?? ""),
-        question: typeof question.question === "string" ? question.question : "",
-        choices: Array.isArray(question.choices) ? question.choices : [],
-        correctAnswer:
-          typeof question.correctAnswer === "number"
-            ? question.correctAnswer
-            : 0,
-      },
-    });
+await supabase.from("review_questions").insert({
+  user_id: userId,
+  id: String(question.id ?? ""),
+  question: typeof question.question === "string" ? question.question : "",
+  choices: Array.isArray(question.choices) ? question.choices : [],
+  correctAnswer:
+    typeof question.correctAnswer === "number"
+      ? question.correctAnswer
+      : 0,
+});
 
 await supabase.from("profiles").upsert(
   {
@@ -385,7 +359,7 @@ return (
         </Text>
 
         <Text style={{ marginTop: 10, color: theme.colors.subtext }}>
-          XP Earned: {user.xp}
+          XP Earned: {user?.xp ?? 0}
         </Text>
 {wrongQuestions.length > 0 && (
 <Pressable
@@ -441,7 +415,7 @@ borderColor: theme.colors.border,
   🔥 Streak: {user?.streak ?? 0} | ⚡ XP: {user?.xp ?? 0}
 </Text>
 
-{user.streak >= 5 && (
+{(user?.streak ?? 0) >= 5 && (
   <Text style={{ color: "#f59e0b", marginTop: 5 }}>
     On fire! Keep it going 🔥
   </Text>

@@ -1,9 +1,14 @@
 import { supabase } from "@/lib/supabase";
 import { createContext, useContext, useEffect, useState } from "react";
 
-const UserContext = createContext({
-  user: { xp: 0, streak: 0 },
-  addXp: (amount: number) => {},
+type UserType = { xp: number; streak: number } | null;
+
+const UserContext = createContext<{
+  user: UserType;
+  addXp: (amount: number) => void;
+}>({
+  user: null,
+  addXp: () => {},
 });
 
 export function useUser() {
@@ -11,7 +16,7 @@ export function useUser() {
 }
 
 export function UserProvider({ children }: any) {
-  const [user, setUser] = useState({ xp: 0, streak: 0 });
+  const [user, setUser] = useState<{ xp: number; streak: number } | null>(null);
 
   useEffect(() => {
     let mounted = true;
@@ -50,12 +55,12 @@ if (!supabase) {
           console.log("❌ profile fetch failed:", e);
         }
 
-        if (mounted && data) {
-          setUser({
-            xp: typeof data.xp === "number" ? data.xp : 0,
-            streak: typeof data.streak === "number" ? data.streak : 0,
-          });
-        }
+if (mounted) {
+  setUser({
+    xp: typeof data?.xp === "number" ? data.xp : 0,
+    streak: typeof data?.streak === "number" ? data.streak : 0,
+  });
+}
       } catch (e) {
         console.log("❌ User load total failure:", e);
       }
@@ -68,15 +73,48 @@ if (!supabase) {
     };
   }, []);
 
-function addXp(amount: number) {
-  setUser((prev) => {
-    const newXp = prev.xp + amount;
+async function addXp(amount: number) {
+  // ✅ UPDATE UI FIRST
+setUser((prev) => {
+  if (!prev) return prev; // ✅ handle null safely
 
-    return {
-      ...prev,
-      xp: newXp,
-    };
-  });
+  const newXp = prev.xp + amount;
+
+  return {
+    xp: newXp,
+    streak: prev.streak ?? 0, // ✅ force number
+  };
+});
+
+  // ✅ SAVE TO SUPABASE
+  try {
+    if (!supabase) return;
+
+    const res = await supabase.auth.getUser();
+    const userId = res?.data?.user?.id;
+
+    if (!userId) return;
+
+    const { data } = await supabase
+      .from("profiles")
+      .select("xp, streak")
+      .eq("id", userId)
+      .maybeSingle();
+
+    const currentXp = data?.xp ?? 0;
+    const currentStreak = data?.streak ?? 0;
+
+    await supabase.from("profiles").upsert(
+      {
+        id: userId,
+        xp: currentXp + amount,
+        streak: currentStreak,
+      },
+      { onConflict: "id" }
+    );
+  } catch (e) {
+    console.log("❌ XP SAVE FAILED:", e);
+  }
 }
 
 return (
