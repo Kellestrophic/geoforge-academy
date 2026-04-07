@@ -5,9 +5,11 @@ type UserType = { xp: number; streak: number } | null;
 
 const UserContext = createContext<{
   user: UserType;
+  setUser: React.Dispatch<React.SetStateAction<UserType>>;
   addXp: (amount: number) => void;
 }>({
   user: null,
+  setUser: () => {},
   addXp: () => {},
 });
 
@@ -25,55 +27,43 @@ useEffect(() => {
     try {
       if (!supabase) return;
 
-      // 🔥 WAIT FOR SESSION (THIS IS THE FIX)
-      let session = null;
+      const res = await supabase.auth.getUser();
+      const userId = res?.data?.user?.id;
 
-      try {
-        const res = await supabase.auth.getSession();
-        session = res?.data?.session;
-      } catch (e) {
-        console.log("❌ getSession failed:", e);
-      }
-
-      if (!session?.user?.id) {
-        console.log("⏳ No session yet, retrying...");
-        
-        // 🔥 retry after delay
-        setTimeout(loadUser, 1000);
+      if (!userId) {
+        console.log("❌ No user found in context");
         return;
       }
 
-      const userId = session.user.id;
-
-      let data: any = null;
-
-      try {
-        const result = await supabase
-          .from("profiles")
-          .select("xp, streak")
-          .eq("id", userId)
-          .maybeSingle();
-
-        data = result?.data;
-      } catch (e) {
-        console.log("❌ profile fetch failed:", e);
-      }
+      const { data } = await supabase
+        .from("profiles")
+        .select("xp, streak")
+        .eq("id", userId)
+        .single();
 
       if (mounted) {
         setUser({
-          xp: typeof data?.xp === "number" ? data.xp : 0,
-          streak: typeof data?.streak === "number" ? data.streak : 0,
+          xp: data?.xp ?? 0,
+          streak: data?.streak ?? 0,
         });
       }
     } catch (e) {
-      console.log("❌ User load total failure:", e);
+      console.log("❌ Context load failed:", e);
     }
   }
 
+  // 🔥 RUN ON START
   loadUser();
+
+  // 🔥 ALSO LISTEN FOR AUTH CHANGES (THIS FIXES YOUR BUG)
+  const { data: listener } = supabase.auth.onAuthStateChange(() => {
+    console.log("🔄 Auth changed → reloading user");
+    loadUser();
+  });
 
   return () => {
     mounted = false;
+    listener?.subscription?.unsubscribe();
   };
 }, []);
 
@@ -122,7 +112,7 @@ setUser((prev) => {
 }
 
 return (
-  <UserContext.Provider value={{ user, addXp }}>
+  <UserContext.Provider value={{ user, setUser, addXp }}>
       {children}
     </UserContext.Provider>
   );

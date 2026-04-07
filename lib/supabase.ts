@@ -1,24 +1,33 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createClient } from "@supabase/supabase-js";
+import Constants from "expo-constants";
 import { Platform } from "react-native";
 
-const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY;
+// 🔥 SAFE EXTRA ACCESS (WORKS IN ALL BUILDS)
+const extra =
+  (Constants as any).expoConfig?.extra ??
+  (Constants as any).manifest?.extra ??
+  {};
 
-let supabase: any = null;
+// 🔥 GET VALUES
+const supabaseUrl = extra.supabaseUrl;
+const supabaseAnonKey = extra.supabaseAnonKey;
 
-// ✅ ONLY CREATE CLIENT IF ENV EXISTS
-if (supabaseUrl && supabaseAnonKey) {
-  supabase = createClient(supabaseUrl, supabaseAnonKey, {
-    auth: {
-      storage: Platform.OS === "web" ? undefined : AsyncStorage,
-      autoRefreshToken: true,
-      persistSession: true,
-      detectSessionInUrl: false,
-    },
-  });
-} else {
-  console.log("❌ SUPABASE NOT INITIALIZED (ENV MISSING)");
+// 🔥 DEBUG (REMOVE LATER)
+console.log("SUPABASE URL:", supabaseUrl);
+console.log("SUPABASE KEY:", supabaseAnonKey?.slice(0, 10));
+
+// ❌ FAIL FAST (PREVENT WHITE SCREEN MYSTERY)
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error("❌ Supabase ENV missing in build");
 }
 
-export { supabase };
+// 🔥 ALWAYS CREATE CLIENT
+export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+  auth: {
+    storage: Platform.OS === "web" ? undefined : AsyncStorage,
+    autoRefreshToken: true,
+    persistSession: true,
+    detectSessionInUrl: false,
+  },
+});
