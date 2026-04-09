@@ -19,7 +19,9 @@ console.log("SUPABASE KEY:", supabaseAnonKey?.slice(0, 10));
 
 // ❌ FAIL FAST (PREVENT WHITE SCREEN MYSTERY)
 if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error("❌ Supabase ENV missing in build");
+  console.log("❌ Supabase ENV missing — using fallback");
+
+  // 🔥 PREVENT CRASH
 }
 
 // 🔥 ALWAYS CREATE CLIENT

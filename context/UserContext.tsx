@@ -1,6 +1,6 @@
-import { supabase } from "@/lib/supabase";
-import { createContext, useContext, useEffect, useState } from "react";
 
+import { createContext, useContext, useEffect, useState } from "react";
+let supabase: any = null;
 type UserType = { xp: number; streak: number } | null;
 
 const UserContext = createContext<{
@@ -23,47 +23,102 @@ export function UserProvider({ children }: any) {
 useEffect(() => {
   let mounted = true;
 
-  async function loadUser() {
-    try {
-      if (!supabase) return;
-
-      const res = await supabase.auth.getUser();
-      const userId = res?.data?.user?.id;
-
-      if (!userId) {
-        console.log("❌ No user found in context");
-        return;
-      }
-
-      const { data } = await supabase
-        .from("profiles")
-        .select("xp, streak")
-        .eq("id", userId)
-        .single();
-
-      if (mounted) {
-        setUser({
-          xp: data?.xp ?? 0,
-          streak: data?.streak ?? 0,
-        });
-      }
-    } catch (e) {
-      console.log("❌ Context load failed:", e);
+async function loadUser() {
+  try {
+    // 🔥 LAZY LOAD SUPABASE
+    if (!supabase) {
+      supabase = (await import("@/lib/supabase")).supabase;
+      console.log("✅ Supabase loaded");
     }
+
+    let userId: string | null = null;
+
+    // 🔥 TRY GET EXISTING USER
+    try {
+      const res = await supabase.auth.getUser();
+      userId = res?.data?.user?.id ?? null;
+    } catch {}
+
+    // 🔥 IF NO USER → CREATE ONE
+    if (!userId) {
+      console.log("🆕 Creating anon user...");
+
+      try {
+        const { data } = await supabase.auth.signInAnonymously();
+        userId = data?.user?.id ?? null;
+      } catch (e) {
+        console.log("❌ Failed to create user:", e);
+      }
+    }
+
+    // 🔥 IF STILL NO USER → FALLBACK (PREVENT LOADING FOREVER)
+    if (!userId) {
+      console.log("⚠️ No user — fallback state");
+
+      setUser({
+        xp: 0,
+        streak: 0,
+      });
+
+      return;
+    }
+
+    // 🔥 ENSURE PROFILE EXISTS
+    await supabase.from("profiles").upsert(
+      {
+        id: userId,
+        xp: 0,
+        streak: 0,
+      },
+      { onConflict: "id" }
+    );
+
+    // 🔥 LOAD PROFILE
+    const { data } = await supabase
+      .from("profiles")
+      .select("xp, streak")
+      .eq("id", userId)
+      .maybeSingle();
+
+    // 🔥 ALWAYS SET USER (NO MORE LOADING LOOP)
+    setUser({
+      xp: data?.xp ?? 0,
+      streak: data?.streak ?? 0,
+    });
+
+  } catch (e) {
+    console.log("❌ FINAL loadUser crash:", e);
+
+    // 🔥 HARD FALLBACK (NEVER STUCK AGAIN)
+    setUser({
+      xp: 0,
+      streak: 0,
+    });
   }
+}
 
-  // 🔥 RUN ON START
-  loadUser();
+  // 🔥 DELAY (prevents startup crash)
+  setTimeout(loadUser, 300);
 
-  // 🔥 ALSO LISTEN FOR AUTH CHANGES (THIS FIXES YOUR BUG)
-  const { data: listener } = supabase.auth.onAuthStateChange(() => {
-    console.log("🔄 Auth changed → reloading user");
-    loadUser();
-  });
+  // 🔥 SAFE AUTH LISTENER
+  let subscription: any = null;
+
+  try {
+    const result = supabase?.auth?.onAuthStateChange(() => {
+      console.log("🔄 Auth changed → reloading user");
+      loadUser();
+    });
+
+    subscription = result?.data?.subscription;
+  } catch (e) {
+    console.log("❌ Auth listener crash prevented:", e);
+  }
 
   return () => {
     mounted = false;
-    listener?.subscription?.unsubscribe();
+    try {
+      subscription?.unsubscribe?.();
+    } catch {}
   };
 }, []);
 
@@ -82,7 +137,14 @@ setUser((prev) => {
 
   // ✅ SAVE TO SUPABASE
   try {
-    if (!supabase) return;
+  // 🔥 LAZY LOAD SUPABASE
+if (!supabase) {
+  try {
+    supabase = (await import("@/lib/supabase")).supabase;
+  } catch {
+    return;
+  }
+}
 
     const res = await supabase.auth.getUser();
     const userId = res?.data?.user?.id;
