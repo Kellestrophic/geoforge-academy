@@ -1,14 +1,12 @@
-import { Stack } from "expo-router";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import { Tabs } from "expo-router";
 
-console.log("🚀 ROOT LAYOUT LOADED");
-
-export default function Layout() {
-  console.log("🚀 APP RENDER");
-
+export default function TabsLayout() {
   return (
-    <SafeAreaProvider>
-<Stack />
-    </SafeAreaProvider>
+    <Tabs screenOptions={{ headerShown: false }}>
+      <Tabs.Screen name="index" />
+      <Tabs.Screen name="modes" />
+      <Tabs.Screen name="minigames" />
+      <Tabs.Screen name="profile" />
+    </Tabs>
   );
 }
