@@ -31,55 +31,20 @@ useEffect(() => {
 
 }, []);
 
-async function addXp(amount: number) {
-  // ✅ UPDATE UI FIRST
-setUser((prev) => {
-  if (!prev) return prev; // ✅ handle null safely
+function addXp(amount: number) {
+  setUser((prev) => {
+    if (!prev) {
+      return {
+        xp: amount,
+        streak: 0,
+      };
+    }
 
-  const newXp = prev.xp + amount;
-
-  return {
-    xp: newXp,
-    streak: prev.streak ?? 0, // ✅ force number
-  };
-});
-
-  // ✅ SAVE TO SUPABASE
-  try {
-  // 🔥 LAZY LOAD SUPABASE
-if (!supabase) {
-  try {
-    supabase = (await import("@/lib/supabase")).supabase;
-  } catch {
-    return;
-  }
-}
-
- //   const res = await supabase.auth.getUser();
-   // const userId = res?.data?.user?.id;
-
-    //if (!userId) return;
-
-    //const { data } = await supabase
-      //.from("profiles")
-      //.select("xp, streak")
-      //.eq("id", userId)
-      //.maybeSingle();
-
-    //const currentXp = data?.xp ?? 0;
-    //const currentStreak = data?.streak ?? 0;
-
-    //await supabase.from("profiles").upsert(
-      //{
-        //id: userId,
-        //xp: currentXp + amount,
-        //streak: currentStreak,
-      //},
-      //{ onConflict: "id" }
-    //);
-  } catch (e) {
-    console.log("❌ XP SAVE FAILED:", e);
-  }
+    return {
+      xp: prev.xp + amount,
+      streak: prev.streak ?? 0,
+    };
+  });
 }
 
 return (

@@ -8,9 +8,9 @@ export function getSafeQuestions(questions: any[]) {
       if (typeof q.question !== "string") return false;
 
       // MATCH questions → allow ONLY if they have valid pairs
-      if (q.type === "match") {
-        return Array.isArray(q.pairs) && q.pairs.length > 0;
-      }
+if (q.type === "match") {
+  return Array.isArray(q.matchPairs) && q.matchPairs.length > 0;
+}
 
       // MULTIPLE CHOICE → strict validation
       if (!Array.isArray(q.choices)) return false;

@@ -1,11 +1,21 @@
-import questionsData from "@/data/questions.json";
 import { getSupabase } from "@/lib/supabaseClient";
 import { theme } from "@/lib/theme";
+import { cleanQuestions } from "@/utils/cleanQuestions";
 import { getSafeQuestions } from "@/utils/safeQuestions";
 import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useRef, useState } from "react";
 import { Animated, Image, Pressable, ScrollView, Text, View } from "react-native";
 import { useUser } from "../context/UserContext";
+
+const questionsData = [
+  {
+    question: "Test",
+    choices: ["A", "B", "C", "D"],
+    correctAnswer: 0,
+    category: "Test",
+    type: "multiple_choice",
+  },
+];
 let supabase: any = null;
 async function getUserIdSafe() {
   try {
@@ -80,7 +90,7 @@ function generateSmartChoices(question: any, allQuestions: any[]) {
   // 🔥 SAME CATEGORY DISTRACTORS
 const pool = allQuestions
   .flatMap((q) => (Array.isArray(q.choices) ? q.choices : []))
-  .filter((c) => typeof c === "string");
+  .filter((c) => typeof c === "string" && c.trim().length > 0);
 
   const wrong = pool
     .sort(() => Math.random() - 0.5)
@@ -163,7 +173,7 @@ type:
   explanation?: string;
 };
 
-const allQuestions = questionsData as Question[];
+const allQuestions = cleanQuestions(questionsData as any[]);
 
 const baseQuestions = getSafeQuestions(
   topic
@@ -179,13 +189,31 @@ console.log("TRANSFORMED:", transformed.length);
 
 const improved = transformed
   .map((q) => generateSmartChoices(q, transformed))
-  .filter(Boolean);
+  .filter((q): q is Question => {
+    return (
+      q !== null &&
+      q !== undefined &&
+      typeof q === "object" &&
+      Array.isArray(q.choices) &&
+      q.choices.length > 0 &&
+      typeof q.correctAnswer === "number" &&
+      q.correctAnswer >= 0 &&
+      q.correctAnswer < q.choices.length &&
+      typeof q.choices[q.correctAnswer] === "string"
+    );
+  });
 
 setFilteredQuestions(shuffleArray(improved));
   setCurrentIndex(0);
   setQuestionStartTime(Date.now()); // 🔥 FIX
 }, [topic]);
-const question = filteredQuestions[currentIndex];
+const question =
+  Array.isArray(filteredQuestions) &&
+  filteredQuestions.length > 0 &&
+  filteredQuestions[currentIndex] &&
+  typeof filteredQuestions[currentIndex] === "object"
+    ? filteredQuestions[currentIndex]
+    : null;
 useEffect(() => {
 if (
   !question?.choices ||
@@ -205,29 +233,36 @@ if (
 }, [currentIndex, question]);
 async function handleSubmit() {
   if (
-  selected === null ||
-  showAnswer ||
-  hasSubmitted ||
-  correctIndex === -1 ||
-  !question?.choices
-) {
-  return;
-}
-setHasSubmitted(true);
+    selected === null ||
+    showAnswer ||
+    hasSubmitted ||
+    !question ||
+    !Array.isArray(question.choices)
+  ) {
+    return;
+  }
+
+  setHasSubmitted(true);
 
   const correctAnswerText =
-  question.choices?.[question.correctAnswer ?? -1];
+    typeof question.correctAnswer === "number" &&
+    question.choices[question.correctAnswer]
+      ? question.choices[question.correctAnswer]
+      : null;
 
-const selectedText =
-  shuffledChoices.length > 0
-    ? shuffledChoices[selected]
-    : question.choices?.[selected];
+  const selectedText =
+    selected !== null &&
+    question.choices[selected] !== undefined
+      ? question.choices[selected]
+      : null;
 
-const isCorrect = selectedText === correctAnswerText;
+  if (!correctAnswerText || !selectedText) {
+    return;
+  }
 
-  // =========================
+  const isCorrect = selectedText === correctAnswerText;
+
   // ✅ CORRECT ANSWER
-  // =========================
 if (isCorrect) {
   const timeTaken = (Date.now() - questionStartTime) / 1000;
 
@@ -237,71 +272,42 @@ if (isCorrect) {
 
   const xpGained = 10 + bonus;
 
-  // ✅ OLD WORKING FLOW (RESTORED)
-  setAnswered((prev) => prev + 1);
-  setFeedback("correct");
-  setShowAnswer(true);
+setAnswered((prev) => prev + 1);
 setScore((prev) => prev + 1);
-  // ✅ SAFE XP UPDATE
-addXp(xpGained);
 
-  return;
-}
+// 🔥 DO NOT TRIGGER ANSWER VIEW
+setFeedback(null);
+setShowAnswer(false);
 
-  // =========================
-  // ❌ WRONG ANSWER
-  // =========================
-
-  Animated.sequence([
-    Animated.timing(shakeAnim, { toValue: 10, duration: 50, useNativeDriver: true }),
-    Animated.timing(shakeAnim, { toValue: -10, duration: 50, useNativeDriver: true }),
-    Animated.timing(shakeAnim, { toValue: 10, duration: 50, useNativeDriver: true }),
-    Animated.timing(shakeAnim, { toValue: 0, duration: 50, useNativeDriver: true }),
-  ]).start();
-
-  setFeedback("incorrect");
-  setAnswered((prev) => prev + 1);
-  setShowAnswer(true);
-
-  setWrongQuestions((prev) => {
-    if (!question) return prev;
-    const exists = prev.find((q) => q.id === question.id);
-    return exists ? prev : [...prev, question];
-  });
-
-  try {
-   if (!supabase) {
-  supabase = await (await import("@/lib/supabaseClient")).getSupabase();
-  if (!supabase) return;
-}
-
-    const userId = await getUserIdSafe();
-    if (!userId) return;
-
-    if (!question) return;
-
-await supabase.from("review_questions").insert({
-  user_id: userId,
-  id: String(question.id ?? ""),
-  question: typeof question.question === "string" ? question.question : "",
-  choices: Array.isArray(question.choices) ? question.choices : [],
-  correctAnswer:
-    typeof question.correctAnswer === "number"
-      ? question.correctAnswer
-      : 0,
+// 🔥 MOVE TO NEXT QUESTION IMMEDIATELY
+setCurrentIndex((prev) => {
+  if (prev + 1 >= filteredQuestions.length) {
+    setSessionComplete(true);
+    return prev;
+  }
+  return prev + 1;
 });
 
-await supabase.from("profiles").upsert(
-  {
-    id: userId,
-    xp: user?.xp ?? 0,
-    streak: 0,
-  },
-      { onConflict: "id" }
-    );
-  } catch (err) {
-    console.log("Practice wrong save failed:", err);
+setSelected(null);
+
+// SAFE XP
+addXp(xpGained);
+
+return;
+}
+
+  // ❌ WRONG ANSWER
+setAnswered((prev) => prev + 1);
+
+setCurrentIndex((prev) => {
+  if (prev + 1 >= filteredQuestions.length) {
+    setSessionComplete(true);
+    return prev;
   }
+  return prev + 1;
+});
+
+setSelected(null);
 }
   function handleNext() {
 
@@ -330,16 +336,40 @@ function handleRestart() {
   setQuestionStartTime(Date.now());
 
   const transformed = expandMatchQuestions(baseQuestions);
-const improved = transformed.map((q) => {
-return generateSmartChoices(q, transformed);
+  transformed.forEach((q, i) => {
+  if (!q || typeof q !== "object") {
+    console.log("❌ BAD TRANSFORMED:", i, q);
+  }
 });
+const improved = transformed
+  .map((q) => generateSmartChoices(q, transformed))
+  .filter((q): q is Question => {
+    return (
+      q !== null &&
+      q !== undefined &&
+      typeof q === "object" &&
+      Array.isArray(q.choices) &&
+      q.choices.length > 0 &&
+      typeof q.correctAnswer === "number"
+    );
+  });
 
 setFilteredQuestions(shuffleArray(improved));
 }
- if (!question) {
+if (
+  !question ||
+  typeof question.question !== "string" ||
+  !Array.isArray(question.choices) ||
+  question.choices.length === 0 ||
+  typeof question.correctAnswer !== "number"
+) {
+  console.log("🚨 BAD QUESTION BLOCKED AT RENDER:", question);
+
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text style={{ color: theme.colors.text }}>Loading...</Text>
+      <Text style={{ color: theme.colors.text }}>
+        Skipping broken question...
+      </Text>
     </View>
   );
 }
@@ -482,8 +512,20 @@ borderColor: theme.colors.border,
 
         {/* ANSWERS */}
         {(shuffledChoices.length ? shuffledChoices : question.choices || []).map((choice: string, index: number) => {
-      const correctAnswerText =
-  question.choices?.[question.correctAnswer ?? -1];
+const correctAnswerText =
+  typeof question.correctAnswer === "number" &&
+  question.choices &&
+  question.choices[question.correctAnswer]
+    ? question.choices[question.correctAnswer]
+    : null;
+
+if (!correctAnswerText) {
+  console.log("❌ INVALID QUESTION BLOCKED:", question);
+  console.log("QUESTION:", question);
+console.log("CHOICES:", question.choices);
+console.log("CORRECT INDEX:", question.correctAnswer);
+  return;
+}
 
 const choiceText =
   shuffledChoices.length > 0
@@ -606,4 +648,4 @@ const isCorrect = choiceText === correctAnswerText;
 
   </ScrollView>
 );
-  }
+}
