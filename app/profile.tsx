@@ -1,7 +1,8 @@
 import { useUser } from "@/context/UserContext";
+import { getSupabase } from "@/lib/supabaseClient";
 import { theme as rawTheme } from "@/lib/theme";
+import { useEffect } from "react";
 import { ScrollView, Text, View } from "react-native";
-
 const theme = rawTheme ?? {
   colors: {
     background: "#000",
@@ -39,7 +40,49 @@ function getRank(level: number) {
 }
 
 export default function ProfileScreen() {
- const { user } = useUser();
+  const { user, setUser } = useUser();
+
+  useEffect(() => {
+    async function loadProfile() {
+      try {
+        const supabase = await getSupabase();
+        if (!supabase) return;
+
+        let userId: string | null = null;
+
+        const res = await supabase.auth.getUser();
+        userId = res?.data?.user?.id ?? null;
+
+        if (!userId) {
+          const { data } = await supabase.auth.signInAnonymously();
+          userId = data?.user?.id ?? null;
+        }
+
+        if (!userId) return;
+
+        await supabase.from("profiles").upsert(
+          { id: userId, xp: 0, streak: 0 },
+          { onConflict: "id" }
+        );
+
+        const { data } = await supabase
+          .from("profiles")
+          .select("xp, streak")
+          .eq("id", userId)
+          .maybeSingle();
+
+        setUser({
+          xp: data?.xp ?? 0,
+          streak: data?.streak ?? 0,
+        });
+
+      } catch (e) {
+        console.log("❌ Profile load failed:", e);
+      }
+    }
+
+    loadProfile();
+  }, []);
 
 if (!user) {
   return (
