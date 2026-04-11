@@ -1,7 +1,5 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createClient } from "@supabase/supabase-js";
 import Constants from "expo-constants";
-import { Platform } from "react-native";
 
 // 🔥 SAFE EXTRA ACCESS (WORKS IN ALL BUILDS)
 const extra =
@@ -26,10 +24,10 @@ if (!supabaseUrl || !supabaseAnonKey) {
 
 // 🔥 ALWAYS CREATE CLIENT
 export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
-  auth: {
-    storage: Platform.OS === "web" ? undefined : AsyncStorage,
-    autoRefreshToken: true,
-    persistSession: true,
-    detectSessionInUrl: false,
-  },
+auth: {
+  storage: undefined, // 🔥 CRITICAL FIX
+  autoRefreshToken: false,
+  persistSession: false,
+  detectSessionInUrl: false,
+},
 });
