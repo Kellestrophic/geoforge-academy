@@ -1,15 +1,18 @@
 import questionsData from "@/data/questions.json";
-import { supabase } from "@/lib/supabase";
+import { getSupabase } from "@/lib/supabaseClient";
 import { theme } from "@/lib/theme";
 import { getSafeQuestions } from "@/utils/safeQuestions";
 import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useRef, useState } from "react";
 import { Animated, Image, Pressable, ScrollView, Text, View } from "react-native";
 import { useUser } from "../context/UserContext";
+let supabase: any = null;
 async function getUserIdSafe() {
-  if (!supabase) return null;
-
   try {
+    if (!supabase) {
+      supabase = await getSupabase();
+    }
+
     const res = await supabase.auth.getUser();
     return res?.data?.user?.id ?? null;
   } catch {
@@ -267,7 +270,10 @@ addXp(xpGained);
   });
 
   try {
-    if (!supabase) return;
+   if (!supabase) {
+  supabase = await (await import("@/lib/supabaseClient")).getSupabase();
+  if (!supabase) return;
+}
 
     const userId = await getUserIdSafe();
     if (!userId) return;
