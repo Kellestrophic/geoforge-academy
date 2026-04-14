@@ -56,7 +56,7 @@ export default function ModesScreen() {
         onPress={() => {
           if (tapLock.current) return;
           tapLock.current = true;
-          router.push("/practice");
+           router.push("/practice-menu");
           setTimeout(() => (tapLock.current = false), 400);
         }}
       />
