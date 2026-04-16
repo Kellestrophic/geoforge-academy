@@ -61,16 +61,16 @@ export default function ModesScreen() {
         }}
       />
 
-      <ModeCard
-        title="Topic Mode"
-        subtitle="Focus on specific geology subjects"
-        onPress={() => {
-          if (tapLock.current) return;
-          tapLock.current = true;
-          router.push("/topics");
-          setTimeout(() => (tapLock.current = false), 400);
-        }}
-      />
+<ModeCard
+  title="Topic Mode"
+  subtitle="Focus on specific geology subjects"
+  onPress={() => {
+    if (tapLock.current) return;
+    tapLock.current = true;
+    router.push("/topics");
+    setTimeout(() => (tapLock.current = false), 400);
+  }}
+/>
 
       <ModeCard
         title="Review Mode"
@@ -89,7 +89,7 @@ export default function ModesScreen() {
         onPress={() => {
           if (tapLock.current) return;
           tapLock.current = true;
-          router.push("/exam-topic");
+          router.push("/exam-menu");
           setTimeout(() => (tapLock.current = false), 400);
         }}
       />

@@ -1,13 +1,10 @@
-import questionsData from "@/data/questions.json";
+import formulaData from "@/data/mineralFormulas.json";
 import { theme } from "@/lib/theme";
 import { useRef, useState } from "react";
 import { Animated, KeyboardAvoidingView, Platform, Pressable, Text, TextInput, View } from "react-native";
 function generateFormulaGameQuestions(allQuestions: any[]): FormulaGameQuestion[] {
   
-  const formulaQuestions = allQuestions.filter(
-    (q) => q.category === "Mineral Formulas"
-  );
-
+const formulaQuestions = formulaData;
  return formulaQuestions
   .map((q, index) => {
 const correct = q.choices?.[q.correctAnswer];
@@ -103,7 +100,7 @@ type FormulaGameQuestion =
 export default function FormulaGame() {
 
 const questionsRef = useRef<FormulaGameQuestion[]>(
-  generateFormulaGameQuestions(questionsData)
+  generateFormulaGameQuestions(formulaData)
 );
 
 const questions = questionsRef.current;

@@ -6,6 +6,17 @@ import { Image, Pressable, Text, View } from "react-native";
 export default function HomeScreen() {
   const tapLock = useRef(false);
 
+  function safeNav(path: string) {
+    if (tapLock.current) return;
+    tapLock.current = true;
+
+    router.push(path as any);
+
+    setTimeout(() => {
+      tapLock.current = false;
+    }, 400);
+  }
+
   return (
     <View
       style={{
@@ -15,23 +26,23 @@ export default function HomeScreen() {
         justifyContent: "flex-start",
       }}
     >
-{/* LOGO */}
-<View style={{ alignItems: "center", marginTop: -100, marginBottom: -60 }}>
-<Image
-  source={require("../assets/logo.png")}
-  style={{
-    width: 500,
-    height: 500,
-    resizeMode: "contain",
-  }}
-/>
-</View>
+      {/* LOGO */}
+      <View style={{ alignItems: "center", marginTop: -100, marginBottom: -60 }}>
+        <Image
+          source={require("../assets/logo.png")}
+          style={{
+            width: 500,
+            height: 500,
+            resizeMode: "contain",
+          }}
+        />
+      </View>
 
       {/* BUTTON GRID */}
-  <View style={{ gap: 20, marginTop: -60 }}>
+      <View style={{ gap: 20, marginTop: -60 }}>
         {/* MODES */}
         <Pressable
-          onPress={() => router.push("/modes" as any)}
+          onPress={() => safeNav("/modes")}
           style={{
             padding: 25,
             borderRadius: 16,
@@ -50,7 +61,7 @@ export default function HomeScreen() {
 
         {/* MINIGAMES */}
         <Pressable
-          onPress={() => router.push("/minigames" as any)}
+          onPress={() => safeNav("/minigames")}
           style={{
             padding: 25,
             borderRadius: 16,
@@ -69,7 +80,7 @@ export default function HomeScreen() {
 
         {/* PROFILE */}
         <Pressable
-          onPress={() => router.push("/profile" as any)}
+          onPress={() => safeNav("/profile")}
           style={{
             padding: 25,
             borderRadius: 16,

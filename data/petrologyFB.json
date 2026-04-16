@@ -66,7 +66,7 @@
   {
     "id": "pet_fb_9",
     "category": "Petrology",
-    "question": "The igneous rock basaltis mafic and _____-grained.",
+    "question": "The igneous rock basalt is mafic and _____-grained.",
     "choices": ["fine"],
     "type": "input",
     "explanation": "Basalt is fine-grained due to fast cooling at the surface."

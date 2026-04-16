@@ -1,81 +1,85 @@
+import { theme } from "@/lib/theme";
 import { router } from "expo-router";
 import { Pressable, Text, View } from "react-native";
 
 export default function PracticeMenu() {
   return (
-    <View style={{ flex: 1, padding: 20, justifyContent: "center" }}>
-      <Text style={{ fontSize: 24, marginBottom: 30 }}>
+    <View
+      style={{
+        flex: 1,
+        padding: 20,
+        justifyContent: "center",
+        backgroundColor: theme.colors.background,
+      }}
+    >
+      <Text
+        style={{
+          color: theme.colors.text,
+          fontSize: 26,
+          fontWeight: "bold",
+          marginBottom: 30,
+        }}
+      >
         Practice Mode
       </Text>
 
-      {/* ALL (RANDOM) */}
+      {/* ALL */}
       <Pressable
         onPress={() => router.push("/practice?mode=all")}
-        style={{
-          backgroundColor: "#1e293b",
-          padding: 20,
-          borderRadius: 12,
-          marginBottom: 20,
-        }}
+ style={{
+  backgroundColor: "#243247", // 🔥 filled dark card
+  borderWidth: 2,
+  borderColor: "#38bdf8", // 🔥 bright blue outline
+  padding: 20,
+  borderRadius: 16,
+  marginBottom: 18,
+}}
       >
-        <Text style={{ color: "white", fontSize: 18 }}>
+        <Text style={{ color: theme.colors.text, fontSize: 18 }}>
           🎲 Random (All)
         </Text>
-        <Text style={{ color: "#94a3b8" }}>
+        <Text style={{ color: theme.colors.subtext }}>
           All topics mixed
         </Text>
       </Pressable>
 
-      {/* MULTIPLE CHOICE ONLY */}
+      {/* MC */}
       <Pressable
         onPress={() => router.push("/practice?mode=mc")}
-        style={{
-          backgroundColor: "#1e293b",
-          padding: 20,
-          borderRadius: 12,
-          marginBottom: 20,
-        }}
+       style={{
+  backgroundColor: "#243247", // 🔥 filled dark card
+  borderWidth: 2,
+  borderColor: "#38bdf8", // 🔥 bright blue outline
+  padding: 20,
+  borderRadius: 16,
+  marginBottom: 18,
+}}
       >
-        <Text style={{ color: "white", fontSize: 18 }}>
+        <Text style={{ color: theme.colors.text, fontSize: 18 }}>
           🧠 Multiple Choice
         </Text>
-        <Text style={{ color: "#94a3b8" }}>
+        <Text style={{ color: theme.colors.subtext }}>
           MC questions only
         </Text>
       </Pressable>
 
-      {/* FILL IN THE BLANK ONLY */}
+      {/* FB */}
       <Pressable
         onPress={() => router.push("/practice?mode=fb")}
-        style={{
-          backgroundColor: "#1e293b",
-          padding: 20,
-          borderRadius: 12,
-          marginBottom: 20,
-        }}
+ style={{
+  backgroundColor: "#243247", // 🔥 filled dark card
+  borderWidth: 2,
+  borderColor: "#38bdf8", // 🔥 bright blue outline
+  padding: 20,
+  borderRadius: 16,
+  marginBottom: 18,
+}}
       >
-        <Text style={{ color: "white", fontSize: 18 }}>
+        <Text style={{ color: theme.colors.text, fontSize: 18 }}>
           ✍️ Fill in the Blank
         </Text>
-        <Text style={{ color: "#94a3b8" }}>
+        <Text style={{ color: theme.colors.subtext }}>
           Input questions only
-        </Text>
-      </Pressable>
-
-      {/* TOPICS */}
-      <Pressable
-        onPress={() => router.push("/topics")}
-        style={{
-          backgroundColor: "#1e293b",
-          padding: 20,
-          borderRadius: 12,
-        }}
-      >
-        <Text style={{ color: "white", fontSize: 18 }}>
-          📚 Topics
-        </Text>
-        <Text style={{ color: "#94a3b8" }}>
-          Choose a topic
         </Text>
       </Pressable>
     </View>

@@ -1,8 +1,9 @@
 import { useUser } from "@/context/UserContext";
-import { getSupabase } from "@/lib/supabaseClient";
+import { supabase } from "@/lib/supabase";
 import { theme as rawTheme } from "@/lib/theme";
 import { useEffect } from "react";
 import { ScrollView, Text, View } from "react-native";
+
 const theme = rawTheme ?? {
   colors: {
     background: "#000",
@@ -39,20 +40,28 @@ function getRank(level: number) {
   return "Master Geologist";
 }
 
+async function getCurrentUserId() {
+  try {
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
+
+    return session?.user?.id ?? null;
+  } catch (e) {
+    console.log("❌ getSession failed:", e);
+    return null;
+  }
+}
+
 export default function ProfileScreen() {
   const { user, setUser } = useUser();
 
   useEffect(() => {
     async function loadProfile() {
       try {
-        const supabase = await getSupabase();
-        if (!supabase) return;
+        let userId = await getCurrentUserId();
 
-        let userId: string | null = null;
-
-        const res = await supabase.auth.getUser();
-        userId = res?.data?.user?.id ?? null;
-
+        // 🔥 fallback: anonymous login if needed
         if (!userId) {
           const { data } = await supabase.auth.signInAnonymously();
           userId = data?.user?.id ?? null;
@@ -60,6 +69,7 @@ export default function ProfileScreen() {
 
         if (!userId) return;
 
+        // 🔥 ensure profile exists
         await supabase.from("profiles").upsert(
           { id: userId, xp: 0, streak: 0 },
           { onConflict: "id" }
@@ -84,41 +94,36 @@ export default function ProfileScreen() {
     loadProfile();
   }, []);
 
-if (!user) {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text style={{ color: theme.colors.text }}>Loading...</Text>
-    </View>
-  );
-}
- const levelData = getLevelData(user?.xp ?? 0);
+  if (!user) {
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.colors.background }}>
+        <Text style={{ color: theme.colors.text }}>Loading...</Text>
+      </View>
+    );
+  }
+
+  const levelData = getLevelData(user?.xp ?? 0);
 
   return (
     <ScrollView
       contentContainerStyle={{
         padding: 20,
-        backgroundColor: theme?.colors?.background ?? "#000",
+        backgroundColor: theme.colors.background,
         paddingBottom: 100,
       }}
       showsVerticalScrollIndicator={false}
     >
-      <Text
-        style={{
-          color: theme?.colors?.text ?? "#fff",
-          fontSize: 28,
-          fontWeight: "bold",
-        }}
-      >
+      <Text style={{ color: theme.colors.text, fontSize: 28, fontWeight: "bold" }}>
         Your Progress
       </Text>
 
       <View style={{ marginTop: 30 }}>
-        <Text style={{ color: theme?.colors?.subtext ?? "#aaa" }}>XP</Text>
-        <Text style={{ color: theme?.colors?.text ?? "#fff", fontSize: 22 }}>
-          {user?.xp ?? 0}
+        <Text style={{ color: theme.colors.subtext }}>XP</Text>
+        <Text style={{ color: theme.colors.text, fontSize: 22 }}>
+          {user.xp}
         </Text>
 
-        <Text style={{ color: theme?.colors?.accent ?? "#0ea5e9", marginTop: 5 }}>
+        <Text style={{ color: theme.colors.accent, marginTop: 5 }}>
           Level {levelData.level} — {getRank(levelData.level)}
         </Text>
 
@@ -135,20 +140,20 @@ if (!user) {
             style={{
               width: `${Math.max(0, Math.min(100, levelData.progress * 100))}%`,
               height: "100%",
-              backgroundColor: theme?.colors?.accent ?? "#0ea5e9",
+              backgroundColor: theme.colors.accent,
             }}
           />
         </View>
 
-        <Text style={{ color: theme?.colors?.subtext ?? "#aaa", marginTop: 5 }}>
+        <Text style={{ color: theme.colors.subtext, marginTop: 5 }}>
           {levelData.currentLevelXp} / {levelData.neededXp} XP
         </Text>
 
-        <Text style={{ color: theme?.colors?.subtext ?? "#aaa", marginTop: 20 }}>
+        <Text style={{ color: theme.colors.subtext, marginTop: 20 }}>
           Daily Streak
         </Text>
-        <Text style={{ color: theme?.colors?.text ?? "#fff", fontSize: 22 }}>
-          {user?.streak ?? 0}
+        <Text style={{ color: theme.colors.text, fontSize: 22 }}>
+          {user.streak}
         </Text>
       </View>
     </ScrollView>

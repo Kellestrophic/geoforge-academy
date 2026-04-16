@@ -1,33 +1,32 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createClient } from "@supabase/supabase-js";
 import Constants from "expo-constants";
+import { Platform } from "react-native";
 
-// 🔥 SAFE EXTRA ACCESS (WORKS IN ALL BUILDS)
+// 🔥 SAFE EXTRA ACCESS
 const extra =
   (Constants as any).expoConfig?.extra ??
   (Constants as any).manifest?.extra ??
   {};
 
-// 🔥 GET VALUES
+// 🔥 ENV
 const supabaseUrl = extra.supabaseUrl;
 const supabaseAnonKey = extra.supabaseAnonKey;
 
-// 🔥 DEBUG (REMOVE LATER)
+// 🔥 DEBUG
 console.log("SUPABASE URL:", supabaseUrl);
 console.log("SUPABASE KEY:", supabaseAnonKey?.slice(0, 10));
 
-// ❌ FAIL FAST (PREVENT WHITE SCREEN MYSTERY)
-if (!supabaseUrl || !supabaseAnonKey) {
-  console.log("❌ Supabase ENV missing — using fallback");
+// 🔥 CONDITIONAL STORAGE (THIS FIXES YOUR CRASH)
+const storage =
+  Platform.OS === "web" ? undefined : AsyncStorage;
 
-  // 🔥 PREVENT CRASH
-}
-
-// 🔥 ALWAYS CREATE CLIENT
+// 🔥 CREATE CLIENT
 export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
-auth: {
-  storage: undefined, // 🔥 CRITICAL FIX
-  autoRefreshToken: false,
-  persistSession: false,
-  detectSessionInUrl: false,
-},
+  auth: {
+    storage,
+    autoRefreshToken: true,
+    persistSession: Platform.OS !== "web",
+    detectSessionInUrl: false,
+  },
 });

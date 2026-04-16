@@ -2,6 +2,8 @@ import mineralogyFB from "@/data/mineralogyFB.json";
 import mineralogyMC from "@/data/mineralogyMC.json";
 import petrologyFB from "@/data/petrologyFB.json";
 import petrologyMC from "@/data/petrologyMC.json";
+import { addReviewQuestion } from "@/lib/reviewStore";
+import { theme } from "@/lib/theme";
 import { useLocalSearchParams } from "expo-router";
 import { useMemo, useState } from "react";
 import { Pressable, Text, TextInput, View } from "react-native";
@@ -168,8 +170,13 @@ const [isCorrect, setIsCorrect] = useState(false);
       );
   }
 
-  setIsCorrect(result);
-  setShowResult(true);
+setIsCorrect(result);
+setShowResult(true);
+
+// 🔥 SAVE WRONG QUESTIONS
+if (!result) {
+  addReviewQuestion(question);
+}
 }
 function nextQuestion() {
   if (index + 1 >= questions.length) {
@@ -184,15 +191,20 @@ function nextQuestion() {
 }
  return (
   <SafeAreaView style={{ flex: 1 }}>
-    <View style={{ flex: 1, padding: 20 }}>
-      <Text style={{ fontSize: 18, marginBottom: 20 }}>
-        {question.question}
-      </Text>
+    <View style={{
+  flex: 1,
+  padding: 20,
+  backgroundColor: theme.colors.background
+}}>
+   <Text style={{ fontSize: 18, marginBottom: 20, color: theme.colors.text }}>
+  {question.question}
+</Text>
 
       {/* MULTIPLE CHOICE */}
 {question.type === "multiple_choice" &&
   question.choices.map((choice: string, i: number) => {
-    let bg = "#1e293b";
+    let borderColor = theme.colors.border;
+let bg = "transparent";
 
     if (showResult) {
       if (i === question.correctAnswer) {
@@ -208,14 +220,23 @@ function nextQuestion() {
       <Pressable
         key={i}
         onPress={() => !showResult && setSelected(i)}
-        style={{
-          backgroundColor: bg,
-          padding: 14,
-          borderRadius: 10,
-          marginBottom: 10,
-        }}
+style={{
+  borderWidth: 2,
+  borderColor:
+    showResult && i === question.correctAnswer
+      ? "#16a34a"
+      : showResult && i === selected
+      ? "#dc2626"
+      : selected === i
+      ? "#334155"
+      : borderColor,
+  padding: 14,
+  borderRadius: 10,
+  marginBottom: 10,
+  backgroundColor: bg,
+}}
       >
-        <Text style={{ color: "white" }}>{choice}</Text>
+        <Text style={{ color: theme.colors.text }}>{choice}</Text>
       </Pressable>
     );
   })}
@@ -232,8 +253,10 @@ function nextQuestion() {
           }
           placeholderTextColor="#94a3b8"
           style={{
-            backgroundColor: "#1e293b",
-            color: "white",
+          backgroundColor: "transparent",
+color: theme.colors.text,
+borderWidth: 2,
+borderColor: theme.colors.border,
             padding: 14,
             borderRadius: 10,
             marginBottom: 20,
@@ -254,12 +277,12 @@ function nextQuestion() {
 
     {/* 🔥 SHOW CORRECT ANSWER FOR INPUT */}
     {question.type !== "multiple_choice" && (
-      <Text style={{ color: "#eab308", marginBottom: 10 }}>
+     <Text style={{ color: theme.colors.text, marginBottom: 10 }}>
         Correct Answer: {question.choices.join(", ")}
       </Text>
     )}
 
-    <Text style={{ color: "#94a3b8" }}>
+    <Text style={{ color: theme.colors.subtext }}>
       {question.explanation}
     </Text>
   </View>

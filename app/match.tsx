@@ -1,335 +1,205 @@
-import { useUser } from "@/context/UserContext";
-import questionsData from "@/data/questions.json";
-import { supabase } from "@/lib/supabase";
+import data from "@/data/match.json";
 import { theme } from "@/lib/theme";
-import { useEffect, useRef, useState } from "react";
-import { Animated, Pressable, Text, View } from "react-native";
-type MatchPair = { term: string; match: string };
-function shuffleArray(array: any[]) {
-  return [...array].sort(() => Math.random() - 0.5);
-}
+import { useEffect, useState } from "react";
+import { Pressable, Text, View } from "react-native";
 
-export default function MatchScreen() {
-const { user, addXp } = useUser();
-const matchQuestions = (questionsData as any[]).filter(
-  (q) => q.type === "match"
-);
-
-const [xp, setXp] = useState(0);
-const [currentMatch, setCurrentMatch] = useState(
-  matchQuestions[Math.floor(Math.random() * matchQuestions.length)]
-);
-
-const [pairs, setPairs] = useState<MatchPair[]>(
-  (currentMatch?.matchPairs || []) as MatchPair[]
-);
-const [selectedTerm, setSelectedTerm] = useState<string | null>(null);
-const [matches, setMatches] = useState<string[]>([]);
- const [score, setScore] = useState(0);
-const [combo, setCombo] = useState(0);
-const scaleAnim = useRef(new Animated.Value(1)).current;
-const flashAnim = useRef(new Animated.Value(0)).current;
-  const [shuffledMatches, setShuffledMatches] = useState<any[]>([]);
-const difficulty = "easy"; // change later
-
-const initialTime =
-  difficulty === "easy" ? 45 :
-  difficulty === "medium" ? 30 :
-  20;
-
-const [timeLeft, setTimeLeft] = useState(initialTime);
-function pressIn() {
-  Animated.spring(scaleAnim, {
-    toValue: 0.96,
-    useNativeDriver: true,
-  }).start();
-}
-
-function pressOut() {
-  Animated.spring(scaleAnim, {
-    toValue: 1,
-    useNativeDriver: true,
-  }).start();
-}
-function handleMatch(term: string, matchText: string) {
-  const correctPair = pairs.find((p: MatchPair) => p.term === term);
-
-  if (!correctPair) return;
-
-if (correctPair.match === matchText) {
-  const newCombo = combo + 1;
-  setCombo(newCombo);
-
-  Animated.sequence([
-    Animated.timing(flashAnim, {
-      toValue: 1,
-      duration: 100,
-      useNativeDriver: false,
-    }),
-    Animated.timing(flashAnim, {
-      toValue: 0,
-      duration: 200,
-      useNativeDriver: false,
-    }),
-  ]).start();
-
-  setMatches((prev) => [...prev, term]);
-  setScore((prev) => prev + 1);
-
-  // 🔥 ADD XP
-const updateXp = async () => {
-let userId = null;
-
-try {
-let userId = null;
-
-try {
-  const response = await supabase?.auth?.getUser?.();
-
-  if (
-    response &&
-    response.data &&
-    response.data.user &&
-    typeof response.data.user.id === "string"
-  ) {
-    userId = response.data.user.id;
-  }
-} catch (e) {
-  console.log("❌ SAFE getUser crash prevented:", e);
-}
-} catch (e) {
-  console.log("🚨 getUser crash prevented:", e);
-}
-
-if (!userId) return;
-
-
-
-// 🔥 ENSURE PROFILE EXISTS
-await supabase.from("profiles").upsert({
-  id: userId,
- xp: user?.xp ?? 0,
-});
-
-const xpGained = 10 + newCombo * 2;
-
-console.log("Saving to Supabase:", userId,user?.xp ?? 0);
-
-// 🔥 UPDATE XP
-await supabase
-  .from("profiles")
-  .update({
-    xp: (user?.xp ?? 0) + xpGained,
-  })
-
-
-addXp(xpGained);
+type Pair = {
+  id: string;
+  term: string;
+  match: string;
 };
 
-updateXp();
-}
-else {
-  setCombo(0);
-
-  Animated.sequence([
-    Animated.timing(flashAnim, {
-      toValue: -1,
-      duration: 100,
-      useNativeDriver: false,
-    }),
-    Animated.timing(flashAnim, {
-      toValue: 0,
-      duration: 200,
-      useNativeDriver: false,
-    }),
-  ]).start();
-}
-  setSelectedTerm(null);
+function shuffle<T>(arr: T[]): T[] {
+  return [...arr].sort(() => Math.random() - 0.5);
 }
 
-useEffect(() => {
-  setShuffledMatches(shuffleArray(pairs));
-}, [pairs]);
-  const allMatched = matches.length === pairs.length;
-useEffect(() => {
-  if (allMatched) return;
+export default function MatchGame() {
+  const [roundSize, setRoundSize] = useState(6);
+  const [terms, setTerms] = useState<Pair[]>([]);
+  const [matches, setMatches] = useState<Pair[]>([]);
+  const [selected, setSelected] = useState<string | null>(null);
+  const [completed, setCompleted] = useState<string[]>([]);
+  const [score, setScore] = useState(0);
 
-  const timer = setInterval(() => {
-    setTimeLeft((prev) => {
-      if (prev <= 1) {
-        clearInterval(timer);
-        return 0;
-      }
-      return prev - 1;
-    });
-  }, 1000);
+  const [combo, setCombo] = useState(0);
+  const [lastCorrect, setLastCorrect] = useState<string | null>(null);
+  const [lastWrong, setLastWrong] = useState<string | null>(null);
 
-  return () => clearInterval(timer);
-}, [allMatched]);
+  function startNewRound(size = roundSize) {
+    const shuffled = shuffle(data);
+    const selectedSet = shuffled.slice(0, size);
+
+    setTerms(shuffle(selectedSet));
+    setMatches(shuffle(selectedSet));
+    setCompleted([]);
+    setScore(0);
+    setSelected(null);
+    setCombo(0);
+    setLastCorrect(null);
+    setLastWrong(null);
+  }
+
+  useEffect(() => {
+    startNewRound();
+  }, []);
+
+  function handleMatch(termId: string, matchId: string) {
+    if (termId === matchId) {
+      setCompleted((prev) => [...prev, termId]);
+      setScore((prev) => prev + 1);
+      setCombo((prev) => prev + 1);
+
+      setLastCorrect(termId);
+      setTimeout(() => setLastCorrect(null), 300);
+    } else {
+      setCombo(0);
+
+      setLastWrong(matchId);
+      setTimeout(() => setLastWrong(null), 300);
+    }
+  }
+
+  const allDone = completed.length === roundSize;
+
+  useEffect(() => {
+    if (allDone) {
+      setTimeout(() => {
+        let newSize = roundSize;
+
+        if (combo >= 5) newSize = Math.min(roundSize + 1, 10);
+        if (combo === 0) newSize = Math.max(roundSize - 1, 4);
+
+        setRoundSize(newSize);
+        startNewRound(newSize);
+      }, 800);
+    }
+  }, [allDone]);
+
   return (
-   <Animated.ScrollView
-  style={{
-    backgroundColor: flashAnim.interpolate({
-      inputRange: [-1, 0, 1],
-      outputRange: ["#7f1d1d", theme.colors.background, "#14532d"],
-    }),
-  }}
-  contentContainerStyle={{
-    padding: 20,
-  }}
->
-<Text style={{ color: theme.colors.text, fontSize: 22 }}>
-  Match Terms
-</Text>
-<Text style={{ color: theme.colors.text, marginTop: 10 }}>
-  Score: {score} | Time: {timeLeft}s
-</Text>
+    <View
+      style={{
+        flex: 1,
+        paddingHorizontal: 16,
+        paddingTop: 20,
+        backgroundColor: theme.colors.background,
+      }}
+    >
+      <Text style={{ color: theme.colors.text, fontSize: 24 }}>
+        Rock Matching
+      </Text>
 
-<Text style={{ color: theme.colors.subtext }}>
-  ⚡ XP: {user?.xp ?? 0}
-</Text>
+      <Text style={{ color: theme.colors.text }}>
+        Score: {score} / {roundSize}
+      </Text>
 
-<Text
-  style={{
-    color: "#f59e0b",
-    marginTop: 5,
-    fontSize: combo >= 3 ? 22 : 16,
-    fontWeight: combo >= 3 ? "bold" : "normal",
-  }}
->
-  Combo: {combo}
-</Text>
+      <Text style={{ color: "#facc15", marginBottom: 10 }}>
+        Combo: {combo} ⚡
+      </Text>
 
-{allMatched && (
-  <Text style={{ color: theme.colors.accent, marginTop: 10 }}>
-    🎉 All matched!
-  </Text>
-)}
+      <View style={{ flexDirection: "row", gap: 12 }}>
+        {/* TERMS */}
+        <View style={{ flex: 1 }}>
+          {terms.map((item) => {
+            const done = completed.includes(item.id);
+            const isCorrect = lastCorrect === item.id;
 
-{timeLeft === 0 && !allMatched && (
-  <Text style={{ color: theme.colors.danger, marginTop: 10 }}>
-    ⏱️ Time's up!
-  </Text>
-)}
-<Pressable
-  onPress={() => {
-  const newIndex = Math.floor(Math.random() * matchQuestions.length);
-  const newQuestion = matchQuestions[newIndex];
+            return (
+              <Pressable
+                key={item.id}
+                disabled={done}
+                onPress={() => setSelected(item.id)}
+                style={{
+                  padding: 14,
+                  marginBottom: 12,
+                  borderRadius: 12,
+                  backgroundColor: done
+                    ? "#22c55e"
+                    : isCorrect
+                    ? "#22c55e"
+                    : selected === item.id
+                    ? "#22c55e"
+                    : "#0f172a",
+                  borderWidth: 1,
+                  borderColor: "#334155",
+                  opacity: done ? 0.5 : 1,
+                }}
+              >
+                <Text style={{ color: "#e2e8f0", fontWeight: "500" }}>
+                  {item.term}
+                </Text>
+              </Pressable>
+            );
+          })}
+        </View>
 
-setCurrentMatch(newQuestion);
+        {/* MATCHES */}
+        <View style={{ flex: 1 }}>
+          {matches.map((item) => {
+            const done = completed.includes(item.id);
+            const isCorrect = lastCorrect === item.id;
+            const isWrong = lastWrong === item.id;
 
-const newPairs = newQuestion.matchPairs || [];
+            return (
+              <Pressable
+                key={item.id}
+                disabled={!selected || done}
+                onPress={() => {
+                  if (selected) {
+                    handleMatch(selected, item.id);
+                    setSelected(null);
+                  }
+                }}
+                style={{
+                  padding: 14,
+                  marginBottom: 12,
+                  borderRadius: 12,
+                  backgroundColor: done
+                    ? "#22c55e"
+                    : isCorrect
+                    ? "#22c55e"
+                    : isWrong
+                    ? "#dc2626"
+                    : "#0f172a",
+                  borderWidth: 1,
+                  borderColor: "#334155",
+                  opacity: done ? 0.5 : 1,
+                }}
+              >
+                <Text style={{ color: "#e2e8f0", fontWeight: "500" }}>
+                  {item.match}
+                </Text>
+              </Pressable>
+            );
+          })}
+        </View>
+      </View>
 
-setPairs(newPairs); // 🔥 THIS IS THE FIX
-setMatches([]);
-setScore(0);
-setSelectedTerm(null);
-setTimeLeft(initialTime);
-}}
-  style={{
-    marginTop: 20,
-    backgroundColor: theme.colors.primary,
-    padding: 15,
-    borderRadius: 10,
-  }}
->
-  <Text style={{ color: "white", textAlign: "center" }}>
-    Restart Game
-  </Text>
-</Pressable>
-<View style={{ flexDirection: "row", marginTop: 20, gap: 10 }}>
-  {/* LEFT — TERMS */}
-<View style={{ flex: 1 }}>
-    <Text style={{ color: theme.colors.subtext, marginBottom: 10 }}>
-      Terms
-    </Text>
-
-    {pairs.map((item: MatchPair) => {
-      const isMatched = matches.includes(item.term);
-      const isSelected = selectedTerm === item.term;
-
-      return (
-        <Pressable
-          key={item.term}
-          disabled={isMatched || timeLeft === 0}
-          onPress={() => setSelectedTerm(item.term)}
+      {allDone && (
+        <Text
           style={{
-            backgroundColor: isMatched
-              ? "#22c55e"
-              : isSelected
-              ? "#334155"
-              : theme.colors.card,
-            padding: 16,
-minHeight: 60,
-alignItems: "flex-start",
-justifyContent: "center",
-            borderRadius: 10,
-            marginBottom: 10,
+            marginTop: 20,
+            textAlign: "center",
+            color: "#22c55e",
+            fontWeight: "bold",
           }}
         >
-          <Text
-  style={{
-    color: "white",
-    flexWrap: "wrap",
-    flexShrink: 1,
-  }}
->
-  {item.term}
-</Text>
-        </Pressable>
-      );
-    })}
-  </View>
+          Next Round...
+        </Text>
+      )}
 
-  {/* RIGHT — DEFINITIONS */}
- <View style={{ flex: 1 }}>
-    <Text style={{ color: theme.colors.subtext, marginBottom: 10 }}>
-      Definitions
-    </Text>
-
-    {shuffledMatches.map((item: MatchPair) => {
-      const isMatched = matches.includes(item.term);
-
-      return (
-        
-       <Animated.View key={item.match} style={{ transform: [{ scale: scaleAnim }] }}>
-<Pressable
-  onPressIn={pressIn}
-  onPressOut={pressOut}
-          key={item.match}
-          disabled={!selectedTerm || isMatched || timeLeft === 0}
-          onPress={() =>
-            selectedTerm && handleMatch(selectedTerm, item.match)
-          }
-          style={{
-            backgroundColor: isMatched
-              ? "#22c55e"
-              : theme.colors.card,
-            padding: 16,
-minHeight: 60,
-alignItems: "flex-start",
-justifyContent: "center",
-            borderRadius: 10,
-            marginBottom: 10,
-            opacity: !selectedTerm || isMatched ? 0.5 : 1,
-          }}
-        >
-          <Text
-  style={{
-    color: "white",
-    flexWrap: "wrap",
-    flexShrink: 1,
-  }}
->
-  {item.match}
-</Text>
-       </Pressable>
-</Animated.View>
-      );
-    })}
-  </View>
-
-</View>
-    </Animated.ScrollView>
+      <Pressable
+        onPress={() => startNewRound()}
+        style={{
+          marginTop: 20,
+          backgroundColor: "#ef4444",
+          padding: 15,
+          borderRadius: 12,
+        }}
+      >
+        <Text style={{ color: "white", textAlign: "center" }}>
+          New Round
+        </Text>
+      </Pressable>
+    </View>
   );
 }

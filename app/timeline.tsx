@@ -1,467 +1,271 @@
-import { supabase } from "@/lib/supabase";
+import { theme } from "@/lib/theme";
 import { useEffect, useState } from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, ScrollView, Text, View } from "react-native";
+
+type TimeItem = {
+  id: string;
+  name: string;
+  order: number;
+};
+
+const FULL_TIMELINE: TimeItem[] = [
+  { id: "1", name: "Hadean", order: 1 },
+  { id: "2", name: "Archean", order: 2 },
+  { id: "3", name: "Proterozoic", order: 3 },
+  { id: "4", name: "Cambrian", order: 4 },
+  { id: "5", name: "Ordovician", order: 5 },
+  { id: "6", name: "Silurian", order: 6 },
+  { id: "7", name: "Devonian", order: 7 },
+  { id: "8", name: "Carboniferous", order: 8 },
+  { id: "9", name: "Permian", order: 9 },
+  { id: "10", name: "Triassic", order: 10 },
+  { id: "11", name: "Jurassic", order: 11 },
+  { id: "12", name: "Cretaceous", order: 12 },
+  { id: "13", name: "Paleocene", order: 13 },
+  { id: "14", name: "Eocene", order: 14 },
+  { id: "15", name: "Oligocene", order: 15 },
+  { id: "16", name: "Miocene", order: 16 },
+  { id: "17", name: "Pliocene", order: 17 },
+  { id: "18", name: "Pleistocene", order: 18 },
+  { id: "19", name: "Holocene", order: 19 },
+];
+
+function shuffle<T>(arr: T[]): T[] {
+  return [...arr].sort(() => Math.random() - 0.5);
+}
 
 export default function TimelineGame() {
+  const [mode, setMode] = useState<"easy" | "medium" | "hard">("easy");
 
-  const DATA = {
-    easy: [
-      {
-        id: "eras",
-        prompt: "Place eras from OLDEST → YOUNGEST",
-        order: ["Precambrian", "Paleozoic", "Mesozoic", "Cenozoic"],
-      },
-    ],
+  const [items, setItems] = useState<TimeItem[]>([]);
+  const [placed, setPlaced] = useState<(TimeItem | null)[]>([]);
+  const [selected, setSelected] = useState<TimeItem | null>(null);
 
-    medium: [
-      {
-        id: "paleo",
-        prompt: "Build the Paleozoic",
-        order: ["Cambrian", "Ordovician", "Silurian", "Devonian", "Carboniferous", "Permian"],
-      },
-      {
-        id: "meso",
-        prompt: "Build the Mesozoic",
-        order: ["Triassic", "Jurassic", "Cretaceous"],
-      },
-      {
-        id: "ceno",
-        prompt: "Build the Cenozoic",
-        order: ["Paleogene", "Neogene", "Quaternary"],
-      },
-    ],
+  const [hardOrder, setHardOrder] = useState<{ [id: string]: number }>({});
+  const [currentOrder, setCurrentOrder] = useState(1);
 
-    hard: [
-      {
-        id: "mixed",
-        prompt: "Order these correctly",
-        order: [
-          "Cambrian",
-          "Jurassic",
-          "Ordovician",
-          "Cretaceous",
-          "Silurian",
-        ],
-      },
-    ],
-  };
-const TIME_POOL = [
-  "Pre",
-  "Cam",
-  "Ord",
-  "Sil",
-  "Dev",
-  "Carb",
-  "Perm",
-  "Tri",
-  "Jur",
-  "Cre",
-  "Pal",
-  "Neo",
-  "Quat",
-];
-const NAME_MAP = {
-  Pre: "Precambrian",
-  Cam: "Cambrian",
-  Ord: "Ordovician",
-  Sil: "Silurian",
-  Dev: "Devonian",
-  Carb: "Carboniferous",
-  Perm: "Permian",
-  Tri: "Triassic",
-  Jur: "Jurassic",
-  Cre: "Cretaceous",
-  Pal: "Paleogene",
-  Neo: "Neogene",
-  Quat: "Quaternary",
-};
-  const [difficulty, setDifficulty] = useState<"easy" | "medium" | "hard">("easy");
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const currentSet = DATA[difficulty][currentIndex];
-
-
-  const [slots, setSlots] = useState<(string | null)[]>([]);
-  const [cards, setCards] = useState<string[]>([]);
   const [checked, setChecked] = useState(false);
-  const [results, setResults] = useState<("correct" | "wrong" | null)[]>([]);
-  const [score, setScore] = useState(0);
-  const [streak, setStreak] = useState(0);
-  const [xp, setXp] = useState(0);
-  const [currentOrder, setCurrentOrder] = useState<string[]>([]);
-const [prompt, setPrompt] = useState("");
-const correctOrder = currentOrder;
 
-async function addXP(amount: number) {
-  try {
-let userId = null;
-
-try {
-let userId = null;
-
-try {
-  const response = await supabase?.auth?.getUser?.();
-
-  if (
-    response &&
-    response.data &&
-    response.data.user &&
-    typeof response.data.user.id === "string"
-  ) {
-    userId = response.data.user.id;
-  }
-} catch (e) {
-  console.log("❌ SAFE getUser crash prevented:", e);
-}
-} catch (e) {
-  console.log("🚨 getUser crash prevented:", e);
-}
-
-if (!userId) return;
-
-    
-
-    // GET CURRENT XP
-    const { data: profile } = await supabase
-      .from("profiles")
-      .select("xp")
-      .eq("id", userId)
-      .single();
-
-    const currentXP = profile?.xp || 0;
-
-    // ADD XP
-    await supabase
-      .from("profiles")
-      .update({
-        xp: currentXP + amount,
-      })
-      .eq("id", userId);
-
-  } catch (err) {
-    console.log("XP ERROR:", err);
-  }
-}
-function generateRound() {
-  let size = 4;
-
-  if (difficulty === "medium") size = 5;
-  if (difficulty === "hard") size = 7;
-
-  // pick random items
-  const shuffledPool = [...TIME_POOL].sort(() => Math.random() - 0.5);
-  const selected = shuffledPool.slice(0, size);
-
-  // correct order (oldest → youngest based on TIME_POOL order)
-  const correct = TIME_POOL.filter((item) => selected.includes(item));
-
-  // random direction
-  const reversed = Math.random() > 0.5;
-
-  const finalOrder = reversed ? [...correct].reverse() : correct;
-
-  const prompt = reversed
-    ? "Place items from YOUNGEST → OLDEST"
-    : "Place items from OLDEST → YOUNGEST";
-
-  return {
-    order: finalOrder,
-    prompt,
-  };
-}
-  // INIT ROUND
   useEffect(() => {
-    resetRound();
-  }, [difficulty, currentIndex]);
+    startRound();
+  }, [mode]);
 
-function resetRound() {
-  const round = generateRound();
-
-  setCurrentOrder(round.order);
-  setPrompt(round.prompt);
-
-  setSlots(Array(round.order.length).fill(null));
-  setCards([...round.order].sort(() => Math.random() - 0.5));
-
-  setResults(Array(round.order.length).fill(null));
-  setChecked(false);
-}
-
-  function placeCard(card: string) {
-    if (checked) return;
-
-    const emptyIndex = slots.findIndex((s) => s === null);
-    if (emptyIndex === -1) return;
-
-    const newSlots = [...slots];
-    newSlots[emptyIndex] = card;
-    setSlots(newSlots);
-
-    setCards(cards.filter((c) => c !== card));
-  }
-
-  function removeCard(index: number) {
-    if (checked) return;
-    if (!slots[index]) return;
-
-    const card = slots[index];
-
-    const newSlots = [...slots];
-    newSlots[index] = null;
-    setSlots(newSlots);
-
-    setCards([...cards, card!]);
-  }
-
-  function checkAnswers() {
-    if (slots.includes(null)) return;
-
-    const newResults = slots.map((item, i) =>
-      item === correctOrder[i] ? "correct" : "wrong"
-    );
-
-    setResults(newResults);
-    setChecked(true);
-
-    const correctCount = newResults.filter((r) => r === "correct").length;
-    const allCorrect = correctCount === correctOrder.length;
-
-   const baseXP = correctCount * 10;
-const streakBonus = streak * 5;
-
-const totalXP = baseXP + streakBonus;
-
-setScore(score + baseXP);
-setXp(xp + totalXP);
-addXP(totalXP);
-
-    if (allCorrect) {
-      setStreak(streak + 1);
+  function startRound() {
+    if (mode === "hard") {
+      setItems(FULL_TIMELINE);
+      setHardOrder({});
+      setCurrentOrder(1);
     } else {
-      setStreak(0);
+      let size = mode === "easy" ? 4 : 6;
+
+      const selectedSet = shuffle(FULL_TIMELINE).slice(0, size);
+      const ordered = [...selectedSet].sort((a, b) => a.order - b.order);
+
+      setItems(shuffle(ordered));
+      setPlaced(new Array(ordered.length).fill(null));
+    }
+
+    setSelected(null);
+    setChecked(false);
+  }
+
+  function placeItem(index: number) {
+    if (!selected) return;
+
+    const newPlaced = [...placed];
+
+    // REMOVE if clicking same item again
+    if (newPlaced[index]?.id === selected.id) {
+      newPlaced[index] = null;
+      setPlaced(newPlaced);
+      setItems([...items, selected]);
+      setSelected(null);
+      return;
+    }
+
+    // PLACE
+    if (!newPlaced[index]) {
+      newPlaced[index] = selected;
+      setPlaced(newPlaced);
+      setItems(items.filter((i) => i.id !== selected.id));
+      setSelected(null);
     }
   }
 
+  function handleHardClick(item: TimeItem) {
+    // REMOVE if already placed
+    if (hardOrder[item.id]) {
+      const newOrder = { ...hardOrder };
+      delete newOrder[item.id];
+      setHardOrder(newOrder);
+      return;
+    }
+
+    setHardOrder((prev) => ({
+      ...prev,
+      [item.id]: currentOrder,
+    }));
+
+    setCurrentOrder((prev) => prev + 1);
+  }
+
+  function checkAnswers() {
+    setChecked(true);
+  }
+
+  function isCorrect(item: TimeItem | null, index: number) {
+    if (!item) return false;
+    return item.order === index + 1;
+  }
+
+  function isHardCorrect(item: TimeItem) {
+    return hardOrder[item.id] === item.order;
+  }
 
   return (
-    <View style={styles.container}>
-      
-      {/* TITLE */}
-      <Text style={styles.title}>Timeline Builder</Text>
-
-      {/* SCORE + STREAK */}
-      <Text style={{ color: "white", textAlign: "center" }}>
-        Score: {score} | Streak: {streak} | XP: {xp}
+    <ScrollView
+      contentContainerStyle={{
+        paddingHorizontal: 16,
+        paddingTop: 20,
+        paddingBottom: 40,
+        backgroundColor: theme.colors.background,
+      }}
+    >
+      <Text style={{ color: theme.colors.text, fontSize: 24 }}>
+        Timeline Builder
       </Text>
 
-      {/* DIFFICULTY */}
-      <View style={styles.difficultyRow}>
-        {["easy", "medium", "hard"].map((d) => (
+      {/* MODE */}
+      <View style={{ flexDirection: "row", gap: 10, marginVertical: 15 }}>
+        {[
+          { label: "Easy", value: "easy" },
+          { label: "Medium", value: "medium" },
+          { label: "Hard", value: "hard" },
+        ].map((d) => (
           <Pressable
-            key={d}
-            style={[
-              styles.diffButton,
-              difficulty === d && styles.activeButton,
-            ]}
-            onPress={() => {
-              setDifficulty(d as any);
-              setCurrentIndex(0);
+            key={d.value}
+            onPress={() => setMode(d.value as any)}
+            style={{
+              padding: 10,
+              borderRadius: 8,
+              backgroundColor:
+                mode === d.value ? "#22c55e" : "#1e293b",
             }}
           >
-            <Text style={styles.diffText}>
-              {d.toUpperCase()}
-            </Text>
+            <Text style={{ color: "white" }}>{d.label}</Text>
           </Pressable>
         ))}
       </View>
 
-      {/* PROMPT */}
-      <Text style={styles.prompt}>{prompt}</Text>
+      {/* HARD MODE LABEL */}
+      {mode === "hard" && (
+        <Text style={{ color: "#94a3b8", marginBottom: 10 }}>
+          1 = Oldest
+        </Text>
+      )}
 
-{checked && (
-  <Text style={{
-    textAlign: "center",
-    marginBottom: 10,
-    fontWeight: "800",
-    color: results.every(r => r === "correct") ? "#22c55e" : "#ef4444"
-  }}>
-    {results.every(r => r === "correct")
-      ? "Perfect! 🔥"
-      : "Keep going!"}
-  </Text>
-)}
+      {/* EASY/MEDIUM SLOTS */}
+      {mode !== "hard" && (
+        <View>
+          {placed.map((slot, index) => {
+            const correct = isCorrect(slot, index);
 
-      {/* SLOTS */}
-      <View style={styles.timelineRow}>
-        {slots.map((item, index) => {
-          let borderColor = "#3b82f6";
+            return (
+              <Pressable
+                key={index}
+                onPress={() => placeItem(index)}
+                style={{
+                  padding: 16,
+                  marginBottom: 10,
+                  borderRadius: 12,
+                  borderWidth: 2,
+                  borderColor:
+                    checked && slot
+                      ? correct
+                        ? "#22c55e"
+                        : "#dc2626"
+                      : "#334155",
+                  backgroundColor: "#0f172a",
+                }}
+              >
+                <Text style={{ color: "#e2e8f0", textAlign: "center" }}>
+                  {slot ? slot.name : "Tap to place"}
+                </Text>
+              </Pressable>
+            );
+          })}
+        </View>
+      )}
 
-          if (checked && results[index] === "correct") borderColor = "#22c55e";
-          if (checked && results[index] === "wrong") borderColor = "#ef4444";
+      {/* HARD MODE LIST */}
+      {mode === "hard" && (
+        <View>
+          {items.map((item) => {
+            const orderNum = hardOrder[item.id];
+            const correct = isHardCorrect(item);
 
-          return (
+            return (
+              <Pressable
+                key={item.id}
+                onPress={() => handleHardClick(item)}
+                style={{
+                  padding: 14,
+                  marginBottom: 10,
+                  borderRadius: 12,
+                  backgroundColor:
+                    checked && orderNum
+                      ? correct
+                        ? "#22c55e"
+                        : "#dc2626"
+                      : "#1e293b",
+                }}
+              >
+                <Text style={{ color: "white", textAlign: "center" }}>
+                  {item.name} {orderNum ? `(${orderNum})` : ""}
+                </Text>
+              </Pressable>
+            );
+          })}
+        </View>
+      )}
+
+      {/* ITEMS (for easy/medium only) */}
+      {mode !== "hard" && (
+        <View style={{ marginTop: 20 }}>
+          {items.map((item) => (
             <Pressable
-              key={index}
-              style={[styles.slot, { borderColor }]}
-              onPress={() => removeCard(index)}
+              key={item.id}
+              onPress={() => setSelected(item)}
+              style={{
+                padding: 14,
+                marginBottom: 10,
+                borderRadius: 12,
+                backgroundColor:
+                  selected?.id === item.id ? "#22c55e" : "#1e293b",
+              }}
             >
-              <Text style={styles.slotText}>
-                {item || "?"}
+              <Text style={{ color: "white", textAlign: "center" }}>
+                {item.name}
               </Text>
             </Pressable>
-          );
-        })}
-      </View>
+          ))}
+        </View>
+      )}
 
-      {/* CARDS */}
-      <View style={styles.cardBank}>
-        {cards.map((item) => (
-          <Pressable
-            key={item}
-            style={styles.card}
-            onPress={() => placeCard(item)}
-          >
-           <Text style={styles.cardText}>
-  {NAME_MAP[item as keyof typeof NAME_MAP] || item}
-</Text>
-          </Pressable>
-        ))}
-      </View>
-
-      {/* BUTTONS */}
-<View style={styles.buttonRow}>
-  {!checked ? (
-    <Pressable
-      style={[
-        styles.button,
-        slots.includes(null) && { opacity: 0.5 },
-      ]}
-      onPress={checkAnswers}
-      disabled={slots.includes(null)}
-    >
-      <Text style={styles.buttonText}>Check</Text>
-    </Pressable>
-  ) : (
-    <Pressable
-      style={styles.button}
-      onPress={resetRound}
-    >
-      <Text style={styles.buttonText}>Reset</Text>
-    </Pressable>
-  )}
-</View>
-
-    </View>
+      {/* BUTTON */}
+      <Pressable
+        onPress={checked ? startRound : checkAnswers}
+        style={{
+          marginTop: 20,
+          backgroundColor: checked ? "#ef4444" : "#0ea5e9",
+          padding: 15,
+          borderRadius: 12,
+        }}
+      >
+        <Text style={{ color: "white", textAlign: "center" }}>
+          {checked ? "New Round" : "Check"}
+        </Text>
+      </Pressable>
+    </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    backgroundColor: "#0f172a",
-  },
-
-  title: {
-    fontSize: 26,
-    fontWeight: "900",
-    color: "white",
-    marginBottom: 20,
-    textAlign: "center",
-  },
-
-  difficultyRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginBottom: 20,
-  },
-
-  diffButton: {
-    flex: 1,
-    padding: 10,
-    marginHorizontal: 4,
-    borderRadius: 8,
-    backgroundColor: "#1e293b",
-    alignItems: "center",
-  },
-
-  activeButton: {
-    backgroundColor: "#2563eb",
-  },
-
-  diffText: {
-    color: "white",
-    fontWeight: "700",
-  },
-
-  prompt: {
-    color: "#cbd5f5",
-    textAlign: "center",
-    marginBottom: 20,
-  },
-
-  timelineRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginBottom: 30,
-  },
-
-  slot: {
-    flex: 1,
-    marginHorizontal: 5,
-    height: 80,
-    borderWidth: 2,
-    borderColor: "#3b82f6",
-    borderRadius: 10,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-
-slotText: {
-  color: "#94a3b8",
-  fontSize: 9,
-  textAlign: "center",
-  paddingHorizontal: 4,
-  flexWrap: "wrap",
-},
-
-  cardBank: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "center",
-    marginBottom: 30,
-  },
-
-  card: {
-    padding: 10,
-    margin: 6,
-    backgroundColor: "#1e293b",
-    borderRadius: 8,
-  },
-
-cardText: {
-  color: "white",
-  fontWeight: "600",
-  fontSize: 12,
-  textAlign: "center",
-},
-
-  buttonRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-
-  button: {
-    flex: 1,
-    marginHorizontal: 5,
-    padding: 14,
-    backgroundColor: "#22c55e",
-    borderRadius: 10,
-    alignItems: "center",
-  },
-
-  buttonText: {
-    color: "white",
-    fontWeight: "800",
-  },
-});

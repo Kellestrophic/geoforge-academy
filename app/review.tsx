@@ -1,64 +1,79 @@
-import { supabase } from "@/lib/supabase";
 import { theme } from "@/lib/theme";
 import { router } from "expo-router";
-import { useEffect, useState } from "react";
 import { Pressable, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function ReviewMenu() {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    async function loadReview() {
-      try {
-        const response = await supabase.auth.getUser();
-        const userId = response.data.user?.id;
-
-        if (!userId) return;
-
-        const { data } = await supabase
-          .from("review_questions")
-          .select("*")
-          .eq("user_id", userId);
-
-        setCount(data?.length || 0);
-      } catch (e) {
-        console.log("❌ Review load error:", e);
-      }
-    }
-
-    loadReview();
-  }, []);
-
   return (
-    <View
+    <SafeAreaView
       style={{
         flex: 1,
-        padding: 20,
-        justifyContent: "center",
         backgroundColor: theme.colors.background,
       }}
     >
-      <Text style={{ color: theme.colors.text, fontSize: 26, marginBottom: 10 }}>
-        Review Mode
-      </Text>
+<View
+  style={{
+    flex: 1,
+    padding: 20,
+    backgroundColor: theme.colors.background,
+  }}
+>
+<Text
+  style={{
+    color: theme.colors.text,
+    fontSize: 26,
+    fontWeight: "bold",
+    marginBottom: 10,
+    marginTop: 10, // 🔥 add this
+  }}
+>
+  Review Mode
+</Text>
 
-      <Text style={{ color: theme.colors.subtext, marginBottom: 30 }}>
-        {count} questions to review
-      </Text>
+<Text
+  style={{
+    color: theme.colors.subtext,
+    marginBottom: 30,
+  }}
+>
+  Review your missed questions
+</Text>
 
-      <Pressable
-        onPress={() => router.push("/review-quiz")}
-        style={{ borderWidth: 2, borderColor: theme.colors.border, padding: 20, borderRadius: 14, marginBottom: 15 }}
-      >
-        <Text style={{ color: theme.colors.text }}>Review Quiz</Text>
-      </Pressable>
+        <Pressable
+          onPress={() => router.push("/review-quiz")}
+          style={{
+            borderWidth: 2,
+            borderColor: theme.colors.border,
+            padding: 20,
+            borderRadius: 14,
+            marginBottom: 15,
+          }}
+        >
+          <Text style={{ color: theme.colors.text, fontSize: 18 }}>
+            Review Quiz
+          </Text>
+          <Text style={{ color: theme.colors.subtext }}>
+            Quiz yourself on saved questions
+          </Text>
+        </Pressable>
 
-      <Pressable
-        onPress={() => router.push("/review-list")}
-        style={{ borderWidth: 2, borderColor: theme.colors.border, padding: 20, borderRadius: 14 }}
-      >
-        <Text style={{ color: theme.colors.text }}>Study Answers</Text>
-      </Pressable>
-    </View>
+        <Pressable
+          onPress={() => router.push("/review-list")}
+          style={{
+            borderWidth: 2,
+            borderColor: theme.colors.border,
+            padding: 20,
+            borderRadius: 14,
+          }}
+        >
+          <Text style={{ color: theme.colors.text, fontSize: 18 }}>
+            Study Answers
+          </Text>
+          <Text style={{ color: theme.colors.subtext }}>
+            Read through answers and explanations
+          </Text>
+        </Pressable>
+      </View>
+    </SafeAreaView>
   );
 }

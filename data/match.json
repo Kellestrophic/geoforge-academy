@@ -1,0 +1,196 @@
+[
+  { "id": "1", "term": "Granite", "match": "Igneous (Intrusive)" },
+  { "id": "2", "term": "Diorite", "match": "Igneous (Intrusive)" },
+  { "id": "3", "term": "Gabbro", "match": "Igneous (Intrusive)" },
+  { "id": "4", "term": "Peridotite", "match": "Igneous (Intrusive)" },
+  { "id": "5", "term": "Pegmatite", "match": "Igneous (Intrusive)" },
+  { "id": "6", "term": "Anorthosite", "match": "Igneous (Intrusive)" },
+  { "id": "7", "term": "Monzonite", "match": "Igneous (Intrusive)" },
+  { "id": "8", "term": "Syenite", "match": "Igneous (Intrusive)" },
+  { "id": "9", "term": "Norite", "match": "Igneous (Intrusive)" },
+  { "id": "10", "term": "Troctolite", "match": "Igneous (Intrusive)" },
+
+  { "id": "11", "term": "Basalt", "match": "Igneous (Extrusive)" },
+  { "id": "12", "term": "Rhyolite", "match": "Igneous (Extrusive)" },
+  { "id": "13", "term": "Andesite", "match": "Igneous (Extrusive)" },
+  { "id": "14", "term": "Obsidian", "match": "Igneous (Extrusive)" },
+  { "id": "15", "term": "Pumice", "match": "Igneous (Extrusive)" },
+  { "id": "16", "term": "Scoria", "match": "Igneous (Extrusive)" },
+  { "id": "17", "term": "Tuff", "match": "Igneous (Extrusive)" },
+  { "id": "18", "term": "Komatiite", "match": "Igneous (Extrusive)" },
+  { "id": "19", "term": "Felsite", "match": "Igneous (Extrusive)" },
+  { "id": "20", "term": "Trachyte", "match": "Igneous (Extrusive)" },
+
+  { "id": "21", "term": "Sandstone", "match": "Sedimentary (Clastic)" },
+  { "id": "22", "term": "Shale", "match": "Sedimentary (Clastic)" },
+  { "id": "23", "term": "Siltstone", "match": "Sedimentary (Clastic)" },
+  { "id": "24", "term": "Conglomerate", "match": "Sedimentary (Clastic)" },
+  { "id": "25", "term": "Breccia", "match": "Sedimentary (Clastic)" },
+  { "id": "26", "term": "Mudstone", "match": "Sedimentary (Clastic)" },
+  { "id": "27", "term": "Arkose", "match": "Sedimentary (Clastic)" },
+  { "id": "28", "term": "Greywacke", "match": "Sedimentary (Clastic)" },
+  { "id": "29", "term": "Loess", "match": "Sedimentary (Clastic)" },
+  { "id": "30", "term": "Till", "match": "Sedimentary (Clastic)" },
+
+  { "id": "31", "term": "Limestone", "match": "Sedimentary (Chemical)" },
+  { "id": "32", "term": "Dolostone", "match": "Sedimentary (Chemical)" },
+  { "id": "33", "term": "Rock Salt", "match": "Sedimentary (Chemical)" },
+  { "id": "34", "term": "Gypsum Rock", "match": "Sedimentary (Chemical)" },
+  { "id": "35", "term": "Chert", "match": "Sedimentary (Chemical)" },
+  { "id": "36", "term": "Travertine", "match": "Sedimentary (Chemical)" },
+  { "id": "37", "term": "Evaporite", "match": "Sedimentary (Chemical)" },
+  { "id": "38", "term": "Oolitic Limestone", "match": "Sedimentary (Chemical)" },
+  { "id": "39", "term": "Micrite", "match": "Sedimentary (Chemical)" },
+  { "id": "40", "term": "Halite Rock", "match": "Sedimentary (Chemical)" },
+
+  { "id": "41", "term": "Coal", "match": "Sedimentary (Organic)" },
+  { "id": "42", "term": "Fossiliferous Limestone", "match": "Sedimentary (Organic)" },
+  { "id": "43", "term": "Coquina", "match": "Sedimentary (Organic)" },
+  { "id": "44", "term": "Chalk", "match": "Sedimentary (Organic)" },
+  { "id": "45", "term": "Bituminous Coal", "match": "Sedimentary (Organic)" },
+  { "id": "46", "term": "Lignite", "match": "Sedimentary (Organic)" },
+
+  { "id": "47", "term": "Slate", "match": "Metamorphic (Foliated)" },
+  { "id": "48", "term": "Phyllite", "match": "Metamorphic (Foliated)" },
+  { "id": "49", "term": "Schist", "match": "Metamorphic (Foliated)" },
+  { "id": "50", "term": "Gneiss", "match": "Metamorphic (Foliated)" },
+  { "id": "51", "term": "Blueschist", "match": "Metamorphic (Foliated)" },
+  { "id": "52", "term": "Amphibolite", "match": "Metamorphic (Foliated)" },
+
+  { "id": "53", "term": "Marble", "match": "Metamorphic (Non-Foliated)" },
+  { "id": "54", "term": "Quartzite", "match": "Metamorphic (Non-Foliated)" },
+  { "id": "55", "term": "Hornfels", "match": "Metamorphic (Non-Foliated)" },
+  { "id": "56", "term": "Anthracite", "match": "Metamorphic (Non-Foliated)" },
+  { "id": "57", "term": "Eclogite", "match": "Metamorphic (Non-Foliated)" },
+
+  { "id": "58", "term": "Diabase", "match": "Igneous (Intrusive)" },
+  { "id": "59", "term": "Dacite", "match": "Igneous (Extrusive)" },
+  { "id": "60", "term": "Ignimbrite", "match": "Igneous (Extrusive)" },
+
+  { "id": "61", "term": "Banded Iron Formation", "match": "Sedimentary (Chemical)" },
+  { "id": "62", "term": "Flint", "match": "Sedimentary (Chemical)" },
+  { "id": "63", "term": "Mudrock", "match": "Sedimentary (Clastic)" },
+
+  { "id": "64", "term": "Metaconglomerate", "match": "Metamorphic (Non-Foliated)" },
+  { "id": "65", "term": "Metasandstone", "match": "Metamorphic (Non-Foliated)" },
+
+  { "id": "66", "term": "Serpentinite", "match": "Metamorphic (Non-Foliated)" },
+  { "id": "67", "term": "Skarn", "match": "Metamorphic (Non-Foliated)" },
+
+  { "id": "68", "term": "Rhyodacite", "match": "Igneous (Extrusive)" },
+  { "id": "69", "term": "Phonolite", "match": "Igneous (Extrusive)" },
+
+  { "id": "70", "term": "Laterite", "match": "Sedimentary (Chemical)" },
+  { "id": "71", "term": "Saprolite", "match": "Sedimentary (Clastic)" },
+
+  { "id": "72", "term": "Quartz Arenite", "match": "Sedimentary (Clastic)" },
+  { "id": "73", "term": "Subarkose", "match": "Sedimentary (Clastic)" },
+
+  { "id": "74", "term": "Carbonatite", "match": "Igneous (Intrusive)" },
+  { "id": "75", "term": "Kimberlite", "match": "Igneous (Intrusive)" },
+
+  { "id": "76", "term": "Hornblende Schist", "match": "Metamorphic (Foliated)" },
+  { "id": "77", "term": "Mica Schist", "match": "Metamorphic (Foliated)" },
+
+  { "id": "78", "term": "Greenschist", "match": "Metamorphic (Foliated)" },
+  { "id": "79", "term": "Granulite", "match": "Metamorphic (Non-Foliated)" },
+
+  { "id": "80", "term": "Syenodiorite", "match": "Igneous (Intrusive)" },
+  { "id": "81", "term": "Latite", "match": "Igneous (Extrusive)" },
+
+  { "id": "82", "term": "Caliche", "match": "Sedimentary (Chemical)" },
+  { "id": "83", "term": "Tufa", "match": "Sedimentary (Chemical)" },
+
+  { "id": "84", "term": "Phosphorite", "match": "Sedimentary (Chemical)" },
+  { "id": "85", "term": "Oil Shale", "match": "Sedimentary (Organic)" },
+
+  { "id": "86", "term": "Arkose Sandstone", "match": "Sedimentary (Clastic)" },
+  { "id": "87", "term": "Lithic Sandstone", "match": "Sedimentary (Clastic)" },
+
+  { "id": "88", "term": "Dunite", "match": "Igneous (Intrusive)" },
+  { "id": "89", "term": "Harzburgite", "match": "Igneous (Intrusive)" },
+
+  { "id": "90", "term": "Wehrlite", "match": "Igneous (Intrusive)" },
+  { "id": "91", "term": "Nephelinite", "match": "Igneous (Extrusive)" },
+
+  { "id": "92", "term": "Scoriaceous Basalt", "match": "Igneous (Extrusive)" },
+  { "id": "93", "term": "Aphanitic Basalt", "match": "Igneous (Extrusive)" },
+
+  { "id": "94", "term": "Porphyritic Andesite", "match": "Igneous (Extrusive)" },
+  { "id": "95", "term": "Porphyritic Granite", "match": "Igneous (Intrusive)" },
+
+  { "id": "96", "term": "Meta-basalt", "match": "Metamorphic (Non-Foliated)" },
+  { "id": "97", "term": "Meta-rhyolite", "match": "Metamorphic (Non-Foliated)" },
+
+  { "id": "98", "term": "Calc-silicate Rock", "match": "Metamorphic (Non-Foliated)" },
+  { "id": "99", "term": "Quartz Schist", "match": "Metamorphic (Foliated)" },
+
+  { "id": "100", "term": "Feldspathic Sandstone", "match": "Sedimentary (Clastic)" },
+
+  { "id": "101", "term": "Granodiorite", "match": "Igneous (Intrusive)" },
+  { "id": "102", "term": "Quartz Diorite", "match": "Igneous (Intrusive)" },
+  { "id": "103", "term": "Microgranite", "match": "Igneous (Intrusive)" },
+  { "id": "104", "term": "Aplite", "match": "Igneous (Intrusive)" },
+  { "id": "105", "term": "Lamprophyre", "match": "Igneous (Intrusive)" },
+
+  { "id": "106", "term": "Trachyandesite", "match": "Igneous (Extrusive)" },
+  { "id": "107", "term": "Basaltic Andesite", "match": "Igneous (Extrusive)" },
+  { "id": "108", "term": "Vesicular Basalt", "match": "Igneous (Extrusive)" },
+  { "id": "109", "term": "Glassy Rhyolite", "match": "Igneous (Extrusive)" },
+  { "id": "110", "term": "Perlite", "match": "Igneous (Extrusive)" },
+
+  { "id": "111", "term": "Cross-bedded Sandstone", "match": "Sedimentary (Clastic)" },
+  { "id": "112", "term": "Ripple-marked Sandstone", "match": "Sedimentary (Clastic)" },
+  { "id": "113", "term": "Red Bed Sandstone", "match": "Sedimentary (Clastic)" },
+  { "id": "114", "term": "Varved Clay", "match": "Sedimentary (Clastic)" },
+  { "id": "115", "term": "Glacial Tillite", "match": "Sedimentary (Clastic)" },
+
+  { "id": "116", "term": "Fossil Hash Limestone", "match": "Sedimentary (Organic)" },
+  { "id": "117", "term": "Reef Limestone", "match": "Sedimentary (Organic)" },
+  { "id": "118", "term": "Shell Limestone", "match": "Sedimentary (Organic)" },
+
+  { "id": "119", "term": "Chemical Gypsum", "match": "Sedimentary (Chemical)" },
+  { "id": "120", "term": "Rock Anhydrite", "match": "Sedimentary (Chemical)" },
+  { "id": "121", "term": "Siliceous Chert", "match": "Sedimentary (Chemical)" },
+  { "id": "122", "term": "Bedded Chert", "match": "Sedimentary (Chemical)" },
+
+  { "id": "123", "term": "Low-grade Slate", "match": "Metamorphic (Foliated)" },
+  { "id": "124", "term": "Intermediate Phyllite", "match": "Metamorphic (Foliated)" },
+  { "id": "125", "term": "Garnet Schist", "match": "Metamorphic (Foliated)" },
+  { "id": "126", "term": "Kyanite Schist", "match": "Metamorphic (Foliated)" },
+  { "id": "127", "term": "Banded Gneiss", "match": "Metamorphic (Foliated)" },
+
+  { "id": "128", "term": "Migmatite", "match": "Metamorphic (Foliated)" },
+  { "id": "129", "term": "Augen Gneiss", "match": "Metamorphic (Foliated)" },
+
+  { "id": "130", "term": "Massive Marble", "match": "Metamorphic (Non-Foliated)" },
+  { "id": "131", "term": "Recrystallized Limestone", "match": "Metamorphic (Non-Foliated)" },
+  { "id": "132", "term": "Silicified Sandstone", "match": "Metamorphic (Non-Foliated)" },
+
+  { "id": "133", "term": "Contact Hornfels", "match": "Metamorphic (Non-Foliated)" },
+  { "id": "134", "term": "Thermal Quartzite", "match": "Metamorphic (Non-Foliated)" },
+
+  { "id": "135", "term": "Meta-conglomerate", "match": "Metamorphic (Non-Foliated)" },
+  { "id": "136", "term": "Meta-siltstone", "match": "Metamorphic (Foliated)" },
+
+  { "id": "137", "term": "Amphibole-rich Rock", "match": "Metamorphic (Foliated)" },
+  { "id": "138", "term": "Chlorite Schist", "match": "Metamorphic (Foliated)" },
+
+  { "id": "139", "term": "Epidote Amphibolite", "match": "Metamorphic (Foliated)" },
+  { "id": "140", "term": "Serpentinized Peridotite", "match": "Metamorphic (Non-Foliated)" },
+
+  { "id": "141", "term": "Lateritic Soil Rock", "match": "Sedimentary (Chemical)" },
+  { "id": "142", "term": "Bauxite", "match": "Sedimentary (Chemical)" },
+
+  { "id": "143", "term": "Turbidite Sandstone", "match": "Sedimentary (Clastic)" },
+  { "id": "144", "term": "Deep Marine Shale", "match": "Sedimentary (Clastic)" },
+
+  { "id": "145", "term": "Subduction Zone Blueschist", "match": "Metamorphic (Foliated)" },
+  { "id": "146", "term": "High-pressure Eclogite", "match": "Metamorphic (Non-Foliated)" },
+
+  { "id": "147", "term": "Columnar Basalt", "match": "Igneous (Extrusive)" },
+  { "id": "148", "term": "Porphyritic Basalt", "match": "Igneous (Extrusive)" },
+
+  { "id": "149", "term": "Porphyritic Granite", "match": "Igneous (Intrusive)" },
+  { "id": "150", "term": "Fine-grained Diorite", "match": "Igneous (Intrusive)" }
+]

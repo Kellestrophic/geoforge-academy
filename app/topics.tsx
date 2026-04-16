@@ -1,59 +1,53 @@
-import questionsData from "@/data/questions.json";
+import { theme } from "@/lib/theme";
+import { TOPIC_LIST } from "@/lib/topics";
 import { router } from "expo-router";
-import { useRef } from "react";
-import { Pressable, ScrollView, Text } from "react-native";
+import { Pressable, ScrollView, Text, View } from "react-native";
 
-const questions = questionsData as any[];
-
-
-const baseTopics = [...new Set(questions.map((q: any) => q.category))];
-
-const topics = Array.from(
-  new Set(questions.map((q: any) => q.category))
-);
-console.log("ALL QUESTIONS:", questions);
-console.log("TOPICS:", topics);export default function TopicsScreen() {
-  const tapLock = useRef(false);
-
+export default function TopicsScreen() {
   return (
-   <ScrollView
-  style={{ backgroundColor: "#0f172a" }}
-  contentContainerStyle={{
-    padding: 20,
-    paddingBottom: 100,
-  }}
->
-
-      <Text style={{ fontSize: 24, color: "white", marginBottom: 20 }}>
-        Select Topic
+    <ScrollView
+      contentContainerStyle={{
+        padding: 20,
+        backgroundColor: theme.colors.background,
+      }}
+    >
+      <Text
+        style={{
+          color: theme.colors.text,
+          fontSize: 26,
+          fontWeight: "bold",
+          marginBottom: 20,
+        }}
+      >
+        Topics
       </Text>
 
-      {topics.map((topic) => (
-        <Pressable
-          key={topic}
-          onPress={() =>
-            router.push({
-              pathname: "/practice",
-              params: { topic },
-            } as any)
-          }
-          style={{
-            backgroundColor: "#1e293b",
-            padding: 15,
-            borderRadius: 10,
-            marginBottom: 10,
-          }}
-        >
-       <Text style={{ color: "white", fontSize: 16 }}>
-  {topic}
-</Text>
-
-<Text style={{ color: "#94a3b8", marginTop: 3 }}>
-  {questions.filter((q: any) => q.category === topic).length} questions
-</Text>
-        </Pressable>
-      ))}
-
+      <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
+        {TOPIC_LIST.map((topic) => (
+          <Pressable
+            key={topic}
+            onPress={() =>
+              router.push({
+                pathname: "/practice",
+                params: { topic },
+              })
+            }
+            style={{
+              padding: 16,
+              borderRadius: 12,
+              backgroundColor: "#1e293b",
+              borderWidth: 2,
+              borderColor: theme.colors.border,
+              marginRight: 10,
+              marginBottom: 10,
+            }}
+          >
+            <Text style={{ color: "white", fontSize: 16 }}>
+              {topic === "MineralFormulas" ? "Mineral Formulas" : topic}
+            </Text>
+          </Pressable>
+        ))}
+      </View>
     </ScrollView>
   );
 }
