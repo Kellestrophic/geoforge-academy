@@ -1,160 +1,105 @@
-import { useUser } from "@/context/UserContext";
 import { supabase } from "@/lib/supabase";
-import { theme as rawTheme } from "@/lib/theme";
-import { useEffect } from "react";
+import { theme } from "@/lib/theme";
+import { useEffect, useState } from "react";
 import { ScrollView, Text, View } from "react-native";
-
-const theme = rawTheme ?? {
-  colors: {
-    background: "#000",
-    text: "#fff",
-    subtext: "#aaa",
-    accent: "#0ea5e9",
-  },
-};
-
-function getLevelData(xp: number) {
-  let level = 1;
-  let xpRemaining = xp;
-  let neededXp = 100;
-
-  while (xpRemaining >= neededXp) {
-    xpRemaining -= neededXp;
-    level++;
-    neededXp = Math.floor(neededXp * 1.25);
-  }
-
-  return {
-    level,
-    currentLevelXp: xpRemaining,
-    neededXp,
-    progress: neededXp ? xpRemaining / neededXp : 0,
-  };
-}
-
-function getRank(level: number) {
-  if (level <= 3) return "Beginner";
-  if (level <= 6) return "Apprentice";
-  if (level <= 10) return "Field Geologist";
-  if (level <= 15) return "Geologist Spartan";
-  return "Master Geologist";
-}
-
-async function getCurrentUserId() {
-  try {
-    const {
-      data: { session },
-    } = await supabase.auth.getSession();
-
-    return session?.user?.id ?? null;
-  } catch (e) {
-    console.log("❌ getSession failed:", e);
-    return null;
-  }
-}
+import Svg, { Circle, Line } from "react-native-svg";
 
 export default function ProfileScreen() {
-  const { user, setUser } = useUser();
+  const [examHistory, setExamHistory] = useState<any[]>([]);
 
   useEffect(() => {
-    async function loadProfile() {
-      try {
-        let userId = await getCurrentUserId();
+    let mounted = true;
 
-        // 🔥 fallback: anonymous login if needed
-        if (!userId) {
-          const { data } = await supabase.auth.signInAnonymously();
-          userId = data?.user?.id ?? null;
-        }
+    async function load() {
+      try {
+        const res = await supabase.auth.getUser();
+        const userId = res?.data?.user?.id;
 
         if (!userId) return;
 
-        // 🔥 ensure profile exists
-        await supabase.from("profiles").upsert(
-          { id: userId, xp: 0, streak: 0 },
-          { onConflict: "id" }
-        );
-
         const { data } = await supabase
-          .from("profiles")
-          .select("xp, streak")
-          .eq("id", userId)
-          .maybeSingle();
+          .from("exam_history")
+          .select("*")
+          .eq("user_id", userId)
+          .order("date", { ascending: true });
 
-        setUser({
-          xp: data?.xp ?? 0,
-          streak: data?.streak ?? 0,
-        });
-
+        if (mounted) {
+          setExamHistory(data || []);
+        }
       } catch (e) {
-        console.log("❌ Profile load failed:", e);
+        console.log("LOAD ERROR:", e);
       }
     }
 
-    loadProfile();
+    load();
+
+    return () => {
+      mounted = false;
+    };
   }, []);
 
-  if (!user) {
-    return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.colors.background }}>
-        <Text style={{ color: theme.colors.text }}>Loading...</Text>
-      </View>
-    );
-  }
-
-  const levelData = getLevelData(user?.xp ?? 0);
+  const width = 300 + examHistory.length * 60;
 
   return (
     <ScrollView
       contentContainerStyle={{
         padding: 20,
         backgroundColor: theme.colors.background,
-        paddingBottom: 100,
+        flexGrow: 1,
       }}
-      showsVerticalScrollIndicator={false}
     >
-      <Text style={{ color: theme.colors.text, fontSize: 28, fontWeight: "bold" }}>
-        Your Progress
+      <Text style={{ color: theme.colors.text, fontSize: 26, fontWeight: "bold" }}>
+        Performance
       </Text>
 
-      <View style={{ marginTop: 30 }}>
-        <Text style={{ color: theme.colors.subtext }}>XP</Text>
-        <Text style={{ color: theme.colors.text, fontSize: 22 }}>
-          {user.xp}
-        </Text>
+      <Text style={{ color: "white", marginTop: 10 }}>
+        Exams Loaded: {examHistory.length}
+      </Text>
 
-        <Text style={{ color: theme.colors.accent, marginTop: 5 }}>
-          Level {levelData.level} — {getRank(levelData.level)}
-        </Text>
+      <View
+        style={{
+          marginTop: 20,
+          borderWidth: 2,
+          borderColor: theme.colors.border,
+          borderRadius: 12,
+          padding: 10,
+        }}
+      >
+        <ScrollView horizontal>
+          <Svg height={220} width={width}>
 
-        <View
-          style={{
-            marginTop: 10,
-            height: 10,
-            backgroundColor: "#1e293b",
-            borderRadius: 10,
-            overflow: "hidden",
-          }}
-        >
-          <View
-            style={{
-              width: `${Math.max(0, Math.min(100, levelData.progress * 100))}%`,
-              height: "100%",
-              backgroundColor: theme.colors.accent,
-            }}
-          />
-        </View>
+            {/* LINES */}
+            {examHistory.map((exam, i) => {
+              if (i === 0) return null;
 
-        <Text style={{ color: theme.colors.subtext, marginTop: 5 }}>
-          {levelData.currentLevelXp} / {levelData.neededXp} XP
-        </Text>
+              const prev = examHistory[i - 1];
 
-        <Text style={{ color: theme.colors.subtext, marginTop: 20 }}>
-          Daily Streak
-        </Text>
-        <Text style={{ color: theme.colors.text, fontSize: 22 }}>
-          {user.streak}
-        </Text>
+              return (
+                <Line
+                  key={i}
+                  x1={(i - 1) * 60 + 20}
+                  y1={200 - (prev?.score || 0) * 1.5}
+                  x2={i * 60 + 20}
+                  y2={200 - (exam?.score || 0) * 1.5}
+                  stroke="#64748b"
+                  strokeWidth="2"
+                />
+              );
+            })}
+
+            {/* DOTS */}
+            {examHistory.map((exam, i) => (
+              <Circle
+                key={i}
+                cx={i * 60 + 20}
+                cy={200 - (exam?.score || 0) * 1.5}
+                r="5"
+                fill="#ffffff"
+              />
+            ))}
+
+          </Svg>
+        </ScrollView>
       </View>
     </ScrollView>
   );

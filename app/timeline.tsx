@@ -9,26 +9,21 @@ type TimeItem = {
 };
 
 const FULL_TIMELINE: TimeItem[] = [
-  { id: "1", name: "Hadean", order: 1 },
-  { id: "2", name: "Archean", order: 2 },
-  { id: "3", name: "Proterozoic", order: 3 },
-  { id: "4", name: "Cambrian", order: 4 },
-  { id: "5", name: "Ordovician", order: 5 },
-  { id: "6", name: "Silurian", order: 6 },
-  { id: "7", name: "Devonian", order: 7 },
-  { id: "8", name: "Carboniferous", order: 8 },
-  { id: "9", name: "Permian", order: 9 },
-  { id: "10", name: "Triassic", order: 10 },
-  { id: "11", name: "Jurassic", order: 11 },
-  { id: "12", name: "Cretaceous", order: 12 },
-  { id: "13", name: "Paleocene", order: 13 },
-  { id: "14", name: "Eocene", order: 14 },
-  { id: "15", name: "Oligocene", order: 15 },
-  { id: "16", name: "Miocene", order: 16 },
-  { id: "17", name: "Pliocene", order: 17 },
-  { id: "18", name: "Pleistocene", order: 18 },
-  { id: "19", name: "Holocene", order: 19 },
+  { id: "1", name: "Cambrian", order: 1 },
+  { id: "2", name: "Ordovician", order: 2 },
+  { id: "3", name: "Silurian", order: 3 },
+  { id: "4", name: "Devonian", order: 4 },
+  { id: "5", name: "Carboniferous", order: 5 },
+  { id: "6", name: "Permian", order: 6 },
+  { id: "7", name: "Triassic", order: 7 },
+  { id: "8", name: "Jurassic", order: 8 },
+  { id: "9", name: "Cretaceous", order: 9 },
 ];
+
+const GROUPS: Record<string, string[]> = {
+  Paleozoic: ["Cambrian","Ordovician","Silurian","Devonian","Carboniferous","Permian"],
+  Mesozoic: ["Triassic","Jurassic","Cretaceous"],
+};
 
 function shuffle<T>(arr: T[]): T[] {
   return [...arr].sort(() => Math.random() - 0.5);
@@ -36,173 +31,221 @@ function shuffle<T>(arr: T[]): T[] {
 
 export default function TimelineGame() {
   const [mode, setMode] = useState<"easy" | "medium" | "hard">("easy");
+  const [questionType, setQuestionType] = useState<
+    "timeline" | "group" | "pair" | "not" | "before" | "oldest"
+  >("timeline");
 
   const [items, setItems] = useState<TimeItem[]>([]);
   const [placed, setPlaced] = useState<(TimeItem | null)[]>([]);
   const [selected, setSelected] = useState<TimeItem | null>(null);
-
-  const [hardOrder, setHardOrder] = useState<{ [id: string]: number }>({});
-  const [currentOrder, setCurrentOrder] = useState(1);
+  const [selectedGroup, setSelectedGroup] = useState<string[]>([]);
 
   const [checked, setChecked] = useState(false);
+  const [targetGroup, setTargetGroup] = useState("");
+
+  const [showModal, setShowModal] = useState(false);
+  const [lastResultCorrect, setLastResultCorrect] = useState(false);
+
+  // 🔥 HARD MODE
+  const [hardOrder, setHardOrder] = useState<{ [id: string]: number }>({});
+  const [currentOrder, setCurrentOrder] = useState(1);
 
   useEffect(() => {
     startRound();
   }, [mode]);
 
   function startRound() {
+    setChecked(false);
+    setSelected(null);
+    setSelectedGroup([]);
+    setShowModal(false);
+
     if (mode === "hard") {
-      setItems(FULL_TIMELINE);
+      setQuestionType("timeline");
+      setItems(shuffle(FULL_TIMELINE));
       setHardOrder({});
       setCurrentOrder(1);
-    } else {
-      let size = mode === "easy" ? 4 : 6;
+      return;
+    }
 
+    const rand = Math.random();
+    const keys = Object.keys(GROUPS);
+    const group = keys[Math.floor(Math.random() * keys.length)];
+    setTargetGroup(group);
+
+    if (rand < 0.4) {
+      setQuestionType("timeline");
+
+      const size = mode === "easy" ? 4 : 6;
       const selectedSet = shuffle(FULL_TIMELINE).slice(0, size);
       const ordered = [...selectedSet].sort((a, b) => a.order - b.order);
 
       setItems(shuffle(ordered));
       setPlaced(new Array(ordered.length).fill(null));
-    }
+    } else {
+      setItems(shuffle(FULL_TIMELINE).slice(0, 6));
 
-    setSelected(null);
-    setChecked(false);
+      if (rand < 0.55) setQuestionType("group");
+      else if (rand < 0.7) setQuestionType("pair");
+      else if (rand < 0.85) setQuestionType("not");
+      else if (rand < 0.95) setQuestionType("before");
+      else setQuestionType("oldest");
+    }
   }
 
   function placeItem(index: number) {
-    if (!selected) return;
-
     const newPlaced = [...placed];
 
-    // REMOVE if clicking same item again
-    if (newPlaced[index]?.id === selected.id) {
+    if (newPlaced[index]) {
+      const removed = newPlaced[index];
       newPlaced[index] = null;
       setPlaced(newPlaced);
-      setItems([...items, selected]);
-      setSelected(null);
+      setItems([...items, removed!]);
       return;
     }
 
-    // PLACE
-    if (!newPlaced[index]) {
+    if (selected) {
       newPlaced[index] = selected;
       setPlaced(newPlaced);
-      setItems(items.filter((i) => i.id !== selected.id));
+      setItems(items.filter(i => i.id !== selected.id));
       setSelected(null);
+    }
+  }
+
+  function toggle(name: string) {
+    if (selectedGroup.includes(name)) {
+      setSelectedGroup(selectedGroup.filter(n => n !== name));
+    } else {
+      setSelectedGroup([...selectedGroup, name]);
     }
   }
 
   function handleHardClick(item: TimeItem) {
-    // REMOVE if already placed
     if (hardOrder[item.id]) {
-      const newOrder = { ...hardOrder };
-      delete newOrder[item.id];
-      setHardOrder(newOrder);
+      const copy = { ...hardOrder };
+      delete copy[item.id];
+      setHardOrder(copy);
       return;
     }
 
-    setHardOrder((prev) => ({
+    setHardOrder(prev => ({
       ...prev,
       [item.id]: currentOrder,
     }));
 
-    setCurrentOrder((prev) => prev + 1);
+    setCurrentOrder(prev => prev + 1);
   }
 
-  function checkAnswers() {
+  function isCorrectAnswer(name: string) {
+    if (questionType === "group" || questionType === "pair") {
+      return GROUPS[targetGroup].includes(name);
+    }
+    if (questionType === "not") {
+      return !GROUPS[targetGroup].includes(name);
+    }
+    if (questionType === "before") {
+      const j = FULL_TIMELINE.find(i => i.name === "Jurassic");
+      const i = FULL_TIMELINE.find(i => i.name === name);
+      return i!.order < j!.order;
+    }
+    if (questionType === "oldest") {
+      const min = Math.min(...items.map(i => i.order));
+      return FULL_TIMELINE.find(i => i.name === name)!.order === min;
+    }
+    return false;
+  }
+
+  function handleCheck() {
     setChecked(true);
-  }
 
-  function isCorrect(item: TimeItem | null, index: number) {
-    if (!item) return false;
-    return item.order === index + 1;
-  }
+    if (mode === "hard") {
+      const allCorrect = items.every(
+        item => hardOrder[item.id] === item.order
+      );
+      setLastResultCorrect(allCorrect);
+      setShowModal(true);
+      return;
+    }
 
-  function isHardCorrect(item: TimeItem) {
-    return hardOrder[item.id] === item.order;
+    const correctAnswers = items
+      .filter(i => isCorrectAnswer(i.name))
+      .map(i => i.name);
+
+    const gotAll =
+      correctAnswers.length ===
+        selectedGroup.filter(n => correctAnswers.includes(n)).length &&
+      selectedGroup.every(n => correctAnswers.includes(n));
+
+    setLastResultCorrect(gotAll);
+    setShowModal(true);
   }
 
   return (
-    <ScrollView
-      contentContainerStyle={{
-        paddingHorizontal: 16,
-        paddingTop: 20,
-        paddingBottom: 40,
-        backgroundColor: theme.colors.background,
-      }}
-    >
-      <Text style={{ color: theme.colors.text, fontSize: 24 }}>
-        Timeline Builder
-      </Text>
+    <ScrollView style={{ flex: 1, backgroundColor: theme.colors.background }} contentContainerStyle={{ padding: 16 }}>
+      
+      <Text style={{ color: "white", fontSize: 24 }}>Timeline Game</Text>
 
-      {/* MODE */}
-      <View style={{ flexDirection: "row", gap: 10, marginVertical: 15 }}>
-        {[
-          { label: "Easy", value: "easy" },
-          { label: "Medium", value: "medium" },
-          { label: "Hard", value: "hard" },
-        ].map((d) => (
+      {/* MODE SELECT */}
+      <View style={{ flexDirection: "row", gap: 10, marginVertical: 10 }}>
+        {["easy", "medium", "hard"].map(m => (
           <Pressable
-            key={d.value}
-            onPress={() => setMode(d.value as any)}
+            key={m}
+            onPress={() => setMode(m as any)}
             style={{
               padding: 10,
               borderRadius: 8,
-              backgroundColor:
-                mode === d.value ? "#22c55e" : "#1e293b",
+              backgroundColor: mode === m ? "#22c55e" : "#1e293b"
             }}
           >
-            <Text style={{ color: "white" }}>{d.label}</Text>
+            <Text style={{ color: "white" }}>{m}</Text>
           </Pressable>
         ))}
       </View>
 
-      {/* HARD MODE LABEL */}
-      {mode === "hard" && (
-        <Text style={{ color: "#94a3b8", marginBottom: 10 }}>
-          1 = Oldest
-        </Text>
+      {/* TIMELINE BUILDER */}
+      {questionType === "timeline" && mode !== "hard" && (
+        <>
+          {placed.map((slot, index) => (
+            <Pressable
+              key={index}
+              onPress={() => placeItem(index)}
+              style={{ padding: 16, marginBottom: 10, borderRadius: 12, backgroundColor: "#0f172a" }}
+            >
+              <Text style={{ color: "white", textAlign: "center" }}>
+                {slot ? slot.name : "Tap to place"}
+              </Text>
+            </Pressable>
+          ))}
+
+          {items.map(item => (
+            <Pressable
+              key={item.id}
+              onPress={() => setSelected(item)}
+              style={{
+                padding: 14,
+                marginBottom: 10,
+                borderRadius: 12,
+                backgroundColor: selected?.id === item.id ? "#22c55e" : "#1e293b"
+              }}
+            >
+              <Text style={{ color: "white", textAlign: "center" }}>
+                {item.name}
+              </Text>
+            </Pressable>
+          ))}
+        </>
       )}
 
-      {/* EASY/MEDIUM SLOTS */}
-      {mode !== "hard" && (
-        <View>
-          {placed.map((slot, index) => {
-            const correct = isCorrect(slot, index);
-
-            return (
-              <Pressable
-                key={index}
-                onPress={() => placeItem(index)}
-                style={{
-                  padding: 16,
-                  marginBottom: 10,
-                  borderRadius: 12,
-                  borderWidth: 2,
-                  borderColor:
-                    checked && slot
-                      ? correct
-                        ? "#22c55e"
-                        : "#dc2626"
-                      : "#334155",
-                  backgroundColor: "#0f172a",
-                }}
-              >
-                <Text style={{ color: "#e2e8f0", textAlign: "center" }}>
-                  {slot ? slot.name : "Tap to place"}
-                </Text>
-              </Pressable>
-            );
-          })}
-        </View>
-      )}
-
-      {/* HARD MODE LIST */}
+      {/* HARD MODE */}
       {mode === "hard" && (
-        <View>
-          {items.map((item) => {
-            const orderNum = hardOrder[item.id];
-            const correct = isHardCorrect(item);
+        <>
+          <Text style={{ color: "#94a3b8", marginBottom: 10 }}>
+            Tap to assign order (1 = oldest)
+          </Text>
+
+          {items.map(item => {
+            const num = hardOrder[item.id];
+            const correct = num === item.order;
 
             return (
               <Pressable
@@ -213,59 +256,75 @@ export default function TimelineGame() {
                   marginBottom: 10,
                   borderRadius: 12,
                   backgroundColor:
-                    checked && orderNum
+                    checked && num
                       ? correct
                         ? "#22c55e"
                         : "#dc2626"
-                      : "#1e293b",
+                      : "#1e293b"
                 }}
               >
                 <Text style={{ color: "white", textAlign: "center" }}>
-                  {item.name} {orderNum ? `(${orderNum})` : ""}
+                  {item.name} {num ? `(${num})` : ""}
                 </Text>
               </Pressable>
             );
           })}
-        </View>
+        </>
       )}
 
-      {/* ITEMS (for easy/medium only) */}
-      {mode !== "hard" && (
-        <View style={{ marginTop: 20 }}>
-          {items.map((item) => (
-            <Pressable
-              key={item.id}
-              onPress={() => setSelected(item)}
-              style={{
-                padding: 14,
-                marginBottom: 10,
-                borderRadius: 12,
-                backgroundColor:
-                  selected?.id === item.id ? "#22c55e" : "#1e293b",
-              }}
-            >
-              <Text style={{ color: "white", textAlign: "center" }}>
-                {item.name}
-              </Text>
-            </Pressable>
-          ))}
-        </View>
-      )}
-
-      {/* BUTTON */}
       <Pressable
-        onPress={checked ? startRound : checkAnswers}
+        onPress={checked ? startRound : handleCheck}
         style={{
           marginTop: 20,
-          backgroundColor: checked ? "#ef4444" : "#0ea5e9",
+          backgroundColor: "#0ea5e9",
           padding: 15,
-          borderRadius: 12,
+          borderRadius: 12
         }}
       >
         <Text style={{ color: "white", textAlign: "center" }}>
           {checked ? "New Round" : "Check"}
         </Text>
       </Pressable>
+
+      {/* POPUP */}
+      {showModal && (
+        <View style={{
+          position: "absolute",
+          top: 0, left: 0, right: 0, bottom: 0,
+          backgroundColor: "rgba(0,0,0,0.8)",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: 20
+        }}>
+          <View style={{
+            width: "100%",
+            backgroundColor: "#0f172a",
+            borderRadius: 16,
+            padding: 20
+          }}>
+            <Text style={{
+              fontSize: 22,
+              textAlign: "center",
+              color: lastResultCorrect ? "#22c55e" : "#dc2626",
+              marginBottom: 15
+            }}>
+              {lastResultCorrect ? "✅ Correct!" : "❌ Incorrect"}
+            </Text>
+
+            <Pressable
+              onPress={startRound}
+              style={{
+                backgroundColor: "#0ea5e9",
+                padding: 14,
+                borderRadius: 10
+              }}
+            >
+              <Text style={{ color: "white", textAlign: "center" }}>Next</Text>
+            </Pressable>
+          </View>
+        </View>
+      )}
+
     </ScrollView>
   );
 }
