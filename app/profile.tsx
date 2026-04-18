@@ -2,7 +2,6 @@ import { supabase } from "@/lib/supabase";
 import { theme } from "@/lib/theme";
 import { useEffect, useState } from "react";
 import { ScrollView, Text, View } from "react-native";
-import Svg, { Circle, Line } from "react-native-svg";
 
 /* ---------------- TYPES ---------------- */
 
@@ -25,16 +24,10 @@ export default function ProfileScreen() {
   const [examHistory, setExamHistory] = useState<Exam[]>([]);
   const [loading, setLoading] = useState(true);
 
-  /* ---------------- SAFE LOAD ---------------- */
-
   useEffect(() => {
     const load = async () => {
       try {
-        // ✅ CRITICAL DELAY (prevents native crash)
         await new Promise((r) => setTimeout(r, 300));
-
-        // ❌ DO NOT USE getUser() HERE (causes crash)
-        // Instead just pull all exams (temporary safe approach)
 
         const { data: exams, error } = await supabase
           .from("exam_history")
@@ -66,23 +59,7 @@ export default function ProfileScreen() {
     load();
   }, []);
 
-  /* ---------------- LOADING ---------------- */
-
-  if (loading) {
-    return null;
-  }
-
-  /* ---------------- BUILD GRAPH ---------------- */
-
-  const points = examHistory.map((exam, i) => ({
-    x: i * 60 + 20,
-    y: 200 - exam.score * 1.5,
-    color: COLORS[exam.type],
-  }));
-
-  const width = 300 + points.length * 60;
-
-  /* ---------------- UI ---------------- */
+  if (loading) return null;
 
   return (
     <ScrollView
@@ -103,7 +80,7 @@ export default function ProfileScreen() {
       </Text>
 
       <Text style={{ color: "white", marginTop: 10 }}>
-        Exams: {points.length}
+        Exams: {examHistory.length}
       </Text>
 
       <View
@@ -112,43 +89,13 @@ export default function ProfileScreen() {
           borderWidth: 2,
           borderColor: theme.colors.border,
           borderRadius: 12,
-          padding: 10,
+          padding: 20,
+          alignItems: "center",
         }}
       >
-        <ScrollView horizontal>
-          <Svg height={220} width={width}>
-
-            {/* LINES */}
-            {points.map((p, i) => {
-              if (i === 0) return null;
-              const prev = points[i - 1];
-
-              return (
-                <Line
-                  key={`line-${i}`}
-                  x1={prev.x}
-                  y1={prev.y}
-                  x2={p.x}
-                  y2={p.y}
-                  stroke="#64748b"
-                  strokeWidth="2"
-                />
-              );
-            })}
-
-            {/* DOTS */}
-            {points.map((p, i) => (
-              <Circle
-                key={`dot-${i}`}
-                cx={p.x}
-                cy={p.y}
-                r={5}
-                fill={p.color}
-              />
-            ))}
-
-          </Svg>
-        </ScrollView>
+        <Text style={{ color: theme.colors.subtext }}>
+          📊 Graph temporarily disabled (fixing crash)
+        </Text>
       </View>
     </ScrollView>
   );
