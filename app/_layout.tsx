@@ -1,3 +1,7 @@
+// ✅ MUST BE FIRST (no imports above these)
+import 'react-native-gesture-handler';
+import 'react-native-reanimated';
+
 import { supabase } from "@/lib/supabase";
 import { theme } from "@/lib/theme";
 import { Stack } from "expo-router";
@@ -8,59 +12,56 @@ export default function Layout() {
   useEffect(() => {
     console.log("🚀 APP LOADED");
 
-async function initAuth() {
-  try {
-    console.log("🔐 INIT AUTH START");
+    async function initAuth() {
+      try {
+        console.log("🔐 INIT AUTH START");
 
-    // ✅ SAFE: get session (not getUser)
-    const { data: sessionData } = await supabase.auth.getSession();
-    let user = sessionData?.session?.user ?? undefined;
+        const { data: sessionData } = await supabase.auth.getSession();
+        let user = sessionData?.session?.user ?? undefined;
 
-    // 🔐 SIGN IN IF NEEDED
-    if (!user) {
-      console.log("🔐 NO USER — SIGNING IN ANON");
+        if (!user) {
+          console.log("🔐 NO USER — SIGNING IN ANON");
 
-      const { data: signInData, error } =
-        await supabase.auth.signInAnonymously();
+          const { data: signInData, error } =
+            await supabase.auth.signInAnonymously();
 
-      if (error) {
-        console.log("❌ AUTH ERROR:", error);
-        return;
+          if (error) {
+            console.log("❌ AUTH ERROR:", error);
+            return;
+          }
+
+          user = signInData?.user ?? undefined;
+
+          console.log("✅ SIGNED IN ANON:", user?.id);
+        } else {
+          console.log("✅ USER EXISTS:", user.id);
+        }
+
+        const userId = user?.id;
+
+        if (!userId) {
+          console.log("❌ STILL NO USER AFTER AUTH");
+          return;
+        }
+
+        const { error: upsertError } = await supabase
+          .from("users")
+          .upsert({ id: userId });
+
+        if (upsertError) {
+          console.log("❌ USER UPSERT ERROR:", upsertError);
+        } else {
+          console.log("✅ USER ROW READY");
+        }
+
+      } catch (e) {
+        console.log("❌ AUTH CRASH PREVENTED:", e);
       }
-
-      user = signInData?.user ?? undefined;
-
-      console.log("✅ SIGNED IN ANON:", user?.id);
-    } else {
-      console.log("✅ USER EXISTS:", user.id);
     }
 
-    const userId = user?.id;
-
-    if (!userId) {
-      console.log("❌ STILL NO USER AFTER AUTH");
-      return;
-    }
-
-    // 🔥 ENSURE USER ROW EXISTS
-    const { error: upsertError } = await supabase
-      .from("users")
-      .upsert({ id: userId });
-
-    if (upsertError) {
-      console.log("❌ USER UPSERT ERROR:", upsertError);
-    } else {
-      console.log("✅ USER ROW READY");
-    }
-
-  } catch (e) {
-    console.log("❌ AUTH CRASH PREVENTED:", e);
-  }
-}
-
-   setTimeout(() => {
-  initAuth();
-}, 500);
+    setTimeout(() => {
+      initAuth();
+    }, 500);
   }, []);
 
   return (
