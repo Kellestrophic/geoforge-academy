@@ -1,125 +1,154 @@
-import { useUser } from "@/context/UserContext";
+import { supabase } from "@/lib/supabase";
 import { theme } from "@/lib/theme";
 import { useEffect, useState } from "react";
 import { ScrollView, Text, View } from "react-native";
+import Svg, { Circle, Line } from "react-native-svg";
 
-function getLevelData(xp: number) {
-  let level = 1;
-  let xpRemaining = xp;
-  let neededXp = 100;
+/* ---------------- TYPES ---------------- */
 
-  while (xpRemaining >= neededXp) {
-    xpRemaining -= neededXp;
-    level++;
-    neededXp = Math.floor(neededXp * 1.25);
-  }
+type Exam = {
+  score: number;
+  type: "random" | "topic" | "pg";
+};
 
-  return {
-    level,
-    currentLevelXp: xpRemaining,
-    neededXp,
-    progress: currentLevelXpOrZero(xpRemaining, neededXp),
-  };
-}
+/* ---------------- COLORS ---------------- */
 
-function currentLevelXpOrZero(currentLevelXp: number, neededXp: number) {
-  if (!neededXp) return 0;
-  return currentLevelXp / neededXp;
-}
+const COLORS = {
+  random: "#f97316",
+  topic: "#3b82f6",
+  pg: "#22c55e",
+};
 
-function getRank(level: number) {
-  if (level <= 3) return "Beginner";
-  if (level <= 6) return "Apprentice";
-  if (level <= 10) return "Field Geologist";
-  if (level <= 15) return "Geologist Spartan";
-  return "Master Geologist";
-}
+/* ---------------- SCREEN ---------------- */
 
 export default function ProfileScreen() {
-  const { user } = useUser();
-  const [ready, setReady] = useState(false);
+  const [examHistory, setExamHistory] = useState<Exam[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const levelData = getLevelData(user?.xp ?? 0);
+  /* ---------------- SAFE LOAD ---------------- */
 
   useEffect(() => {
-    let mounted = true;
+    const load = async () => {
+      try {
+        // ✅ CRITICAL DELAY (prevents native crash)
+        await new Promise((r) => setTimeout(r, 300));
 
-    const timer = setTimeout(() => {
-      if (mounted) setReady(true);
-    }, 50);
+        // ❌ DO NOT USE getUser() HERE (causes crash)
+        // Instead just pull all exams (temporary safe approach)
 
-    return () => {
-      mounted = false;
-      clearTimeout(timer);
+        const { data: exams, error } = await supabase
+          .from("exam_history")
+          .select("*")
+          .order("created_at", { ascending: true });
+
+        if (error) {
+          console.log("LOAD ERROR:", error);
+        }
+
+        const safe: Exam[] = (exams || []).map((e: any) => ({
+          score: Number(e?.score) || 0,
+          type:
+            e?.type === "random" ||
+            e?.type === "topic" ||
+            e?.type === "pg"
+              ? e.type
+              : "random",
+        }));
+
+        setExamHistory(safe);
+      } catch (e) {
+        console.log("LOAD CRASH PREVENTED:", e);
+      }
+
+      setLoading(false);
     };
+
+    load();
   }, []);
 
-  if (!ready) return null;
+  /* ---------------- LOADING ---------------- */
+
+  if (loading) {
+    return null;
+  }
+
+  /* ---------------- BUILD GRAPH ---------------- */
+
+  const points = examHistory.map((exam, i) => ({
+    x: i * 60 + 20,
+    y: 200 - exam.score * 1.5,
+    color: COLORS[exam.type],
+  }));
+
+  const width = 300 + points.length * 60;
+
+  /* ---------------- UI ---------------- */
 
   return (
     <ScrollView
       contentContainerStyle={{
         padding: 20,
         backgroundColor: theme.colors.background,
-        paddingBottom: 100,
+        flexGrow: 1,
       }}
-      showsVerticalScrollIndicator={false}
     >
       <Text
         style={{
           color: theme.colors.text,
-          fontSize: 28,
+          fontSize: 26,
           fontWeight: "bold",
         }}
       >
-        Your Progress
+        Performance
       </Text>
 
-      <View style={{ marginTop: 30 }}>
-        <Text style={{ color: theme.colors.subtext }}>XP</Text>
-        <Text style={{ color: theme.colors.text, fontSize: 22 }}>
-          {user?.xp ?? 0} XP
-        </Text>
+      <Text style={{ color: "white", marginTop: 10 }}>
+        Exams: {points.length}
+      </Text>
 
-        <Text style={{ color: theme.colors.accent, marginTop: 5 }}>
-          Level {levelData.level} — {getRank(levelData.level)}
-        </Text>
+      <View
+        style={{
+          marginTop: 20,
+          borderWidth: 2,
+          borderColor: theme.colors.border,
+          borderRadius: 12,
+          padding: 10,
+        }}
+      >
+        <ScrollView horizontal>
+          <Svg height={220} width={width}>
 
-        <View
-          style={{
-            marginTop: 10,
-            height: 10,
-            backgroundColor: "#1e293b",
-            borderRadius: 10,
-            overflow: "hidden",
-          }}
-        >
-          <View
-            style={{
-              width: `${Math.max(0, Math.min(100, levelData.progress * 100))}%`,
-              height: "100%",
-              backgroundColor: theme.colors.accent,
-            }}
-          />
-        </View>
+            {/* LINES */}
+            {points.map((p, i) => {
+              if (i === 0) return null;
+              const prev = points[i - 1];
 
-        <Text style={{ color: theme.colors.subtext, marginTop: 5 }}>
-          {levelData.currentLevelXp} / {levelData.neededXp} XP
-        </Text>
+              return (
+                <Line
+                  key={`line-${i}`}
+                  x1={prev.x}
+                  y1={prev.y}
+                  x2={p.x}
+                  y2={p.y}
+                  stroke="#64748b"
+                  strokeWidth="2"
+                />
+              );
+            })}
 
-        <Text style={{ color: theme.colors.subtext, marginTop: 20 }}>
-          Daily Streak
-        </Text>
-        <Text style={{ color: theme.colors.text, fontSize: 22 }}>
-          {user?.streak ?? 0}
-        </Text>
+            {/* DOTS */}
+            {points.map((p, i) => (
+              <Circle
+                key={`dot-${i}`}
+                cx={p.x}
+                cy={p.y}
+                r={5}
+                fill={p.color}
+              />
+            ))}
 
-        <Text style={{ color: theme.colors.subtext, marginTop: 20 }}>
-          Exams Completed
-        </Text>
-        <Text style={{ color: theme.colors.text, fontSize: 22 }}>
-          0
-        </Text>
+          </Svg>
+        </ScrollView>
       </View>
     </ScrollView>
   );
