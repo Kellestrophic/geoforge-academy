@@ -1,15 +1,16 @@
+import { useUser } from "@/context/UserContext";
 import mineralogyFB from "@/data/mineralogyFB.json";
 import mineralogyMC from "@/data/mineralogyMC.json";
 import petrologyFB from "@/data/petrologyFB.json";
 import petrologyMC from "@/data/petrologyMC.json";
 import questionsData from "@/data/questions.json";
-import { supabase } from "@/lib/supabase";
 import { theme } from "@/lib/theme";
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
+
 /* ---------------- HELPERS ---------------- */
-const [saved, setSaved] = useState(false);
+
 function shuffleArray<T>(array: T[]): T[] {
   return [...array].sort(() => Math.random() - 0.5);
 }
@@ -18,25 +19,25 @@ function shuffleArray<T>(array: T[]): T[] {
 
 export default function ExamScreen() {
   const params = useLocalSearchParams();
-const TOPIC_QUESTIONS: Record<string, { mc: any[]; fb: any[] }> = {
-  Mineralogy: {
-    mc: mineralogyMC,
-    fb: mineralogyFB,
-  },
-  Petrology: {
-    mc: petrologyMC,
-    fb: petrologyFB,
-  },
-};
+  const { addExam } = useUser();
+
+  const [saved, setSaved] = useState(false);
+
+  const TOPIC_QUESTIONS: Record<string, { mc: any[]; fb: any[] }> = {
+    Mineralogy: { mc: mineralogyMC, fb: mineralogyFB },
+    Petrology: { mc: petrologyMC, fb: petrologyFB },
+  };
 
   const count = Number(params.count) || 20;
   const timeLimit = Number(params.time) || 30;
-const mode =
-  typeof params.mode === "string"
-    ? params.mode
-    : Array.isArray(params.mode)
-    ? params.mode[0]
-    : "random";
+
+  const mode =
+    typeof params.mode === "string"
+      ? params.mode
+      : Array.isArray(params.mode)
+      ? params.mode[0]
+      : "random";
+
   const selectedTopic = Array.isArray(params.topic)
     ? params.topic[0]
     : params.topic;
@@ -83,58 +84,6 @@ const mode =
     return () => clearInterval(timer);
   }, [finished]);
 
-  /* ---------------- SAVE RESULT (FIXED) ---------------- */
-
-  useEffect(() => {
-    if (!finished || questions.length === 0) return;
-
-    async function saveResult() {
-      const score = questions.reduce((acc, q, i) => {
-        return answers[i] === q.correctAnswer ? acc + 1 : acc;
-      }, 0);
-
-      const percent = Math.round((score / questions.length) * 100);
-      const now = new Date();
-
-      /* GET USER */
-
-      let userId: string | null = null;
-
-      try {
-        const response = await supabase.auth.getUser();
-        if (response?.data?.user?.id) {
-          userId = response.data.user.id;
-        }
-      } catch (e) {
-        console.log("getUser crash prevented:", e);
-      }
-
-      if (!userId) {
-        console.log("NO USER — EXAM NOT SAVED");
-        return;
-      }
-
-      /* SAVE EXAM */
-
-const { error } = await supabase.from("exam_history").insert({
-  user_id: userId,
-  score: percent,
-  type: typeof mode === "string" ? mode : "random",
-});
-
-      if (error) {
-        console.log("SAVE FAILED:", error);
-      } else {
-        console.log("EXAM SAVED:", {
-          score: percent,
-          type: mode,
-        });
-      }
-    }
-
-    saveResult();
-  }, [finished]);
-
   /* ---------------- UI ---------------- */
 
   if (questions.length === 0) {
@@ -156,8 +105,6 @@ const { error } = await supabase.from("exam_history").insert({
 
   function finishExam() {
     setFinished(true);
-    
-    
   }
 
   function calculateScore() {
@@ -166,23 +113,29 @@ const { error } = await supabase.from("exam_history").insert({
     }, 0);
   }
 
-if (finished) {
-  const score = calculateScore();
-  const percent = Math.round((score / questions.length) * 100);
+  /* ---------------- RESULT SCREEN ---------------- */
 
-  // ✅ PREVENT MULTIPLE SAVES
-  if (!saved) {
-    const rawMode = Array.isArray(params?.mode)
-      ? params.mode[0]
-      : params?.mode;
+  if (finished) {
+    const score = calculateScore();
+    const percent = Math.round((score / questions.length) * 100);
 
-    const mode: "random" | "topic" | "pg" =
-      rawMode === "topic" || rawMode === "pg" ? rawMode : "random";
+    if (!saved) {
+      const rawMode = Array.isArray(params?.mode)
+        ? params.mode[0]
+        : params?.mode;
 
+      const safeMode: "random" | "topic" | "pg" =
+        rawMode === "topic" || rawMode === "pg" ? rawMode : "random";
 
-    setSaved(true);
-  }
-// SAVE TO SUPABASE
+      // ✅ SAFE SAVE (NO CRASH)
+      addExam({
+        score: percent,
+        type: safeMode,
+      });
+
+      setSaved(true);
+    }
+
     return (
       <ScrollView
         contentContainerStyle={{
@@ -204,6 +157,8 @@ if (finished) {
       </ScrollView>
     );
   }
+
+  /* ---------------- EXAM UI ---------------- */
 
   return (
     <ScrollView contentContainerStyle={{ padding: 20 }}>

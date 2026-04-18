@@ -1,11 +1,11 @@
 import { theme } from "@/lib/theme";
-import { TOPIC_LIST } from "@/lib/topics";
-import { router } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 import { useState } from "react";
-import { Pressable, ScrollView, Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
 
 export default function ExamTopicSetup() {
-  const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
+  const { topic } = useLocalSearchParams<{ topic: string }>();
+
   const [questionCount, setQuestionCount] = useState(20);
   const [timeLimit, setTimeLimit] = useState(30);
 
@@ -37,8 +37,9 @@ export default function ExamTopicSetup() {
   }
 
   return (
-    <ScrollView
-      contentContainerStyle={{
+    <View
+      style={{
+        flex: 1,
         padding: 20,
         backgroundColor: theme.colors.background,
       }}
@@ -52,45 +53,15 @@ export default function ExamTopicSetup() {
           marginBottom: 20,
         }}
       >
-        Topic Exam
+        {topic} Exam
       </Text>
-
-      {/* TOPIC SELECT */}
-      <Text style={{ color: theme.colors.subtext, marginBottom: 10 }}>
-        Select Topic
-      </Text>
-
-      <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
-        {TOPIC_LIST.map((topic) => (
-          <Pressable
-            key={topic}
-            onPress={() => setSelectedTopic(topic)}
-            style={{
-              padding: 16,
-              borderRadius: 12,
-              backgroundColor:
-                selectedTopic === topic ? "#4CAF50" : "#1e293b",
-              borderWidth: 2,
-              borderColor: theme.colors.border,
-              marginRight: 10,
-              marginBottom: 10,
-            }}
-          >
-            <Text style={{ color: "white", fontSize: 16 }}>
-              {topic === "MineralFormulas"
-                ? "Mineral Formulas"
-                : topic}
-            </Text>
-          </Pressable>
-        ))}
-      </View>
 
       {/* QUESTION COUNT */}
-      <Text style={{ color: theme.colors.subtext, marginTop: 20 }}>
+      <Text style={{ color: theme.colors.subtext, marginBottom: 10 }}>
         Number of Questions
       </Text>
 
-      <View style={{ flexDirection: "row", flexWrap: "wrap", marginTop: 10 }}>
+      <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
         {[10, 20, 50, 100].map((num) => (
           <OptionButton
             key={num}
@@ -102,11 +73,11 @@ export default function ExamTopicSetup() {
       </View>
 
       {/* TIME LIMIT */}
-      <Text style={{ color: theme.colors.subtext, marginTop: 20 }}>
+      <Text style={{ color: theme.colors.subtext, marginTop: 20, marginBottom: 10 }}>
         Time Limit (minutes)
       </Text>
 
-      <View style={{ flexDirection: "row", flexWrap: "wrap", marginTop: 10 }}>
+      <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
         {[10, 30, 60, 120].map((time) => (
           <OptionButton
             key={time}
@@ -119,13 +90,12 @@ export default function ExamTopicSetup() {
 
       {/* START */}
       <Pressable
-        disabled={!selectedTopic}
         onPress={() =>
           router.push({
             pathname: "/exam",
             params: {
               mode: "topic",
-              topic: selectedTopic,
+              topic,
               count: questionCount,
               time: timeLimit,
             },
@@ -133,7 +103,7 @@ export default function ExamTopicSetup() {
         }
         style={{
           marginTop: 40,
-          backgroundColor: selectedTopic ? "#4CAF50" : "#555",
+          backgroundColor: "#4CAF50",
           padding: 18,
           borderRadius: 12,
         }}
@@ -142,6 +112,6 @@ export default function ExamTopicSetup() {
           Start Exam
         </Text>
       </Pressable>
-    </ScrollView>
+    </View>
   );
 }
