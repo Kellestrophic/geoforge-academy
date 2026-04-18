@@ -1,4 +1,4 @@
-// ✅ MUST BE FIRST (no imports above these)
+// ✅ MUST BE FIRST
 import 'react-native-gesture-handler';
 import 'react-native-reanimated';
 
@@ -7,59 +7,62 @@ import { theme } from "@/lib/theme";
 import { Stack } from "expo-router";
 import { useEffect } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-useEffect(() => {
-  console.log("🚀 APP LOADED");
 
-  const run = async () => {
-    try {
-      // wait for app to fully boot
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+export default function Layout() {
 
-      console.log("🔐 INIT AUTH START");
+  useEffect(() => {
+    console.log("🚀 APP LOADED");
 
-      const { data: sessionData } = await supabase.auth.getSession();
-      let user = sessionData?.session?.user ?? undefined;
+    const run = async () => {
+      try {
+        await new Promise((resolve) => setTimeout(resolve, 1500));
 
-      if (!user) {
-        console.log("🔐 NO USER — SIGNING IN ANON");
+        console.log("🔐 INIT AUTH START");
 
-        const { data: signInData, error } =
-          await supabase.auth.signInAnonymously();
+        const { data: sessionData } = await supabase.auth.getSession();
+        let user = sessionData?.session?.user ?? undefined;
 
-        if (error) {
-          console.log("❌ AUTH ERROR:", error);
+        if (!user) {
+          console.log("🔐 NO USER — SIGNING IN ANON");
+
+          const { data: signInData, error } =
+            await supabase.auth.signInAnonymously();
+
+          if (error) {
+            console.log("❌ AUTH ERROR:", error);
+            return;
+          }
+
+          user = signInData?.user ?? undefined;
+          console.log("✅ SIGNED IN ANON:", user?.id);
+        } else {
+          console.log("✅ USER EXISTS:", user.id);
+        }
+
+        const userId = user?.id;
+
+        if (!userId) {
+          console.log("❌ STILL NO USER AFTER AUTH");
           return;
         }
 
-        user = signInData?.user ?? undefined;
-        console.log("✅ SIGNED IN ANON:", user?.id);
-      } else {
-        console.log("✅ USER EXISTS:", user.id);
+        const { error: upsertError } = await supabase
+          .from("users")
+          .upsert({ id: userId });
+
+        if (upsertError) {
+          console.log("❌ USER UPSERT ERROR:", upsertError);
+        } else {
+          console.log("✅ USER ROW READY");
+        }
+
+      } catch (e) {
+        console.log("❌ AUTH CRASH PREVENTED:", e);
       }
+    };
 
-      const userId = user?.id;
-
-      if (!userId) {
-        console.log("❌ STILL NO USER AFTER AUTH");
-        return;
-      }
-
-      const { error: upsertError } = await supabase
-        .from("users")
-        .upsert({ id: userId });
-
-      if (upsertError) {
-        console.log("❌ USER UPSERT ERROR:", upsertError);
-      } else {
-        console.log("✅ USER ROW READY");
-      }
-    } catch (e) {
-      console.log("❌ AUTH CRASH PREVENTED:", e);
-    }
-  };
-
-  run();
-}, []);
+    run();
+  }, []);
 
   return (
     <SafeAreaProvider>
