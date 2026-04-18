@@ -2,67 +2,65 @@
 import 'react-native-gesture-handler';
 import 'react-native-reanimated';
 
-import { supabase } from "@/lib/supabase";
 import { theme } from "@/lib/theme";
 import { Stack } from "expo-router";
-import { useEffect } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function Layout() {
 
-  useEffect(() => {
-    console.log("🚀 APP LOADED");
+ // useEffect(() => {
+    //console.log("🚀 APP LOADED");
 
-    const run = async () => {
-      try {
-        await new Promise((resolve) => setTimeout(resolve, 1500));
+   // const run = async () => {
+     // try {
+    //    await new Promise((resolve) => setTimeout(resolve, 1500));
 
-        console.log("🔐 INIT AUTH START");
+     //   console.log("🔐 INIT AUTH START");
 
-        const { data: sessionData } = await supabase.auth.getSession();
-        let user = sessionData?.session?.user ?? undefined;
+     //   const { data: sessionData } = await supabase.auth.getSession();
+      //  let user = sessionData?.session?.user ?? undefined;
+//
+       // if (!user) {
+        //  console.log("🔐 NO USER — SIGNING IN ANON");
 
-        if (!user) {
-          console.log("🔐 NO USER — SIGNING IN ANON");
+        //  const { data: signInData, error } =
+           // await supabase.auth.signInAnonymously();
+//
+        //  if (error) {
+         //   console.log("❌ AUTH ERROR:", error);
+           // return;
+        //  }
 
-          const { data: signInData, error } =
-            await supabase.auth.signInAnonymously();
+        //  user = signInData?.user ?? undefined;
+        //  console.log("✅ SIGNED IN ANON:", user?.id);
+       // } else {
+      //    console.log("✅ USER EXISTS:", user.id);
+      //  }
 
-          if (error) {
-            console.log("❌ AUTH ERROR:", error);
-            return;
-          }
+     //   const userId = user?.id;
 
-          user = signInData?.user ?? undefined;
-          console.log("✅ SIGNED IN ANON:", user?.id);
-        } else {
-          console.log("✅ USER EXISTS:", user.id);
-        }
+      //  if (!userId) {
+      //    console.log("❌ STILL NO USER AFTER AUTH");
+      //    return;
+      //  }
 
-        const userId = user?.id;
+     //   const { error: upsertError } = await supabase
+     //     .from("users")
+      //    .upsert({ id: userId });
 
-        if (!userId) {
-          console.log("❌ STILL NO USER AFTER AUTH");
-          return;
-        }
+      //  if (upsertError) {
+      //    console.log("❌ USER UPSERT ERROR:", upsertError);
+      //  } else {
+      //    console.log("✅ USER ROW READY");
+     //   }
+//
+   //   } catch (e) {
+    //    console.log("❌ AUTH CRASH PREVENTED:", e);
+   //   }
+  //  };
 
-        const { error: upsertError } = await supabase
-          .from("users")
-          .upsert({ id: userId });
-
-        if (upsertError) {
-          console.log("❌ USER UPSERT ERROR:", upsertError);
-        } else {
-          console.log("✅ USER ROW READY");
-        }
-
-      } catch (e) {
-        console.log("❌ AUTH CRASH PREVENTED:", e);
-      }
-    };
-
-    run();
-  }, []);
+  //  run();
+  //}, []);
 
   return (
     <SafeAreaProvider>
