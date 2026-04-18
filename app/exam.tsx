@@ -1,16 +1,15 @@
 import mineralogyFB from "@/data/mineralogyFB.json";
 import mineralogyMC from "@/data/mineralogyMC.json";
-import questionsData from "@/data/questions.json";
-
 import petrologyFB from "@/data/petrologyFB.json";
 import petrologyMC from "@/data/petrologyMC.json";
+import questionsData from "@/data/questions.json";
 import { supabase } from "@/lib/supabase";
 import { theme } from "@/lib/theme";
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
 /* ---------------- HELPERS ---------------- */
-
+const [saved, setSaved] = useState(false);
 function shuffleArray<T>(array: T[]): T[] {
   return [...array].sort(() => Math.random() - 0.5);
 }
@@ -29,6 +28,7 @@ const TOPIC_QUESTIONS: Record<string, { mc: any[]; fb: any[] }> = {
     fb: petrologyFB,
   },
 };
+
   const count = Number(params.count) || 20;
   const timeLimit = Number(params.time) || 30;
 const mode =
@@ -156,6 +156,8 @@ const { error } = await supabase.from("exam_history").insert({
 
   function finishExam() {
     setFinished(true);
+    
+    
   }
 
   function calculateScore() {
@@ -164,9 +166,22 @@ const { error } = await supabase.from("exam_history").insert({
     }, 0);
   }
 
-  if (finished) {
-    const score = calculateScore();
-    const percent = Math.round((score / questions.length) * 100);
+if (finished) {
+  const score = calculateScore();
+  const percent = Math.round((score / questions.length) * 100);
+
+  // ✅ PREVENT MULTIPLE SAVES
+  if (!saved) {
+    const rawMode = Array.isArray(params?.mode)
+      ? params.mode[0]
+      : params?.mode;
+
+    const mode: "random" | "topic" | "pg" =
+      rawMode === "topic" || rawMode === "pg" ? rawMode : "random";
+
+
+    setSaved(true);
+  }
 // SAVE TO SUPABASE
     return (
       <ScrollView

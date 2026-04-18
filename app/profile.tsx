@@ -1,7 +1,7 @@
-import { supabase } from "@/lib/supabase";
+import { useUser } from "@/context/UserContext";
 import { theme } from "@/lib/theme";
-import { useEffect, useState } from "react";
 import { ScrollView, Text, View } from "react-native";
+import Svg, { Circle, Line } from "react-native-svg";
 
 /* ---------------- TYPES ---------------- */
 
@@ -12,7 +12,7 @@ type Exam = {
 
 /* ---------------- COLORS ---------------- */
 
-const COLORS = {
+const COLORS: Record<Exam["type"], string> = {
   random: "#f97316",
   topic: "#3b82f6",
   pg: "#22c55e",
@@ -21,45 +21,19 @@ const COLORS = {
 /* ---------------- SCREEN ---------------- */
 
 export default function ProfileScreen() {
-  const [examHistory, setExamHistory] = useState<Exam[]>([]);
-  const [loading, setLoading] = useState(true);
+  const { user } = useUser();
 
-  useEffect(() => {
-    const load = async () => {
-      try {
-        await new Promise((r) => setTimeout(r, 300));
+  const examHistory: Exam[] = user?.exams ?? [];
 
-        const { data: exams, error } = await supabase
-          .from("exam_history")
-          .select("*")
-          .order("created_at", { ascending: true });
+  /* ---------------- GRAPH ---------------- */
 
-        if (error) {
-          console.log("LOAD ERROR:", error);
-        }
+  const points = examHistory.map((exam: Exam, i: number) => ({
+    x: i * 60 + 20,
+    y: 200 - exam.score * 1.5,
+    color: COLORS[exam.type],
+  }));
 
-        const safe: Exam[] = (exams || []).map((e: any) => ({
-          score: Number(e?.score) || 0,
-          type:
-            e?.type === "random" ||
-            e?.type === "topic" ||
-            e?.type === "pg"
-              ? e.type
-              : "random",
-        }));
-
-        setExamHistory(safe);
-      } catch (e) {
-        console.log("LOAD CRASH PREVENTED:", e);
-      }
-
-      setLoading(false);
-    };
-
-    load();
-  }, []);
-
-  if (loading) return null;
+  const width = 300 + points.length * 60;
 
   return (
     <ScrollView
@@ -83,19 +57,48 @@ export default function ProfileScreen() {
         Exams: {examHistory.length}
       </Text>
 
+      {/* GRAPH */}
       <View
         style={{
           marginTop: 20,
           borderWidth: 2,
           borderColor: theme.colors.border,
           borderRadius: 12,
-          padding: 20,
-          alignItems: "center",
+          padding: 10,
         }}
       >
-        <Text style={{ color: theme.colors.subtext }}>
-          📊 Graph temporarily disabled (fixing crash)
-        </Text>
+        <ScrollView horizontal>
+          <Svg height={220} width={width}>
+            {/* LINES */}
+            {points.map((p, i) => {
+              if (i === 0) return null;
+              const prev = points[i - 1];
+
+              return (
+                <Line
+                  key={`line-${i}`}
+                  x1={prev.x}
+                  y1={prev.y}
+                  x2={p.x}
+                  y2={p.y}
+                  stroke="#64748b"
+                  strokeWidth="2"
+                />
+              );
+            })}
+
+            {/* DOTS */}
+            {points.map((p, i) => (
+              <Circle
+                key={`dot-${i}`}
+                cx={p.x}
+                cy={p.y}
+                r={5}
+                fill={p.color}
+              />
+            ))}
+          </Svg>
+        </ScrollView>
       </View>
     </ScrollView>
   );
