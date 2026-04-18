@@ -1,10 +1,14 @@
+import mineralogyFB from "@/data/mineralogyFB.json";
+import mineralogyMC from "@/data/mineralogyMC.json";
 import questionsData from "@/data/questions.json";
+
+import petrologyFB from "@/data/petrologyFB.json";
+import petrologyMC from "@/data/petrologyMC.json";
 import { supabase } from "@/lib/supabase";
 import { theme } from "@/lib/theme";
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
-
 /* ---------------- HELPERS ---------------- */
 
 function shuffleArray<T>(array: T[]): T[] {
@@ -15,10 +19,24 @@ function shuffleArray<T>(array: T[]): T[] {
 
 export default function ExamScreen() {
   const params = useLocalSearchParams();
-
+const TOPIC_QUESTIONS: Record<string, { mc: any[]; fb: any[] }> = {
+  Mineralogy: {
+    mc: mineralogyMC,
+    fb: mineralogyFB,
+  },
+  Petrology: {
+    mc: petrologyMC,
+    fb: petrologyFB,
+  },
+};
   const count = Number(params.count) || 20;
   const timeLimit = Number(params.time) || 30;
-  const mode = params.mode;
+const mode =
+  typeof params.mode === "string"
+    ? params.mode
+    : Array.isArray(params.mode)
+    ? params.mode[0]
+    : "random";
   const selectedTopic = Array.isArray(params.topic)
     ? params.topic[0]
     : params.topic;
@@ -98,12 +116,11 @@ export default function ExamScreen() {
 
       /* SAVE EXAM */
 
-      const { error } = await supabase.from("exam_history").insert({
-        user_id: userId,
-        score: percent,
-        date: now.toISOString(),
-        type: mode || "random",
-      });
+const { error } = await supabase.from("exam_history").insert({
+  user_id: userId,
+  score: percent,
+  type: typeof mode === "string" ? mode : "random",
+});
 
       if (error) {
         console.log("SAVE FAILED:", error);
@@ -150,7 +167,7 @@ export default function ExamScreen() {
   if (finished) {
     const score = calculateScore();
     const percent = Math.round((score / questions.length) * 100);
-
+// SAVE TO SUPABASE
     return (
       <ScrollView
         contentContainerStyle={{

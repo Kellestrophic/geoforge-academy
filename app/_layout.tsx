@@ -1,3 +1,4 @@
+import { supabase } from "@/lib/supabase";
 import { theme } from "@/lib/theme";
 import { Stack } from "expo-router";
 import { useEffect } from "react";
@@ -6,6 +7,57 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 export default function Layout() {
   useEffect(() => {
     console.log("🚀 APP LOADED");
+
+    async function initAuth() {
+      try {
+        let { data } = await supabase.auth.getUser();
+
+        // 🔐 SIGN IN IF NEEDED
+        if (!data?.user) {
+          console.log("🔐 NO USER — SIGNING IN ANON");
+
+          const { error } = await supabase.auth.signInAnonymously();
+
+          if (error) {
+            console.log("❌ AUTH ERROR:", error);
+            return;
+          }
+
+          console.log("✅ SIGNED IN ANON");
+
+          // get user again AFTER sign in
+          const res = await supabase.auth.getUser();
+          data = res.data;
+        } else {
+          console.log("✅ USER EXISTS:", data.user.id);
+        }
+
+        const userId = data?.user?.id;
+
+        if (!userId) {
+          console.log("❌ STILL NO USER AFTER AUTH");
+          return;
+        }
+
+        // 🔥 ENSURE USER ROW EXISTS
+        const { error: upsertError } = await supabase
+          .from("users")
+          .upsert({
+            id: userId,
+          });
+
+        if (upsertError) {
+          console.log("❌ USER UPSERT ERROR:", upsertError);
+        } else {
+          console.log("✅ USER ROW READY");
+        }
+
+      } catch (e) {
+        console.log("❌ AUTH CRASH:", e);
+      }
+    }
+
+    initAuth();
   }, []);
 
   return (

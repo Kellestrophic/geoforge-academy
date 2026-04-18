@@ -1,25 +1,27 @@
-import { supabase } from "@/lib/supabase";
+import { supabase } from "./supabase";
 
 export async function saveScore(score: number, type: string) {
   try {
-    const { data: { user } } = await supabase.auth.getUser();
+    const { data } = await supabase.auth.getUser();
+    const userId = data?.user?.id;
 
-    const userId = user?.id ?? "anonymous";
+    if (!userId) {
+      console.log("NO USER");
+      return;
+    }
 
-    const { error } = await supabase
-      .from("exam_history")
-      .insert([
-        {
-          user_id: userId,
-          score,
-          type,
-        },
-      ]);
+    const { error } = await supabase.from("exam_history").insert({
+      user_id: userId,
+      score: Number(score) || 0,
+      type: typeof type === "string" ? type : "random",
+    });
 
     if (error) {
-      console.log("Save error:", error.message);
+      console.log("SAVE ERROR:", error);
+    } else {
+      console.log("SAVED:", score, type);
     }
-  } catch (err) {
-    console.log("Save crash prevented:", err);
+  } catch (e) {
+    console.log("SAVE CRASH:", e);
   }
 }

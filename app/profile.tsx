@@ -4,41 +4,79 @@ import { useEffect, useState } from "react";
 import { ScrollView, Text, View } from "react-native";
 import Svg, { Circle, Line } from "react-native-svg";
 
+/* ---------------- TYPES ---------------- */
+
+type Exam = {
+  score: number;
+  type: "random" | "topic" | "pg";
+};
+
+/* ---------------- COLORS ---------------- */
+
+const COLORS = {
+  random: "#f97316",
+  topic: "#3b82f6",
+  pg: "#22c55e",
+};
+
+/* ---------------- SCREEN ---------------- */
+
 export default function ProfileScreen() {
-  const [examHistory, setExamHistory] = useState<any[]>([]);
+  const [examHistory, setExamHistory] = useState<Exam[]>([]);
+
+  /* ---------------- LOAD DATA ---------------- */
 
   useEffect(() => {
-    let mounted = true;
-
     async function load() {
       try {
-        const res = await supabase.auth.getUser();
-        const userId = res?.data?.user?.id;
+        const { data } = await supabase.auth.getUser();
+        const userId = data?.user?.id;
 
-        if (!userId) return;
+        if (!userId) {
+          console.log("NO USER");
+          return;
+        }
 
-        const { data } = await supabase
+        const { data: exams, error } = await supabase
           .from("exam_history")
           .select("*")
           .eq("user_id", userId)
-          .order("date", { ascending: true });
+          .order("created_at", { ascending: true });
 
-        if (mounted) {
-          setExamHistory(data || []);
+        if (error) {
+          console.log("LOAD ERROR:", error);
         }
+
+        const safe: Exam[] = (exams || []).map((e: any) => ({
+          score: Number(e?.score) || 0,
+          type:
+            e?.type === "random" ||
+            e?.type === "topic" ||
+            e?.type === "pg"
+              ? e.type
+              : "random",
+        }));
+
+        setExamHistory(safe);
       } catch (e) {
-        console.log("LOAD ERROR:", e);
+        console.log("LOAD CRASH:", e);
       }
     }
 
     load();
-
-    return () => {
-      mounted = false;
-    };
   }, []);
 
-  const width = 300 + examHistory.length * 60;
+  /* ---------------- BUILD GRAPH ---------------- */
+
+  const points = examHistory.map((exam, i) => ({
+    x: i * 60 + 20,
+    y: 200 - exam.score * 1.5,
+    color: COLORS[exam.type],
+  }));
+
+  const width = 300 + points.length * 60;
+
+  /* ---------------- UI ---------------- */
 
   return (
     <ScrollView
@@ -48,12 +86,18 @@ export default function ProfileScreen() {
         flexGrow: 1,
       }}
     >
-      <Text style={{ color: theme.colors.text, fontSize: 26, fontWeight: "bold" }}>
+      <Text
+        style={{
+          color: theme.colors.text,
+          fontSize: 26,
+          fontWeight: "bold",
+        }}
+      >
         Performance
       </Text>
 
       <Text style={{ color: "white", marginTop: 10 }}>
-        Exams Loaded: {examHistory.length}
+        Exams: {points.length}
       </Text>
 
       <View
@@ -69,18 +113,17 @@ export default function ProfileScreen() {
           <Svg height={220} width={width}>
 
             {/* LINES */}
-            {examHistory.map((exam, i) => {
+            {points.map((p, i) => {
               if (i === 0) return null;
-
-              const prev = examHistory[i - 1];
+              const prev = points[i - 1];
 
               return (
                 <Line
-                  key={i}
-                  x1={(i - 1) * 60 + 20}
-                  y1={200 - (prev?.score || 0) * 1.5}
-                  x2={i * 60 + 20}
-                  y2={200 - (exam?.score || 0) * 1.5}
+                  key={`line-${i}`}
+                  x1={prev.x}
+                  y1={prev.y}
+                  x2={p.x}
+                  y2={p.y}
                   stroke="#64748b"
                   strokeWidth="2"
                 />
@@ -88,13 +131,13 @@ export default function ProfileScreen() {
             })}
 
             {/* DOTS */}
-            {examHistory.map((exam, i) => (
+            {points.map((p, i) => (
               <Circle
-                key={i}
-                cx={i * 60 + 20}
-                cy={200 - (exam?.score || 0) * 1.5}
-                r="5"
-                fill="#ffffff"
+                key={`dot-${i}`}
+                cx={p.x}
+                cy={p.y}
+                r={5}
+                fill={p.color}
               />
             ))}
 

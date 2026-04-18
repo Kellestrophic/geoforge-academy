@@ -1,12 +1,13 @@
 import { theme } from "@/lib/theme";
+import { TOPIC_LIST } from "@/lib/topics";
 import { router } from "expo-router";
-import { useRef, useState } from "react";
-import { Pressable, Text, View } from "react-native";
+import { useState } from "react";
+import { Pressable, ScrollView, Text, View } from "react-native";
 
-export default function ExamRandomSetup() {
+export default function ExamTopicSetup() {
+  const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
   const [questionCount, setQuestionCount] = useState(20);
   const [timeLimit, setTimeLimit] = useState(30);
-  const tapLock = useRef(false);
 
   function OptionButton({
     value,
@@ -36,13 +37,13 @@ export default function ExamRandomSetup() {
   }
 
   return (
-    <View
-      style={{
-        flex: 1,
+    <ScrollView
+      contentContainerStyle={{
         padding: 20,
         backgroundColor: theme.colors.background,
       }}
     >
+      {/* TITLE */}
       <Text
         style={{
           color: theme.colors.text,
@@ -51,15 +52,45 @@ export default function ExamRandomSetup() {
           marginBottom: 20,
         }}
       >
-        Random Exam
+        Topic Exam
       </Text>
 
-      {/* QUESTION COUNT */}
+      {/* TOPIC SELECT */}
       <Text style={{ color: theme.colors.subtext, marginBottom: 10 }}>
-        Number of Questions
+        Select Topic
       </Text>
 
       <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
+        {TOPIC_LIST.map((topic) => (
+          <Pressable
+            key={topic}
+            onPress={() => setSelectedTopic(topic)}
+            style={{
+              padding: 16,
+              borderRadius: 12,
+              backgroundColor:
+                selectedTopic === topic ? "#4CAF50" : "#1e293b",
+              borderWidth: 2,
+              borderColor: theme.colors.border,
+              marginRight: 10,
+              marginBottom: 10,
+            }}
+          >
+            <Text style={{ color: "white", fontSize: 16 }}>
+              {topic === "MineralFormulas"
+                ? "Mineral Formulas"
+                : topic}
+            </Text>
+          </Pressable>
+        ))}
+      </View>
+
+      {/* QUESTION COUNT */}
+      <Text style={{ color: theme.colors.subtext, marginTop: 20 }}>
+        Number of Questions
+      </Text>
+
+      <View style={{ flexDirection: "row", flexWrap: "wrap", marginTop: 10 }}>
         {[10, 20, 50, 100].map((num) => (
           <OptionButton
             key={num}
@@ -70,12 +101,12 @@ export default function ExamRandomSetup() {
         ))}
       </View>
 
-      {/* TIME */}
-      <Text style={{ color: theme.colors.subtext, marginTop: 20, marginBottom: 10 }}>
+      {/* TIME LIMIT */}
+      <Text style={{ color: theme.colors.subtext, marginTop: 20 }}>
         Time Limit (minutes)
       </Text>
 
-      <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
+      <View style={{ flexDirection: "row", flexWrap: "wrap", marginTop: 10 }}>
         {[10, 30, 60, 120].map((time) => (
           <OptionButton
             key={time}
@@ -86,13 +117,15 @@ export default function ExamRandomSetup() {
         ))}
       </View>
 
-      {/* START BUTTON */}
+      {/* START */}
       <Pressable
+        disabled={!selectedTopic}
         onPress={() =>
           router.push({
             pathname: "/exam",
             params: {
-              mode: "random",
+              mode: "topic",
+              topic: selectedTopic,
               count: questionCount,
               time: timeLimit,
             },
@@ -100,7 +133,7 @@ export default function ExamRandomSetup() {
         }
         style={{
           marginTop: 40,
-          backgroundColor: "#4CAF50",
+          backgroundColor: selectedTopic ? "#4CAF50" : "#555",
           padding: 18,
           borderRadius: 12,
         }}
@@ -109,6 +142,6 @@ export default function ExamRandomSetup() {
           Start Exam
         </Text>
       </Pressable>
-    </View>
+    </ScrollView>
   );
 }

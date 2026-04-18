@@ -1,26 +1,22 @@
-import { supabase } from "@/lib/supabase";
+import { supabase } from "./supabase";
 
-export async function ensureUser() {
+export async function initUser() {
   try {
-    const {
-      data: { session },
-    } = await supabase.auth.getSession();
+    const { data } = await supabase.auth.getUser();
 
-    if (session?.user?.id) {
-      return session.user.id;
-    }
+    if (data?.user) return data.user;
 
-    // 🔥 FORCE ANONYMOUS LOGIN
-    const { data, error } = await supabase.auth.signInAnonymously();
+    const { data: signInData, error } =
+      await supabase.auth.signInAnonymously();
 
     if (error) {
-      console.log("❌ Anonymous login failed:", error);
+      console.log("Auth error:", error);
       return null;
     }
 
-    return data.user?.id ?? null;
+    return signInData.user;
   } catch (e) {
-    console.log("❌ ensureUser crash:", e);
+    console.log("INIT USER ERROR:", e);
     return null;
   }
 }

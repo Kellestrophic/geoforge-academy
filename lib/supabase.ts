@@ -1,32 +1,20 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createClient } from "@supabase/supabase-js";
-import Constants from "expo-constants";
 import { Platform } from "react-native";
 
-// 🔥 SAFE EXTRA ACCESS
-const extra =
-  (Constants as any).expoConfig?.extra ??
-  (Constants as any).manifest?.extra ??
-  {};
+const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL!;
+const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY!;
 
-// 🔥 ENV
-const supabaseUrl = extra.supabaseUrl;
-const supabaseAnonKey = extra.supabaseAnonKey;
+const isServer = typeof window === "undefined";
+const isWeb = Platform.OS === "web";
 
-// 🔥 DEBUG
-console.log("SUPABASE URL:", supabaseUrl);
-console.log("SUPABASE KEY:", supabaseAnonKey?.slice(0, 10));
-
-// 🔥 CONDITIONAL STORAGE (THIS FIXES YOUR CRASH)
-const storage =
-  Platform.OS === "web" ? undefined : AsyncStorage;
-
-// 🔥 CREATE CLIENT
+// Only use AsyncStorage on native apps.
+// During web/static export, disable persistence so Expo export does not crash.
 export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   auth: {
-    storage,
-    autoRefreshToken: true,
-    persistSession: Platform.OS !== "web",
+    storage: !isWeb && !isServer ? AsyncStorage : undefined,
+    autoRefreshToken: !isWeb && !isServer,
+    persistSession: !isWeb && !isServer,
     detectSessionInUrl: false,
   },
 });
