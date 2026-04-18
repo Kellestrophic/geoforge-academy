@@ -58,7 +58,9 @@ async function initAuth() {
   }
 }
 
-    initAuth();
+   setTimeout(() => {
+  initAuth();
+}, 500);
   }, []);
 
   return (

@@ -5,16 +5,14 @@ import { Platform } from "react-native";
 const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL!;
 const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY!;
 
-const isServer = typeof window === "undefined";
+// ✅ ONLY check platform (NOT window)
 const isWeb = Platform.OS === "web";
 
-// Only use AsyncStorage on native apps.
-// During web/static export, disable persistence so Expo export does not crash.
 export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   auth: {
-    storage: !isWeb && !isServer ? AsyncStorage : undefined,
-    autoRefreshToken: !isWeb && !isServer,
-    persistSession: !isWeb && !isServer,
+    storage: isWeb ? undefined : AsyncStorage, // ✅ ALWAYS use AsyncStorage on native
+    autoRefreshToken: true,
+    persistSession: true,
     detectSessionInUrl: false,
   },
 });
