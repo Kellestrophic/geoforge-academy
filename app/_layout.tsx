@@ -8,54 +8,55 @@ export default function Layout() {
   useEffect(() => {
     console.log("🚀 APP LOADED");
 
-    async function initAuth() {
-      try {
-        let { data } = await supabase.auth.getUser();
+async function initAuth() {
+  try {
+    console.log("🔐 INIT AUTH START");
 
-        // 🔐 SIGN IN IF NEEDED
-        if (!data?.user) {
-          console.log("🔐 NO USER — SIGNING IN ANON");
+    // ✅ SAFE: get session (not getUser)
+    const { data: sessionData } = await supabase.auth.getSession();
+    let user = sessionData?.session?.user ?? undefined;
 
-          const { error } = await supabase.auth.signInAnonymously();
+    // 🔐 SIGN IN IF NEEDED
+    if (!user) {
+      console.log("🔐 NO USER — SIGNING IN ANON");
 
-          if (error) {
-            console.log("❌ AUTH ERROR:", error);
-            return;
-          }
+      const { data: signInData, error } =
+        await supabase.auth.signInAnonymously();
 
-          console.log("✅ SIGNED IN ANON");
-
-          // get user again AFTER sign in
-          const res = await supabase.auth.getUser();
-          data = res.data;
-        } else {
-          console.log("✅ USER EXISTS:", data.user.id);
-        }
-
-        const userId = data?.user?.id;
-
-        if (!userId) {
-          console.log("❌ STILL NO USER AFTER AUTH");
-          return;
-        }
-
-        // 🔥 ENSURE USER ROW EXISTS
-        const { error: upsertError } = await supabase
-          .from("users")
-          .upsert({
-            id: userId,
-          });
-
-        if (upsertError) {
-          console.log("❌ USER UPSERT ERROR:", upsertError);
-        } else {
-          console.log("✅ USER ROW READY");
-        }
-
-      } catch (e) {
-        console.log("❌ AUTH CRASH:", e);
+      if (error) {
+        console.log("❌ AUTH ERROR:", error);
+        return;
       }
+
+      user = signInData?.user ?? undefined;
+
+      console.log("✅ SIGNED IN ANON:", user?.id);
+    } else {
+      console.log("✅ USER EXISTS:", user.id);
     }
+
+    const userId = user?.id;
+
+    if (!userId) {
+      console.log("❌ STILL NO USER AFTER AUTH");
+      return;
+    }
+
+    // 🔥 ENSURE USER ROW EXISTS
+    const { error: upsertError } = await supabase
+      .from("users")
+      .upsert({ id: userId });
+
+    if (upsertError) {
+      console.log("❌ USER UPSERT ERROR:", upsertError);
+    } else {
+      console.log("✅ USER ROW READY");
+    }
+
+  } catch (e) {
+    console.log("❌ AUTH CRASH PREVENTED:", e);
+  }
+}
 
     initAuth();
   }, []);
