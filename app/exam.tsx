@@ -7,7 +7,7 @@ import questionsData from "@/data/questions.json";
 import { theme } from "@/lib/theme";
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
-import { Pressable, ScrollView, Text, View } from "react-native";
+import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
 
 /* ---------------- HELPERS ---------------- */
 
@@ -43,41 +43,30 @@ export default function ExamScreen() {
     : params.topic;
 
   const [questions, setQuestions] = useState<any[]>([]);
-  const [answers, setAnswers] = useState<{ [key: number]: number }>({});
+  const [answers, setAnswers] = useState<{ [key: number]: any }>({});
   const [currentIndex, setCurrentIndex] = useState(0);
   const [timeLeft, setTimeLeft] = useState(timeLimit * 60);
   const [finished, setFinished] = useState(false);
+  const [inputAnswer, setInputAnswer] = useState("");
 
   /* ---------------- LOAD QUESTIONS ---------------- */
 
   useEffect(() => {
-let pool: any[] = [];
+    let pool: any[] = [];
 
-// ✅ PG EXAM (unchanged)
-if (mode === "pg") {
-  pool = questionsData;
-}
-
-// ✅ RANDOM EXAM (ONLY Mineralogy + Petrology MC + FB)
-else if (mode === "random") {
-  pool = [
-    ...mineralogyMC,
-    ...mineralogyFB,
-    ...petrologyMC,
-    ...petrologyFB,
-  ];
-}
-
-// ✅ TOPIC EXAM
-else if (mode === "topic" && selectedTopic) {
-  const topicData = TOPIC_QUESTIONS[selectedTopic];
-
-  if (topicData) {
-    pool = [...topicData.mc, ...topicData.fb];
-  } else {
-    pool = [];
-  }
-}
+    if (mode === "pg") {
+      pool = questionsData;
+    } else if (mode === "random") {
+      pool = [
+        ...mineralogyMC,
+        ...mineralogyFB,
+        ...petrologyMC,
+        ...petrologyFB,
+      ];
+    } else if (mode === "topic" && selectedTopic) {
+      const topicData = TOPIC_QUESTIONS[selectedTopic];
+      pool = topicData ? [...topicData.mc, ...topicData.fb] : [];
+    }
 
     const shuffled = shuffleArray(pool).slice(0, count);
     setQuestions(shuffled);
@@ -102,7 +91,44 @@ else if (mode === "topic" && selectedTopic) {
     return () => clearInterval(timer);
   }, [finished]);
 
-  /* ---------------- UI ---------------- */
+  /* ---------------- SCORE ---------------- */
+
+  function calculateScore() {
+    return questions.reduce((acc, q, i) => {
+      const userAnswer = answers[i];
+
+      if (q.type === "multiple_choice") {
+        return userAnswer === q.correctAnswer ? acc + 1 : acc;
+      }
+
+      if (q.type === "input") {
+        return String(userAnswer)?.toLowerCase().trim() ===
+          String(q.answer).toLowerCase().trim()
+          ? acc + 1
+          : acc;
+      }
+
+      if (q.type === "input_multi") {
+        const correct = q.answer.map((a: string) =>
+          a.toLowerCase().trim()
+        );
+
+        const user = Array.isArray(userAnswer)
+          ? userAnswer.map((a: string) => a.toLowerCase().trim())
+          : [];
+
+        const isCorrect =
+          correct.length === user.length &&
+          correct.every((c: string) => user.includes(c));
+
+        return isCorrect ? acc + 1 : acc;
+      }
+
+      return acc;
+    }, 0);
+  }
+
+  /* ---------------- LOADING ---------------- */
 
   if (questions.length === 0) {
     return (
@@ -125,13 +151,7 @@ else if (mode === "topic" && selectedTopic) {
     setFinished(true);
   }
 
-  function calculateScore() {
-    return questions.reduce((acc, q, i) => {
-      return answers[i] === q.correctAnswer ? acc + 1 : acc;
-    }, 0);
-  }
-
-  /* ---------------- RESULT SCREEN ---------------- */
+  /* ---------------- RESULT ---------------- */
 
   if (finished) {
     const score = calculateScore();
@@ -145,7 +165,6 @@ else if (mode === "topic" && selectedTopic) {
       const safeMode: "random" | "topic" | "pg" =
         rawMode === "topic" || rawMode === "pg" ? rawMode : "random";
 
-      // ✅ SAFE SAVE (NO CRASH)
       addExam({
         score: percent,
         type: safeMode,
@@ -188,25 +207,111 @@ else if (mode === "topic" && selectedTopic) {
         {question.question}
       </Text>
 
-      {question.choices?.map((choice: string, index: number) => {
-        const isSelected = answers[currentIndex] === index;
+      {/* MULTIPLE CHOICE */}
+      {question.type === "multiple_choice" &&
+        Array.isArray(question.choices) &&
+        question.choices.map((choice: string, index: number) => {
+          const isSelected = answers[currentIndex] === index;
 
-        return (
-          <Pressable
-            key={index}
-            onPress={() => selectAnswer(index)}
+          return (
+            <Pressable
+              key={index}
+              onPress={() => selectAnswer(index)}
+              style={{
+                marginTop: 10,
+                padding: 15,
+                borderRadius: 10,
+                backgroundColor: isSelected ? "#4CAF50" : "#1e293b",
+              }}
+            >
+              <Text style={{ color: "white" }}>{choice}</Text>
+            </Pressable>
+          );
+        })}
+
+      {/* INPUT */}
+      {question.type === "input" && (
+        <View style={{ marginTop: 20 }}>
+          <TextInput
+            value={inputAnswer}
+            onChangeText={setInputAnswer}
+            placeholder="Type your answer..."
+            placeholderTextColor="#888"
             style={{
-              marginTop: 10,
+              backgroundColor: "#1e293b",
+              color: "white",
               padding: 15,
               borderRadius: 10,
-              backgroundColor: isSelected ? "#4CAF50" : "#1e293b",
+            }}
+          />
+
+          <Pressable
+            onPress={() => {
+              setAnswers((prev) => ({
+                ...prev,
+                [currentIndex]: inputAnswer,
+              }));
+              setInputAnswer("");
+            }}
+            style={{
+              marginTop: 10,
+              backgroundColor: "#4CAF50",
+              padding: 12,
+              borderRadius: 10,
             }}
           >
-            <Text style={{ color: "white" }}>{choice}</Text>
+            <Text style={{ color: "white", textAlign: "center" }}>
+              Submit Answer
+            </Text>
           </Pressable>
-        );
-      })}
+        </View>
+      )}
 
+      {/* MULTI INPUT */}
+      {question.type === "input_multi" && (
+        <View style={{ marginTop: 20 }}>
+          <TextInput
+            value={inputAnswer}
+            onChangeText={setInputAnswer}
+            placeholder="Comma separated answers"
+            placeholderTextColor="#888"
+            style={{
+              backgroundColor: "#1e293b",
+              color: "white",
+              padding: 15,
+              borderRadius: 10,
+            }}
+          />
+
+          <Pressable
+            onPress={() => {
+              const split = inputAnswer
+                .toLowerCase()
+                .split(",")
+                .map((s) => s.trim());
+
+              setAnswers((prev) => ({
+                ...prev,
+                [currentIndex]: split,
+              }));
+
+              setInputAnswer("");
+            }}
+            style={{
+              marginTop: 10,
+              backgroundColor: "#4CAF50",
+              padding: 12,
+              borderRadius: 10,
+            }}
+          >
+            <Text style={{ color: "white", textAlign: "center" }}>
+              Submit Answers
+            </Text>
+          </Pressable>
+        </View>
+      )}
+
+      {/* NAV */}
       <Pressable
         onPress={() =>
           setCurrentIndex((prev) =>

@@ -3,407 +3,229 @@
     "id": "pet_fb_1",
     "category": "Petrology",
     "question": "Igneous rocks form from the cooling of _____ or ______.",
-    "choices": ["magma", "lava"],
-    "type": "input_multi",
-    "explanation": "Igneous rocks form from the cooling and solidification of magma or lava."
+    "answer": ["magma", "lava"],
+    "type": "input_multi"
   },
   {
     "id": "pet_fb_2",
     "category": "Petrology",
     "question": "Phaneritic texture is characterized by _______ crystals visible to the naked eye?",
-    "choices": ["large"],
-    "type": "input",
-    "explanation": "Phaneritic texture forms from slow cooling, allowing large crystals to grow."
+    "answer": "large",
+    "type": "input"
   },
   {
     "id": "pet_fb_3",
     "category": "Petrology",
     "question": "The igneous rock granite is ______-grained and felsic.",
-    "choices": ["coarse"],
-    "type": "input",
-    "explanation": "Granite is coarse-grained due to slow cooling underground."
+    "answer": "coarse",
+    "type": "input"
   },
   {
     "id": "pet_fb_4",
     "category": "Petrology",
     "question": "Rhyolite is the extrusive equivalent of ______",
-    "choices": ["granite"],
-    "type": "input",
-    "explanation": "Rhyolite is the fine-grained extrusive equivalent of granite."
+    "answer": "granite",
+    "type": "input"
   },
   {
     "id": "pet_fb_5",
     "category": "Petrology",
     "question": "Sedimentary rocks form from _______ and _________ of sediments.",
-    "choices": ["compaction", "cementation"],
-    "type": "input_multi",
-    "explanation": "Sedimentary rocks form through compaction and cementation of sediments."
+    "answer": ["compaction", "cementation"],
+    "type": "input_multi"
   },
   {
     "id": "pet_fb_6",
     "category": "Petrology",
     "question": "_______ is the main mineral in limestone?",
-    "choices": ["calcite"],
-    "type": "input",
-    "explanation": "Limestone is primarily composed of calcite."
+    "answer": "calcite",
+    "type": "input"
   },
   {
     "id": "pet_fb_7",
     "category": "Petrology",
     "question": "Slate is formed from the metamorphism of ______.",
-    "choices": ["shale"],
-    "type": "input",
-    "explanation": "Slate forms from low-grade metamorphism of shale."
+    "answer": "shale",
+    "type": "input"
   },
   {
     "id": "pet_fb_8",
     "category": "Petrology",
     "question": "Aphanitic texture indicates the _______ cooling of lava.",
-    "choices": ["rapid"],
-    "type": "input",
-    "explanation": "Rapid cooling produces fine-grained (aphanitic) textures."
+    "answer": "rapid",
+    "type": "input"
   },
   {
     "id": "pet_fb_9",
     "category": "Petrology",
     "question": "The igneous rock basalt is mafic and _____-grained.",
-    "choices": ["fine"],
-    "type": "input",
-    "explanation": "Basalt is fine-grained due to fast cooling at the surface."
+    "answer": "fine",
+    "type": "input"
   },
   {
     "id": "pet_fb_10",
     "category": "Petrology",
     "question": "Heat and pressure are the main processes in ______.",
-    "choices": ["metamorphism"],
-    "type": "input",
-    "explanation": "Metamorphism occurs due to heat and pressure altering rocks."
+    "answer": "metamorphism",
+    "type": "input"
   },
 
   {
     "id": "pet_fb_11",
     "category": "Petrology",
     "question": "The sedimentary rock sandstone is composed mainly of ______.",
-    "choices": ["sand"],
-    "type": "input",
-    "explanation": "Sandstone consists of sand-sized grains."
+    "answer": "sand",
+    "type": "input"
   },
   {
     "id": "pet_fb_12",
     "category": "Petrology",
     "question": "Marble is the metamorphic equivalent of _______.",
-    "choices": ["limestone"],
-    "type": "input",
-    "explanation": "Marble forms from metamorphosed limestone."
+    "answer": "limestone",
+    "type": "input"
   },
   {
     "id": "pet_fb_13",
     "category": "Petrology",
     "question": "Porphyritic texture contains ______ distinct crystal sizes.",
-    "choices": ["two"],
-    "type": "input",
-    "explanation": "Porphyritic rocks contain both large and small crystals."
+    "answer": "two",
+    "type": "input"
   },
   {
     "id": "pet_fb_14",
     "category": "Petrology",
     "question": "Gabbro is the intrusive equivalent of _______.",
-    "choices": ["basalt"],
-    "type": "input",
-    "explanation": "Gabbro is the coarse-grained version of basalt."
+    "answer": "basalt",
+    "type": "input"
   },
   {
     "id": "pet_fb_15",
     "category": "Petrology",
     "question": "Tuff forms from _____.",
-    "choices": ["volcanic ash"],
-    "type": "input",
-    "explanation": "Tuff forms from compacted volcanic ash."
+    "answer": "volcanic ash",
+    "type": "input"
   },
 
   {
     "id": "pet_fb_16",
     "category": "Petrology",
     "question": "Vesicular texture is characterized by abundant ____ bubbles.",
-    "choices": ["gas"],
-    "type": "input",
-    "explanation": "Gas bubbles trapped in lava create vesicular texture."
+    "answer": "gas",
+    "type": "input"
   },
   {
     "id": "pet_fb_17",
     "category": "Petrology",
-    "question": "The metamorphic rock schist shows strong _______ and visible mica?.",
-    "choices": ["foliation"],
-    "type": "input",
-    "explanation": "Schist shows foliation due to aligned minerals."
+    "question": "The metamorphic rock schist shows strong _______.",
+    "answer": "foliation",
+    "type": "input"
   },
   {
     "id": "pet_fb_18",
     "category": "Petrology",
     "question": "Quartz is the primary mineral in ________?",
-    "choices": ["quartzite"],
-    "type": "input",
-    "explanation": "Quartzite is composed mainly of quartz."
+    "answer": "quartzite",
+    "type": "input"
   },
   {
     "id": "pet_fb_19",
     "category": "Petrology",
     "question": "The sedimentary rock conglomerate contains rounded clasts larger than two mm.",
-    "choices": ["2"],
-    "type": "input",
-    "explanation": "Conglomerate contains rounded clasts larger than 2 mm."
+    "answer": "2",
+    "type": "input"
   },
   {
     "id": "pet_fb_20",
     "category": "Petrology",
     "question": "Felsic magma is rich in ______.",
-    "choices": ["silica"],
-    "type": "input",
-    "explanation": "Felsic magma contains high silica content."
+    "answer": "silica",
+    "type": "input"
   },
 
   {
     "id": "pet_fb_21",
     "category": "Petrology",
     "question": "Hornfels forms from _______ metamorphism.",
-    "choices": ["contact"],
-    "type": "input",
-    "explanation": "Hornfels forms from heat during contact metamorphism."
+    "answer": "contact",
+    "type": "input"
   },
   {
     "id": "pet_fb_22",
     "category": "Petrology",
-    "question": "Andesite is the extrusive equivalent of diorite.",
-    "choices": ["diorite"],
-    "type": "input",
-    "explanation": "Andesite is the fine-grained equivalent of diorite."
+    "question": "Andesite is the extrusive equivalent of ______.",
+    "answer": "diorite",
+    "type": "input"
   },
   {
     "id": "pet_fb_23",
     "category": "Petrology",
     "question": "Coal is formed by ______ material accumulation",
-    "choices": ["organic"],
-    "type": "input",
-    "explanation": "Coal forms from accumulated plant (organic) material."
+    "answer": "organic",
+    "type": "input"
   },
   {
     "id": "pet_fb_24",
     "category": "Petrology",
     "question": "Banding is the defining characteristic of _______.",
-    "choices": ["gniess"],
-    "type": "input",
-    "explanation": "Gneiss is defined by compositional banding."
+    "answer": "gneiss",
+    "type": "input"
   },
   {
     "id": "pet_fb_25",
     "category": "Petrology",
     "question": "A glassy igneous texture indicates extremely _____ cooling.",
-    "choices": ["rapid "],
-    "type": "input",
-    "explanation": "Glassy texture forms from extremely rapid cooling."
+    "answer": "rapid",
+    "type": "input"
   },
 
   {
     "id": "pet_fb_26",
     "category": "Petrology",
     "question": "The igneous rock Diorite is _______ in composition and ______-grained.",
-    "choices": ["intermediate", "coarse"],
-    "type": "input_multi",
-    "explanation": "Diorite is intermediate in composition and coarse-grained."
+    "answer": ["intermediate", "coarse"],
+    "type": "input_multi"
   },
   {
     "id": "pet_fb_27",
     "category": "Petrology",
     "question": "The sedimentary rock shale is composed mainly of ____-sized particles.",
-    "choices": ["clay"],
-    "type": "input",
-    "explanation": "Shale consists of clay-sized particles."
+    "answer": "clay",
+    "type": "input"
   },
   {
     "id": "pet_fb_28",
     "category": "Petrology",
     "question": "The minerals pyroxene and plagioclase are the main mineral composition of ________.",
-    "choices": ["basalt"],
-    "type": "input",
-    "explanation": "Basalt is mainly composed of pyroxene and plagioclase."
+    "answer": "basalt",
+    "type": "input"
   },
   {
     "id": "pet_fb_29",
     "category": "Petrology",
     "question": "The metamorphic rock quartzite forms from ______.",
-    "choices": ["sandstone"],
-    "type": "input",
-    "explanation": "Quartzite forms from metamorphosed sandstone."
+    "answer": "sandstone",
+    "type": "input"
   },
   {
     "id": "pet_fb_30",
     "category": "Petrology",
     "question": "Pegmatitic texture indicates extremely _______ crystals.",
-    "choices": ["large"],
-    "type": "input",
-    "explanation": "Pegmatitic rocks contain extremely large crystals."
+    "answer": "large",
+    "type": "input"
   },
 
-  {
-    "id": "pet_fb_31",
-    "category": "Petrology",
-    "question": "The sedimentary rock evaporite forms from chemical _____.",
-    "choices": ["precipitation"],
-    "type": "input",
-    "explanation": "Evaporites form from chemical precipitation during evaporation."
-  },
-  {
-    "id": "pet_fb_32",
-    "category": "Petrology",
-    "question": "Low grade metamorphic characterizes _______ formation.",
-    "choices": ["slate"],
-    "type": "input",
-    "explanation": "Slate forms under low-grade metamorphism."
-  },
-  {
-    "id": "pet_fb_33",
-    "category": "Petrology",
-    "question": "The igneous rock obsidian cools the _____.",
-    "choices": ["fastest"],
-    "type": "input",
-    "explanation": "Obsidian forms from extremely rapid cooling."
-  },
-  {
-    "id": "pet_fb_34",
-    "category": "Petrology",
-    "question": "Clast shape is the main difference between breccia and ________.",
-    "choices": ["conglomerate"],
-    "type": "input",
-    "explanation": "Breccia has angular clasts; conglomerate has rounded clasts."
-  },
-  {
-    "id": "pet_fb_35",
-    "category": "Petrology",
-    "question": "Sedimentary rock types are more like to contain _______.",
-    "choices": ["fossils"],
-    "type": "input",
-    "explanation": "Fossils are most commonly preserved in sedimentary rocks."
-  },
-
-  {
-    "id": "pet_fb_36",
-    "category": "Petrology",
-    "question": "Peridotite is an igneous rock that has an _______ composition.",
-    "choices": ["ultramafic"],
-    "type": "input",
-    "explanation": "Peridotite is ultramafic, rich in magnesium and iron."
-  },
-  {
-    "id": "pet_fb_37",
-    "category": "Petrology",
-    "question": "Gneiss is a metamorphic rock that forms under ______ pressure and temperature with banding.",
-    "choices": ["high"],
-    "type": "input",
-    "explanation": "Gneiss forms under high-grade metamorphism."
-  },
-  {
-    "id": "pet_fb_38",
-    "category": "Petrology",
-    "question": "Clay mineral is the primary mineral in _______.",
-    "choices": ["shale"],
-    "type": "input",
-    "explanation": "Shale is composed primarily of clay minerals."
-  },
-  {
-    "id": "pet_fb_39",
-    "category": "Petrology",
-    "question": "Basalt forms at _________ ridges.",
-    "choices": ["mid-ocean"],
-    "type": "input",
-    "explanation": "Basalt forms at mid-ocean ridges."
-  },
-  {
-    "id": "pet_fb_40",
-    "category": "Petrology",
-    "question": "Vesicular texture best describes the rock ______.",
-    "choices": ["pumice"],
-    "type": "input",
-    "explanation": "Pumice is highly vesicular due to trapped gas."
-  },
-
-  {
-    "id": "pet_fb_41",
-    "category": "Petrology",
-    "question": "Cross-bedding is a sedimentary structure that indicates _______ water?",
-    "choices": ["flowing"],
-    "type": "input",
-    "explanation": "Cross-bedding forms in moving (flowing) water."
-  },
-  {
-    "id": "pet_fb_42",
-    "category": "Petrology",
-    "question": "Marble is a metamorphic rock that is non-________.",
-    "choices": ["foliated"],
-    "type": "input",
-    "explanation": "Marble is non-foliated because it lacks aligned minerals."
-  },
-  {
-    "id": "pet_fb_43",
-    "category": "Petrology",
-    "question": "Carbon is the main component of ______.",
-    "choices": ["Coal"],
-    "type": "input",
-    "explanation": "Coal is primarily composed of carbon."
-  },
-  {
-    "id": "pet_fb_44",
-    "category": "Petrology",
-    "question": "Andesite is an ______ rock forms from lava with intermediate composition.",
-    "choices": ["Igneous"],
-    "type": "input",
-    "explanation": "Andesite is an igneous rock with intermediate composition."
-  },
   {
     "id": "pet_fb_45",
     "category": "Petrology",
     "question": "Tectonic pressure is the main driver of _______ ________.",
-    "choices": ["regional", "metamorphism"],
-    "type": "input_multi",
-    "explanation": "Regional metamorphism is driven by tectonic pressure."
-  },
-  {
-    "id": "pet_fb_46",
-    "category": "Petrology",
-    "question": "The rock obsidian has a glassy texture and no crystals.",
-    "choices": ["glassy"],
-    "type": "input",
-    "explanation": "Obsidian has a glassy texture due to rapid cooling."
-  },
-  {
-    "id": "pet_fb_47",
-    "category": "Petrology",
-    "question": "Coal is a __________ rock is formed from compacted plant material.",
-    "choices": ["sedimentary"],
-    "type": "input",
-    "explanation": "Coal is a sedimentary rock formed from plant material."
-  },
-  {
-    "id": "pet_fb_48",
-    "category": "Petrology",
-    "question": "A Dike is an ______ intrusion that is tabular and cuts across layers.",
-    "choices": ["igneous"],
-    "type": "input",
-    "explanation": "Dikes are igneous intrusions that cut across rock layers."
-  },
-  {
-    "id": "pet_fb_49",
-    "category": "Petrology",
-    "question": "Aligned minerals is the main feature of foliated metamorphic rocks.",
-    "choices": ["foliated"],
-    "type": "input",
-    "explanation": "Foliated rocks are defined by aligned minerals."
+    "answer": ["regional", "metamorphism"],
+    "type": "input_multi"
   },
   {
     "id": "pet_fb_50",
     "category": "Petrology",
     "question": "Tuff is formed by cemented volcanic ______ and fragments.",
-    "choices": ["ash"],
-    "type": "input",
-    "explanation": "Tuff forms from compacted volcanic ash."
+    "answer": "ash",
+    "type": "input"
   }
 ]

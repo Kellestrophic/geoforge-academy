@@ -3,7 +3,7 @@
     "id": "min_fb_1",
     "category": "Mineralogy",
     "question": "Diamond is number ______ on the Mohs scale.",
-    "choices": ["10"],
+    "answer": "10",
     "type": "input",
     "explanation": "Diamond defines hardness 10, the highest value on the Mohs scale."
   },
@@ -11,7 +11,7 @@
     "id": "min_fb_2",
     "category": "Mineralogy",
     "question": "Quartz is composed of ______.",
-    "choices": ["SiO₂"],
+    "answer": "SiO2",
     "type": "input",
     "explanation": "Quartz is composed of silicon dioxide (SiO₂)."
   },
@@ -19,387 +19,253 @@
     "id": "min_fb_3",
     "category": "Mineralogy",
     "question": "The carbonate group contains ______ and ______.",
-    "choices": ["calcite and dolomite"],
+    "answer": ["calcite", "dolomite"],
     "type": "input_multi",
     "explanation": "Calcite and dolomite are the most common carbonate minerals."
-  },
-  {
-    "id": "min_fb_4",
-    "category": "Mineralogy",
-    "question": "Magnesium and iron are the primary cations in ______.",
-    "choices": ["olivine"],
-    "type": "input",
-    "explanation": "Olivine is composed primarily of magnesium and iron silicates."
   },
   {
     "id": "min_fb_5",
     "category": "Mineralogy",
     "question": "Halite exhibits ______ cleavage.",
-    "choices": ["Perfect cubic"],
-    "type": "input",
-    "explanation": "Halite has perfect cubic cleavage, breaking into cubes."
+    "answer": "perfect cubic",
+    "type": "input"
   },
   {
     "id": "min_fb_6",
     "category": "Mineralogy",
     "question": "Hematite exhibits a ______ streak color.",
-    "choices": ["reddish-brown"],
-    "type": "input",
-    "explanation": "Hematite produces a reddish-brown streak regardless of its external appearance."
+    "answer": "reddish-brown",
+    "type": "input"
   },
   {
     "id": "min_fb_7",
     "category": "Mineralogy",
     "question": "If you were to dip any mineral in the ______ group, it would most likely fizz.",
-    "choices": ["carbonate"],
-    "type": "input",
-    "explanation": "Carbonate minerals react with acid, producing CO₂ gas (fizzing)."
+    "answer": "carbonate",
+    "type": "input"
   },
   {
     "id": "min_fb_8",
     "category": "Mineralogy",
     "question": "Pyrite has the chemical formula ______.",
-    "choices": ["FeS₂"],
-    "type": "input",
-    "explanation": "Pyrite is iron sulfide (FeS₂)."
+    "answer": "FeS2",
+    "type": "input"
   },
   {
     "id": "min_fb_9",
     "category": "Mineralogy",
-    "question": "Micas are usually characterized by ______ silicate structures due to weak bonding between layers.",
-    "choices": ["sheet"],
-    "type": "input",
-    "explanation": "Micas are sheet silicates with weak bonding between layers."
+    "question": "Micas are usually characterized by ______ silicate structures.",
+    "answer": "sheet",
+    "type": "input"
   },
   {
     "id": "min_fb_10",
     "category": "Mineralogy",
     "question": "Quartz exhibits a ______ luster.",
-    "choices": ["vitreous"],
-    "type": "input",
-    "explanation": "Quartz has a vitreous (glassy) luster."
+    "answer": "vitreous",
+    "type": "input"
   },
-
   {
     "id": "min_fb_11",
     "category": "Mineralogy",
     "question": "_____ is also known as fool’s gold.",
-    "choices": ["pyrite"],
-    "type": "input",
-    "explanation": "Pyrite resembles gold but is composed of iron sulfide."
+    "answer": "pyrite",
+    "type": "input"
   },
   {
     "id": "min_fb_12",
     "category": "Mineralogy",
-    "question": "The clevage angles of _______ are 60° and 120°.",
-    "choices": ["amphibole"],
-    "type": "input",
-    "explanation": "Amphiboles have characteristic cleavage angles of 60° and 120°."
+    "question": "The cleavage angles of _______ are 60° and 120°.",
+    "answer": "amphibole",
+    "type": "input"
   },
   {
     "id": "min_fb_13",
     "category": "Mineralogy",
     "question": "Bauxite is the main ore of _______.",
-    "choices": ["aluminum"],
-    "type": "input",
-    "explanation": "Bauxite is the primary ore used to extract aluminum."
+    "answer": "aluminum",
+    "type": "input"
   },
   {
     "id": "min_fb_14",
     "category": "Mineralogy",
     "question": "On the Mohs Scale, ______ has a hardness of 2.",
-    "choices": ["gypsum"],
-    "type": "input",
-    "explanation": "Gypsum defines hardness 2 on the Mohs scale."
+    "answer": "gypsum",
+    "type": "input"
   },
   {
     "id": "min_fb_15",
     "category": "Mineralogy",
     "question": "______ belongs to the framework silicate group.",
-    "choices": ["feldspar"],
-    "type": "input",
-    "explanation": "Feldspar is a framework silicate with a 3D tetrahedral structure."
-  },
-
-  {
-    "id": "min_fb_16",
-    "category": "Mineralogy",
-    "question": "The dominant element in native _______ is gold",
-    "choices": ["gold"],
-    "type": "input",
-    "explanation": "Native gold is composed almost entirely of elemental gold."
+    "answer": "feldspar",
+    "type": "input"
   },
   {
     "id": "min_fb_17",
     "category": "Mineralogy",
-    "question": "You can tell is quartz because of its ______ fracture.",
-    "choices": ["conchoidal"],
-    "type": "input",
-    "explanation": "Quartz breaks with a conchoidal (curved) fracture."
+    "question": "You can tell quartz because of its ______ fracture.",
+    "answer": "conchoidal",
+    "type": "input"
   },
   {
     "id": "min_fb_18",
     "category": "Mineralogy",
     "question": "Halite belongs to the _____ crystal system.",
-    "choices": ["cubic"],
-    "type": "input",
-    "explanation": "Halite forms cubic crystals."
+    "answer": "cubic",
+    "type": "input"
   },
   {
     "id": "min_fb_19",
     "category": "Mineralogy",
-    "question": "In pyroxenes, SiO₄ ______ are linked together to form single chains.",
-    "choices": ["tetrahedra"],
-    "type": "input",
-    "explanation": "Pyroxenes are chain silicates made of linked SiO₄ tetrahedra."
+    "question": "In pyroxenes, SiO₄ ______ are linked together.",
+    "answer": "tetrahedra",
+    "type": "input"
   },
   {
     "id": "min_fb_20",
     "category": "Mineralogy",
-    "question": "Pure calcite is  _______ or ______ in color.",
-    "choices": ["colorless", "white"],
-    "type": "input_multi",
-    "explanation": "Pure calcite is typically colorless or white."
-  },
-
-  {
-    "id": "min_fb_21",
-    "category": "Mineralogy",
-    "question": "______ is used as a standard for hardness 1",
-    "choices": ["Talc"],
-    "type": "input",
-    "explanation": "Talc defines hardness 1 on the Mohs scale."
+    "question": "Pure calcite is ______ or ______ in color.",
+    "answer": ["colorless", "white"],
+    "type": "input_multi"
   },
   {
     "id": "min_fb_22",
     "category": "Mineralogy",
-    "question": "The specific gravity of most common silicate minerals is about ______ - _____",
-    "choices": ["2.5","3.5"],
-    "type": "input_multi",
-    "explanation": "Most silicates have a density between 2.5 and 3.5 g/cm³."
+    "question": "The specific gravity of most silicates is about ______ - _____.",
+    "answer": ["2.5", "3.5"],
+    "type": "input_multi"
   },
   {
     "id": "min_fb_23",
     "category": "Mineralogy",
-    "question": "Calcite shows _____ ______,(also known as birefringence)",
-    "choices": ["double", "refraction"],
-    "type": "input_multi",
-    "explanation": "Calcite exhibits double refraction, splitting light into two rays."
+    "question": "Calcite shows _____ _____ (birefringence).",
+    "answer": ["double", "refraction"],
+    "type": "input_multi"
   },
   {
     "id": "min_fb_24",
     "category": "Mineralogy",
-    "question": "Fe₃O₄ is the chemical formula of _______",
-    "choices": ["magnetite"],
-    "type": "input",
-    "explanation": "Magnetite is an iron oxide with strong magnetic properties."
+    "question": "Fe₃O₄ is the formula of _______.",
+    "answer": "magnetite",
+    "type": "input"
   },
   {
     "id": "min_fb_25",
     "category": "Mineralogy",
-    "question": "The ________ mineral group includes olivine and garnet?",
-    "choices": ["nesosilicates"],
-    "type": "input",
-    "explanation": "Olivine and garnet are nesosilicates with isolated tetrahedra."
+    "question": "The ______ group includes olivine and garnet.",
+    "answer": "nesosilicates",
+    "type": "input"
   },
   {
     "id": "min_fb_26",
     "category": "Mineralogy",
-    "question": "Corundum has a hardness of ______on the Mohs scale",
-    "choices": ["9"],
-    "type": "input",
-    "explanation": "Corundum has a Mohs hardness of 9, second only to diamond."
+    "question": "Corundum has a hardness of ______.",
+    "answer": "9",
+    "type": "input"
   },
   {
     "id": "min_fb_27",
     "category": "Mineralogy",
-    "question": "CaF₂ is the chemical formula of ______.",
-    "choices": ["fluorite"],
-    "type": "input",
-    "explanation": "Fluorite is calcium fluoride with the formula CaF₂."
-  },
-  {
-    "id": "min_fb_28",
-    "category": "Mineralogy",
-    "question": "Fluorite commonly forms ______, octahedron, and dodecahedron crystals.",
-    "choices": ["cubic"],
-    "type": "input",
-    "explanation": "Fluorite commonly forms cubic, octahedral, and dodecahedral crystal habits."
+    "question": "CaF₂ is the formula of ______.",
+    "answer": "fluorite",
+    "type": "input"
   },
   {
     "id": "min_fb_29",
     "category": "Mineralogy",
     "question": "Sphalerite is the primary ore of ______.",
-    "choices": ["zinc"],
-    "type": "input",
-    "explanation": "Sphalerite (ZnS) is the main ore of zinc."
-  },
-  {
-    "id": "min_fb_30",
-    "category": "Mineralogy",
-    "question": "_______ exhibits a clevage of two directions at 90°.",
-    "choices": ["feldspar"],
-    "type": "input",
-    "explanation": "Feldspar shows two cleavage directions that intersect at 90°."
+    "answer": "zinc",
+    "type": "input"
   },
   {
     "id": "min_fb_31",
     "category": "Mineralogy",
-    "question": "Magnetite is commonly _____ and has ______ luster with strong magnetism",
-    "choices": ["black", "metallic"],
-    "type": "input_multi",
-    "explanation": "Magnetite is typically black with metallic luster and strong magnetism."
+    "question": "Magnetite is _____ with ______ luster.",
+    "answer": ["black", "metallic"],
+    "type": "input_multi"
   },
   {
     "id": "min_fb_32",
     "category": "Mineralogy",
-    "question": "PbS is the chemical formula of ______.",
-    "choices": ["galena"],
-    "type": "input",
-    "explanation": "Galena is lead sulfide (PbS), the primary ore of lead."
+    "question": "PbS is the formula of ______.",
+    "answer": "galena",
+    "type": "input"
   },
   {
     "id": "min_fb_33",
     "category": "Mineralogy",
-    "question": "Graphite and ______ have a greasy feel and are very soft.",
-    "choices": ["talc"],
-    "type": "input",
-    "explanation": "Both graphite and talc feel greasy and are very soft minerals."
+    "question": "Graphite and ______ feel greasy.",
+    "answer": "talc",
+    "type": "input"
   },
   {
     "id": "min_fb_34",
     "category": "Mineralogy",
-    "question": "The _____ mineral group contain the mineral halite.",
-    "choices": ["halides"],
-    "type": "input",
-    "explanation": "Halite belongs to the halide mineral group."
+    "question": "Halite belongs to the ______ group.",
+    "answer": "halides",
+    "type": "input"
   },
   {
     "id": "min_fb_35",
     "category": "Mineralogy",
-    "question": "CuFeS₂ is the chemical formula of _____.",
-    "choices": ["chalcopyrite"],
-    "type": "input",
-    "explanation": "Chalcopyrite is copper iron sulfide (CuFeS₂)."
+    "question": "CuFeS₂ is ______.",
+    "answer": "chalcopyrite",
+    "type": "input"
   },
   {
     "id": "min_fb_36",
     "category": "Mineralogy",
-    "question": "Plagioclase feldspar typically shows ______ on cleavage surfaces.",
-    "choices": ["striations"],
-    "type": "input",
-    "explanation": "Plagioclase feldspar commonly shows fine striations on cleavage surfaces."
+    "question": "Plagioclase shows ______.",
+    "answer": "striations",
+    "type": "input"
   },
   {
     "id": "min_fb_37",
     "category": "Mineralogy",
-    "question": "Mica minerals have a ______ crystal habit.",
-    "choices": ["platy"],
-    "type": "input",
-    "explanation": "Micas have a platy habit due to their sheet-like structure."
+    "question": "Mica has a ______ habit.",
+    "answer": "platy",
+    "type": "input"
   },
   {
     "id": "min_fb_38",
     "category": "Mineralogy",
-    "question": "The mineral ______ is commonly used as an abrasive due to its exceptional hardness.",
-    "choices": ["corundum"],
-    "type": "input",
-    "explanation": "Corundum is very hard and widely used as an abrasive."
+    "question": "______ is used as an abrasive.",
+    "answer": "corundum",
+    "type": "input"
   },
   {
     "id": "min_fb_39",
     "category": "Mineralogy",
-    "question": "MgSiO₃ is the chemical formula of ______ (enstatite).",
-    "choices": ["orthopyroxene"],
-    "type": "input",
-    "explanation": "Enstatite is an orthopyroxene with the formula MgSiO₃."
+    "question": "MgSiO₃ is ______.",
+    "answer": "orthopyroxene",
+    "type": "input"
   },
   {
     "id": "min_fb_40",
     "category": "Mineralogy",
-    "question": "The mineral olivine is commonly found in ________ rocks?",
-    "choices": ["ultramafic"],
-    "type": "input",
-    "explanation": "Olivine is abundant in ultramafic rocks such as peridotite."
-  },
-  {
-    "id": "min_fb_41",
-    "category": "Mineralogy",
-    "question": "Halite is known for its _____ crystals and salty taste?",
-    "choices": ["cubic"],
-    "type": "input",
-    "explanation": "Halite forms cubic crystals and has a distinctive salty taste."
-  },
-  {
-    "id": "min_fb_42",
-    "category": "Mineralogy",
-    "question": "CaMg(CO₃)₂ is the chemical formula of dolomite?",
-    "choices": ["dolomite"],
-    "type": "input",
-    "explanation": "Dolomite has the chemical formula CaMg(CO₃)₂."
-  },
-  {
-    "id": "min_fb_43",
-    "category": "Mineralogy",
-    "question": "Calcite belongs to the _______ mineral group?",
-    "choices": ["carbonates"],
-    "type": "input",
-    "explanation": "Calcite is a carbonate mineral."
-  },
-  {
-    "id": "min_fb_44",
-    "category": "Mineralogy",
-    "question": "The mineral ______ is soft enough to be scratched by a fingernail?",
-    "choices": ["gypsum"],
-    "type": "input",
-    "explanation": "Gypsum (hardness 2) can be scratched by a fingernail."
-  },
-  {
-    "id": "min_fb_45",
-    "category": "Mineralogy",
-    "question": "Quartz commonly forms hexagonal prisms?",
-    "choices": ["hexagonal"],
-    "type": "input",
-    "explanation": "Quartz crystals commonly have hexagonal symmetry."
-  },
-  {
-    "id": "min_fb_46",
-    "category": "Mineralogy",
-    "question": "SO₄²⁻ is the dominant ______ in sulfate minerals?",
-    "choices": ["anion"],
-    "type": "input",
-    "explanation": "Sulfate minerals are defined by the SO₄²⁻ anion."
-  },
-  {
-    "id": "min_fb_47",
-    "category": "Mineralogy",
-    "question": "Calcite has ______ ______ in three directions not at 90°?",
-    "choices": ["perfect", "cleavage"],
-    "type": "input_multi",
-    "explanation": "Calcite has perfect rhombohedral cleavage in three directions not at 90°."
+    "question": "Olivine occurs in ______ rocks.",
+    "answer": "ultramafic",
+    "type": "input"
   },
   {
     "id": "min_fb_48",
     "category": "Mineralogy",
-    "question": "The mineral commonly used in pencils is ______.",
-    "choices": ["graphite"],
-    "type": "input",
-    "explanation": "Graphite is used in pencils because it is soft and leaves marks on paper."
+    "question": "The mineral used in pencils is ______.",
+    "answer": "graphite",
+    "type": "input"
   },
   {
     "id": "min_fb_49",
     "category": "Mineralogy",
-    "question": "A mineral with a hardness of 4 on the Mohs scale is ______.",
-    "choices": ["fluorite"],
-    "type": "input",
-    "explanation": "Fluorite has a Mohs hardness of 4."
+    "question": "A mineral with hardness 4 is ______.",
+    "answer": "fluorite",
+    "type": "input"
   },
   {
     "id": "min_fb_50",
     "category": "Mineralogy",
-    "question": "Minerals in the ______ group contain sulfur combined with metals.",
-    "choices": ["sulfides"],
-    "type": "input",
-    "explanation": "Sulfide minerals are composed of sulfur bonded with metals, such as FeS₂."
+    "question": "Minerals in the ______ group contain sulfur with metals.",
+    "answer": "sulfides",
+    "type": "input"
   }
 ]
