@@ -57,6 +57,7 @@ function shuffleQuestion(q: any) {
 }
 function normalizeQuestions(data: any[]): Question[] {
   return data.map((q) => {
+    // ✅ MULTIPLE CHOICE
     if (q.type === "multiple_choice") {
       return {
         id: q.id,
@@ -69,12 +70,19 @@ function normalizeQuestions(data: any[]): Question[] {
       } as MCQuestion;
     }
 
+    // ✅ INPUT (FB)
     return {
       id: q.id,
       category: q.category,
       question: q.question,
-      choices: q.choices,
-      explanation: q.explanation,
+      choices: Array.isArray(q.choices)
+        ? q.choices
+        : Array.isArray(q.answer)
+        ? q.answer
+        : q.answer
+        ? [q.answer] // 🔥 convert answer → choices
+        : [],
+      explanation: q.explanation ?? "",
       type: q.type === "input_multi" ? "input_multi" : "input",
     } as InputQuestion;
   });
@@ -147,7 +155,10 @@ const [isCorrect, setIsCorrect] = useState(false);
   // ✅ SINGLE INPUT
   else if (question.type === "input") {
     if (!input.trim()) return;
-    result = clean(input) === clean(question.choices[0]);
+  const correct = question.choices?.[0];
+if (!correct) return;
+
+result = clean(input) === clean(correct);
   }
 
   // ✅ MULTI INPUT
