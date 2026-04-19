@@ -50,8 +50,8 @@
       "eas": {
         "projectId": "54b2831a-4d0a-4d91-a189-a58afe3c3557"
       },
-      "supabaseUrl": "https://umucokzpurfkopvqhymz.supabase.co",
-      "supabaseAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVtdWNva3pwdXJma29wdnFoeW16Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ0ODcyMTgsImV4cCI6MjA5MDA2MzIxOH0.mli4hOy4yHLTD6UEVyPtfrkAYPBRFvdFFQ4wSqiUW5"
+      "supabaseUrl": "https://riszrgbaldqolomvxuro.supabase.co",
+      "supabaseAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpc3pyZ2JhbGRxb2xvbXZ4dXJvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY0NzMzNzMsImV4cCI6MjA5MjA0OTM3M30.XRUeStK4HOICzjTOShs02ydtob5U85yt6W7uatREgKg"
     },
     "runtimeVersion": {
       "policy": "appVersion"

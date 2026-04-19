@@ -1,22 +1,30 @@
 import { supabase } from "./supabase";
 
 export async function initUser() {
-  try {
-    const { data } = await supabase.auth.getUser();
+  console.log("🔐 INIT USER START");
 
-    if (data?.user) return data.user;
+  const { data: sessionData } = await supabase.auth.getSession();
 
-    const { data: signInData, error } =
-      await supabase.auth.signInAnonymously();
+  if (sessionData?.session?.user) {
+    console.log("✅ EXISTING USER:", sessionData.session.user.id);
+    return sessionData.session.user;
+  }
 
-    if (error) {
-      console.log("Auth error:", error);
-      return null;
-    }
+  console.log("🚨 NO SESSION → CREATING USER");
 
-    return signInData.user;
-  } catch (e) {
-    console.log("INIT USER ERROR:", e);
+  const { data, error } = await supabase.auth.signInAnonymously();
+
+  if (error) {
+    console.log("❌ SIGN IN ERROR:", error);
     return null;
   }
+
+  if (!data?.user) {
+    console.log("❌ NO USER RETURNED");
+    return null;
+  }
+
+  console.log("🔥 CREATED USER:", data.user.id);
+
+  return data.user;
 }

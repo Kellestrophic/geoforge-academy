@@ -11,12 +11,17 @@ export async function signInAnon() {
 
     const { data, error } = await supabase.auth.signInAnonymously();
 
-    if (error) {
+    if (error || !data.user) {
       console.log("Auth error:", error);
       return null;
     }
 
-    console.log("New user created:", data.user?.id);
+    console.log("New user created:", data.user.id);
+
+    // 🔥 CREATE USER ROW IN YOUR TABLE
+    await supabase.from("users").upsert({
+      id: data.user.id,
+    });
 
     return data.user;
   } catch (err) {

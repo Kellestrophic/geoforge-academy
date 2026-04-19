@@ -9,7 +9,14 @@ import Svg, { Circle, Line, Rect } from "react-native-svg";
 type Exam = {
   score: number;
   type: "random" | "topic" | "pg";
+  topic?: string;
   date: string;
+};
+
+type Activity = {
+  date: string;
+  minutes: number;
+  mode: string;
 };
 
 /* ---------------- COLORS ---------------- */
@@ -24,9 +31,10 @@ const COLORS: Record<string, string> = {
 
 export default function ProfileScreen() {
   const [exams, setExams] = useState<Exam[]>([]);
-  const [activity, setActivity] = useState<string[]>([]);
+  const [activity, setActivity] = useState<Activity[]>([]);
+
   const [selectedExam, setSelectedExam] = useState<Exam | null>(null);
-  const [selectedDay, setSelectedDay] = useState<string | null>(null);
+  const [selectedDay, setSelectedDay] = useState<Activity | null>(null);
 
   /* ---------------- LOAD DATA ---------------- */
 
@@ -55,19 +63,23 @@ export default function ProfileScreen() {
       .eq("user_id", user.id)
       .order("date", { ascending: true });
 
-    setActivity(activityData?.map((a) => a.date) || []);
+    setActivity(activityData || []);
   }
 
-  /* ---------------- STREAK ---------------- */
+  /* ---------------- STREAK (FIXED) ---------------- */
 
   function calculateStreak() {
     if (activity.length === 0) return 0;
 
+    const dates = activity
+      .map((a) => new Date(a.date).toDateString())
+      .filter((v, i, arr) => arr.indexOf(v) === i); // unique days
+
     let streak = 1;
 
-    for (let i = activity.length - 1; i > 0; i--) {
-      const curr = new Date(activity[i]);
-      const prev = new Date(activity[i - 1]);
+    for (let i = dates.length - 1; i > 0; i--) {
+      const curr = new Date(dates[i]);
+      const prev = new Date(dates[i - 1]);
 
       const diff =
         (curr.getTime() - prev.getTime()) / (1000 * 60 * 60 * 24);
@@ -81,7 +93,7 @@ export default function ProfileScreen() {
 
   const streak = calculateStreak();
 
-  /* ---------------- GRAPH ---------------- */
+  /* ---------------- EXAM GRAPH ---------------- */
 
   const points = exams.map((exam, i) => ({
     x: i * 70 + 30,
@@ -92,17 +104,27 @@ export default function ProfileScreen() {
 
   const width = 300 + points.length * 70;
 
-  /* ---------------- ACTIVITY BARS ---------------- */
+  /* ---------------- ACTIVITY GROUPED BY DAY ---------------- */
+
+  const grouped: Record<string, number> = {};
+
+  activity.forEach((a) => {
+    const day = new Date(a.date).toDateString();
+    grouped[day] = (grouped[day] || 0) + (a.minutes || 5);
+  });
+
+  const days = Object.keys(grouped);
 
   const barWidth = 40;
 
-  const bars = activity.map((date, i) => ({
+  const bars = days.map((day, i) => ({
     x: i * (barWidth + 20) + 20,
-    height: 150, // placeholder (activity count can expand later)
-    date,
+    height: Math.min(grouped[day] * 3, 150), // scale height
+    date: day,
+    minutes: grouped[day],
   }));
 
-  const barGraphWidth = activity.length * (barWidth + 20) + 40;
+  const barGraphWidth = days.length * (barWidth + 20) + 40;
 
   /* ---------------- UI ---------------- */
 
@@ -126,7 +148,7 @@ export default function ProfileScreen() {
         🔥 Streak: {streak} days
       </Text>
 
-      {/* ---------------- LINE GRAPH ---------------- */}
+      {/* ---------------- EXAM GRAPH ---------------- */}
 
       <View style={{ marginTop: 20 }}>
         <ScrollView horizontal>
@@ -149,7 +171,7 @@ export default function ProfileScreen() {
               );
             })}
 
-            {/* DOTS (CLICKABLE) */}
+            {/* DOTS */}
             {points.map((p, i) => (
               <Circle
                 key={`dot-${i}`}
@@ -170,8 +192,14 @@ export default function ProfileScreen() {
               Score: {selectedExam.score}%
             </Text>
             <Text style={{ color: "#94a3b8" }}>
-              Type: {selectedExam.type}
+              Mode: {selectedExam.type}
             </Text>
+
+            {selectedExam.topic && (
+              <Text style={{ color: "#94a3b8" }}>
+                Topic: {selectedExam.topic}
+              </Text>
+            )}
           </View>
         )}
       </View>
@@ -193,7 +221,13 @@ export default function ProfileScreen() {
                 width={barWidth}
                 height={b.height}
                 fill="#3b82f6"
-                onPress={() => setSelectedDay(b.date)}
+                onPress={() =>
+                  setSelectedDay({
+                    date: b.date,
+                    minutes: b.minutes,
+                    mode: "mixed",
+                  })
+                }
               />
             ))}
           </Svg>
@@ -203,10 +237,10 @@ export default function ProfileScreen() {
         {selectedDay && (
           <View style={{ marginTop: 10 }}>
             <Text style={{ color: "white" }}>
-              Activity Date: {selectedDay}
+              Date: {selectedDay.date}
             </Text>
             <Text style={{ color: "#94a3b8" }}>
-              (Detailed breakdown coming next)
+              Study Time: {selectedDay.minutes} min
             </Text>
           </View>
         )}
