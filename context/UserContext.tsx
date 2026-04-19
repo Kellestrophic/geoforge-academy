@@ -1,7 +1,4 @@
-import { supabase } from "@/lib/supabase";
 import { createContext, useContext, useEffect, useState } from "react";
-
-/* ---------------- TYPES ---------------- */
 
 type Exam = {
   score: number;
@@ -12,76 +9,45 @@ type UserType = {
   xp: number;
   streak: number;
   exams: Exam[];
-};
-
-/* ---------------- DEFAULT USER (NO NULL) ---------------- */
-
-const defaultUser: UserType = {
-  xp: 0,
-  streak: 0,
-  exams: [],
-};
-
-/* ---------------- CONTEXT ---------------- */
+} | null;
 
 const UserContext = createContext<{
   user: UserType;
   setUser: React.Dispatch<React.SetStateAction<UserType>>;
   addExam: (exam: Exam) => void;
 }>({
-  user: defaultUser,
+  user: null,
   setUser: () => {},
   addExam: () => {},
 });
-
-/* ---------------- HOOK ---------------- */
 
 export function useUser() {
   return useContext(UserContext);
 }
 
-/* ---------------- PROVIDER ---------------- */
-
 export function UserProvider({ children }: any) {
-  const [user, setUser] = useState<UserType>(defaultUser);
+  const [user, setUser] = useState<UserType>(null);
 
-  /* ---------------- SAFE INIT ---------------- */
-
+  // ✅ SAFE INIT (NO SUPABASE AT ALL)
   useEffect(() => {
-    console.log("👤 SAFE USER INIT");
+    console.log("✅ SAFE USER INIT");
+
+    setUser({
+      xp: 0,
+      streak: 0,
+      exams: [],
+    });
   }, []);
 
-  /* ---------------- ADD EXAM ---------------- */
-
   function addExam(exam: Exam) {
-    // ✅ ALWAYS SAFE (no null checks needed anymore)
-    setUser((prev) => ({
-      ...prev,
-      exams: [...prev.exams, exam],
-    }));
+    setUser((prev) => {
+      if (!prev) return prev;
 
-    // 🚨 SAFE BACKGROUND SAVE (DO NOT BLOCK UI)
-    setTimeout(async () => {
-      try {
-        const { data: session } = await supabase.auth.getSession();
-        const userId = session?.session?.user?.id;
-
-        if (!userId) {
-          console.log("⚠️ NO USER — SKIPPING SAVE");
-          return;
-        }
-
-        await supabase.from("exam_history").insert({
-          user_id: userId,
-          score: exam.score,
-          type: exam.type,
-        });
-
-        console.log("✅ SAVED TO SUPABASE");
-      } catch (e) {
-        console.log("❌ SAFE SAVE FAILED:", e);
-      }
-    }, 1500); // ⬅️ slightly longer delay = safer on iOS
+      return {
+        ...prev,
+        exams: [...prev.exams, exam],
+      };
+    });
   }
 
   return (
