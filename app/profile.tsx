@@ -52,18 +52,27 @@ export default function ProfileScreen() {
       .from("exam_history")
       .select("*")
       .eq("user_id", user.id)
-      .order("date", { ascending: true });
-
-    setExams(examData || []);
+      .order("created_at", { ascending: true });
+    setExams(
+  (examData || []).map((e: any) => ({
+    ...e,
+    date: e.created_at, // 🔥 FIX
+  }))
+);
 
     // ACTIVITY
     const { data: activityData } = await supabase
       .from("daily_activity")
       .select("*")
       .eq("user_id", user.id)
-      .order("date", { ascending: true });
+     .order("created_at", { ascending: true });
 
-    setActivity(activityData || []);
+   setActivity(
+  (activityData || []).map((a: any) => ({
+    ...a,
+    date: a.created_at, // 🔥 FIX
+  }))
+);
   }
 
   /* ---------------- STREAK (FIXED) ---------------- */
