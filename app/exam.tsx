@@ -1,5 +1,6 @@
 import { useUser } from "@/context/UserContext";
 import questionsData from "@/data/questions.json";
+import { trackActivity } from "@/lib/activity";
 import { supabase } from "@/lib/supabase";
 import { theme } from "@/lib/theme";
 import { useLocalSearchParams } from "expo-router";
@@ -235,10 +236,13 @@ useEffect(() => {
       // ---------------------------
       // LOCAL STATE (for graph UI)
       // ---------------------------
-      addExam({
-        score: percent,
-        type: mode,
-      });
+  addExam({
+  score: percent,
+  type: mode,
+});
+
+// ✅ TRACK ACTIVITY (RIGHT HERE)
+await trackActivity("exam", 10);
 
       setSaved(true);
 

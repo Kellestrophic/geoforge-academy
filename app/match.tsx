@@ -1,8 +1,8 @@
 import data from "@/data/match.json";
+import { trackActivity } from "@/lib/activity";
 import { theme } from "@/lib/theme";
 import { useEffect, useState } from "react";
 import { Pressable, Text, View } from "react-native";
-
 type Pair = {
   id: string;
   term: string;
@@ -61,19 +61,22 @@ export default function MatchGame() {
 
   const allDone = completed.length === roundSize;
 
-  useEffect(() => {
-    if (allDone) {
-      setTimeout(() => {
-        let newSize = roundSize;
+useEffect(() => {
+  if (allDone) {
+    // ✅ TRACK MATCH GAME COMPLETION
+    trackActivity("match");
 
-        if (combo >= 5) newSize = Math.min(roundSize + 1, 10);
-        if (combo === 0) newSize = Math.max(roundSize - 1, 4);
+    setTimeout(() => {
+      let newSize = roundSize;
 
-        setRoundSize(newSize);
-        startNewRound(newSize);
-      }, 800);
-    }
-  }, [allDone]);
+      if (combo >= 5) newSize = Math.min(roundSize + 1, 10);
+      if (combo === 0) newSize = Math.max(roundSize - 1, 4);
+
+      setRoundSize(newSize);
+      startNewRound(newSize);
+    }, 800);
+  }
+}, [allDone]);
 
   return (
     <View

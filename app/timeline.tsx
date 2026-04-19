@@ -1,7 +1,7 @@
+import { trackActivity } from "@/lib/activity";
 import { theme } from "@/lib/theme";
 import { useEffect, useMemo, useState } from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
-
 type TimeItem = {
   id: string;
   name: string;
@@ -249,38 +249,56 @@ export default function TimelineGame() {
     [items, questionType, targetGroup]
   );
 
-  function handleCheck() {
-    if (questionType === "timeline" && mode !== "hard") {
-      if (placed.some((p) => p === null)) return;
-
-      setChecked(true);
-      const allCorrect = placed.every((item, index) => item && item.order === index + 1);
-      setLastResultCorrect(allCorrect);
-      setShowModal(true);
-      return;
-    }
-
-    if (mode === "hard") {
-      if (Object.keys(hardOrder).length !== items.length) return;
-
-      setChecked(true);
-      const allCorrect = items.every((item) => hardOrder[item.id] === item.order);
-      setLastResultCorrect(allCorrect);
-      setShowModal(true);
-      return;
-    }
-
-    if (selectedNames.length === 0) return;
+function handleCheck() {
+  if (questionType === "timeline" && mode !== "hard") {
+    if (placed.some((p) => p === null)) return;
 
     setChecked(true);
 
-    const gotAll =
-      correctNames.length === selectedNames.filter((n) => correctNames.includes(n)).length &&
-      selectedNames.every((n) => correctNames.includes(n));
+    const allCorrect = placed.every(
+      (item, index) => item && item.order === index + 1
+    );
 
-    setLastResultCorrect(gotAll);
+    // ✅ TRACK TIMELINE GAME
+    trackActivity("timeline");
+
+    setLastResultCorrect(allCorrect);
     setShowModal(true);
+    return;
   }
+
+  if (mode === "hard") {
+    if (Object.keys(hardOrder).length !== items.length) return;
+
+    setChecked(true);
+
+    const allCorrect = items.every(
+      (item) => hardOrder[item.id] === item.order
+    );
+
+    // ✅ TRACK TIMELINE GAME
+    trackActivity("timeline");
+
+    setLastResultCorrect(allCorrect);
+    setShowModal(true);
+    return;
+  }
+
+  if (selectedNames.length === 0) return;
+
+  setChecked(true);
+
+  const gotAll =
+    correctNames.length ===
+      selectedNames.filter((n) => correctNames.includes(n)).length &&
+    selectedNames.every((n) => correctNames.includes(n));
+
+  // ✅ TRACK TIMELINE GAME
+  trackActivity("timeline");
+
+  setLastResultCorrect(gotAll);
+  setShowModal(true);
+}
 
   const prompt =
     questionType === "timeline" && mode !== "hard"

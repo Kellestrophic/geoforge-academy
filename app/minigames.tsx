@@ -1,7 +1,7 @@
+import { trackActivity } from "@/lib/activity";
 import { theme } from "@/lib/theme";
 import { useRouter } from "expo-router";
 import { Pressable, Text, View } from "react-native";
-
 function GameCard({
   title,
   subtitle,
@@ -58,19 +58,28 @@ export default function MinigamesScreen() {
       <GameCard
         title="Match Game"
         subtitle="Match geology terms with their definitions"
-        onPress={() => router.push("/match")}
+       onPress={async () => {
+  await trackActivity("match");
+  router.push("/match");
+}}
       />
 
       <GameCard
         title="Formula Game"
         subtitle="Build and complete mineral chemical formulas"
-        onPress={() => router.push("/formula-game")}
+       onPress={async () => {
+  await trackActivity("formula");
+  router.push("/formula-game");
+}}
       />
 
       <GameCard
         title="Timeline Builder"
         subtitle="Arrange geologic time from oldest to youngest"
-        onPress={() => router.push("/timeline")}
+       onPress={async () => {
+  await trackActivity("timeline");
+  router.push("/timeline");
+}}
       />
 
       <Pressable

@@ -1,8 +1,10 @@
-import { getReviewQuestions } from "@/lib/reviewStore";
+import { trackActivity } from "@/lib/activity";
+import { supabase } from "@/lib/supabase";
 import { theme } from "@/lib/theme";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Pressable, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+
 
 type ReviewQuestion = {
   id: string;
@@ -14,9 +16,24 @@ type ReviewQuestion = {
 };
 
 export default function ReviewQuiz() {
-  const [questions] = useState<ReviewQuestion[]>(
-    getReviewQuestions()
-  );
+const [questions, setQuestions] = useState<ReviewQuestion[]>([]);
+
+useEffect(() => {
+  load();
+}, []);
+
+async function load() {
+  const { data: userData } = await supabase.auth.getUser();
+  const user = userData.user;
+  if (!user) return;
+
+  const { data } = await supabase
+    .from("wrong_questions")
+    .select("*")
+    .eq("user_id", user.id);
+
+  setQuestions(data?.map((q) => q.question) || []);
+}
 
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
@@ -50,7 +67,7 @@ export default function ReviewQuiz() {
     return String(str).toLowerCase().replace(/[^a-z0-9]/g, "");
   }
 
-  function handleSubmit() {
+ async function handleSubmit() {
     let correct = false;
 
     // ✅ MULTIPLE CHOICE
@@ -87,6 +104,7 @@ export default function ReviewQuiz() {
 
     setIsCorrect(correct);
     setShowResult(true);
+    await trackActivity("review", 3);
   }
 
   function nextQuestion() {

@@ -1,9 +1,9 @@
-import { getReviewQuestions } from "@/lib/reviewStore";
+import { trackActivity } from "@/lib/activity";
+import { supabase } from "@/lib/supabase";
 import { theme } from "@/lib/theme";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
 type ReviewQuestion = {
   id: string;
   question: string;
@@ -14,16 +14,43 @@ type ReviewQuestion = {
 };
 
 export default function ReviewList() {
-  const [questions, setQuestions] = useState<ReviewQuestion[]>(
-    getReviewQuestions()
-  );
+const [questions, setQuestions] = useState<ReviewQuestion[]>([]);
+
+useEffect(() => {
+  load();
+}, []);
+
+async function load() {
+  const { data: userData } = await supabase.auth.getUser();
+  const user = userData.user;
+  if (!user) return;
+
+  const { data } = await supabase
+    .from("wrong_questions")
+    .select("*")
+    .eq("user_id", user.id)
+    .order("created_at", { ascending: false });
+
+  setQuestions(data?.map((q) => q.question) || []);
+}
 
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
-  function removeQuestion(id: string) {
-    setQuestions((prev) => prev.filter((q) => q.id !== id));
-    setSelectedId(null);
-  }
+async function removeQuestion(id: string) {
+  const { data: userData } = await supabase.auth.getUser();
+  const user = userData.user;
+  if (!user) return;
+
+  await supabase
+    .from("wrong_questions")
+    .delete()
+    .eq("user_id", user.id)
+    .eq("question_id", id);
+
+  // update UI
+  setQuestions((prev) => prev.filter((q) => q.id !== id));
+  setSelectedId(null);
+}
 
   // ✅ EMPTY STATE
   if (questions.length === 0) {
@@ -80,11 +107,15 @@ export default function ReviewList() {
               }}
             >
               {/* QUESTION HEADER */}
-              <Pressable
-                onPress={() =>
-                  setSelectedId(isOpen ? null : q.id)
-                }
-              >
+          <Pressable
+  onPress={async () => {
+    setSelectedId(isOpen ? null : q.id);
+
+    if (!isOpen) {
+      await trackActivity("review", 2);
+    }
+  }}
+>
                 <Text
                   style={{
                     color: theme.colors.text,

@@ -31,10 +31,10 @@ const COLORS: Record<string, string> = {
 
 export default function ProfileScreen() {
   const [exams, setExams] = useState<Exam[]>([]);
-  const [activity, setActivity] = useState<Activity[]>([]);
+  const [activity, setActivity] = useState<any[]>([]);
 
   const [selectedExam, setSelectedExam] = useState<Exam | null>(null);
-  const [selectedDay, setSelectedDay] = useState<Activity | null>(null);
+  const [selectedDay, setSelectedDay] = useState<any | null>(null);
 
   /* ---------------- LOAD DATA ---------------- */
 
@@ -104,35 +104,49 @@ export default function ProfileScreen() {
 
   /* ---------------- EXAM GRAPH ---------------- */
 
-  const points = exams.map((exam, i) => ({
-    x: i * 70 + 30,
-    y: 200 - exam.score * 1.5,
-    color: COLORS[exam.type] || "white",
-    exam,
-  }));
+const spacing = exams.length > 1 ? (300 / (exams.length - 1)) : 0;
 
-  const width = 300 + points.length * 70;
+const points = exams.map((exam, i) => ({
+  x: 30 + i * spacing,
+  y: 200 - exam.score * 1.5,
+  color: COLORS[exam.type] || "white",
+  exam,
+}));
+
+ const width = 350; // fixed width (no scroll)
 
   /* ---------------- ACTIVITY GROUPED BY DAY ---------------- */
 
-  const grouped: Record<string, number> = {};
+const grouped: Record<string, any[]> = {};
 
-  activity.forEach((a) => {
-    const day = new Date(a.date).toDateString();
-    grouped[day] = (grouped[day] || 0) + (a.minutes || 5);
-  });
+activity.forEach((a) => {
+  const day = new Date(a.date).toDateString();
+
+  if (!grouped[day]) grouped[day] = [];
+
+  grouped[day].push(a);
+});
 
   const days = Object.keys(grouped);
 
   const barWidth = 40;
 
-  const bars = days.map((day, i) => ({
-    x: i * (barWidth + 20) + 20,
-    height: Math.min(grouped[day] * 3, 150), // scale height
-    date: day,
-    minutes: grouped[day],
-  }));
+  const bars = days.map((day, i) => {
+  const dayData = grouped[day];
 
+  const total = dayData.reduce(
+    (sum, a) => sum + (a.minutes || 1),
+    0
+  );
+
+  return {
+    x: i * (barWidth + 20) + 20,
+    height: Math.min(total * 3, 150),
+    date: day,
+    breakdown: dayData,
+    total,
+  };
+});
   const barGraphWidth = days.length * (barWidth + 20) + 40;
 
   /* ---------------- UI ---------------- */
@@ -159,9 +173,27 @@ export default function ProfileScreen() {
 
       {/* ---------------- EXAM GRAPH ---------------- */}
 
-      <View style={{ marginTop: 20 }}>
-        <ScrollView horizontal>
+<View style={{ marginTop: 20 }}>
+  <View style={{ flexDirection: "row" }}>
+    {/* Y AXIS */}
+    <Svg height={220} width={50}>
+  {[0, 25, 50, 75, 100].map((val, i) => (
+    <Text
+      key={i}
+      style={{
+        position: "absolute",
+        left: 0,
+        top: 200 - val * 1.5 - 6,
+        color: "#94a3b8",
+        fontSize: 10,
+      }}
+    >
+      {val}%
+    </Text>
+  ))}
+</Svg>
           <Svg height={220} width={width}>
+            
             {/* LINES */}
             {points.map((p, i) => {
               if (i === 0) return null;
@@ -192,25 +224,46 @@ export default function ProfileScreen() {
               />
             ))}
           </Svg>
-        </ScrollView>
-
+        </View>
+{points.map((p, i) => (
+  <Text
+    key={`label-${i}`}
+    style={{
+      position: "absolute",
+      left: p.x - 15,
+      top: 205,
+      fontSize: 10,
+      color: "#94a3b8",
+    }}
+  >
+    {new Date(p.exam.date).toLocaleDateString(undefined, {
+      month: "numeric",
+      day: "numeric",
+    })}
+  </Text>
+))}
         {/* EXAM INFO */}
         {selectedExam && (
-          <View style={{ marginTop: 10 }}>
-            <Text style={{ color: "white" }}>
-              Score: {selectedExam.score}%
-            </Text>
-            <Text style={{ color: "#94a3b8" }}>
-              Mode: {selectedExam.type}
-            </Text>
+  <View style={{ marginTop: 10 }}>
+    <Text style={{ color: "white" }}>
+      Score: {selectedExam.score}%
+    </Text>
 
-            {selectedExam.topic && (
-              <Text style={{ color: "#94a3b8" }}>
-                Topic: {selectedExam.topic}
-              </Text>
-            )}
-          </View>
-        )}
+    <Text style={{ color: "#94a3b8" }}>
+      Mode: {selectedExam.type}
+    </Text>
+
+    <Text style={{ color: "#94a3b8" }}>
+      Date: {new Date(selectedExam.date).toLocaleDateString()}
+    </Text>
+
+    {selectedExam.topic && (
+      <Text style={{ color: "#94a3b8" }}>
+        Topic: {selectedExam.topic}
+      </Text>
+    )}
+  </View>
+)}
       </View>
 
       {/* ---------------- ACTIVITY BAR GRAPH ---------------- */}
@@ -220,7 +273,7 @@ export default function ProfileScreen() {
           Daily Activity
         </Text>
 
-        <ScrollView horizontal>
+        <View>
           <Svg height={180} width={barGraphWidth}>
             {bars.map((b, i) => (
               <Rect
@@ -230,17 +283,11 @@ export default function ProfileScreen() {
                 width={barWidth}
                 height={b.height}
                 fill="#3b82f6"
-                onPress={() =>
-                  setSelectedDay({
-                    date: b.date,
-                    minutes: b.minutes,
-                    mode: "mixed",
-                  })
-                }
+          onPress={() => setSelectedDay(b)}
               />
             ))}
           </Svg>
-        </ScrollView>
+        </View>
 
         {/* DAY INFO */}
         {selectedDay && (
@@ -248,9 +295,21 @@ export default function ProfileScreen() {
             <Text style={{ color: "white" }}>
               Date: {selectedDay.date}
             </Text>
-            <Text style={{ color: "#94a3b8" }}>
-              Study Time: {selectedDay.minutes} min
-            </Text>
+           <Text style={{ color: "#94a3b8", marginBottom: 5 }}>
+  Total: {selectedDay.total} min
+</Text>
+
+{selectedDay.breakdown.map((a: any, i: number) => {
+  const percent = Math.round(
+    ((a.minutes || 1) / selectedDay.total) * 100
+  );
+
+  return (
+    <Text key={i} style={{ color: "#94a3b8" }}>
+      {a.activity || a.mode}: {percent}%
+    </Text>
+  );
+})}
           </View>
         )}
       </View>

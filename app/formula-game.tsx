@@ -1,4 +1,5 @@
 import formulaData from "@/data/mineralFormulas.json";
+import { trackActivity } from "@/lib/activity";
 import { theme } from "@/lib/theme";
 import { useRef, useState } from "react";
 import { Animated, KeyboardAvoidingView, Platform, Pressable, Text, TextInput, View } from "react-native";
@@ -130,9 +131,7 @@ function triggerCorrect() {
     setInput("");
     setIndex((prev) => (prev + 1) % questions.length);
   }
-
 function checkBuilder() {
-  
   if (q.type !== "builder") return;
 
   const correct =
@@ -151,8 +150,12 @@ function checkBuilder() {
     triggerCorrect();
   }
 
+  // ✅ TRACK FORMULA GAME
+  trackActivity("formula");
+
   setTimeout(next, 500);
 }
+
 function checkInput() {
   if (q.type !== "input") return;
 
@@ -175,8 +178,12 @@ function checkInput() {
     setCombo(0);
   }
 
+  // ✅ TRACK FORMULA GAME
+  trackActivity("formula");
+
   setTimeout(next, 1200);
 }
+
   return (
    <KeyboardAvoidingView
   behavior={Platform.OS === "ios" ? "padding" : "height"}

@@ -2,10 +2,11 @@ import mineralogyFB from "@/data/mineralogyFB.json";
 import mineralogyMC from "@/data/mineralogyMC.json";
 import petrologyFB from "@/data/petrologyFB.json";
 import petrologyMC from "@/data/petrologyMC.json";
-import { addReviewQuestion } from "@/lib/reviewStore";
+import { trackActivity } from "@/lib/activity";
+import { saveWrongQuestion } from "@/lib/review";
 import { theme } from "@/lib/theme";
 import { useLocalSearchParams } from "expo-router";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Pressable, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -92,6 +93,7 @@ function clean(str: string) {
 }
 
 export default function PracticeScreen() {
+  const submitLock = useRef(false);
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [input, setInput] = useState("");
@@ -143,25 +145,27 @@ const [isCorrect, setIsCorrect] = useState(false);
     );
   }
 
- function handleSubmit() {
+async function handleSubmit() {
+  // 🔥 PREVENT DOUBLE TAP
+  if (submitLock.current) return;
+  submitLock.current = true;
+
   let result = false;
 
-  // ✅ MULTIPLE CHOICE
   if (question.type === "multiple_choice") {
     if (selected === null) return;
     result = selected === question.correctAnswer;
   }
 
-  // ✅ SINGLE INPUT
   else if (question.type === "input") {
     if (!input.trim()) return;
-  const correct = question.choices?.[0];
-if (!correct) return;
 
-result = clean(input) === clean(correct);
+    const correct = question.choices?.[0];
+    if (!correct) return;
+
+    result = clean(input) === clean(correct);
   }
 
-  // ✅ MULTI INPUT
   else if (question.type === "input_multi") {
     if (!input.trim()) return;
 
@@ -181,24 +185,25 @@ result = clean(input) === clean(correct);
       );
   }
 
-setIsCorrect(result);
-setShowResult(true);
+  // ✅ TRACK PRACTICE
+  await trackActivity("practice");
 
-// 🔥 SAVE WRONG QUESTIONS
-if (!result) {
-  addReviewQuestion(question);
-}
+  setIsCorrect(result);
+  setShowResult(true);
+
+  // ✅ SAVE WRONG (ONLY ONCE NOW)
+  if (!result) {
+    await saveWrongQuestion(question);
+  }
 }
 function nextQuestion() {
-  if (index + 1 >= questions.length) {
-    alert("Done!");
-    return;
-  }
+  submitLock.current = false; // 🔥 RESET LOCK
 
-  setIndex((prev) => prev + 1);
   setSelected(null);
   setInput("");
   setShowResult(false);
+
+  setIndex((prev) => prev + 1);
 }
  return (
   <SafeAreaView style={{ flex: 1 }}>
@@ -299,23 +304,30 @@ borderColor: theme.colors.border,
   </View>
 )}
       {/* SUBMIT */}
-     <Pressable
-  onPress={showResult ? nextQuestion : handleSubmit}
-  disabled={!showResult && (
-    question.type === "multiple_choice"
+<Pressable
+  onPress={() => {
+    if (showResult) {
+      nextQuestion();
+    } else {
+      handleSubmit();
+    }
+  }}
+  disabled={
+    !showResult &&
+    (question.type === "multiple_choice"
       ? selected === null
-      : !input.trim()
-  )}
-        style={{
-          backgroundColor: "#2563eb",
-          padding: 14,
-          borderRadius: 10,
-        }}
-      >
-<Text style={{ color: "white", textAlign: "center" }}>
-  {showResult ? "Next" : "Submit"}
-</Text>
-      </Pressable>
+      : !input.trim())
+  }
+  style={{
+    backgroundColor: "#2563eb",
+    padding: 14,
+    borderRadius: 10,
+  }}
+>
+  <Text style={{ color: "white", textAlign: "center" }}>
+    {showResult ? "Next" : "Submit"}
+  </Text>
+</Pressable>
       </View>
   </SafeAreaView>
   );
