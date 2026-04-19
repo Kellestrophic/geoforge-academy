@@ -29,59 +29,22 @@ export function useUser() {
 export function UserProvider({ children }: any) {
   const [user, setUser] = useState<UserType>(null);
 
-  /* ---------------- SAFE LOAD (ONCE) ---------------- */
+  /* ---------------- SAFE INIT (NO SUPABASE) ---------------- */
 
   useEffect(() => {
-    let mounted = true;
+    console.log("👤 SAFE USER INIT");
 
-    const load = async () => {
-      try {
-        // ✅ delay prevents crash
-        await new Promise((r) => setTimeout(r, 500));
-
-        const { data: session } = await supabase.auth.getSession();
-        const userId = session?.session?.user?.id;
-
-        if (!userId) {
-          setUser({ xp: 0, streak: 0, exams: [] });
-          return;
-        }
-
-        const { data } = await supabase
-          .from("exam_history")
-          .select("*")
-          .eq("user_id", userId)
-          .order("created_at", { ascending: true });
-
-        const exams =
-          data?.map((e: any) => ({
-            score: e.score,
-            type: e.type,
-          })) || [];
-
-        if (mounted) {
-          setUser({
-            xp: 0,
-            streak: 0,
-            exams,
-          });
-        }
-      } catch (e) {
-        console.log("LOAD SAFE FAIL:", e);
-        setUser({ xp: 0, streak: 0, exams: [] });
-      }
-    };
-
-    load();
-
-    return () => {
-      mounted = false;
-    };
+    setUser({
+      xp: 0,
+      streak: 0,
+      exams: [],
+    });
   }, []);
 
-  /* ---------------- SAVE EXAM ---------------- */
+  /* ---------------- SAVE EXAM (SAFE) ---------------- */
 
   async function addExam(exam: Exam) {
+    // ✅ instant UI update
     setUser((prev) => {
       if (!prev) return prev;
 
@@ -91,21 +54,25 @@ export function UserProvider({ children }: any) {
       };
     });
 
-    // 🔥 SAFE BACKGROUND SAVE (NO CRASH)
-    try {
-      const { data: session } = await supabase.auth.getSession();
-      const userId = session?.session?.user?.id;
+    // ✅ delayed background save (no crash)
+    setTimeout(async () => {
+      try {
+        const { data: session } = await supabase.auth.getSession();
+        const userId = session?.session?.user?.id;
 
-      if (!userId) return;
+        if (!userId) return;
 
-      await supabase.from("exam_history").insert({
-        user_id: userId,
-        score: exam.score,
-        type: exam.type,
-      });
-    } catch (e) {
-      console.log("SAVE FAIL SAFE:", e);
-    }
+        await supabase.from("exam_history").insert({
+          user_id: userId,
+          score: exam.score,
+          type: exam.type,
+        });
+
+        console.log("✅ SAVED TO SUPABASE");
+      } catch (e) {
+        console.log("❌ SAFE SAVE FAILED:", e);
+      }
+    }, 1000); // ⬅️ CRITICAL DELAY
   }
 
   return (
