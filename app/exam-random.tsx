@@ -1,11 +1,9 @@
 import { theme } from "@/lib/theme";
-import { router, useLocalSearchParams } from "expo-router";
+import { router } from "expo-router";
 import { useState } from "react";
 import { Pressable, Text, View } from "react-native";
 
-export default function ExamTopicSetup() {
-  const { topic } = useLocalSearchParams<{ topic: string }>();
-
+export default function RandomExamSetup() {
   const [questionCount, setQuestionCount] = useState(20);
   const [timeLimit, setTimeLimit] = useState(30);
 
@@ -53,7 +51,7 @@ export default function ExamTopicSetup() {
           marginBottom: 20,
         }}
       >
-        {topic} Exam
+        Random Exam
       </Text>
 
       {/* QUESTION COUNT */}
@@ -73,7 +71,13 @@ export default function ExamTopicSetup() {
       </View>
 
       {/* TIME LIMIT */}
-      <Text style={{ color: theme.colors.subtext, marginTop: 20, marginBottom: 10 }}>
+      <Text
+        style={{
+          color: theme.colors.subtext,
+          marginTop: 20,
+          marginBottom: 10,
+        }}
+      >
         Time Limit (minutes)
       </Text>
 
@@ -94,8 +98,7 @@ export default function ExamTopicSetup() {
           router.push({
             pathname: "/exam",
             params: {
-              mode: "topic",
-              topic,
+              mode: "random", // ✅ THIS IS THE FIX
               count: questionCount,
               time: timeLimit,
             },

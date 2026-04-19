@@ -1,13 +1,41 @@
 import { useUser } from "@/context/UserContext";
-import mineralogyFB from "@/data/mineralogyFB.json";
-import mineralogyMC from "@/data/mineralogyMC.json";
-import petrologyFB from "@/data/petrologyFB.json";
-import petrologyMC from "@/data/petrologyMC.json";
 import questionsData from "@/data/questions.json";
+import { supabase } from "@/lib/supabase";
 import { theme } from "@/lib/theme";
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
+const mineralogyFBRaw = require("../data/mineralogyFB.json");
+const mineralogyMCRaw = require("../data/mineralogyMC.json");
+const petrologyFBRaw = require("../data/petrologyFB.json");
+const petrologyMCRaw = require("../data/petrologyMC.json");
+const mineralFormulasRaw = require("../data/mineralFormulas.json");
+
+/* ---------------- SAFE UNWRAP ---------------- */
+
+const unwrap = (data: any) => {
+  if (Array.isArray(data)) return data;
+  if (Array.isArray(data?.questions)) return data.questions;
+  if (Array.isArray(data?.default)) return data.default;
+  if (Array.isArray(data?.default?.questions)) return data.default.questions;
+  return [];
+};
+
+/* ---------------- FINAL DATA ---------------- */
+
+const mineralogyFB = unwrap(mineralogyFBRaw);
+const mineralogyMC = unwrap(mineralogyMCRaw);
+const petrologyFB = unwrap(petrologyFBRaw);
+const petrologyMC = unwrap(petrologyMCRaw);
+const mineralFormulas = unwrap(mineralFormulasRaw);
+
+/* ---------------- TOPIC MAP ---------------- */
+
+const TOPIC_QUESTIONS: Record<string, any[]> = {
+  Mineralogy: [...mineralogyMC, ...mineralogyFB],
+  Petrology: [...petrologyMC, ...petrologyFB],
+  MineralFormulas: [...mineralFormulas],
+};
 
 /* ---------------- HELPERS ---------------- */
 
@@ -22,55 +50,56 @@ export default function ExamScreen() {
   const { addExam } = useUser();
 
   const [saved, setSaved] = useState(false);
-
-  const TOPIC_QUESTIONS: Record<string, { mc: any[]; fb: any[] }> = {
-    Mineralogy: { mc: mineralogyMC, fb: mineralogyFB },
-    Petrology: { mc: petrologyMC, fb: petrologyFB },
-  };
+  const [questions, setQuestions] = useState<any[]>([]);
+  const [answers, setAnswers] = useState<{ [key: number]: any }>({});
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [finished, setFinished] = useState(false);
+  const [inputAnswer, setInputAnswer] = useState("");
 
   const count = Number(params.count) || 20;
   const timeLimit = Number(params.time) || 30;
+  const [timeLeft, setTimeLeft] = useState(timeLimit * 60);
 
-  const mode =
-    typeof params.mode === "string"
-      ? params.mode
-      : Array.isArray(params.mode)
-      ? params.mode[0]
-      : "random";
+  const rawMode = Array.isArray(params.mode) ? params.mode[0] : params.mode;
+  const mode: "random" | "topic" | "pg" =
+    rawMode === "topic" || rawMode === "pg" ? rawMode : "random";
 
   const selectedTopic = Array.isArray(params.topic)
     ? params.topic[0]
     : params.topic;
 
-  const [questions, setQuestions] = useState<any[]>([]);
-  const [answers, setAnswers] = useState<{ [key: number]: any }>({});
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(timeLimit * 60);
-  const [finished, setFinished] = useState(false);
-  const [inputAnswer, setInputAnswer] = useState("");
-
   /* ---------------- LOAD QUESTIONS ---------------- */
 
   useEffect(() => {
-    let pool: any[] = [];
+    try {
+      let pool: any[] = [];
 
-    if (mode === "pg") {
-      pool = questionsData;
-    } else if (mode === "random") {
-      pool = [
-        ...mineralogyMC,
-        ...mineralogyFB,
-        ...petrologyMC,
-        ...petrologyFB,
-      ];
-    } else if (mode === "topic" && selectedTopic) {
-      const topicData = TOPIC_QUESTIONS[selectedTopic];
-      pool = topicData ? [...topicData.mc, ...topicData.fb] : [];
+      if (mode === "pg") {
+        pool = Array.isArray(questionsData) ? questionsData : [];
+      } else if (mode === "random") {
+        pool = [
+          ...mineralogyMC,
+          ...mineralogyFB,
+          ...petrologyMC,
+          ...petrologyFB,
+          ...mineralFormulas,
+        ];
+      } else if (mode === "topic" && selectedTopic) {
+        pool = TOPIC_QUESTIONS[selectedTopic] ?? [];
+      }
+
+      console.log("RAW MODE:", rawMode);
+      console.log("FINAL MODE:", mode);
+      console.log("SELECTED TOPIC:", selectedTopic);
+      console.log("POOL SIZE:", pool.length);
+
+      const shuffled = shuffleArray(pool).slice(0, count);
+      setQuestions(shuffled);
+    } catch (e) {
+      console.log("LOAD ERROR:", e);
+      setQuestions([]);
     }
-
-    const shuffled = shuffleArray(pool).slice(0, count);
-    setQuestions(shuffled);
-  }, [mode, selectedTopic, count]);
+  }, [mode, selectedTopic, count, rawMode]);
 
   /* ---------------- TIMER ---------------- */
 
@@ -102,16 +131,16 @@ export default function ExamScreen() {
       }
 
       if (q.type === "input") {
-        return String(userAnswer)?.toLowerCase().trim() ===
+        return String(userAnswer).toLowerCase().trim() ===
           String(q.answer).toLowerCase().trim()
           ? acc + 1
           : acc;
       }
 
       if (q.type === "input_multi") {
-        const correct = q.answer.map((a: string) =>
-          a.toLowerCase().trim()
-        );
+        const correct = Array.isArray(q.answer)
+          ? q.answer.map((a: string) => a.toLowerCase().trim())
+          : [];
 
         const user = Array.isArray(userAnswer)
           ? userAnswer.map((a: string) => a.toLowerCase().trim())
@@ -128,29 +157,99 @@ export default function ExamScreen() {
     }, 0);
   }
 
-  /* ---------------- SAVE RESULT (SAFE) ---------------- */
+  /* ---------------- SAVE RESULT ---------------- */
 
-  useEffect(() => {
-    if (!finished || saved) return;
+useEffect(() => {
+  if (!finished || saved || questions.length === 0) return;
 
-    const score = calculateScore();
-    const percent = Math.round((score / questions.length) * 100);
+  const run = async () => {
+    try {
+      const score = calculateScore();
+      const percent = Math.round((score / questions.length) * 100);
 
-    const rawMode = Array.isArray(params?.mode)
-      ? params.mode[0]
-      : params?.mode;
+      // 🔐 GET USER
+      const { data } = await supabase.auth.getUser();
+      const user = data.user;
 
-    const safeMode: "random" | "topic" | "pg" =
-      rawMode === "topic" || rawMode === "pg" ? rawMode : "random";
+      if (!user) {
+        console.log("❌ NO USER FOUND");
+        return;
+      }
 
-    addExam({
-      score: percent,
-      type: safeMode,
-    });
+      // ---------------------------
+      // ✅ SAVE EXAM HISTORY
+      // ---------------------------
+      await supabase.from("exam_history").insert({
+        user_id: user.id,
+        score: percent,
+        type: mode,
+      });
 
-    setSaved(true);
-  }, [finished]);
+      // ---------------------------
+      // ✅ SAVE DAILY ACTIVITY (STREAK)
+      // ---------------------------
+      const today = new Date().toISOString().split("T")[0];
 
+      const { data: existing } = await supabase
+        .from("daily_activity")
+        .select("*")
+        .eq("user_id", user.id)
+        .eq("date", today);
+
+      if (!existing || existing.length === 0) {
+        await supabase.from("daily_activity").insert({
+          user_id: user.id,
+          date: today,
+        });
+      }
+
+      // ---------------------------
+      // ✅ SAVE WRONG QUESTIONS
+      // ---------------------------
+      const wrong = questions.filter((q, i) => {
+        const userAnswer = answers[i];
+
+        if (q.type === "multiple_choice") {
+          return userAnswer !== q.correctAnswer;
+        }
+
+        if (q.type === "input") {
+          return (
+            String(userAnswer).toLowerCase().trim() !==
+            String(q.answer).toLowerCase().trim()
+          );
+        }
+
+        return false;
+      });
+
+      if (wrong.length > 0) {
+        await supabase.from("wrong_questions").insert(
+          wrong.map((q) => ({
+            user_id: user.id,
+            question: q,
+          }))
+        );
+      }
+
+      // ---------------------------
+      // LOCAL STATE (for graph UI)
+      // ---------------------------
+      addExam({
+        score: percent,
+        type: mode,
+      });
+
+      setSaved(true);
+
+      console.log("✅ EXAM SAVED");
+    } catch (err) {
+      console.log("❌ SAVE ERROR:", err);
+    }
+  };
+
+  run();
+}, [finished]);
   /* ---------------- LOADING ---------------- */
 
   if (questions.length === 0) {
@@ -214,7 +313,6 @@ export default function ExamScreen() {
         {question.question}
       </Text>
 
-      {/* MULTIPLE CHOICE */}
       {question.type === "multiple_choice" &&
         Array.isArray(question.choices) &&
         question.choices.map((choice: string, index: number) => {
@@ -236,7 +334,6 @@ export default function ExamScreen() {
           );
         })}
 
-      {/* INPUT */}
       {question.type === "input" && (
         <View style={{ marginTop: 20 }}>
           <TextInput
@@ -258,7 +355,12 @@ export default function ExamScreen() {
                 ...prev,
                 [currentIndex]: inputAnswer,
               }));
+
               setInputAnswer("");
+
+              setCurrentIndex((prev) =>
+                prev + 1 >= questions.length ? prev : prev + 1
+              );
             }}
             style={{
               marginTop: 10,
@@ -274,7 +376,6 @@ export default function ExamScreen() {
         </View>
       )}
 
-      {/* MULTI INPUT */}
       {question.type === "input_multi" && (
         <View style={{ marginTop: 20 }}>
           <TextInput
@@ -303,6 +404,10 @@ export default function ExamScreen() {
               }));
 
               setInputAnswer("");
+
+              setCurrentIndex((prev) =>
+                prev + 1 >= questions.length ? prev : prev + 1
+              );
             }}
             style={{
               marginTop: 10,
@@ -318,7 +423,6 @@ export default function ExamScreen() {
         </View>
       )}
 
-      {/* NAV */}
       <Pressable
         onPress={() =>
           setCurrentIndex((prev) =>

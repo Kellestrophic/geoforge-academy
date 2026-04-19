@@ -4,24 +4,28 @@
     "category": "Mineralogy",
     "question": "Diamond is number ______ on the Mohs scale.",
     "answer": "10",
-    "type": "input",
-    "explanation": "Diamond defines hardness 10, the highest value on the Mohs scale."
+    "type": "input"
   },
   {
     "id": "min_fb_2",
     "category": "Mineralogy",
     "question": "Quartz is composed of ______.",
     "answer": "SiO2",
-    "type": "input",
-    "explanation": "Quartz is composed of silicon dioxide (SiO₂)."
+    "type": "input"
   },
   {
     "id": "min_fb_3",
     "category": "Mineralogy",
     "question": "The carbonate group contains ______ and ______.",
     "answer": ["calcite", "dolomite"],
-    "type": "input_multi",
-    "explanation": "Calcite and dolomite are the most common carbonate minerals."
+    "type": "input_multi"
+  },
+    {
+    "id": "min_fb_4",
+    "category": "Mineralogy",
+    "question": "Magnesium and iron are the primary _______ in olivine.",
+    "answer": "cations",
+    "type": "input"
   },
   {
     "id": "min_fb_5",
@@ -101,6 +105,13 @@
     "type": "input"
   },
   {
+    "id": "min_fb_16",
+    "category": "Mineralogy",
+    "question": "_______ is the dominant element in native gold?",
+   "answer": "Gold",
+    "type": "input"
+  },
+  {
     "id": "min_fb_17",
     "category": "Mineralogy",
     "question": "You can tell quartz because of its ______ fracture.",
@@ -127,6 +138,13 @@
     "question": "Pure calcite is ______ or ______ in color.",
     "answer": ["colorless", "white"],
     "type": "input_multi"
+  },
+  {
+    "id": "min_fb_21",
+    "category": "Mineralogy",
+    "question": "The mineral talc is used as a standard for hardness _____.",
+    "answer": ["1"],
+    "type": "input"
   },
   {
     "id": "min_fb_22",
@@ -170,11 +188,26 @@
     "answer": "fluorite",
     "type": "input"
   },
+    {
+    "id": "min_fb_28",
+    "category": "Mineralogy",
+    "question": "Flourite commonly forms ______ crystals?",
+    "choices": ["octahedral"],
+   "answer": "fluorite",
+    "type": "input"
+  },
   {
     "id": "min_fb_29",
     "category": "Mineralogy",
     "question": "Sphalerite is the primary ore of ______.",
     "answer": "zinc",
+    "type": "input"
+  },
+    {
+    "id": "min_fb_30",
+    "category": "Mineralogy",
+    "question": "Feldspar exhibits a clevage of two directions at ____°.",
+    "answer": "90",
     "type": "input"
   },
   {
@@ -246,6 +279,55 @@
     "question": "Olivine occurs in ______ rocks.",
     "answer": "ultramafic",
     "type": "input"
+  },
+  {
+    "id": "min_fb_41",
+    "category": "Mineralogy",
+    "question": "Halite is known for its _____ crystals and salty taste.",
+    "answer": "cubic",
+    "type": "input"
+  },
+  {
+    "id": "min_fb_42",
+    "category": "Mineralogy",
+    "question": "CaMg(CO₃)₂ is the chemical formula of _____.",
+     "answer": "dolomite",
+    "type": "input"
+  },
+  {
+    "id": "min_fb_43",
+    "category": "Mineralogy",
+    "question": "The mineral group _______ includes calcite.",
+     "answer": "carbonates",
+    "type": "input"
+  },
+  {
+    "id": "min_fb_44",
+    "category": "Mineralogy",
+    "question": "the mineral gypsum is soft enough to be scratched by a ________.",
+     "answer": "fingernail",
+    "type": "input"
+  },
+  {
+    "id": "min_fb_45",
+    "category": "Mineralogy",
+    "question": "The mineral quartz commonly forms ______ prisms.",
+     "answer": "hexagonal",
+    "type": "input"
+  },
+  {
+    "id": "min_fb_46",
+    "category": "Mineralogy",
+    "question": "SO₄² is the dominant ______ in sulfate minerals.",
+    "answer": ["anion"],
+  "type": "input"
+  },
+  {
+    "id": "min_fb_47",
+    "category": "Mineralogy",
+    "question": "The mineral calcite has perfect cleavage in three directions not at ____°.",
+    "answer": ["90"],
+"type": "input"
   },
   {
     "id": "min_fb_48",

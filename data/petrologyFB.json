@@ -213,13 +213,138 @@
     "answer": "large",
     "type": "input"
   },
-
+  {
+    "id": "pet_fb_31",
+    "category": "Petrology",
+    "question": "The sedimentary rock evaporite forms from chemical _____.",
+    "answer": ["precipitation"],
+  "type": "input"
+  },
+  {
+    "id": "pet_fb_32",
+    "category": "Petrology",
+    "question": "Low grade metamorphic rock is characterized by ______ formation.",
+   "answer": ["slate"],
+  "type": "input"
+  },
+  {
+    "id": "pet_fb_33",
+    "category": "Petrology",
+    "question": "The igneous rock obsidian cools the _______.",
+     "answer": ["fastest"],
+  "type": "input"
+  },
+  {
+    "id": "pet_fb_34",
+    "category": "Petrology",
+    "question": "Clast shape is the main difference between breccia and ________.",
+        "answer": ["conglomerate"],
+  "type": "input"
+  },
+  {
+    "id": "pet_fb_35",
+    "category": "Petrology",
+    "question": "Sedmentary rocks contain fossils _______ commonly.",
+      "answer": ["most"],
+  "type": "input"
+  },
+  {
+    "id": "pet_fb_36",
+    "category": "Petrology",
+    "question": "The ______ rock Peridotite is ultramafic.",
+     "answer": ["igneous"],
+  "type": "input"
+  },
+  {
+    "id": "pet_fb_37",
+    "category": "Petrology",
+    "question": "The metamorphic rock gniess forms under ______ pressure and temperature with banding.",
+      "answer": ["high"],
+  "type": "input"
+  },
+  {
+    "id": "pet_fb_38",
+    "category": "Petrology",
+    "question": "_____ minerals is the primary mineral in shale.",
+    "answer": ["Clay"],
+  "type": "input"
+  },
+  {
+    "id": "pet_fb_39",
+    "category": "Petrology",
+    "question": "The rock type granite forms at _____ ridges?",
+        "answer": ["mid-ocean"],
+  "type": "input"
+  },
+  {
+    "id": "pet_fb_40",
+    "category": "Petrology",
+    "question": "Vesicular texture is the primary texture in _____.",
+    "answer": ["pumice"],
+  "type": "input"
+  },
+  {
+    "id": "pet_fb_41",
+    "category": "Petrology",
+    "question": "The sedimentary structure cross-bedding indicates ____ _____.",
+    "answer": ["flowing" , "water"],
+  "type": "input_multi"
+  },
+  {
+    "id": "pet_fb_42",
+    "category": "Petrology",
+    "question": "Marble is a metamorphic rock that is non-______.",
+    "answer": ["foliated"],
+  "type": "input"
+  },
+  {
+    "id": "pet_fb_43",
+    "category": "Petrology",
+    "question": "Carbon is the main component of ______.",
+ "answer": ["coal"],
+  "type": "input"
+  },
+  {
+    "id": "pet_fb_44",
+    "category": "Petrology",
+    "question": "The igneous rock andesite forms from _____ with _______ composition.",
+    "answer": ["lava", "intermediate"],
+    "type": "input_multi"
+  },
   {
     "id": "pet_fb_45",
     "category": "Petrology",
     "question": "Tectonic pressure is the main driver of _______ ________.",
     "answer": ["regional", "metamorphism"],
     "type": "input_multi"
+  },
+    {
+    "id": "pet_fb_46",
+    "category": "Petrology",
+    "question": "Obsidian has a _____ texture and _____ crystals.",
+    "answer": ["glassy","no"],
+    "type": "input_multi"
+  },
+  {
+    "id": "pet_fb_47",
+    "category": "Petrology",
+    "question": "Coal is formed primarily from compacted _______ material.",
+    "answer": ["plant"],
+    "type": "input"
+  },
+  {
+    "id": "pet_fb_48",
+    "category": "Petrology",
+    "question": "A dike is an ______ intrusion that is tabular and cuts across layers?",
+    "answer": ["igneous"],
+      "type": "input"
+  },
+  {
+    "id": "pet_fb_49",
+    "category": "Petrology",
+    "question": "Aligned minerals is main feature in _____ _____ rocks.",
+    "answer": ["foliated", "metamorphic"],
+     "type": "input_multi"
   },
   {
     "id": "pet_fb_50",
