@@ -1,6 +1,5 @@
+import { supabase } from "@/lib/supabase";
 import { createContext, useContext, useEffect, useState } from "react";
-
-/* ---------------- TYPES ---------------- */
 
 type Exam = {
   score: number;
@@ -13,17 +12,13 @@ type UserType = {
   exams: Exam[];
 } | null;
 
-/* ---------------- CONTEXT ---------------- */
-
 const UserContext = createContext<{
   user: UserType;
   setUser: React.Dispatch<React.SetStateAction<UserType>>;
-  addXp: (amount: number) => void;
   addExam: (exam: Exam) => void;
 }>({
   user: null,
   setUser: () => {},
-  addXp: () => {},
   addExam: () => {},
 });
 
@@ -31,55 +26,90 @@ export function useUser() {
   return useContext(UserContext);
 }
 
-/* ---------------- PROVIDER ---------------- */
-
 export function UserProvider({ children }: any) {
   const [user, setUser] = useState<UserType>(null);
 
-  useEffect(() => {
-    console.log("👤 UserContext SAFE MODE");
+  /* ---------------- SAFE LOAD (ONCE) ---------------- */
 
-    setUser({
-      xp: 0,
-      streak: 0,
-      exams: [],
-    });
+  useEffect(() => {
+    let mounted = true;
+
+    const load = async () => {
+      try {
+        // ✅ delay prevents crash
+        await new Promise((r) => setTimeout(r, 500));
+
+        const { data: session } = await supabase.auth.getSession();
+        const userId = session?.session?.user?.id;
+
+        if (!userId) {
+          setUser({ xp: 0, streak: 0, exams: [] });
+          return;
+        }
+
+        const { data } = await supabase
+          .from("exam_history")
+          .select("*")
+          .eq("user_id", userId)
+          .order("created_at", { ascending: true });
+
+        const exams =
+          data?.map((e: any) => ({
+            score: e.score,
+            type: e.type,
+          })) || [];
+
+        if (mounted) {
+          setUser({
+            xp: 0,
+            streak: 0,
+            exams,
+          });
+        }
+      } catch (e) {
+        console.log("LOAD SAFE FAIL:", e);
+        setUser({ xp: 0, streak: 0, exams: [] });
+      }
+    };
+
+    load();
+
+    return () => {
+      mounted = false;
+    };
   }, []);
 
-  /* ---------------- ADD XP ---------------- */
+  /* ---------------- SAVE EXAM ---------------- */
 
-  function addXp(amount: number) {
+  async function addExam(exam: Exam) {
     setUser((prev) => {
-      if (!prev) {
-        return {
-          xp: amount,
-          streak: 0,
-          exams: [], // ✅ FIXED
-        };
-      }
-
-      return {
-        ...prev, // ✅ keeps exams
-        xp: prev.xp + amount,
-      };
-    });
-  }
-
-  /* ---------------- ADD EXAM ---------------- */
-
-  function addExam(exam: Exam) {
-    setUser((prev) => {
-      if (!prev) return null;
+      if (!prev) return prev;
 
       return {
         ...prev,
         exams: [...prev.exams, exam],
       };
     });
+
+    // 🔥 SAFE BACKGROUND SAVE (NO CRASH)
+    try {
+      const { data: session } = await supabase.auth.getSession();
+      const userId = session?.session?.user?.id;
+
+      if (!userId) return;
+
+      await supabase.from("exam_history").insert({
+        user_id: userId,
+        score: exam.score,
+        type: exam.type,
+      });
+    } catch (e) {
+      console.log("SAVE FAIL SAFE:", e);
+    }
   }
 
   return (
-    <UserContext.Provider value={{ user, setUser, addXp, addExam }}>
+    <UserContext.Provider value={{ user, setUser, addExam }}>
       {children}
     </UserContext.Provider>
   );

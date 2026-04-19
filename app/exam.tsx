@@ -51,15 +51,33 @@ export default function ExamScreen() {
   /* ---------------- LOAD QUESTIONS ---------------- */
 
   useEffect(() => {
-    let pool = questionsData;
+let pool: any[] = [];
 
-    if (mode === "topic" && selectedTopic) {
-      pool = questionsData.filter(
-        (q: any) =>
-          q.category === selectedTopic ||
-          (q.subcategory && q.subcategory.includes(selectedTopic))
-      );
-    }
+// ✅ PG EXAM (unchanged)
+if (mode === "pg") {
+  pool = questionsData;
+}
+
+// ✅ RANDOM EXAM (ONLY Mineralogy + Petrology MC + FB)
+else if (mode === "random") {
+  pool = [
+    ...mineralogyMC,
+    ...mineralogyFB,
+    ...petrologyMC,
+    ...petrologyFB,
+  ];
+}
+
+// ✅ TOPIC EXAM
+else if (mode === "topic" && selectedTopic) {
+  const topicData = TOPIC_QUESTIONS[selectedTopic];
+
+  if (topicData) {
+    pool = [...topicData.mc, ...topicData.fb];
+  } else {
+    pool = [];
+  }
+}
 
     const shuffled = shuffleArray(pool).slice(0, count);
     setQuestions(shuffled);
