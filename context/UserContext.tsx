@@ -1,6 +1,8 @@
 import { supabase } from "@/lib/supabase";
 import { createContext, useContext, useEffect, useState } from "react";
 
+/* ---------------- TYPES ---------------- */
+
 type Exam = {
   score: number;
   type: "random" | "topic" | "pg";
@@ -10,57 +12,64 @@ type UserType = {
   xp: number;
   streak: number;
   exams: Exam[];
-} | null;
+};
+
+/* ---------------- DEFAULT USER (NO NULL) ---------------- */
+
+const defaultUser: UserType = {
+  xp: 0,
+  streak: 0,
+  exams: [],
+};
+
+/* ---------------- CONTEXT ---------------- */
 
 const UserContext = createContext<{
   user: UserType;
   setUser: React.Dispatch<React.SetStateAction<UserType>>;
   addExam: (exam: Exam) => void;
 }>({
-  user: null,
+  user: defaultUser,
   setUser: () => {},
   addExam: () => {},
 });
+
+/* ---------------- HOOK ---------------- */
 
 export function useUser() {
   return useContext(UserContext);
 }
 
-export function UserProvider({ children }: any) {
-  const [user, setUser] = useState<UserType>(null);
+/* ---------------- PROVIDER ---------------- */
 
-  /* ---------------- SAFE INIT (NO SUPABASE) ---------------- */
+export function UserProvider({ children }: any) {
+  const [user, setUser] = useState<UserType>(defaultUser);
+
+  /* ---------------- SAFE INIT ---------------- */
 
   useEffect(() => {
     console.log("👤 SAFE USER INIT");
-
-    setUser({
-      xp: 0,
-      streak: 0,
-      exams: [],
-    });
   }, []);
 
-  /* ---------------- SAVE EXAM (SAFE) ---------------- */
+  /* ---------------- ADD EXAM ---------------- */
 
-  async function addExam(exam: Exam) {
-    // ✅ instant UI update
-    setUser((prev) => {
-      if (!prev) return prev;
+  function addExam(exam: Exam) {
+    // ✅ ALWAYS SAFE (no null checks needed anymore)
+    setUser((prev) => ({
+      ...prev,
+      exams: [...prev.exams, exam],
+    }));
 
-      return {
-        ...prev,
-        exams: [...prev.exams, exam],
-      };
-    });
-
-    // ✅ delayed background save (no crash)
+    // 🚨 SAFE BACKGROUND SAVE (DO NOT BLOCK UI)
     setTimeout(async () => {
       try {
         const { data: session } = await supabase.auth.getSession();
         const userId = session?.session?.user?.id;
 
-        if (!userId) return;
+        if (!userId) {
+          console.log("⚠️ NO USER — SKIPPING SAVE");
+          return;
+        }
 
         await supabase.from("exam_history").insert({
           user_id: userId,
@@ -72,7 +81,7 @@ export function UserProvider({ children }: any) {
       } catch (e) {
         console.log("❌ SAFE SAVE FAILED:", e);
       }
-    }, 1000); // ⬅️ CRITICAL DELAY
+    }, 1500); // ⬅️ slightly longer delay = safer on iOS
   }
 
   return (

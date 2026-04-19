@@ -128,6 +128,29 @@ export default function ExamScreen() {
     }, 0);
   }
 
+  /* ---------------- SAVE RESULT (SAFE) ---------------- */
+
+  useEffect(() => {
+    if (!finished || saved) return;
+
+    const score = calculateScore();
+    const percent = Math.round((score / questions.length) * 100);
+
+    const rawMode = Array.isArray(params?.mode)
+      ? params.mode[0]
+      : params?.mode;
+
+    const safeMode: "random" | "topic" | "pg" =
+      rawMode === "topic" || rawMode === "pg" ? rawMode : "random";
+
+    addExam({
+      score: percent,
+      type: safeMode,
+    });
+
+    setSaved(true);
+  }, [finished]);
+
   /* ---------------- LOADING ---------------- */
 
   if (questions.length === 0) {
@@ -156,22 +179,6 @@ export default function ExamScreen() {
   if (finished) {
     const score = calculateScore();
     const percent = Math.round((score / questions.length) * 100);
-
-    if (!saved) {
-      const rawMode = Array.isArray(params?.mode)
-        ? params.mode[0]
-        : params?.mode;
-
-      const safeMode: "random" | "topic" | "pg" =
-        rawMode === "topic" || rawMode === "pg" ? rawMode : "random";
-
-      addExam({
-        score: percent,
-        type: safeMode,
-      });
-
-      setSaved(true);
-    }
 
     return (
       <ScrollView
