@@ -90,7 +90,7 @@ export default function HomeScreen() {
           }}
         >
           <Text style={{ color: "white", fontSize: 18, fontWeight: "600" }}>
-            📊 Profile
+            📊 Results
           </Text>
           <Text style={{ color: "#94a3b8", marginTop: 5 }}>
             Stats, progress, analytics

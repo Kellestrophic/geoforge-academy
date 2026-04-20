@@ -1,7 +1,10 @@
+import mineralFormulas from "@/data/mineralFormulas.json";
 import mineralogyFB from "@/data/mineralogyFB.json";
 import mineralogyMC from "@/data/mineralogyMC.json";
 import petrologyFB from "@/data/petrologyFB.json";
 import petrologyMC from "@/data/petrologyMC.json";
+import sedimentologyFB from "@/data/sedimentologyFB.json";
+import sedimentologyMC from "@/data/sedimentologyMC.json";
 import { trackActivity } from "@/lib/activity";
 import { saveWrongQuestion } from "@/lib/review";
 import { theme } from "@/lib/theme";
@@ -16,6 +19,9 @@ const ALL_QUESTIONS: Question[] = [
   ...normalizeQuestions(mineralogyFB as any[]),
   ...normalizeQuestions(petrologyMC as any[]),
   ...normalizeQuestions(petrologyFB as any[]),
+  ...normalizeQuestions(mineralFormulas as any[]), // 🔥 ADD THIS
+  ...normalizeQuestions(sedimentologyMC as any[]), // 🔥 ADD THIS
+  ...normalizeQuestions(sedimentologyFB as any[]), // 🔥 ADD THIS
 ];
 type BaseQuestion = {
   id: string;
@@ -59,7 +65,7 @@ function shuffleQuestion(q: any) {
 function normalizeQuestions(data: any[]): Question[] {
   return data.map((q) => {
     // ✅ MULTIPLE CHOICE
-    if (q.type === "multiple_choice") {
+    if (q.type === "multiple_choice" || q.type === "formula") {
       return {
         id: q.id,
         category: q.category,

@@ -1,0 +1,411 @@
+[
+  {
+    "id": "sed_fb_1",
+    "category": "Sedimentology",
+    "question": "The process of turning sediment into rock is called ______.",
+    "answer": "lithification",
+    "type": "input",
+    "explanation": "Lithification includes both compaction and cementation. These processes turn loose sediment into solid rock over time. It is a key step in the sedimentary rock cycle."
+  },
+  {
+    "id": "sed_fb_2",
+    "category": "Sedimentology",
+    "question": "Sediment that is less than 0.004 mm in size is called ______.",
+    "answer": "clay",
+    "type": "input",
+    "explanation": "Clay particles are extremely small and can remain suspended in water for long periods. They only settle in very calm environments. This is why clay-rich rocks form in low-energy settings."
+  },
+  {
+    "id": "sed_fb_3",
+    "category": "Sedimentology",
+    "question": "The process of sediments settling out of water is called ______.",
+    "answer": "deposition",
+    "type": "input",
+    "explanation": "Deposition occurs when energy decreases and sediments fall out of transport. This commonly happens in lakes, oceans, and river deltas. It allows sediments to accumulate in layers."
+  },
+  {
+    "id": "sed_fb_4",
+    "category": "Sedimentology",
+    "question": "Sandstone is primarily composed of ______-sized particles.",
+    "answer": "sand",
+    "type": "input",
+    "explanation": "Sandstone forms from sand-sized grains that have been transported and deposited. These grains are then compacted and cemented together. The rock often contains quartz due to its durability."
+  },
+  {
+    "id": "sed_fb_5",
+    "category":"Sedimentology",
+    "question": "Shale is formed from compacted ______ and silt.",
+    "answer": "clay",
+    "type": "input",
+    "explanation": "Shale forms in low-energy environments where fine particles settle slowly. Clay and silt compact over time into thin layers. This gives shale its characteristic fissility."
+  },
+
+  {
+    "id": "sed_fb_6",
+    "category":"Sedimentology",
+    "question": "Rounded grains indicate ______ transport distance.",
+    "answer": "long",
+    "type": "input",
+    "explanation": "As sediment is transported, grains collide and become smoother. The longer the distance traveled, the more rounded the grains become. This helps geologists interpret sediment history."
+  },
+  {
+    "id": "sed_fb_7",
+    "category": "Sedimentology",
+    "question": "Angular grains indicate ______ transport distance.",
+    "answer": "short",
+    "type": "input",
+    "explanation": "Angular grains have sharp edges because they have not been transported far. Transport processes tend to round particles over time. This indicates proximity to the source rock."
+  },
+  {
+    "id": "sed_fb_8",
+    "category": "Sedimentology",
+    "question": "The process that breaks down rock into sediment is called ______.",
+    "answer": "weathering",
+    "type": "input",
+    "explanation": "Weathering can be physical or chemical. It breaks larger rocks into smaller fragments without transporting them. This provides the material for sedimentary rocks."
+  },
+  {
+    "id": "sed_fb_9",
+    "category": "Sedimentology",
+    "question": "The movement of sediment from one place to another is called ______.",
+    "answer": "erosion",
+    "type": "input",
+    "explanation": "Erosion transports sediment by wind, water, ice, or gravity. It redistributes material across Earth's surface. This process follows weathering."
+  },
+  {
+    "id": "sed_fb_10",
+    "category": "Sedimentology",
+    "question": "Sedimentary rocks formed from biological material are called ______ rocks.",
+    "answer": "biochemical",
+    "type": "input",
+    "explanation": "Biochemical rocks form from the accumulation of organic material such as shells. Limestone is a common example. These rocks often contain fossils."
+  },
+
+  {
+    "id": "sed_fb_11",
+    "category": "Sedimentology",
+    "question": "The binding of sediment grains by minerals is called ______.",
+    "answer": "cementation",
+    "type": "input",
+    "explanation": "Cementation occurs when minerals precipitate from water and glue grains together. This strengthens the sediment. It is a major part of lithification."
+  },
+  {
+    "id": "sed_fb_12",
+    "category": "Sedimentology",
+    "question": "The squeezing together of sediments is called ______.",
+    "answer": "compaction",
+    "type": "input",
+    "explanation": "Compaction reduces pore space as sediments are buried. Pressure from overlying layers forces grains closer together. This helps form solid rock."
+  },
+  {
+    "id": "sed_fb_13",
+    "category": "Sedimentology",
+    "question": "Rock formed from rounded pebbles is called ______.",
+    "answer": "conglomerate",
+    "type": "input",
+    "explanation": "Conglomerate forms from rounded gravel-sized clasts. The rounding indicates significant transport by water. These rocks are common in river environments."
+  },
+  {
+    "id": "sed_fb_14",
+    "category": "Sedimentology",
+    "question": "Rock formed from angular fragments is called ______.",
+    "answer": "breccia",
+    "type": "input",
+    "explanation": "Breccia contains angular fragments that have not traveled far. This indicates deposition close to the source. It often forms near fault zones or landslides."
+  },
+  {
+    "id": "sed_fb_15",
+    "category": "Sedimentology",
+    "question": "Evaporite minerals form when water ______.",
+    "answer": "evaporates",
+    "type": "input",
+    "explanation": "When water evaporates, dissolved minerals are left behind. These minerals crystallize and form rocks like halite and gypsum. This occurs in arid environments."
+  },
+
+  {
+    "id": "sed_fb_16",
+    "category": "Sedimentology",
+    "question": "Halite is commonly known as rock ______.",
+    "answer": "salt",
+    "type": "input",
+    "explanation": "Halite forms from evaporated seawater and is chemically sodium chloride. It accumulates in thick layers in restricted basins. It is commonly used as table salt."
+  },
+  {
+    "id": "sed_fb_17",
+    "category": "Sedimentology",
+    "question": "Gypsum is composed of calcium ______.",
+    "answer": "sulfate",
+    "type": "input",
+    "explanation": "Gypsum is calcium sulfate and forms from evaporating water. It is common in desert environments. It is also used in construction materials like drywall."
+  },
+  {
+    "id": "sed_fb_18",
+    "category": "Sedimentology",
+    "question": "Coal forms from compacted ______ material.",
+    "answer": "plant",
+    "type": "input",
+    "explanation": "Coal forms from accumulated plant remains in swampy environments. Low oxygen slows decay, allowing material to build up. Over time, pressure and heat transform it into coal."
+  },
+  {
+    "id": "sed_fb_19",
+    "category":"Sedimentology",
+    "question": "Ripple marks indicate ______ movement.",
+    "answer": "water",
+    "type": "input",
+    "explanation": "Ripple marks form when water or wind moves sediment across a surface. They create ridges and troughs. These structures indicate flow direction and energy."
+  },
+  {
+    "id": "sed_fb_20",
+    "category":"Sedimentology",
+    "question": "Mud cracks form when sediment dries and ______.",
+    "answer": "shrinks",
+    "type": "input",
+    "explanation": "As wet sediment dries, it loses water and contracts. This causes the surface to crack into polygonal shapes. These features indicate exposure to air."
+  },
+
+  {
+    "id": "sed_fb_21",
+    "category": "Sedimentology",
+    "question": "Graded bedding shows a change in ______ size upward.",
+    "answer": "grain",
+    "type": "input",
+    "explanation": "Graded bedding forms when larger particles settle first and finer particles settle later. This creates a vertical change in grain size. It is common in turbidity currents."
+  },
+  {
+    "id": "sed_fb_22",
+    "category": "Sedimentology",
+    "question": "Cross-bedding indicates movement by ______ or wind.",
+    "answer": "water",
+    "type": "input",
+    "explanation": "Cross-bedding forms when sediment is deposited at an angle by flowing water or wind. It is common in dunes and river channels. It helps identify ancient current directions."
+  },
+  {
+    "id": "sed_fb_23",
+    "category": "Sedimentology",
+    "question": "Well-sorted sediment indicates ______ energy conditions.",
+    "answer": "consistent",
+    "type": "input",
+    "explanation": "Well-sorted sediments have similar grain sizes. This happens when energy levels remain stable. Examples include beaches and desert dunes."
+  },
+  {
+    "id": "sed_fb_24",
+    "category": "Sedimentology",
+    "question": "Poorly sorted sediment indicates ______ energy conditions.",
+    "answer": "variable",
+    "type": "input",
+    "explanation": "Poor sorting means a mix of grain sizes is present. This occurs in environments where energy levels fluctuate. Rivers and glaciers often produce poorly sorted sediments."
+  },
+  {
+    "id": "sed_fb_25",
+    "category": "Sedimentology",
+    "question": "Limestone is primarily composed of calcium ______.",
+    "answer": "carbonate",
+    "type": "input",
+    "explanation": "Limestone forms from calcium carbonate, often from shells or precipitation. It is common in marine environments. This rock often contains fossils."
+  },
+
+  {
+    "id": "sed_fb_26",
+    "category":"Sedimentology",
+    "question": "Sediments transported by wind are typically ______-sized.",
+    "answer": "sand",
+    "type": "input",
+    "explanation": "Sand is light enough to be carried by wind but heavy enough to settle quickly. This makes it ideal for dune formation. Finer particles like clay can travel even farther."
+  },
+  {
+    "id": "sed_fb_27",
+    "category": "Sedimentology",
+    "question": "Shale is typically formed in ______ energy environments.",
+    "answer": "low",
+    "type": "input",
+    "explanation": "Fine particles like clay settle only in calm conditions. This leads to the formation of shale in deep water or lakes. High-energy environments would wash these particles away."
+  },
+  {
+    "id": "sed_fb_28",
+    "category": "Sedimentology",
+    "question": "Conglomerate forms in ______ energy environments.",
+    "answer": "high",
+    "type": "input",
+    "explanation": "Large particles like pebbles require strong currents to move. These conditions occur in rivers or wave-dominated areas. This results in conglomerate formation."
+  },
+  {
+    "id": "sed_fb_29",
+    "category":"Sedimentology",
+    "question": "The spaces between grains in rock are called ______.",
+    "answer": "pores",
+    "type": "input",
+    "explanation": "Pores are the spaces between sediment grains. They can store fluids like water or oil. Porosity is an important property in reservoir rocks."
+  },
+  {
+    "id": "sed_fb_30",
+    "category": "Sedimentology",
+    "question": "The ability of a rock to transmit fluids is called ______.",
+    "answer": "permeability",
+    "type": "input",
+    "explanation": "Permeability measures how easily fluids flow through a rock. It depends on how connected the pore spaces are. High permeability is important for groundwater and oil flow."
+  },
+
+  {
+    "id": "sed_fb_31",
+    "category": "Sedimentology",
+    "question": "Sedimentary rocks are typically formed at the Earth's ______.",
+    "answer": "surface",
+    "type": "input",
+    "explanation": "Sedimentary processes occur at or near Earth's surface. This includes weathering, erosion, and deposition. These rocks record surface conditions and environments."
+  },
+  {
+    "id": "sed_fb_32",
+    "category": "Sedimentology",
+    "question": "Fossils are most commonly found in ______ rocks.",
+    "answer": "sedimentary",
+    "type": "input",
+    "explanation": "Sedimentary rocks preserve fossils because they form under low temperatures and pressures. This allows remains to be buried without destruction. Other rock types often destroy fossils."
+  },
+  {
+    "id": "sed_fb_33",
+    "category": "Sedimentology",
+    "question": "The layering of sedimentary rocks is called ______.",
+    "answer": "bedding",
+    "type": "input",
+    "explanation": "Bedding forms as sediments are deposited in layers over time. Each layer represents a different depositional event. This helps interpret past environments."
+  },
+  {
+    "id": "sed_fb_34",
+    "category": "Sedimentology",
+    "question": "Coquina is composed mostly of ______ fragments.",
+    "answer": "shell",
+    "type": "input",
+    "explanation": "Coquina is a type of limestone made from shell fragments. These accumulate in high-energy environments like beaches. The rock is often loosely cemented."
+  },
+  {
+    "id": "sed_fb_35",
+    "category": "Sedimentology",
+    "question": "Chalk forms from microscopic marine ______.",
+    "answer": "organisms",
+    "type": "input",
+    "explanation": "Chalk is formed from the remains of tiny marine organisms. Their shells accumulate on the seafloor over time. This creates soft, white limestone."
+  },
+
+  {
+    "id": "sed_fb_36",
+    "category": "Sedimentology",
+    "question": "The breakdown of rock by chemical reactions is called ______ weathering.",
+    "answer": "chemical",
+    "type": "input",
+    "explanation": "Chemical weathering alters the composition of rocks. This can occur through reactions with water or acids. It often weakens minerals and helps form sediment."
+  },
+  {
+    "id": "sed_fb_37",
+    "category": "Sedimentology",
+    "question": "The breakdown of rock without changing composition is called ______ weathering.",
+    "answer": "physical",
+    "type": "input",
+    "explanation": "Physical weathering breaks rocks into smaller pieces without altering their chemistry. Examples include freezing and thawing. This produces sediment fragments."
+  },
+  {
+    "id": "sed_fb_38",
+    "category": "Sedimentology",
+    "question": "Sediment deposited by glaciers is typically ______ sorted.",
+    "answer": "poorly",
+    "type": "input",
+    "explanation": "Glaciers carry a wide range of particle sizes. When deposited, these sediments are not separated by size. This results in poor sorting."
+  },
+  {
+    "id": "sed_fb_39",
+    "category": "Sedimentology",
+    "question": "Sediment deposited in calm water is typically ______ grained.",
+    "answer": "fine",
+    "type": "input",
+    "explanation": "Fine particles like clay and silt settle in calm environments. These include lakes and deep oceans. This leads to fine-grained sedimentary rocks."
+  },
+  {
+    "id": "sed_fb_40",
+    "category": "Sedimentology",
+    "question": "Sediment deposited in fast-moving water is typically ______ grained.",
+    "answer": "coarse",
+    "type": "input",
+    "explanation": "Fast-moving water can carry larger particles like sand and gravel. When energy drops, these are deposited. This forms coarse-grained rocks."
+  },
+
+  {
+    "id": "sed_fb_41",
+    "category": "Sedimentology",
+    "question": "Sand dunes are formed by ______ transport.",
+    "answer": "wind",
+    "type": "input",
+    "explanation": "Wind transports sand across desert landscapes. As it slows down, sand is deposited into dunes. Over time, these can lithify into sandstone."
+  },
+  {
+    "id": "sed_fb_42",
+    "category": "Sedimentology",
+    "question": "River deposits are called ______ deposits.",
+    "answer": "fluvial",
+    "type": "input",
+    "explanation": "Fluvial deposits are formed by rivers and streams. These environments transport and deposit sediment of various sizes. They often produce well-rounded grains."
+  },
+  {
+    "id": "sed_fb_43",
+    "category":"Sedimentology",
+    "question": "Ocean deposits are called ______ deposits.",
+    "answer": "marine",
+    "type": "input",
+    "explanation": "Marine deposits form in ocean environments. These include both chemical and biological sediments. Many sedimentary rocks originate from marine settings."
+  },
+  {
+    "id": "sed_fb_44",
+    "category": "Sedimentology",
+    "question": "Lake deposits are called ______ deposits.",
+    "answer": "lacustrine",
+    "type": "input",
+    "explanation": "Lacustrine deposits form in lake environments. These are typically fine-grained due to low energy. They often produce shale."
+  },
+  {
+    "id": "sed_fb_45",
+    "category": "Sedimentology",
+    "question": "The study of sedimentary rocks is called ______.",
+    "answer": "sedimentology",
+    "type": "input",
+    "explanation": "Sedimentology focuses on the formation and classification of sedimentary rocks. It helps interpret past environments. This field is important in geology and resource exploration."
+  },
+
+  {
+    "id": "sed_fb_46",
+    "category": "Sedimentology",
+    "question": "Sedimentary rocks form from accumulated ______.",
+    "answer": "sediment",
+    "type": "input",
+    "explanation": "Sedimentary rocks begin as loose sediment produced by weathering. These particles are transported and deposited. Over time, they lithify into rock."
+  },
+  {
+    "id": "sed_fb_47",
+    "category":"Sedimentology",
+    "question": "The rock cycle stage after deposition is ______.",
+    "answer": "lithification",
+    "type": "input",
+    "explanation": "After sediments are deposited, they undergo lithification. This process turns them into solid rock. It includes compaction and cementation."
+  },
+  {
+    "id": "sed_fb_48",
+    "category": "Sedimentology",
+    "question": "Sedimentary rocks often form in ______ layers.",
+    "answer": "horizontal",
+    "type": "input",
+    "explanation": "Sediments are typically deposited in flat, horizontal layers. Over time, these layers build up. This principle is called original horizontality."
+  },
+  {
+    "id": "sed_fb_49",
+    "category": "Sedimentology",
+    "question": "The principle that younger layers sit above older layers is called ______.",
+    "answer": "superposition",
+    "type": "input",
+    "explanation": "The principle of superposition states that in undisturbed layers, the oldest are at the bottom. Each new layer is deposited on top. This helps determine relative ages."
+  },
+  {
+    "id": "sed_fb_50",
+    "category": "Sedimentology",
+    "question": "Sedimentary rocks preserve evidence of past ______.",
+    "answer": "environments",
+    "type": "input",
+    "explanation": "Sedimentary rocks record conditions at Earth's surface when they formed. This includes climate, water conditions, and life. They are key to understanding Earth's history."
+  }
+]

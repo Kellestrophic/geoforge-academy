@@ -10,6 +10,8 @@ const mineralogyFBRaw = require("../data/mineralogyFB.json");
 const mineralogyMCRaw = require("../data/mineralogyMC.json");
 const petrologyFBRaw = require("../data/petrologyFB.json");
 const petrologyMCRaw = require("../data/petrologyMC.json");
+const sedimentologyMCRaw = require("../data/sedimentologyMC.json");
+const sedimentologyFBRaw = require("../data/petrologyMC.json");
 const mineralFormulasRaw = require("../data/mineralFormulas.json");
 
 /* ---------------- SAFE UNWRAP ---------------- */
@@ -28,6 +30,8 @@ const mineralogyFB = unwrap(mineralogyFBRaw);
 const mineralogyMC = unwrap(mineralogyMCRaw);
 const petrologyFB = unwrap(petrologyFBRaw);
 const petrologyMC = unwrap(petrologyMCRaw);
+const sedimentologyMC = unwrap(sedimentologyFBRaw);
+const sedimentologyFB = unwrap(sedimentologyMCRaw);
 const mineralFormulas = unwrap(mineralFormulasRaw);
 
 /* ---------------- TOPIC MAP ---------------- */
@@ -35,6 +39,7 @@ const mineralFormulas = unwrap(mineralFormulasRaw);
 const TOPIC_QUESTIONS: Record<string, any[]> = {
   Mineralogy: [...mineralogyMC, ...mineralogyFB],
   Petrology: [...petrologyMC, ...petrologyFB],
+  Sedimentology: [...sedimentologyMC, ...sedimentologyFB],
   MineralFormulas: [...mineralFormulas],
 };
 
@@ -83,6 +88,8 @@ export default function ExamScreen() {
           ...mineralogyFB,
           ...petrologyMC,
           ...petrologyFB,
+          ...sedimentologyMC,
+          ...sedimentologyFB, 
           ...mineralFormulas,
         ];
       } else if (mode === "topic" && selectedTopic) {

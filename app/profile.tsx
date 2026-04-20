@@ -1,8 +1,8 @@
 import { supabase } from "@/lib/supabase";
 import { theme } from "@/lib/theme";
 import { useEffect, useState } from "react";
-import { ScrollView, Text, View } from "react-native";
-import Svg, { Circle, Line, Rect } from "react-native-svg";
+import { Pressable, ScrollView, Text, View } from "react-native";
+import Svg, { Circle, Line, Rect, Text as SvgText } from "react-native-svg";
 
 /* ---------------- TYPES ---------------- */
 
@@ -35,7 +35,7 @@ export default function ProfileScreen() {
 
   const [selectedExam, setSelectedExam] = useState<Exam | null>(null);
   const [selectedDay, setSelectedDay] = useState<any | null>(null);
-
+const [filter, setFilter] = useState<"all" | "pg" | "random" | "topic">("all");
   /* ---------------- LOAD DATA ---------------- */
 
   useEffect(() => {
@@ -104,14 +104,47 @@ export default function ProfileScreen() {
 
   /* ---------------- EXAM GRAPH ---------------- */
 
-const spacing = exams.length > 1 ? (300 / (exams.length - 1)) : 0;
+// 🔥 FILTER EXAMS
+const filteredExams = exams.filter((e) => {
+  if (filter === "all") return true;
+  return e.type === filter;
+});
 
-const points = exams.map((exam, i) => ({
-  x: 30 + i * spacing,
-  y: 200 - exam.score * 1.5,
-  color: COLORS[exam.type] || "white",
-  exam,
-}));
+// 🔥 GROUP BY DAY
+const groupedByDay: Record<string, Exam[]> = {};
+
+filteredExams.forEach((e) => {
+  const day = new Date(e.date).toDateString();
+  if (!groupedByDay[day]) groupedByDay[day] = [];
+  groupedByDay[day].push(e);
+});
+
+// 🔥 BUILD STACKED POINTS
+const examDays = Object.keys(groupedByDay);
+
+const spacing =
+  examDays.length > 1 ? 300 / (examDays.length - 1) : 0;
+
+const points: any[] = [];
+
+examDays.forEach((day, dayIndex) => {
+  const examsForDay = groupedByDay[day];
+
+  examsForDay.forEach((exam, stackIndex) => {
+    const yBase = 200 - exam.score * 1.5;
+
+    points.push({
+      x: 30 + dayIndex * spacing,
+
+      // 🔥 STACK FIX (prevents overlap)
+      y: yBase - stackIndex * 8,
+
+      color: COLORS[exam.type] || "white",
+      exam,
+      day,
+    });
+  });
+});
 
  const width = 350; // fixed width (no scroll)
 
@@ -159,9 +192,24 @@ activity.forEach((a) => {
         flexGrow: 1,
       }}
     >
-      <Text style={{ color: theme.colors.text, fontSize: 26 }}>
-        Results
+<View style={{ flexDirection: "row", marginTop: 10, marginBottom: 10 }}>
+  {["all", "pg", "random", "topic"].map((f) => (
+    <Pressable
+      key={f}
+      onPress={() => setFilter(f as any)}
+      style={{
+        marginRight: 10,
+        padding: 8,
+        borderRadius: 8,
+        backgroundColor: filter === f ? "#22c55e" : "#1e293b",
+      }}
+    >
+      <Text style={{ color: "white", textTransform: "capitalize" }}>
+        {f}
       </Text>
+    </Pressable>
+  ))}
+</View>
 
       <Text style={{ color: "white", marginTop: 10 }}>
         Exams: {exams.length}
@@ -171,100 +219,100 @@ activity.forEach((a) => {
         🔥 Streak: {streak} days
       </Text>
 
-      {/* ---------------- EXAM GRAPH ---------------- */}
-
+{/* ---------------- EXAM GRAPH ---------------- */}
 <View style={{ marginTop: 20 }}>
   <View style={{ flexDirection: "row" }}>
+    
     {/* Y AXIS */}
     <Svg height={220} width={50}>
-  {[0, 25, 50, 75, 100].map((val, i) => (
-    <Text
-      key={i}
-      style={{
-        position: "absolute",
-        left: 0,
-        top: 200 - val * 1.5 - 6,
-        color: "#94a3b8",
-        fontSize: 10,
-      }}
-    >
-      {val}%
-    </Text>
-  ))}
-</Svg>
-          <Svg height={220} width={width}>
-            
-            {/* LINES */}
-            {points.map((p, i) => {
-              if (i === 0) return null;
-              const prev = points[i - 1];
+      {[0, 25, 50, 75, 100].map((val, i) => (
+        <SvgText
+          key={i}
+          x={0}
+          y={200 - val * 1.5}
+          fontSize="10"
+          fill="#94a3b8"
+        >
+          {val}%
+        </SvgText>
+      ))}
+    </Svg>
 
-              return (
-                <Line
-                  key={`line-${i}`}
-                  x1={prev.x}
-                  y1={prev.y}
-                  x2={p.x}
-                  y2={p.y}
-                  stroke="#64748b"
-                  strokeWidth="2"
-                />
-              );
-            })}
+    {/* MAIN GRAPH */}
+    <Svg height={240} width={320}>
+      
+      {/* LINES */}
+      {points.map((p, i) => {
+        if (i === 0) return null;
+        const prev = points[i - 1];
 
-            {/* DOTS */}
-            {points.map((p, i) => (
-              <Circle
-                key={`dot-${i}`}
-                cx={p.x}
-                cy={p.y}
-                r={6}
-                fill={p.color}
-                onPress={() => setSelectedExam(p.exam)}
-              />
-            ))}
-          </Svg>
-        </View>
-{points.map((p, i) => (
-  <Text
-    key={`label-${i}`}
-    style={{
-      position: "absolute",
-      left: p.x - 15,
-      top: 205,
-      fontSize: 10,
-      color: "#94a3b8",
-    }}
-  >
-    {new Date(p.exam.date).toLocaleDateString(undefined, {
-      month: "numeric",
-      day: "numeric",
-    })}
-  </Text>
-))}
-        {/* EXAM INFO */}
-        {selectedExam && (
-  <View style={{ marginTop: 10 }}>
-    <Text style={{ color: "white" }}>
-      Score: {selectedExam.score}%
-    </Text>
+        return (
+          <Line
+            key={`line-${i}`}
+            x1={prev.x}
+            y1={prev.y}
+            x2={p.x}
+            y2={p.y}
+            stroke="#64748b"
+            strokeWidth="2"
+          />
+        );
+      })}
 
-    <Text style={{ color: "#94a3b8" }}>
-      Mode: {selectedExam.type}
-    </Text>
+      {/* DOTS */}
+      {points.map((p, i) => (
+        <Circle
+          key={`dot-${i}`}
+          cx={p.x}
+          cy={p.y}
+          r={6}
+          fill={p.color}
+          onPress={() => setSelectedExam(p.exam)}
+        />
+      ))}
 
-    <Text style={{ color: "#94a3b8" }}>
-      Date: {new Date(selectedExam.date).toLocaleDateString()}
-    </Text>
-
-    {selectedExam.topic && (
-      <Text style={{ color: "#94a3b8" }}>
-        Topic: {selectedExam.topic}
-      </Text>
-    )}
+      {/* X AXIS LABELS */}
+      {points.map((p, i) => (
+        <SvgText
+          key={`label-${i}`}
+          x={p.x}
+          y={220}
+          fontSize="10"
+          fill="#94a3b8"
+          textAnchor="middle"
+        >
+          {new Date(p.exam.date).toLocaleDateString(undefined, {
+            month: "numeric",
+            day: "numeric",
+          })}
+        </SvgText>
+      ))}
+    </Svg>
   </View>
-)}
-      </View>
+
+  {/* EXAM INFO */}
+  {selectedExam && (
+    <View style={{ marginTop: 10 }}>
+      <Text style={{ color: "white" }}>
+        Score: {selectedExam.score}%
+      </Text>
+
+      <Text style={{ color: "#94a3b8" }}>
+        Mode: {selectedExam.type}
+      </Text>
+
+      <Text style={{ color: "#94a3b8" }}>
+        Date: {new Date(selectedExam.date).toLocaleDateString()}
+      </Text>
+
+      {selectedExam.topic && (
+        <Text style={{ color: "#94a3b8" }}>
+          Topic: {selectedExam.topic}
+        </Text>
+      )}
+    </View>
+  )}
+</View>
 
       {/* ---------------- ACTIVITY BAR GRAPH ---------------- */}
 

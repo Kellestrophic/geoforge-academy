@@ -1,12 +1,12 @@
 [
-   {
+  {
     "id": "pet_mc_1",
     "category": "Petrology",
     "question": "What type of rock forms from cooling magma or lava?",
     "choices": ["Igneous", "Sedimentary", "Metamorphic", "Clastic"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Igneous rocks form from the cooling and solidification of magma or lava."
+    "explanation": "Igneous rocks form when molten material cools and solidifies. If the cooling happens underground, large crystals form; if it happens at the surface, crystals are much smaller. This cooling rate controls the final texture of the rock."
   },
   {
     "id": "pet_mc_2",
@@ -15,7 +15,7 @@
     "choices": ["Phaneritic", "Aphanitic", "Glassy", "Vesicular"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Phaneritic texture indicates slow cooling, allowing large crystals to form."
+    "explanation": "Phaneritic texture forms when magma cools slowly beneath Earth's surface. This slow cooling allows crystals enough time to grow large. These rocks are typically intrusive."
   },
   {
     "id": "pet_mc_3",
@@ -24,7 +24,7 @@
     "choices": ["Granite", "Basalt", "Gabbro", "Andesite"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Granite is a coarse-grained felsic igneous rock rich in silica."
+    "explanation": "Granite forms from slow cooling magma and is rich in silica. Its felsic composition gives it a light color and minerals like quartz and feldspar. It is one of the most common continental crust rocks."
   },
   {
     "id": "pet_mc_4",
@@ -33,7 +33,7 @@
     "choices": ["Rhyolite", "Basalt", "Andesite", "Diorite"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Rhyolite is the fine-grained extrusive equivalent of granite."
+    "explanation": "Rhyolite has the same chemical composition as granite but forms at the surface. Rapid cooling produces a fine-grained texture. This contrast highlights how cooling rate affects texture, not composition."
   },
   {
     "id": "pet_mc_5",
@@ -42,8 +42,9 @@
     "choices": ["Sedimentary", "Igneous", "Metamorphic", "Volcanic"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Sedimentary rocks form through compaction and cementation of sediments."
+    "explanation": "Sedimentary rocks form through lithification, which includes compaction and cementation. Sediments accumulate in layers and are gradually turned into rock. These rocks often preserve fossils and past environments."
   },
+
   {
     "id": "pet_mc_6",
     "category": "Petrology",
@@ -51,7 +52,7 @@
     "choices": ["Calcite", "Quartz", "Feldspar", "Gypsum"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Limestone is primarily composed of calcite (CaCO₃)."
+    "explanation": "Limestone is primarily composed of calcite (CaCO₃). It often forms from the accumulation of shells or chemical precipitation. This makes it common in marine environments."
   },
   {
     "id": "pet_mc_7",
@@ -60,7 +61,7 @@
     "choices": ["Slate", "Marble", "Quartzite", "Schist"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Slate forms from low-grade metamorphism of shale."
+    "explanation": "Slate forms under low-grade metamorphism of shale. The clay minerals align under pressure, producing foliation. It is often used for roofing due to its ability to split into sheets."
   },
   {
     "id": "pet_mc_8",
@@ -69,7 +70,7 @@
     "choices": ["Aphanitic", "Phaneritic", "Porphyritic", "Pegmatitic"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Aphanitic texture forms when lava cools rapidly, producing fine crystals."
+    "explanation": "Aphanitic texture forms when lava cools quickly at the surface. Crystals do not have time to grow large, resulting in a fine-grained rock. This is typical of extrusive igneous rocks."
   },
   {
     "id": "pet_mc_9",
@@ -78,7 +79,7 @@
     "choices": ["Basalt", "Granite", "Rhyolite", "Diorite"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Basalt is a mafic, fine-grained extrusive igneous rock."
+    "explanation": "Basalt forms from mafic magma rich in iron and magnesium. It cools quickly at the surface, producing a fine-grained texture. It is the most common rock in oceanic crust."
   },
   {
     "id": "pet_mc_10",
@@ -87,8 +88,9 @@
     "choices": ["Heat and pressure", "Cooling and crystallization", "Erosion and deposition", "Melting and solidification"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Metamorphism occurs due to heat and pressure altering existing rocks."
+    "explanation": "Metamorphism alters existing rocks without melting them. Heat and pressure cause minerals to recrystallize and reorganize. This can change texture, structure, and mineral composition."
   },
+
   {
     "id": "pet_mc_11",
     "category": "Petrology",
@@ -96,7 +98,7 @@
     "choices": ["Sandstone", "Shale", "Conglomerate", "Limestone"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Sandstone is made primarily of sand-sized grains (0.0625–2 mm)."
+    "explanation": "Sandstone forms from sand-sized grains that have been transported and deposited. These grains are then compacted and cemented together. Quartz is often the dominant mineral."
   },
   {
     "id": "pet_mc_12",
@@ -105,7 +107,7 @@
     "choices": ["Marble", "Slate", "Quartzite", "Schist"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Limestone recrystallizes under heat and pressure to form marble."
+    "explanation": "Marble forms when limestone recrystallizes under heat and pressure. The calcite crystals grow larger and interlock. This process destroys any fossils originally present."
   },
   {
     "id": "pet_mc_13",
@@ -114,7 +116,7 @@
     "choices": ["Porphyritic", "Aphanitic", "Glassy", "Vesicular"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Porphyritic texture has large crystals (phenocrysts) in a fine-grained matrix."
+    "explanation": "Porphyritic texture forms when magma experiences two stages of cooling. Large crystals (phenocrysts) form first, followed by smaller ones. This indicates changing cooling conditions."
   },
   {
     "id": "pet_mc_14",
@@ -123,7 +125,7 @@
     "choices": ["Gabbro", "Granite", "Diorite", "Rhyolite"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Gabbro is the coarse-grained intrusive equivalent of basalt."
+    "explanation": "Gabbro has the same composition as basalt but cools slowly underground. This allows large crystals to form. It is coarse-grained compared to basalt."
   },
   {
     "id": "pet_mc_15",
@@ -132,8 +134,9 @@
     "choices": ["Tuff", "Basalt", "Granite", "Marble"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Tuff forms from the compaction and cementation of volcanic ash."
+    "explanation": "Tuff forms when volcanic ash is compacted and cemented. It is a pyroclastic rock formed during explosive eruptions. Its texture reflects fragmented material."
   },
+
   {
     "id": "pet_mc_16",
     "category": "Petrology",
@@ -141,7 +144,7 @@
     "choices": ["Vesicular", "Phaneritic", "Aphanitic", "Porphyritic"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Vesicular texture forms from trapped gas bubbles in lava."
+    "explanation": "Vesicular texture forms when gas bubbles are trapped in lava as it solidifies. These bubbles leave holes called vesicles. Pumice and scoria are common examples."
   },
   {
     "id": "pet_mc_17",
@@ -150,7 +153,7 @@
     "choices": ["Schist", "Marble", "Quartzite", "Hornfels"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Schist contains visible mica and exhibits strong foliation."
+    "explanation": "Schist forms under medium to high-grade metamorphism. Mica minerals align under pressure, giving it a shiny appearance. This foliation is a key identifying feature."
   },
   {
     "id": "pet_mc_18",
@@ -159,7 +162,7 @@
     "choices": ["Quartz", "Calcite", "Feldspar", "Mica"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Quartzite forms from sandstone and is composed mainly of quartz."
+    "explanation": "Quartzite forms from sandstone during metamorphism. The quartz grains recrystallize into a hard, interlocking structure. This makes quartzite very resistant to weathering."
   },
   {
     "id": "pet_mc_19",
@@ -168,7 +171,7 @@
     "choices": ["Conglomerate", "Breccia", "Shale", "Siltstone"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Conglomerate contains rounded clasts larger than 2 mm."
+    "explanation": "Conglomerate forms from rounded gravel-sized clasts. The rounding indicates transport over distance. This distinguishes it from breccia, which has angular clasts."
   },
   {
     "id": "pet_mc_20",
@@ -177,7 +180,7 @@
     "choices": ["Felsic", "Mafic", "Ultramafic", "Intermediate"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Felsic magma has high silica content and produces light-colored rocks."
+    "explanation": "Felsic magma has high silica content, making it more viscous. This often leads to explosive eruptions. It produces light-colored rocks like granite and rhyolite."
   },
   {
     "id": "pet_mc_21",
@@ -186,7 +189,7 @@
     "choices": ["Hornfels", "Slate", "Schist", "Gneiss"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Hornfels forms from contact metamorphism due to heat from nearby magma."
+    "explanation": "Hornfels forms when existing rock is heated by nearby magma without significant pressure. This produces a hard, non-foliated rock. Contact metamorphism typically occurs over small areas near intrusions."
   },
   {
     "id": "pet_mc_22",
@@ -195,7 +198,7 @@
     "choices": ["Andesite", "Basalt", "Rhyolite", "Gabbro"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Andesite is the fine-grained extrusive equivalent of diorite."
+    "explanation": "Andesite and diorite share the same intermediate composition. Andesite forms at the surface and cools quickly, producing fine grains. Diorite forms underground with larger crystals."
   },
   {
     "id": "pet_mc_23",
@@ -204,7 +207,7 @@
     "choices": ["Coal", "Sandstone", "Shale", "Granite"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Coal forms from accumulated plant material under pressure."
+    "explanation": "Coal forms from accumulated plant material in swampy environments. Over time, pressure and heat convert this material into carbon-rich rock. It is an important fossil fuel."
   },
   {
     "id": "pet_mc_24",
@@ -213,7 +216,7 @@
     "choices": ["Banding", "Fossils", "Glass texture", "Vesicles"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Gneiss shows distinct banding due to mineral segregation."
+    "explanation": "Gneiss forms under high-grade metamorphism and shows distinct banding. Light and dark minerals separate into layers due to pressure and temperature. This gives it a striped appearance."
   },
   {
     "id": "pet_mc_25",
@@ -222,8 +225,9 @@
     "choices": ["Glassy", "Phaneritic", "Porphyritic", "Pegmatitic"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Glassy texture forms when lava cools so quickly crystals cannot form."
+    "explanation": "Glassy texture forms when lava cools so quickly that crystals cannot develop. Obsidian is a common example. This indicates extremely rapid cooling at or near the surface."
   },
+
   {
     "id": "pet_mc_26",
     "category": "Petrology",
@@ -231,7 +235,7 @@
     "choices": ["Diorite", "Granite", "Basalt", "Gabbro"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Diorite is an intermediate, coarse-grained intrusive igneous rock."
+    "explanation": "Diorite forms from intermediate magma that cools slowly underground. This allows visible crystals to develop. It is typically composed of plagioclase and amphibole."
   },
   {
     "id": "pet_mc_27",
@@ -240,7 +244,7 @@
     "choices": ["Shale", "Sandstone", "Conglomerate", "Breccia"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Shale forms from compacted clay-sized particles."
+    "explanation": "Shale forms from compacted clay particles in low-energy environments. These particles settle in calm water like deep oceans. The rock often splits into thin layers."
   },
   {
     "id": "pet_mc_28",
@@ -249,7 +253,7 @@
     "choices": ["Pyroxene and plagioclase", "Quartz and feldspar", "Calcite and clay", "Mica and quartz"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Basalt is primarily composed of pyroxene and plagioclase feldspar."
+    "explanation": "Basalt is composed mainly of pyroxene and plagioclase feldspar. These minerals reflect its mafic composition. This gives basalt its dark color and higher density."
   },
   {
     "id": "pet_mc_29",
@@ -258,7 +262,7 @@
     "choices": ["Quartzite", "Marble", "Slate", "Schist"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Quartzite forms when sandstone undergoes metamorphism."
+    "explanation": "Quartzite forms when sandstone undergoes metamorphism. The quartz grains recrystallize into a dense, interlocking structure. This makes the rock very hard and resistant."
   },
   {
     "id": "pet_mc_30",
@@ -267,8 +271,9 @@
     "choices": ["Pegmatitic", "Aphanitic", "Porphyritic", "Glassy"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Pegmatitic texture forms when crystals grow very large due to slow cooling."
+    "explanation": "Pegmatitic texture forms when crystals grow unusually large. This occurs when magma cools very slowly and contains abundant water. Crystals can grow several centimeters or more."
   },
+
   {
     "id": "pet_mc_31",
     "category": "Petrology",
@@ -276,7 +281,7 @@
     "choices": ["Evaporite", "Clastic", "Organic", "Volcaniclastic"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Evaporites form when water evaporates, leaving dissolved minerals behind."
+    "explanation": "Evaporites form when water evaporates and leaves dissolved minerals behind. Common examples include halite and gypsum. This process occurs in arid environments."
   },
   {
     "id": "pet_mc_32",
@@ -285,7 +290,7 @@
     "choices": ["Low grade", "Medium grade", "High grade", "Contact grade"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Slate forms under low-grade metamorphic conditions."
+    "explanation": "Slate forms under low-grade metamorphism. This means the temperature and pressure are relatively low. It is often the first stage in metamorphic progression from shale."
   },
   {
     "id": "pet_mc_33",
@@ -294,7 +299,7 @@
     "choices": ["Obsidian", "Granite", "Diorite", "Gabbro"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Obsidian cools extremely quickly, forming volcanic glass."
+    "explanation": "Obsidian forms when lava cools extremely rapidly. This prevents crystal formation, producing volcanic glass. It typically forms at the surface during eruptions."
   },
   {
     "id": "pet_mc_34",
@@ -303,7 +308,7 @@
     "choices": ["Clast shape", "Mineral composition", "Color", "Hardness"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Breccia has angular clasts, while conglomerate has rounded clasts."
+    "explanation": "Breccia contains angular clasts, indicating little transport. Conglomerate contains rounded clasts, indicating longer transport. This difference reflects depositional history."
   },
   {
     "id": "pet_mc_35",
@@ -312,8 +317,9 @@
     "choices": ["Sedimentary", "Igneous", "Metamorphic", "Plutonic"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Fossils are most commonly preserved in sedimentary rocks."
+    "explanation": "Sedimentary rocks form at low temperatures and pressures, preserving fossils. Igneous and metamorphic processes usually destroy organic material. This makes sedimentary rocks key for studying past life."
   },
+
   {
     "id": "pet_mc_36",
     "category": "Petrology",
@@ -321,7 +327,7 @@
     "choices": ["Peridotite", "Granite", "Andesite", "Rhyolite"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Peridotite is an ultramafic rock rich in magnesium and iron."
+    "explanation": "Peridotite is rich in magnesium and iron, making it ultramafic. It forms deep in the mantle. This composition gives it a dark color and high density."
   },
   {
     "id": "pet_mc_37",
@@ -330,7 +336,7 @@
     "choices": ["Gneiss", "Slate", "Marble", "Hornfels"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Gneiss forms under high-grade metamorphism and shows banding."
+    "explanation": "Gneiss forms under high-grade metamorphic conditions. Minerals separate into light and dark bands due to pressure and heat. This banding is a defining feature."
   },
   {
     "id": "pet_mc_38",
@@ -339,7 +345,7 @@
     "choices": ["Clay minerals", "Quartz", "Calcite", "Feldspar"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Shale is composed mainly of clay minerals."
+    "explanation": "Shale is composed mainly of clay minerals formed from weathered rock. These fine particles settle in calm environments. This gives shale its fine-grained texture."
   },
   {
     "id": "pet_mc_39",
@@ -348,7 +354,7 @@
     "choices": ["Basalt", "Granite", "Diorite", "Gabbro"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Basalt forms at mid-ocean ridges from decompression melting."
+    "explanation": "Basalt forms from decompression melting at mid-ocean ridges. It cools quickly as lava at the ocean floor. This creates new oceanic crust."
   },
   {
     "id": "pet_mc_40",
@@ -357,8 +363,9 @@
     "choices": ["Vesicular", "Phaneritic", "Aphanitic", "Porphyritic"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Pumice has a vesicular texture due to trapped gas bubbles."
+    "explanation": "Pumice forms when gas-rich lava cools rapidly. Gas bubbles are trapped, creating a vesicular texture. This makes pumice very lightweight."
   },
+
   {
     "id": "pet_mc_41",
     "category": "Petrology",
@@ -366,7 +373,7 @@
     "choices": ["Cross-bedding", "Foliation", "Banding", "Cleavage"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Cross-bedding forms from sediment movement in flowing water."
+    "explanation": "Cross-bedding forms when sediment is deposited at angles by flowing water or wind. It records the direction of movement. This structure is common in rivers and dunes."
   },
   {
     "id": "pet_mc_42",
@@ -375,7 +382,7 @@
     "choices": ["Marble", "Slate", "Schist", "Gneiss"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Marble is non-foliated because it lacks aligned minerals."
+    "explanation": "Marble lacks foliation because its calcite crystals do not align under pressure. It forms from limestone through recrystallization. This gives it a uniform texture."
   },
   {
     "id": "pet_mc_43",
@@ -384,7 +391,7 @@
     "choices": ["Carbon", "Silica", "Calcium", "Iron"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Coal is primarily composed of carbon from plant material."
+    "explanation": "Coal forms from plant material rich in carbon. Over time, heat and pressure concentrate the carbon content. This makes coal an important energy resource."
   },
   {
     "id": "pet_mc_44",
@@ -393,7 +400,7 @@
     "choices": ["Andesite", "Basalt", "Rhyolite", "Granite"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Andesite is an intermediate volcanic rock."
+    "explanation": "Andesite forms from intermediate magma and cools at the surface. It has moderate silica content. This composition is common in volcanic arcs."
   },
   {
     "id": "pet_mc_45",
@@ -402,8 +409,9 @@
     "choices": ["Tectonic pressure", "Rapid cooling", "Weathering", "Erosion"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Regional metamorphism is driven by tectonic forces and pressure."
+    "explanation": "Regional metamorphism occurs over large areas during tectonic activity. Pressure from plate movement compresses rocks. This leads to foliation and mineral alignment."
   },
+
   {
     "id": "pet_mc_46",
     "category": "Petrology",
@@ -411,7 +419,7 @@
     "choices": ["Obsidian", "Granite", "Basalt", "Diorite"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Obsidian cools too quickly for crystals to form."
+    "explanation": "Obsidian forms when lava cools too quickly for crystals to grow. This results in a smooth, glass-like texture. It often has sharp edges due to conchoidal fracture."
   },
   {
     "id": "pet_mc_47",
@@ -420,7 +428,7 @@
     "choices": ["Coal", "Shale", "Sandstone", "Limestone"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Coal forms from compressed plant material over time."
+    "explanation": "Coal forms from the accumulation of plant material in swampy environments. Over time, heat and pressure transform it into carbon-rich rock. It is classified as an organic sedimentary rock."
   },
   {
     "id": "pet_mc_48",
@@ -429,7 +437,7 @@
     "choices": ["Dike", "Sill", "Batholith", "Stock"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "A dike cuts across existing rock layers."
+    "explanation": "A dike cuts across existing rock layers, indicating it formed after them. It intrudes vertically or at an angle. This helps determine relative geologic timing."
   },
   {
     "id": "pet_mc_49",
@@ -438,7 +446,7 @@
     "choices": ["Aligned minerals", "Rounded clasts", "Gas bubbles", "Glassy texture"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Foliation forms from aligned minerals under pressure."
+    "explanation": "Foliation forms when minerals align under directed pressure. This creates a layered or banded appearance. It is common in rocks like slate, schist, and gneiss."
   },
   {
     "id": "pet_mc_50",
@@ -447,6 +455,6 @@
     "choices": ["Tuff", "Basalt", "Granite", "Marble"],
     "correctAnswer": 0,
     "type": "multiple_choice",
-    "explanation": "Tuff forms from compacted volcanic ash."
+    "explanation": "Tuff forms from volcanic ash that settles and becomes cemented. It is produced during explosive eruptions. Its texture reflects fragmented volcanic material."
   }
 ]

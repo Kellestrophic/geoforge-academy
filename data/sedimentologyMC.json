@@ -1,0 +1,460 @@
+[
+  {
+    "id": "sed_mc_1",
+    "category": "Sedimentology",
+    "question": "Which sedimentary rock is composed of angular gravel-sized clasts?",
+    "choices": ["Breccia", "Conglomerate", "Sandstone", "Shale"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Breccia forms when rock fragments are broken and deposited very close to their source. Because they haven’t traveled far, the pieces stay sharp and angular. This contrasts with conglomerate, where longer transport rounds the clasts."
+  },
+  {
+    "id": "sed_mc_2",
+    "category": "Sedimentology",
+    "question": "Which sediment size is classified as sand?",
+    "choices": ["0.0625–2 mm", "<0.004 mm", "0.004–0.0625 mm", ">2 mm"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Sediment size is classified using standard grain size scales. Sand-sized particles fall between 0.0625 mm and 2 mm, making them visible but still easily transported. This size is common in beaches and deserts."
+  },
+  {
+    "id": "sed_mc_3",
+    "category": "Sedimentology",
+    "question": "Which mineral is most common in sandstone?",
+    "choices": ["Quartz", "Calcite", "Gypsum", "Halite"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Quartz is highly resistant to weathering compared to most minerals. As weaker minerals break down, quartz remains behind and accumulates. This is why sandstone is often dominated by quartz grains."
+  },
+  {
+    "id": "sed_mc_4",
+    "category": "Sedimentology",
+    "question": "Which environment commonly produces evaporites?",
+    "choices": ["Desert basin", "Deep ocean", "Mountain stream", "Glacier"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Evaporites form when water containing dissolved minerals evaporates in dry climates. As the water disappears, minerals like halite and gypsum crystallize. These deposits are common in arid, restricted basins."
+  },
+  {
+    "id": "sed_mc_5",
+    "category": "Sedimentology",
+    "question": "Which sedimentary rock forms from compacted silt?",
+    "choices": ["Siltstone", "Shale", "Sandstone", "Coal"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Siltstone forms from particles smaller than sand but larger than clay. These sediments settle in moderate-energy environments like floodplains. The resulting rock is smoother than sandstone but coarser than shale."
+  },
+
+  {
+    "id": "sed_mc_6",
+    "category": "Sedimentology",
+    "question": "Which structure forms from the drying of mud?",
+    "choices": ["Mud cracks", "Cross-bedding", "Ripple marks", "Graded bedding"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Mud cracks form when wet sediment is exposed to air and begins to dry. As water evaporates, the sediment shrinks and cracks. These features indicate periodic exposure to the surface."
+  },
+  {
+    "id": "sed_mc_7",
+    "category": "Sedimentology",
+    "question": "What type of sedimentary rock is limestone?",
+    "choices": ["Biochemical", "Clastic", "Chemical", "Metamorphic"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Limestone commonly forms from biological processes, such as shell accumulation. Organisms use calcium carbonate to build shells and skeletons. When they die, these materials compact into rock."
+  },
+  {
+    "id": "sed_mc_8",
+    "category": "Sedimentology",
+    "question": "Which process describes particles settling out of water?",
+    "choices": ["Deposition", "Erosion", "Weathering", "Lithification"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Deposition occurs when transporting energy decreases and sediments settle. This often happens in lakes, oceans, or river deltas. It is the stage before sediments become rock."
+  },
+  {
+    "id": "sed_mc_9",
+    "category": "Sedimentology",
+    "question": "Which rock is most likely to contain fossils?",
+    "choices": ["Limestone", "Granite", "Basalt", "Gneiss"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Fossils are best preserved in sedimentary rocks where organisms are buried gently. Limestone often forms in marine environments rich in life. Igneous and metamorphic processes usually destroy fossils."
+  },
+  {
+    "id": "sed_mc_10",
+    "category": "Sedimentology",
+    "question": "What does well-sorted sediment indicate?",
+    "choices": ["Consistent energy environment", "Rapid deposition", "Glacial transport", "No transport"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Well-sorted sediment means grains are similar in size. This occurs when energy conditions remain steady over time. Examples include wind-blown dunes and beaches."
+  },
+  {
+    "id": "sed_mc_11",
+    "category": "Sedimentology",
+    "question": "Which sediment size is clay?",
+    "choices": ["<0.004 mm", ">2 mm", "0.0625–2 mm", "0.004–0.0625 mm"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Clay-sized particles are extremely small and can remain suspended in water for long periods. They settle only in very calm environments like deep oceans or lakes. This is why clay-rich rocks form in low-energy settings."
+  },
+  {
+    "id": "sed_mc_12",
+    "category": "Sedimentology",
+    "question": "Which rock is composed of cemented sand grains?",
+    "choices": ["Sandstone", "Shale", "Conglomerate", "Coal"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Sandstone forms when sand grains are compacted and cemented together over time. These grains are often transported by wind or water before being deposited. The cement binds the grains into a solid rock."
+  },
+  {
+    "id": "sed_mc_13",
+    "category": "Sedimentology",
+    "question": "Which feature indicates ancient wind-blown dunes?",
+    "choices": ["Cross-bedding", "Mud cracks", "Ripple marks", "Fossils"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Cross-bedding forms when layers of sediment are deposited at an angle due to wind or water movement. It is commonly found in sand dunes. This structure helps geologists interpret past environments."
+  },
+  {
+    "id": "sed_mc_14",
+    "category": "Sedimentology",
+    "question": "What is the main component of chalk?",
+    "choices": ["Calcite", "Quartz", "Clay", "Halite"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Chalk is made primarily of calcite from microscopic marine organisms. These tiny shells accumulate on the seafloor over long periods. The rock is soft and easily broken."
+  },
+  {
+    "id": "sed_mc_15",
+    "category": "Sedimentology",
+    "question": "Which process breaks rocks into smaller pieces?",
+    "choices": ["Weathering", "Deposition", "Cementation", "Compaction"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Weathering breaks down rocks into smaller fragments without transporting them. It can be physical, such as freezing, or chemical, such as dissolution. This is the first step in forming sediment."
+  },
+
+  {
+    "id": "sed_mc_16",
+    "category": "Sedimentology",
+    "question": "Which rock is formed from plant remains?",
+    "choices": ["Coal", "Gypsum", "Shale", "Sandstone"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Coal forms from accumulated plant material in swampy environments. Over time, heat and pressure transform this material into carbon-rich rock. It is an important fossil fuel."
+  },
+  {
+    "id": "sed_mc_17",
+    "category": "Sedimentology",
+    "question": "What does angular sediment indicate?",
+    "choices": ["Short transport", "Long transport", "High sorting", "Low density"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Angular grains indicate that sediment has not traveled far from its source. Transport processes tend to round grains over time. Sharp edges suggest minimal movement."
+  },
+  {
+    "id": "sed_mc_18",
+    "category": "Sedimentology",
+    "question": "Which rock forms from precipitation of minerals?",
+    "choices": ["Chemical", "Clastic", "Igneous", "Metamorphic"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Chemical sedimentary rocks form when dissolved minerals come out of solution and crystallize. This can happen due to evaporation or chemical changes. Examples include halite and gypsum."
+  },
+  {
+    "id": "sed_mc_19",
+    "category": "Sedimentology",
+    "question": "Which mineral forms rock salt?",
+    "choices": ["Halite", "Gypsum", "Calcite", "Quartz"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Halite forms when seawater evaporates and leaves behind sodium chloride crystals. This process occurs in arid environments. Large deposits can form over time."
+  },
+  {
+    "id": "sed_mc_20",
+    "category": "Sedimentology",
+    "question": "Which environment produces coal?",
+    "choices": ["Swamp", "Desert", "Ocean ridge", "Glacier"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Coal forms in swampy environments rich in plant material. Low oxygen slows decomposition, allowing organic matter to accumulate. Over time, it transforms into coal."
+  },
+
+  {
+    "id": "sed_mc_21",
+    "category": "Sedimentology",
+    "question": "Which process reduces pore space?",
+    "choices": ["Compaction", "Erosion", "Weathering", "Deposition"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Compaction occurs when layers of sediment press down on each other. This reduces the space between grains. It is a key step in forming solid rock."
+  },
+  {
+    "id": "sed_mc_22",
+    "category": "Sedimentology",
+    "question": "Which structure shows fining upward?",
+    "choices": ["Graded bedding", "Cross-bedding", "Mud cracks", "Ripple marks"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Graded bedding forms when larger particles settle first, followed by finer ones. This occurs in flows like turbidity currents. It creates a vertical change in grain size."
+  },
+  {
+    "id": "sed_mc_23",
+    "category": "Sedimentology",
+    "question": "Which rock is poorly sorted?",
+    "choices": ["Conglomerate", "Sandstone", "Shale", "Siltstone"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Conglomerates form in high-energy environments where many grain sizes are deposited together. This results in poor sorting. The rock contains a mix of large and small particles."
+  },
+  {
+    "id": "sed_mc_24",
+    "category": "Sedimentology",
+    "question": "Which rock forms from calcium sulfate?",
+    "choices": ["Gypsum", "Halite", "Calcite", "Quartz"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Gypsum forms when water containing calcium sulfate evaporates. The mineral crystallizes as the water disappears. It is common in arid regions."
+  },
+  {
+    "id": "sed_mc_25",
+    "category": "Sedimentology",
+    "question": "Which rock forms from compacted mud?",
+    "choices": ["Shale", "Sandstone", "Conglomerate", "Coal"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Shale forms from very fine clay and silt particles. These sediments settle in calm environments. The rock often splits into thin layers."
+  },
+
+  {
+    "id": "sed_mc_26",
+    "category": "Sedimentology",
+    "question": "Which feature indicates changing conditions?",
+    "choices": ["Layering", "Ripple marks", "Mud cracks", "Fossils"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Layering reflects changes in sediment supply or environmental conditions over time. Each layer represents a different depositional event. This helps reconstruct past environments."
+  },
+  {
+    "id": "sed_mc_27",
+    "category": "Sedimentology",
+    "question": "Which rock is most porous?",
+    "choices": ["Sandstone", "Shale", "Slate", "Marble"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Sandstone has high porosity because its grains do not fit tightly together. The spaces between grains can store fluids. This makes it important for groundwater and oil reservoirs."
+  },
+  {
+    "id": "sed_mc_28",
+    "category": "Sedimentology",
+    "question": "Which sediment is transported by wind?",
+    "choices": ["Sand", "Clay", "Gravel", "Boulders"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Sand is light enough to be carried by wind but heavy enough to settle quickly. This makes it common in dunes. Larger particles require stronger forces to move."
+  },
+  {
+    "id": "sed_mc_29",
+    "category": "Sedimentology",
+    "question": "Which environment produces rounded grains?",
+    "choices": ["River", "Glacier", "Volcano", "Mountain slope"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Rivers transport sediment over long distances, causing grains to collide and become rounded. The longer the transport, the smoother the grains. This helps determine transport history."
+  },
+  {
+    "id": "sed_mc_30",
+    "category": "Sedimentology",
+    "question": "Which process glues sediment together?",
+    "choices": ["Cementation", "Compaction", "Weathering", "Erosion"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Cementation occurs when minerals precipitate from water and bind sediment grains. This process strengthens the rock. It is essential for lithification."
+  },
+
+  {
+    "id": "sed_mc_31",
+    "category": "Sedimentology",
+    "question": "Which rock contains shell fragments?",
+    "choices": ["Coquina", "Coal", "Shale", "Sandstone"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Coquina is a type of limestone made of loosely cemented shell fragments. It forms in high-energy environments like beaches. The rock is often very porous."
+  },
+  {
+    "id": "sed_mc_32",
+    "category": "Sedimentology",
+    "question": "Which structure forms in shallow water?",
+    "choices": ["Ripple marks", "Metamorphism", "Folding", "Faulting"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Ripple marks form when water or wind moves sediment in shallow environments. They create small ridges and troughs. These features indicate flow direction."
+  },
+  {
+    "id": "sed_mc_33",
+    "category": "Sedimentology",
+    "question": "Which rock forms from microscopic organisms?",
+    "choices": ["Chalk", "Granite", "Basalt", "Slate"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Chalk forms from microscopic marine organisms that produce calcite shells. These accumulate on the seafloor over time. The rock is soft and white."
+  },
+  {
+    "id": "sed_mc_34",
+    "category": "Sedimentology",
+    "question": "Which rock forms in deserts?",
+    "choices": ["Sandstone", "Shale", "Coal", "Limestone"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Sandstone commonly forms in desert environments where wind deposits sand dunes. Over time, these dunes lithify into rock. Cross-bedding is often preserved."
+  },
+  {
+    "id": "sed_mc_35",
+    "category": "Sedimentology",
+    "question": "Which process moves sediment?",
+    "choices": ["Erosion", "Weathering", "Deposition", "Cementation"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Erosion is the process of transporting sediment by wind, water, ice, or gravity. It reshapes landscapes and redistributes materials. This step follows weathering."
+  },
+
+  {
+    "id": "sed_mc_36",
+    "category": "Sedimentology",
+    "question": "Which rock forms from mineral precipitation?",
+    "choices": ["Chemical", "Clastic", "Igneous", "Metamorphic"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Chemical sedimentary rocks form when dissolved minerals crystallize directly from water. This often happens due to evaporation. The result is interlocking crystals."
+  },
+  {
+    "id": "sed_mc_37",
+    "category": "Sedimentology",
+    "question": "Which feature shows exposure to air?",
+    "choices": ["Mud cracks", "Fossils", "Cross-bedding", "Ripple marks"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Mud cracks indicate that sediment dried out after being wet. This suggests alternating wet and dry conditions. They are common in tidal flats and floodplains."
+  },
+  {
+    "id": "sed_mc_38",
+    "category": "Sedimentology",
+    "question": "Which rock is least permeable?",
+    "choices": ["Shale", "Sandstone", "Conglomerate", "Limestone"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Shale has very fine grains that are tightly packed. This prevents fluids from passing through easily. It often acts as a barrier layer."
+  },
+  {
+    "id": "sed_mc_39",
+    "category": "Sedimentology",
+    "question": "Which sediment is most easily transported?",
+    "choices": ["Clay", "Sand", "Gravel", "Boulder"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Clay particles are extremely small and light. They can remain suspended in water for long periods. This allows them to be transported great distances."
+  },
+  {
+    "id": "sed_mc_40",
+    "category": "Sedimentology",
+    "question": "Which environment forms shale?",
+    "choices": ["Deep marine", "Desert", "Mountain", "Volcanic"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Shale forms in deep marine environments where water energy is low. Fine particles settle slowly over time. This creates thin, layered rock."
+  },
+
+  {
+    "id": "sed_mc_41",
+    "category": "Sedimentology",
+    "question": "Which rock forms from pebbles?",
+    "choices": ["Conglomerate", "Shale", "Sandstone", "Coal"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Conglomerate forms from rounded pebbles that have been transported by water. The rounding indicates significant movement. These rocks are common in river systems."
+  },
+  {
+    "id": "sed_mc_42",
+    "category": "Sedimentology",
+    "question": "Which structure forms from turbidity currents?",
+    "choices": ["Graded bedding", "Ripple marks", "Mud cracks", "Cross-bedding"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Graded bedding forms when sediment settles from a turbulent flow. Larger grains fall first, followed by finer ones. This creates a layered appearance."
+  },
+  {
+    "id": "sed_mc_43",
+    "category": "Sedimentology",
+    "question": "Which rock contains clay and silt?",
+    "choices": ["Shale", "Sandstone", "Conglomerate", "Limestone"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Shale is composed mainly of clay and silt-sized particles. These fine grains settle in low-energy environments. The rock often splits into thin sheets."
+  },
+  {
+    "id": "sed_mc_44",
+    "category": "Sedimentology",
+    "question": "Which process rounds grains?",
+    "choices": ["Transport", "Deposition", "Compaction", "Cementation"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Transport causes grains to collide and wear down over time. This abrasion smooths edges and rounds particles. The degree of rounding indicates transport distance."
+  },
+  {
+    "id": "sed_mc_45",
+    "category": "Sedimentology",
+    "question": "Which rock forms in reefs?",
+    "choices": ["Limestone", "Shale", "Coal", "Sandstone"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Limestone forms in reef environments where organisms build calcium carbonate structures. These accumulate and lithify over time. Reefs are major sources of limestone."
+  },
+
+  {
+    "id": "sed_mc_46",
+    "category": "Sedimentology",
+    "question": "Which mineral forms gypsum?",
+    "choices": ["CaSO4", "NaCl", "SiO2", "CaCO3"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Gypsum is composed of calcium sulfate (CaSO4). It forms when water evaporates and leaves minerals behind. This is common in arid regions."
+  },
+  {
+    "id": "sed_mc_47",
+    "category": "Sedimentology",
+    "question": "Which rock forms in lakes?",
+    "choices": ["Shale", "Granite", "Basalt", "Slate"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Lakes are calm environments where fine sediments settle out of suspension. Over time, these sediments compact into shale. This creates thin, layered rock."
+  },
+  {
+    "id": "sed_mc_48",
+    "category": "Sedimentology",
+    "question": "Which sediment is too large for wind?",
+    "choices": ["Gravel", "Clay", "Silt", "Sand"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Gravel is too heavy to be transported by wind under normal conditions. It requires strong water currents or gravity. This limits where gravel deposits form."
+  },
+  {
+    "id": "sed_mc_49",
+    "category": "Sedimentology",
+    "question": "Which rock forms from CaCO3 precipitation?",
+    "choices": ["Limestone", "Shale", "Coal", "Sandstone"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Limestone forms when calcium carbonate precipitates from water or accumulates biologically. This commonly occurs in warm, shallow marine environments. It often contains fossils."
+  },
+  {
+    "id": "sed_mc_50",
+    "category": "Sedimentology",
+    "question": "Which process occurs after deposition?",
+    "choices": ["Lithification", "Erosion", "Weathering", "Transport"],
+    "correctAnswer": 0,
+    "type": "multiple_choice",
+    "explanation": "Lithification turns loose sediment into solid rock. It includes compaction and cementation. This process occurs after sediments are deposited."
+  }
+]

@@ -56,8 +56,8 @@ export default function MinigamesScreen() {
       </Text>
 
       <GameCard
-        title="Match Game"
-        subtitle="Match geology terms with their definitions"
+        title="Geo Match"
+        subtitle="Test your ability to classify rock types"
        onPress={async () => {
   await trackActivity("match");
   router.push("/match");

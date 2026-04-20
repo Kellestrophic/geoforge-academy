@@ -2,89 +2,18 @@ import formulaData from "@/data/mineralFormulas.json";
 import { trackActivity } from "@/lib/activity";
 import { theme } from "@/lib/theme";
 import { useRef, useState } from "react";
-import { Animated, KeyboardAvoidingView, Platform, Pressable, Text, TextInput, View } from "react-native";
-function generateFormulaGameQuestions(allQuestions: any[]): FormulaGameQuestion[] {
-  
-const formulaQuestions = formulaData;
- return formulaQuestions
-  .map((q, index) => {
-const correct = q.choices?.[q.correctAnswer];
+import {
+  Animated,
+  KeyboardAvoidingView,
+  Platform,
+  Pressable,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 
-// 🚨 SAFETY CHECK (PREVENT CRASH)
-if (typeof correct !== "string") {
-  console.log("❌ BAD QUESTION DATA:", q);
-  return null;
-}
+/* ---------------- TYPES ---------------- */
 
-// 🔥 RANDOMIZE ANSWERS (FIX "A ALWAYS CORRECT")
-const shuffledChoices = [...q.choices].sort(() => Math.random() - 0.5);
-const newCorrectIndex = shuffledChoices.indexOf(correct);
-
-let parts: string[] = [];
-
-try {
-  const result = typeof correct === "string"
-    ? correct.match(/[A-Z][a-z]*\d*/g)
-    : null;
-
-  parts = Array.isArray(result)
-    ? result.filter((p) => typeof p === "string")
-    : [];
-    if (!parts.length) {
-  return null;
-}
-} catch (e) {
-  console.log("❌ MATCH FAIL:", correct);
-  return null;
-}
-
-
-const pool = formulaQuestions
-  .flatMap((qq: any) =>
-    Array.isArray(qq.choices) ? qq.choices : []
-  )
-  .flatMap((c: any) => {
-    try {
-      const result = (typeof c === "string" ? c : "").match(/[A-Z][a-z]*\d*/g);
-      return Array.isArray(result) ? result : [];
-    } catch {
-      return [];
-    }
-  });
-
-    const wrongParts = pool
-      .filter((p: string) => !(Array.isArray(parts) ? parts : []).includes(p))
-      .sort(() => Math.random() - 0.5)
-      .slice(0, 4);
-
-    const options = [...parts, ...wrongParts].sort(
-      () => Math.random() - 0.5
-    );
-
-    // 🔀 RANDOM TYPE
-    if (index % 2 === 0) {
- return {
-  type: "builder" as const,
-mineral: (typeof q.question === "string" ? q.question : "")
-  .replace("What is the chemical formula of ", "")
-  .replace("?", ""),        target: parts,
-        options,
-      };
-    } else {
-return {
-  type: "input" as const,
-        mineral: (typeof q.question === "string" ? q.question : "")
-  .replace("What is the chemical formula of ", "")
-  .replace("?", ""),
-        display: (typeof parts[0] === "string" ? parts[0] : "") + " _",
-        answer: parts.length > 1
-  ? parts.slice(1).filter((p) => typeof p === "string").join("")
-  : "",
-      };
-    }
-})
-.filter((q): q is FormulaGameQuestion => q !== null);
-}
 type FormulaGameQuestion =
   | {
       type: "builder";
@@ -98,6 +27,87 @@ type FormulaGameQuestion =
       display: string;
       answer: string;
     };
+
+/* ---------------- HELPERS ---------------- */
+
+function shuffleArray<T>(array: T[]): T[] {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+/* ---------------- QUESTION GENERATOR ---------------- */
+
+function generateFormulaGameQuestions(
+  allQuestions: any[]
+): FormulaGameQuestion[] {
+  const randomizedQuestions = shuffleArray(allQuestions);
+
+  return randomizedQuestions
+    .map((q) => {
+      const correct = q.choices?.[q.correctAnswer];
+
+      if (typeof correct !== "string") return null;
+
+      let parts: string[] = [];
+
+      try {
+        const result = correct.match(/[A-Z][a-z]*\d*/g);
+        parts = Array.isArray(result) ? result : [];
+        if (!parts.length) return null;
+      } catch {
+        return null;
+      }
+
+      const pool = allQuestions
+        .flatMap((qq: any) =>
+          Array.isArray(qq.choices) ? qq.choices : []
+        )
+        .flatMap((c: any) => {
+          try {
+            const result = (typeof c === "string" ? c : "").match(
+              /[A-Z][a-z]*\d*/g
+            );
+            return Array.isArray(result) ? result : [];
+          } catch {
+            return [];
+          }
+        });
+
+      const wrongParts = pool
+        .filter((p: string) => !parts.includes(p))
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 4);
+
+      const options = shuffleArray([...parts, ...wrongParts]);
+
+      const isBuilder = Math.random() > 0.5;
+
+      const mineralName = (q.question || "")
+        .replace("What is the chemical formula of ", "")
+        .replace("?", "");
+
+      if (isBuilder) {
+        return {
+          type: "builder",
+          mineral: mineralName,
+          target: parts,
+          options,
+        };
+      } else {
+        return {
+          type: "input",
+          mineral: mineralName,
+          display: parts[0] + " _",
+          answer: parts.slice(1).join(""),
+        };
+      }
+    })
+    .filter((q): q is FormulaGameQuestion => q !== null);
+}
 export default function FormulaGame() {
 
 const questionsRef = useRef<FormulaGameQuestion[]>(

@@ -7,6 +7,10 @@ export const TOPIC_FILES = {
     mc: require("@/data/petrologyMC.json"),
     fb: require("@/data/petrologyFB.json"),
   },
+  Sedimentology: {
+    mc: require("@/data/sedimentologyMC.json"),
+    fb: require("@/data/sedimentologyFB.json"),
+  },
   MineralFormulas: {
   mc: require("@/data/mineralFormulas.json"),
   fb: [],

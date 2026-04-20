@@ -4,70 +4,81 @@
     "category": "Petrology",
     "question": "Igneous rocks form from the cooling of _____ or ______.",
     "answer": ["magma", "lava"],
-    "type": "input_multi"
+    "type": "input_multi",
+    "explanation": "Igneous rocks form when molten rock solidifies. Magma cools below the surface and lava cools at the surface. The cooling rate determines crystal size and texture."
   },
   {
     "id": "pet_fb_2",
     "category": "Petrology",
     "question": "Phaneritic texture is characterized by _______ crystals visible to the naked eye?",
     "answer": "large",
-    "type": "input"
+    "type": "input",
+    "explanation": "Phaneritic texture forms when magma cools slowly underground. This allows crystals time to grow large enough to be seen. It is typical of intrusive igneous rocks."
   },
   {
     "id": "pet_fb_3",
     "category": "Petrology",
     "question": "The igneous rock granite is ______-grained and felsic.",
     "answer": "coarse",
-    "type": "input"
+    "type": "input",
+    "explanation": "Granite forms from slow cooling magma beneath the surface. This produces coarse-grained texture with visible minerals. Its felsic composition means it is rich in silica."
   },
   {
     "id": "pet_fb_4",
     "category": "Petrology",
     "question": "Rhyolite is the extrusive equivalent of ______",
     "answer": "granite",
-    "type": "input"
+    "type": "input",
+    "explanation": "Rhyolite and granite have the same chemical composition. Rhyolite forms at the surface and cools quickly, producing fine grains. Granite forms underground with larger crystals."
   },
   {
     "id": "pet_fb_5",
     "category": "Petrology",
     "question": "Sedimentary rocks form from _______ and _________ of sediments.",
     "answer": ["compaction", "cementation"],
-    "type": "input_multi"
+    "type": "input_multi",
+    "explanation": "Sedimentary rocks form through lithification. Compaction squeezes sediments together, and cementation binds them with minerals. This process turns loose sediment into solid rock."
   },
+
   {
     "id": "pet_fb_6",
     "category": "Petrology",
     "question": "_______ is the main mineral in limestone?",
     "answer": "calcite",
-    "type": "input"
+    "type": "input",
+    "explanation": "Limestone is primarily made of calcite (CaCO₃). It often forms from shells or chemical precipitation. This makes it common in marine environments."
   },
   {
     "id": "pet_fb_7",
     "category": "Petrology",
     "question": "Slate is formed from the metamorphism of ______.",
     "answer": "shale",
-    "type": "input"
+    "type": "input",
+    "explanation": "Slate forms under low-grade metamorphism of shale. Pressure aligns clay minerals into layers. This creates foliation and allows slate to split into sheets."
   },
   {
     "id": "pet_fb_8",
     "category": "Petrology",
     "question": "Aphanitic texture indicates the _______ cooling of lava.",
     "answer": "rapid",
-    "type": "input"
+    "type": "input",
+    "explanation": "Aphanitic texture forms when lava cools quickly at the surface. Crystals do not have time to grow large. This results in a fine-grained rock."
   },
   {
     "id": "pet_fb_9",
     "category": "Petrology",
     "question": "The igneous rock basalt is mafic and _____-grained.",
     "answer": "fine",
-    "type": "input"
+    "type": "input",
+    "explanation": "Basalt forms from mafic magma and cools rapidly at the surface. This creates a fine-grained texture. It is the most common rock in oceanic crust."
   },
   {
     "id": "pet_fb_10",
     "category": "Petrology",
     "question": "Heat and pressure are the main processes in ______.",
     "answer": "metamorphism",
-    "type": "input"
+    "type": "input",
+    "explanation": "Metamorphism changes rocks without melting them. Heat and pressure cause minerals to recrystallize. This alters the rock’s texture and structure."
   },
 
   {
@@ -75,35 +86,40 @@
     "category": "Petrology",
     "question": "The sedimentary rock sandstone is composed mainly of ______.",
     "answer": "sand",
-    "type": "input"
+    "type": "input",
+    "explanation": "Sandstone forms from sand-sized grains. These grains are transported and deposited before being cemented. Quartz is often the dominant mineral."
   },
   {
     "id": "pet_fb_12",
     "category": "Petrology",
     "question": "Marble is the metamorphic equivalent of _______.",
     "answer": "limestone",
-    "type": "input"
+    "type": "input",
+    "explanation": "Marble forms when limestone is subjected to heat and pressure. The calcite recrystallizes into a denser structure. This process removes any original fossils."
   },
   {
     "id": "pet_fb_13",
     "category": "Petrology",
     "question": "Porphyritic texture contains ______ distinct crystal sizes.",
     "answer": "two",
-    "type": "input"
+    "type": "input",
+    "explanation": "Porphyritic texture forms during two stages of cooling. Large crystals form first, followed by smaller ones. This indicates changing cooling conditions."
   },
   {
     "id": "pet_fb_14",
     "category": "Petrology",
     "question": "Gabbro is the intrusive equivalent of _______.",
     "answer": "basalt",
-    "type": "input"
+    "type": "input",
+    "explanation": "Gabbro and basalt have the same composition. Gabbro cools slowly underground, forming large crystals. Basalt cools quickly at the surface."
   },
   {
     "id": "pet_fb_15",
     "category": "Petrology",
     "question": "Tuff forms from _____.",
     "answer": "volcanic ash",
-    "type": "input"
+    "type": "input",
+    "explanation": "Tuff forms from volcanic ash produced during explosive eruptions. The ash settles and becomes cemented into rock. It is a type of pyroclastic rock."
   },
 
   {
@@ -111,35 +127,40 @@
     "category": "Petrology",
     "question": "Vesicular texture is characterized by abundant ____ bubbles.",
     "answer": "gas",
-    "type": "input"
+    "type": "input",
+    "explanation": "Gas bubbles become trapped in lava as it cools. These bubbles leave holes called vesicles. This gives rocks like pumice their lightweight structure."
   },
   {
     "id": "pet_fb_17",
     "category": "Petrology",
     "question": "The metamorphic rock schist shows strong _______.",
     "answer": "foliation",
-    "type": "input"
+    "type": "input",
+    "explanation": "Schist forms under medium to high-grade metamorphism. Minerals like mica align under pressure. This creates a strong foliated texture."
   },
   {
     "id": "pet_fb_18",
     "category": "Petrology",
     "question": "Quartz is the primary mineral in ________?",
     "answer": "quartzite",
-    "type": "input"
+    "type": "input",
+    "explanation": "Quartzite forms from sandstone during metamorphism. The quartz grains fuse together into a strong rock. This makes quartzite very resistant to weathering."
   },
   {
     "id": "pet_fb_19",
     "category": "Petrology",
     "question": "The sedimentary rock conglomerate contains rounded clasts larger than two mm.",
     "answer": "2",
-    "type": "input"
+    "type": "input",
+    "explanation": "Conglomerate contains rounded clasts larger than 2 mm. The rounding indicates transport over distance. This helps distinguish it from breccia."
   },
   {
     "id": "pet_fb_20",
     "category": "Petrology",
     "question": "Felsic magma is rich in ______.",
     "answer": "silica",
-    "type": "input"
+    "type": "input",
+    "explanation": "Felsic magma has high silica content. This makes it thick and viscous. It often produces explosive eruptions."
   },
 
   {
@@ -147,210 +168,242 @@
     "category": "Petrology",
     "question": "Hornfels forms from _______ metamorphism.",
     "answer": "contact",
-    "type": "input"
+    "type": "input",
+    "explanation": "Hornfels forms when rock is heated by nearby magma. This occurs without strong pressure. The result is a hard, non-foliated rock."
   },
   {
     "id": "pet_fb_22",
     "category": "Petrology",
     "question": "Andesite is the extrusive equivalent of ______.",
     "answer": "diorite",
-    "type": "input"
+    "type": "input",
+    "explanation": "Andesite and diorite have the same intermediate composition. Andesite forms at the surface, while diorite forms underground. The difference is cooling rate."
   },
   {
     "id": "pet_fb_23",
     "category": "Petrology",
     "question": "Coal is formed by ______ material accumulation",
     "answer": "organic",
-    "type": "input"
+    "type": "input",
+    "explanation": "Coal forms from plant material in swampy environments. Over time, pressure and heat convert it into carbon-rich rock. It is an organic sedimentary rock."
   },
   {
     "id": "pet_fb_24",
     "category": "Petrology",
     "question": "Banding is the defining characteristic of _______.",
     "answer": "gneiss",
-    "type": "input"
+    "type": "input",
+    "explanation": "Gneiss forms under high-grade metamorphism. Minerals separate into light and dark bands. This banding reflects intense pressure and temperature."
   },
   {
     "id": "pet_fb_25",
     "category": "Petrology",
     "question": "A glassy igneous texture indicates extremely _____ cooling.",
     "answer": "rapid",
-    "type": "input"
+    "type": "input",
+    "explanation": "Glassy texture forms when lava cools too quickly for crystals to form. This produces rocks like obsidian. It indicates extremely rapid cooling at the surface."
   },
 
-  {
+   {
     "id": "pet_fb_26",
     "category": "Petrology",
     "question": "The igneous rock Diorite is _______ in composition and ______-grained.",
     "answer": ["intermediate", "coarse"],
-    "type": "input_multi"
+    "type": "input_multi",
+    "explanation": "Diorite has an intermediate composition between felsic and mafic. It forms underground, so it cools slowly and develops coarse grains. This allows crystals to grow large enough to be visible."
   },
   {
     "id": "pet_fb_27",
     "category": "Petrology",
     "question": "The sedimentary rock shale is composed mainly of ____-sized particles.",
     "answer": "clay",
-    "type": "input"
+    "type": "input",
+    "explanation": "Shale forms from very fine clay particles that settle in calm environments. These particles accumulate in layers over time. The rock often splits into thin sheets due to its fine grain size."
   },
   {
     "id": "pet_fb_28",
     "category": "Petrology",
     "question": "The minerals pyroxene and plagioclase are the main mineral composition of ________.",
     "answer": "basalt",
-    "type": "input"
+    "type": "input",
+    "explanation": "Basalt is a mafic rock rich in iron and magnesium. Its main minerals are pyroxene and plagioclase feldspar. These minerals give basalt its dark color and dense nature."
   },
   {
     "id": "pet_fb_29",
     "category": "Petrology",
     "question": "The metamorphic rock quartzite forms from ______.",
     "answer": "sandstone",
-    "type": "input"
+    "type": "input",
+    "explanation": "Quartzite forms when sandstone undergoes metamorphism. The quartz grains recrystallize into a tightly interlocking structure. This makes quartzite extremely hard and resistant."
   },
   {
     "id": "pet_fb_30",
     "category": "Petrology",
     "question": "Pegmatitic texture indicates extremely _______ crystals.",
     "answer": "large",
-    "type": "input"
+    "type": "input",
+    "explanation": "Pegmatitic texture forms when crystals grow very large, often several centimeters. This happens when magma cools slowly and contains water, which enhances crystal growth. These rocks often contain rare minerals."
   },
+
   {
     "id": "pet_fb_31",
     "category": "Petrology",
     "question": "The sedimentary rock evaporite forms from chemical _____.",
-    "answer": ["precipitation"],
-  "type": "input"
+    "answer": "precipitation",
+    "type": "input",
+    "explanation": "Evaporites form when dissolved minerals crystallize out of water. This usually occurs when water evaporates in dry environments. Common examples include halite and gypsum."
   },
   {
     "id": "pet_fb_32",
     "category": "Petrology",
     "question": "Low grade metamorphic rock is characterized by ______ formation.",
-   "answer": ["slate"],
-  "type": "input"
+    "answer": "slate",
+    "type": "input",
+    "explanation": "Slate forms under low-grade metamorphism from shale. The pressure aligns minerals into thin layers. It is often the first stage in metamorphic progression."
   },
   {
     "id": "pet_fb_33",
     "category": "Petrology",
     "question": "The igneous rock obsidian cools the _______.",
-     "answer": ["fastest"],
-  "type": "input"
+    "answer": "fastest",
+    "type": "input",
+    "explanation": "Obsidian forms when lava cools extremely rapidly. This prevents crystals from forming, producing a glassy texture. It is one of the fastest cooling igneous rocks."
   },
   {
     "id": "pet_fb_34",
     "category": "Petrology",
     "question": "Clast shape is the main difference between breccia and ________.",
-        "answer": ["conglomerate"],
-  "type": "input"
+    "answer": "conglomerate",
+    "type": "input",
+    "explanation": "Breccia contains angular clasts, while conglomerate contains rounded clasts. This difference reflects how far the sediment traveled. Rounded clasts indicate longer transport."
   },
   {
     "id": "pet_fb_35",
     "category": "Petrology",
-    "question": "Sedmentary rocks contain fossils _______ commonly.",
-      "answer": ["most"],
-  "type": "input"
+    "question": "Sedimentary rocks contain fossils _______ commonly.",
+    "answer": "most",
+    "type": "input",
+    "explanation": "Sedimentary rocks form at low temperatures and pressures, allowing fossils to be preserved. Igneous and metamorphic processes usually destroy organic material. This makes sedimentary rocks the best source of fossils."
   },
+
   {
     "id": "pet_fb_36",
     "category": "Petrology",
     "question": "The ______ rock Peridotite is ultramafic.",
-     "answer": ["igneous"],
-  "type": "input"
+    "answer": "igneous",
+    "type": "input",
+    "explanation": "Peridotite is an ultramafic igneous rock formed deep in the mantle. It is rich in magnesium and iron. This composition makes it dense and dark-colored."
   },
   {
     "id": "pet_fb_37",
     "category": "Petrology",
-    "question": "The metamorphic rock gniess forms under ______ pressure and temperature with banding.",
-      "answer": ["high"],
-  "type": "input"
+    "question": "The metamorphic rock gneiss forms under ______ pressure and temperature with banding.",
+    "answer": "high",
+    "type": "input",
+    "explanation": "Gneiss forms under high-grade metamorphic conditions. Intense heat and pressure cause minerals to separate into bands. This creates its characteristic striped appearance."
   },
   {
     "id": "pet_fb_38",
     "category": "Petrology",
     "question": "_____ minerals is the primary mineral in shale.",
-    "answer": ["Clay"],
-  "type": "input"
+    "answer": "clay",
+    "type": "input",
+    "explanation": "Shale is composed mainly of clay minerals derived from weathering. These particles are very fine and settle in calm environments. This gives shale its smooth texture."
   },
   {
     "id": "pet_fb_39",
     "category": "Petrology",
     "question": "The rock type granite forms at _____ ridges?",
-        "answer": ["mid-ocean"],
-  "type": "input"
+    "answer": "continental",
+    "type": "input",
+    "explanation": "Granite forms in continental crust, not at mid-ocean ridges. It develops from felsic magma deep underground. This makes it a major component of continental landmasses."
   },
   {
     "id": "pet_fb_40",
     "category": "Petrology",
     "question": "Vesicular texture is the primary texture in _____.",
-    "answer": ["pumice"],
-  "type": "input"
+    "answer": "pumice",
+    "type": "input",
+    "explanation": "Pumice forms from gas-rich lava that cools rapidly. Gas bubbles become trapped, creating a vesicular texture. This makes pumice very lightweight and porous."
   },
   {
     "id": "pet_fb_41",
     "category": "Petrology",
     "question": "The sedimentary structure cross-bedding indicates ____ _____.",
-    "answer": ["flowing" , "water"],
-  "type": "input_multi"
+    "answer": ["flowing", "water"],
+    "type": "input_multi",
+    "explanation": "Cross-bedding forms when sediment is deposited by moving water or wind. It creates angled layers that record flow direction. This helps interpret past environments."
   },
   {
     "id": "pet_fb_42",
     "category": "Petrology",
     "question": "Marble is a metamorphic rock that is non-______.",
-    "answer": ["foliated"],
-  "type": "input"
+    "answer": "foliated",
+    "type": "input",
+    "explanation": "Marble forms from limestone and is composed mainly of calcite. Because calcite crystals do not align under pressure, marble lacks foliation. This gives it a uniform, crystalline texture."
   },
   {
     "id": "pet_fb_43",
     "category": "Petrology",
     "question": "Carbon is the main component of ______.",
- "answer": ["coal"],
-  "type": "input"
+    "answer": "coal",
+    "type": "input",
+    "explanation": "Coal forms from plant material that has been buried and compressed over time. The process concentrates carbon as other elements are lost. This makes coal an important carbon-rich fuel source."
   },
   {
     "id": "pet_fb_44",
     "category": "Petrology",
     "question": "The igneous rock andesite forms from _____ with _______ composition.",
     "answer": ["lava", "intermediate"],
-    "type": "input_multi"
+    "type": "input_multi",
+    "explanation": "Andesite forms when intermediate magma erupts as lava and cools quickly. Its composition falls between felsic and mafic. This type of rock is common in volcanic arcs."
   },
   {
     "id": "pet_fb_45",
     "category": "Petrology",
     "question": "Tectonic pressure is the main driver of _______ ________.",
     "answer": ["regional", "metamorphism"],
-    "type": "input_multi"
+    "type": "input_multi",
+    "explanation": "Regional metamorphism occurs over large areas during mountain building. Tectonic forces apply pressure and heat to rocks deep within the crust. This produces foliated rocks like schist and gneiss."
   },
-    {
+  {
     "id": "pet_fb_46",
     "category": "Petrology",
     "question": "Obsidian has a _____ texture and _____ crystals.",
-    "answer": ["glassy","no"],
-    "type": "input_multi"
+    "answer": ["glassy", "no"],
+    "type": "input_multi",
+    "explanation": "Obsidian forms when lava cools so quickly that crystals cannot form. This results in a glassy texture with no visible crystals. It often breaks with sharp edges."
   },
   {
     "id": "pet_fb_47",
     "category": "Petrology",
     "question": "Coal is formed primarily from compacted _______ material.",
-    "answer": ["plant"],
-    "type": "input"
+    "answer": "plant",
+    "type": "input",
+    "explanation": "Coal forms from accumulated plant material in swampy environments. Over time, heat and pressure compress this material. This transforms it into carbon-rich rock."
   },
   {
     "id": "pet_fb_48",
     "category": "Petrology",
     "question": "A dike is an ______ intrusion that is tabular and cuts across layers?",
-    "answer": ["igneous"],
-      "type": "input"
+    "answer": "igneous",
+    "type": "input",
+    "explanation": "A dike forms when magma intrudes into cracks and solidifies. It cuts across existing rock layers, making it younger than the surrounding rock. This helps determine relative ages in geology."
   },
   {
     "id": "pet_fb_49",
     "category": "Petrology",
     "question": "Aligned minerals is main feature in _____ _____ rocks.",
     "answer": ["foliated", "metamorphic"],
-     "type": "input_multi"
+    "type": "input_multi",
+    "explanation": "Foliation forms when minerals align under directed pressure during metamorphism. This creates layered or banded textures. It is common in rocks like slate, schist, and gneiss."
   },
   {
     "id": "pet_fb_50",
     "category": "Petrology",
     "question": "Tuff is formed by cemented volcanic ______ and fragments.",
     "answer": "ash",
-    "type": "input"
+    "type": "input",
+    "explanation": "Tuff forms from volcanic ash that settles and becomes compacted and cemented. It is produced during explosive eruptions. The rock often contains fine fragments of volcanic material."
   }
 ]
