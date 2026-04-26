@@ -29,33 +29,36 @@ export default function PracticeScreen() {
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
 
-  // ✅ SAFE question loading (no async, no crash)
-const questions: Question[] = useMemo(() => {
-  try {
-    const all = [
-      ...(mineralogyMC as Question[]),
-      ...(mineralogyFB as any[]),
-      ...(petrologyMC as any[]),
-      ...(petrologyFB as any[]),
-      ...(mineralFormulas as any[]),
-      ...(sedimentologyMC as any[]),
-      ...(sedimentologyFB as any[]),
-    ];
+  // 🔥 NEW
+  const [showResult, setShowResult] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
 
-    return shuffleArray(
-      all.filter(
-        (q) =>
-          q &&
-          q.question &&
-          Array.isArray(q.choices) &&
-          q.choices.length > 0
-      )
-    );
-  } catch (e) {
-    console.log("❌ build crash", e);
-    return [];
-  }
-}, []);
+  const questions: Question[] = useMemo(() => {
+    try {
+      const all = [
+        ...(mineralogyMC as Question[]),
+        ...(mineralogyFB as any[]),
+        ...(petrologyMC as any[]),
+        ...(petrologyFB as any[]),
+        ...(mineralFormulas as any[]),
+        ...(sedimentologyMC as any[]),
+        ...(sedimentologyFB as any[]),
+      ];
+
+      return shuffleArray(
+        all.filter(
+          (q) =>
+            q &&
+            q.question &&
+            Array.isArray(q.choices) &&
+            q.choices.length > 0
+        )
+      );
+    } catch (e) {
+      console.log("❌ build crash", e);
+      return [];
+    }
+  }, []);
 
   const question = questions[index];
 
@@ -80,27 +83,63 @@ const questions: Question[] = useMemo(() => {
           {question.question}
         </Text>
 
-        {question.choices.map((c, i) => (
-          <Pressable
-            key={i}
-            onPress={() => setSelected(i)}
+        {/* 🔥 UPDATED CHOICES */}
+        {question.choices.map((c, i) => {
+          let bg = "transparent";
+
+          if (showResult) {
+            if (i === question.correctAnswer) bg = "#16a34a";
+            else if (i === selected) bg = "#dc2626";
+          } else if (selected === i) {
+            bg = "#334155";
+          }
+
+          return (
+            <Pressable
+              key={i}
+              onPress={() => !showResult && setSelected(i)}
+              style={{
+                padding: 14,
+                marginTop: 10,
+                borderWidth: 1,
+                borderColor: "#444",
+                backgroundColor: bg,
+              }}
+            >
+              <Text style={{ color: theme.colors.text }}>{c}</Text>
+            </Pressable>
+          );
+        })}
+
+        {/* 🔥 RESULT TEXT */}
+        {showResult && (
+          <Text
             style={{
-              padding: 14,
-              marginTop: 10,
-              borderWidth: 1,
-              borderColor: "#444",
+              marginTop: 20,
+              color: isCorrect ? "#22c55e" : "#ef4444",
+              fontSize: 18,
             }}
           >
-            <Text style={{ color: theme.colors.text }}>{c}</Text>
-          </Pressable>
-        ))}
+            {isCorrect ? "✅ Correct!" : "❌ Incorrect"}
+          </Text>
+        )}
 
+        {/* 🔥 UPDATED BUTTON */}
         <Pressable
           onPress={() => {
-            setSelected(null);
-            setIndex((prev) =>
-              prev + 1 >= questions.length ? 0 : prev + 1
-            );
+            if (!showResult) {
+              if (selected === null) return;
+
+              const correct = selected === question.correctAnswer;
+              setIsCorrect(correct);
+              setShowResult(true);
+            } else {
+              setSelected(null);
+              setShowResult(false);
+              setIndex((prev) =>
+                prev + 1 >= questions.length ? 0 : prev + 1
+              );
+            }
           }}
           style={{
             marginTop: 20,
@@ -109,7 +148,7 @@ const questions: Question[] = useMemo(() => {
           }}
         >
           <Text style={{ color: "white", textAlign: "center" }}>
-            Next
+            {showResult ? "Next" : "Submit"}
           </Text>
         </Pressable>
       </View>
