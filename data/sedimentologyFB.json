@@ -33,7 +33,7 @@
   },
   {
     "id": "sed_fb_5",
-    "category":"Sedimentology",
+    "category": "Sedimentology",
     "question": "Shale is formed from compacted ______ and silt.",
     "answer": "clay",
     "type": "input",
@@ -42,7 +42,7 @@
 
   {
     "id": "sed_fb_6",
-    "category":"Sedimentology",
+    "category": "Sedimentology",
     "question": "Rounded grains indicate ______ transport distance.",
     "answer": "long",
     "type": "input",
@@ -148,7 +148,7 @@
   },
   {
     "id": "sed_fb_19",
-    "category":"Sedimentology",
+    "category": "Sedimentology",
     "question": "Ripple marks indicate ______ movement.",
     "answer": "water",
     "type": "input",
@@ -156,7 +156,7 @@
   },
   {
     "id": "sed_fb_20",
-    "category":"Sedimentology",
+    "category": "Sedimentology",
     "question": "Mud cracks form when sediment dries and ______.",
     "answer": "shrinks",
     "type": "input",
@@ -206,7 +206,7 @@
 
   {
     "id": "sed_fb_26",
-    "category":"Sedimentology",
+    "category": "Sedimentology",
     "question": "Sediments transported by wind are typically ______-sized.",
     "answer": "sand",
     "type": "input",
@@ -230,7 +230,7 @@
   },
   {
     "id": "sed_fb_29",
-    "category":"Sedimentology",
+    "category": "Sedimentology",
     "question": "The spaces between grains in rock are called ______.",
     "answer": "pores",
     "type": "input",
@@ -345,7 +345,7 @@
   },
   {
     "id": "sed_fb_43",
-    "category":"Sedimentology",
+    "category": "Sedimentology",
     "question": "Ocean deposits are called ______ deposits.",
     "answer": "marine",
     "type": "input",
@@ -378,7 +378,7 @@
   },
   {
     "id": "sed_fb_47",
-    "category":"Sedimentology",
+    "category": "Sedimentology",
     "question": "The rock cycle stage after deposition is ______.",
     "answer": "lithification",
     "type": "input",

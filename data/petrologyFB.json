@@ -149,7 +149,7 @@
   {
     "id": "pet_fb_19",
     "category": "Petrology",
-    "question": "The sedimentary rock conglomerate contains rounded clasts larger than two mm.",
+    "question": "The sedimentary rock conglomerate contains rounded clasts larger than two _____ mm.",
     "answer": "2",
     "type": "input",
     "explanation": "Conglomerate contains rounded clasts larger than 2 mm. The rounding indicates transport over distance. This helps distinguish it from breccia."
