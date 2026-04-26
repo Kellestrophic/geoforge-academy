@@ -50,16 +50,32 @@ function shuffleArray(array: any[]) {
 }
 
 function shuffleQuestion(q: any) {
-  if (q.type !== "multiple_choice") return q;
+  if (
+    q.type !== "multiple_choice" ||
+    !Array.isArray(q.choices) ||
+    typeof q.correctAnswer !== "number" ||
+    q.correctAnswer < 0 ||
+    q.correctAnswer >= q.choices.length
+  ) {
+    console.log("❌ BAD QUESTION:", q);
+    return q; // don't crash
+  }
 
   const correct = q.choices[q.correctAnswer];
 
   const shuffled = shuffleArray([...q.choices]);
 
+  const newIndex = shuffled.indexOf(correct);
+
+  if (newIndex === -1) {
+    console.log("❌ SHUFFLE FAILED:", q);
+    return q; // fallback instead of crash
+  }
+
   return {
     ...q,
     choices: shuffled,
-    correctAnswer: shuffled.indexOf(correct),
+    correctAnswer: newIndex,
   };
 }
 function normalizeQuestions(data: any[]): Question[] {
@@ -159,7 +175,10 @@ const [isCorrect, setIsCorrect] = useState(false);
     );
   }
 
-  return [...pool].map(shuffleQuestion).sort(() => Math.random() - 0.5);
+  return [...pool]
+  .map(shuffleQuestion)
+  .filter((q) => q && q.choices && q.choices.length > 0)
+  .sort(() => Math.random() - 0.5);
 }, [topic, mode]);
 
 const question = questions[index] ?? null;
