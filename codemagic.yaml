@@ -27,7 +27,7 @@ workflows:
 
       - name: Run Expo Prebuild
         script: |
-          npx expo prebuild
+          npx expo prebuild --clean
 
       - name: Install CocoaPods
         script: |
@@ -37,17 +37,17 @@ workflows:
         script: |
           xcode-project use-profiles
 
-      # ✅ 🔥 THIS IS THE CRITICAL FIX
-      - name: Export Sentry token
-        script: |
-          echo "Exporting Sentry token"
-          export SENTRY_AUTH_TOKEN=$SENTRY_AUTH_TOKEN
-          export SENTRY_ORG=head-knight-studios
-          export SENTRY_PROJECT=geoforge
-
       - name: Build IPA
         script: |
-          WORKSPACE=$(find ios -name "*.xcworkspace" -maxdepth 1)
+          export SENTRY_AUTH_TOKEN="$SENTRY_AUTH_TOKEN"
+          export SENTRY_ORG="head-knight-studios"
+          export SENTRY_PROJECT="geoforge"
+
+          echo "Sentry token length: ${#SENTRY_AUTH_TOKEN}"
+          echo "Sentry org: $SENTRY_ORG"
+          echo "Sentry project: $SENTRY_PROJECT"
+
+          WORKSPACE=$(find ios -maxdepth 1 -name "*.xcworkspace" | head -n 1)
           SCHEME=$(basename ios/*.xcodeproj .xcodeproj)
 
           echo "Using workspace: $WORKSPACE"

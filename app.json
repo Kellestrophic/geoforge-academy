@@ -11,7 +11,7 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.galanisgalactus.geoforgeacademy",
       "appleTeamId": "QNP2XD3FM5",
-      "buildNumber": "21",
+      "buildNumber": "22",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
@@ -50,7 +50,7 @@
     ],
     "experiments": {
       "typedRoutes": true,
-      "reactCompiler": true
+      "reactCompiler": false
     },
     "extra": {
       "router": {},
