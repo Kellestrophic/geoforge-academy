@@ -21,6 +21,10 @@ function Layout() {
             headerShown: false,
             animation: "none",
             gestureEnabled: false,
+
+            // 🔥 THESE TWO ARE THE MISSING PIECES
+            presentation: "card",
+            freezeOnBlur: false,
           }}
         />
       </UserProvider>
