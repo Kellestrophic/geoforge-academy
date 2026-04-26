@@ -1,4 +1,10 @@
+import mineralFormulas from "@/data/mineralFormulas.json";
+import mineralogyFB from "@/data/mineralogyFB.json";
 import mineralogyMC from "@/data/mineralogyMC.json";
+import petrologyFB from "@/data/petrologyFB.json";
+import petrologyMC from "@/data/petrologyMC.json";
+import sedimentologyFB from "@/data/sedimentologyFB.json";
+import sedimentologyMC from "@/data/sedimentologyMC.json";
 import { theme } from "@/lib/theme";
 import { useMemo, useState } from "react";
 import { Pressable, Text, View } from "react-native";
@@ -24,9 +30,32 @@ export default function PracticeScreen() {
   const [selected, setSelected] = useState<number | null>(null);
 
   // ✅ SAFE question loading (no async, no crash)
-  const questions: Question[] = useMemo(() => {
-    return shuffleArray(mineralogyMC as Question[]);
-  }, []);
+const questions: Question[] = useMemo(() => {
+  try {
+    const all = [
+      ...(mineralogyMC as Question[]),
+      ...(mineralogyFB as any[]),
+      ...(petrologyMC as any[]),
+      ...(petrologyFB as any[]),
+      ...(mineralFormulas as any[]),
+      ...(sedimentologyMC as any[]),
+      ...(sedimentologyFB as any[]),
+    ];
+
+    return shuffleArray(
+      all.filter(
+        (q) =>
+          q &&
+          q.question &&
+          Array.isArray(q.choices) &&
+          q.choices.length > 0
+      )
+    );
+  } catch (e) {
+    console.log("❌ build crash", e);
+    return [];
+  }
+}, []);
 
   const question = questions[index];
 
