@@ -92,7 +92,10 @@ if (!user) {
   }))
 );
   }
-
+function safeDate(value: any) {
+  const d = new Date(value);
+  return isNaN(d.getTime()) ? null : d;
+}
   /* ---------------- STREAK (FIXED) ---------------- */
 
   function calculateStreak() {
@@ -132,7 +135,10 @@ const filteredExams = exams.filter((e) => {
 const groupedByDay: Record<string, Exam[]> = {};
 
 filteredExams.forEach((e) => {
-  const day = new Date(e.date).toDateString();
+ const d = safeDate(e.date);
+if (!d) return;
+
+const day = d.toDateString();
   if (!groupedByDay[day]) groupedByDay[day] = [];
   groupedByDay[day].push(e);
 });
@@ -320,7 +326,7 @@ activity.forEach((a) => {
       </Text>
 
       <Text style={{ color: "#94a3b8" }}>
-        Date: {new Date(selectedExam.date).toLocaleDateString()}
+        Date: {safeDate(selectedExam.date)?.toLocaleDateString()}
       </Text>
 
       {selectedExam.topic && (

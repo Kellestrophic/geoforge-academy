@@ -9,20 +9,11 @@ import { trackActivity } from "@/lib/activity";
 import { saveWrongQuestion } from "@/lib/review";
 import { theme } from "@/lib/theme";
 import { useLocalSearchParams } from "expo-router";
-import { useMemo, useRef, useState } from "react";
-import { Pressable, Text, TextInput, View } from "react-native";
+import { useEffect, useRef, useState } from "react";
+import { InteractionManager, Pressable, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
 // ✅ MASTER QUESTION POOL
-const ALL_QUESTIONS: Question[] = [
-  ...normalizeQuestions(mineralogyMC as any[]),
-  ...normalizeQuestions(mineralogyFB as any[]),
-  ...normalizeQuestions(petrologyMC as any[]),
-  ...normalizeQuestions(petrologyFB as any[]),
-  ...normalizeQuestions(mineralFormulas as any[]), // 🔥 ADD THIS
-  ...normalizeQuestions(sedimentologyMC as any[]), // 🔥 ADD THIS
-  ...normalizeQuestions(sedimentologyFB as any[]), // 🔥 ADD THIS
-];
+
 type BaseQuestion = {
   id: string;
   category: string;
@@ -170,70 +161,100 @@ const [isCorrect, setIsCorrect] = useState(false);
     : params.mode;
 
   // ✅ BUILD QUESTION SET
-const questions = useMemo(() => {
-  try {
-    let pool: Question[] = [
-      ...normalizeQuestions(mineralogyMC as any[]),
-      ...normalizeQuestions(mineralogyFB as any[]),
-      ...normalizeQuestions(petrologyMC as any[]),
-      ...normalizeQuestions(petrologyFB as any[]),
-      ...normalizeQuestions(mineralFormulas as any[]),
-      ...normalizeQuestions(sedimentologyMC as any[]),
-      ...normalizeQuestions(sedimentologyFB as any[]),
-    ];
+const [questions, setQuestions] = useState<Question[]>([]);
 
-    console.log("✅ POOL SIZE BEFORE FILTER:", pool.length);
+useEffect(() => {
+  let mounted = true;
 
-    if (topic) {
-      pool = pool.filter((q) => q.category === topic);
-    }
+  const task = InteractionManager.runAfterInteractions(() => {
+    try {
+      let pool: Question[] = [
+        ...normalizeQuestions(mineralogyMC as any[]),
+        ...normalizeQuestions(mineralogyFB as any[]),
+        ...normalizeQuestions(petrologyMC as any[]),
+        ...normalizeQuestions(petrologyFB as any[]),
+        ...normalizeQuestions(mineralFormulas as any[]),
+        ...normalizeQuestions(sedimentologyMC as any[]),
+        ...normalizeQuestions(sedimentologyFB as any[]),
+      ];
 
-    if (mode === "mc") {
-      pool = pool.filter((q) => q.type === "multiple_choice");
-    } else if (mode === "fb") {
-      pool = pool.filter(
-        (q) => q.type === "input" || q.type === "input_multi"
+      if (topic) {
+        pool = pool.filter((q) => q.category === topic);
+      }
+
+      if (mode === "mc") {
+        pool = pool.filter((q) => q.type === "multiple_choice");
+      } else if (mode === "fb") {
+        pool = pool.filter(
+          (q) => q.type === "input" || q.type === "input_multi"
+        );
+      }
+
+      const safe = pool.filter(
+        (q) =>
+          q &&
+          q.question &&
+          Array.isArray(q.choices) &&
+          q.choices.length > 0
       );
+
+      const finalQs = safe
+        .map(shuffleQuestion)
+        .sort(() => Math.random() - 0.5);
+
+      if (mounted) setQuestions(finalQs);
+    } catch (e) {
+      console.log("❌ BUILD QUESTIONS CRASH:", e);
     }
+  });
 
-const safe = pool.filter(
-  (q) =>
-    q &&
-    typeof q.question === "string" &&
-    Array.isArray(q.choices) &&
-    q.choices.length > 0 &&
-    (
-      q.type !== "multiple_choice" ||
-      (typeof q.correctAnswer === "number" &&
-        q.correctAnswer >= 0 &&
-        q.correctAnswer < q.choices.length)
-    )
-);
-    console.log("✅ SAFE QUESTIONS:", safe.length);
-
-    return safe
-      .map(shuffleQuestion)
-      .sort(() => Math.random() - 0.5);
-  } catch (e) {
-    console.log("❌ BUILD QUESTIONS CRASH:", e);
-    return [];
-  }
+  return () => {
+    mounted = false;
+    task.cancel();
+  };
 }, [topic, mode]);
+
+if (questions.length === 0) {
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      <View
+        style={{
+          flex: 1,
+          padding: 20,
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: theme.colors.background,
+        }}
+      >
+        <Text style={{ color: theme.colors.text }}>
+          Loading questions...
+        </Text>
+      </View>
+    </SafeAreaView>
+  );
+}
 
 const question = questions[index] ?? null;
 
 if (!question || !Array.isArray(question.choices)) {
-  console.log("❌ INVALID QUESTION:", index, questions.length, question);
-
   return (
-    <View style={{ padding: 20 }}>
-      <Text style={{ color: theme.colors.text }}>
-        Question failed to load safely.
-      </Text>
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <View
+        style={{
+          flex: 1,
+          padding: 20,
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: theme.colors.background,
+        }}
+      >
+        <Text style={{ color: theme.colors.text }}>
+          Question failed to load safely.
+        </Text>
+      </View>
+    </SafeAreaView>
   );
 }
-
 async function handleSubmit() {
   // 🔥 PREVENT DOUBLE TAP
   if (submitLock.current) return;
