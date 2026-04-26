@@ -2,37 +2,72 @@ import { supabase } from "@/lib/supabase";
 
 export async function trackActivity(type: string, minutes = 1) {
   try {
-    const { data } = await supabase.auth.getUser();
-    const user = data.user;
-    if (!user) return;
+    // 🔥 SAFE USER GET
+    let user = null;
+
+    try {
+      const response = await supabase.auth.getUser();
+
+      if (
+        response &&
+        response.data &&
+        response.data.user &&
+        typeof response.data.user.id === "string"
+      ) {
+        user = response.data.user;
+      }
+    } catch (e) {
+      console.log("❌ getUser crash prevented:", e);
+    }
+
+    if (!user) {
+      console.log("⚠️ No user — skipping activity");
+      return;
+    }
 
     const today = new Date().toISOString().split("T")[0];
 
-    // 🔥 check if row exists for same day + activity
-    const { data: existing } = await supabase
-      .from("daily_activity")
-      .select("*")
-      .eq("user_id", user.id)
-      .eq("date", today)
-      .eq("activity", type)
-      .maybeSingle();
+    // 🔥 SAFE FETCH EXISTING
+    let existing = null;
+
+    try {
+      const res = await supabase
+        .from("daily_activity")
+        .select("*")
+        .eq("user_id", user.id)
+        .eq("date", today)
+        .eq("activity", type)
+        .maybeSingle();
+
+      existing = res.data;
+    } catch (e) {
+      console.log("❌ fetch existing crash prevented:", e);
+    }
 
     if (existing) {
-      // 🔥 update minutes
-      await supabase
-        .from("daily_activity")
-        .update({
-          minutes: existing.minutes + minutes,
-        })
-        .eq("id", existing.id);
+      // 🔥 SAFE UPDATE
+      try {
+        await supabase
+          .from("daily_activity")
+          .update({
+            minutes: (existing.minutes || 0) + minutes,
+          })
+          .eq("id", existing.id);
+      } catch (e) {
+        console.log("❌ update crash prevented:", e);
+      }
     } else {
-      // 🔥 create new row
-      await supabase.from("daily_activity").insert({
-        user_id: user.id,
-        date: today,
-        activity: type,
-        minutes,
-      });
+      // 🔥 SAFE INSERT
+      try {
+        await supabase.from("daily_activity").insert({
+          user_id: user.id,
+          date: today,
+          activity: type,
+          minutes,
+        });
+      } catch (e) {
+        console.log("❌ insert crash prevented:", e);
+      }
     }
 
     console.log("📊 Activity tracked:", type);
