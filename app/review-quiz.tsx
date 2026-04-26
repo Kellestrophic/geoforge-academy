@@ -41,7 +41,7 @@ async function load() {
   const [showResult, setShowResult] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
 
-  const question = questions[index];
+const question = questions[index] ?? null;
 
   // 🔥 EMPTY STATE
   if (!question) {

@@ -196,14 +196,19 @@ const questions = useMemo(() => {
       );
     }
 
-    const safe = pool.filter(
-      (q) =>
-        q &&
-        q.question &&
-        Array.isArray(q.choices) &&
-        q.choices.length > 0
-    );
-
+const safe = pool.filter(
+  (q) =>
+    q &&
+    typeof q.question === "string" &&
+    Array.isArray(q.choices) &&
+    q.choices.length > 0 &&
+    (
+      q.type !== "multiple_choice" ||
+      (typeof q.correctAnswer === "number" &&
+        q.correctAnswer >= 0 &&
+        q.correctAnswer < q.choices.length)
+    )
+);
     console.log("✅ SAFE QUESTIONS:", safe.length);
 
     return safe
@@ -215,14 +220,15 @@ const questions = useMemo(() => {
   }
 }, [topic, mode]);
 
-const question = questions[index];
+const question = questions[index] ?? null;
 
-if (!question) {
-  console.log("❌ QUESTION UNDEFINED:", index, questions.length);
+if (!question || !Array.isArray(question.choices)) {
+  console.log("❌ INVALID QUESTION:", index, questions.length, question);
+
   return (
     <View style={{ padding: 20 }}>
       <Text style={{ color: theme.colors.text }}>
-        Question failed to load.
+        Question failed to load safely.
       </Text>
     </View>
   );
