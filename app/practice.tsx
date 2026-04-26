@@ -79,49 +79,74 @@ function shuffleQuestion(q: any) {
   };
 }
 function normalizeQuestions(data: any[]): Question[] {
+  if (!Array.isArray(data)) {
+    console.log("❌ NOT ARRAY:", data);
+    return [];
+  }
+
   return data
-    .map((q) => {
-      // ✅ MULTIPLE CHOICE
-      if (q.type === "multiple_choice" || q.type === "formula") {
-        if (!q.choices || typeof q.correctAnswer !== "number") {
-          console.log("❌ BAD MC QUESTION:", q);
+    .map((q, i) => {
+      try {
+        if (!q || typeof q !== "object") {
+          console.log("❌ INVALID OBJECT:", i, q);
+          return null;
+        }
+
+        if (!q.question) {
+          console.log("❌ MISSING QUESTION TEXT:", i, q);
+          return null;
+        }
+
+        // ✅ MULTIPLE CHOICE
+        if (q.type === "multiple_choice" || q.type === "formula") {
+          if (!Array.isArray(q.choices) || q.choices.length === 0) {
+            console.log("❌ BAD CHOICES:", i, q);
+            return null;
+          }
+
+          if (typeof q.correctAnswer !== "number") {
+            console.log("❌ BAD CORRECT INDEX:", i, q);
+            return null;
+          }
+
+          return {
+            id: String(q.id ?? i),
+            category: q.category ?? "unknown",
+            question: String(q.question),
+            choices: q.choices.map(String),
+            explanation: q.explanation ?? "",
+            type: "multiple_choice",
+            correctAnswer: q.correctAnswer,
+          } as MCQuestion;
+        }
+
+        // ✅ INPUT
+        const answers =
+          Array.isArray(q.answer)
+            ? q.answer
+            : q.answer
+            ? [q.answer]
+            : [];
+
+        if (answers.length === 0) {
+          console.log("❌ BAD INPUT ANSWER:", i, q);
           return null;
         }
 
         return {
-          id: q.id,
-          category: q.category,
-          question: q.question,
-          choices: q.choices,
+          id: String(q.id ?? i),
+          category: q.category ?? "unknown",
+          question: String(q.question),
+          choices: answers.map(String),
           explanation: q.explanation ?? "",
-          type: "multiple_choice",
-          correctAnswer: q.correctAnswer,
-        } as MCQuestion;
-      }
-
-      // ✅ INPUT / FB
-      const answers =
-        Array.isArray(q.answer)
-          ? q.answer
-          : q.answer
-          ? [q.answer]
-          : [];
-
-      if (answers.length === 0) {
-        console.log("❌ BAD INPUT QUESTION:", q);
+          type: q.type === "input_multi" ? "input_multi" : "input",
+        } as InputQuestion;
+      } catch (e) {
+        console.log("❌ NORMALIZE CRASH:", i, e);
         return null;
       }
-
-      return {
-        id: q.id,
-        category: q.category,
-        question: q.question,
-        choices: answers,
-        explanation: q.explanation ?? "",
-        type: q.type === "input_multi" ? "input_multi" : "input",
-      } as InputQuestion;
     })
-   .filter((q): q is Question => q !== null);
+    .filter((q): q is Question => q !== null);
 }
 function clean(str: string) {
   return String(str).toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -145,11 +170,9 @@ const [isCorrect, setIsCorrect] = useState(false);
     : params.mode;
 
   // ✅ BUILD QUESTION SET
-  const questions = useMemo(() => {
-  let pool: Question[] = [];
-
+const questions = useMemo(() => {
   try {
-    pool = [
+    let pool: Question[] = [
       ...normalizeQuestions(mineralogyMC as any[]),
       ...normalizeQuestions(mineralogyFB as any[]),
       ...normalizeQuestions(petrologyMC as any[]),
@@ -158,36 +181,48 @@ const [isCorrect, setIsCorrect] = useState(false);
       ...normalizeQuestions(sedimentologyMC as any[]),
       ...normalizeQuestions(sedimentologyFB as any[]),
     ];
+
+    console.log("✅ POOL SIZE BEFORE FILTER:", pool.length);
+
+    if (topic) {
+      pool = pool.filter((q) => q.category === topic);
+    }
+
+    if (mode === "mc") {
+      pool = pool.filter((q) => q.type === "multiple_choice");
+    } else if (mode === "fb") {
+      pool = pool.filter(
+        (q) => q.type === "input" || q.type === "input_multi"
+      );
+    }
+
+    const safe = pool.filter(
+      (q) =>
+        q &&
+        q.question &&
+        Array.isArray(q.choices) &&
+        q.choices.length > 0
+    );
+
+    console.log("✅ SAFE QUESTIONS:", safe.length);
+
+    return safe
+      .map(shuffleQuestion)
+      .sort(() => Math.random() - 0.5);
   } catch (e) {
-    console.log("❌ QUESTION LOAD CRASH:", e);
+    console.log("❌ BUILD QUESTIONS CRASH:", e);
     return [];
   }
-
-  if (topic) {
-    pool = pool.filter((q) => q.category === topic);
-  }
-
-  if (mode === "mc") {
-    pool = pool.filter((q) => q.type === "multiple_choice");
-  } else if (mode === "fb") {
-    pool = pool.filter(
-      (q) => q.type === "input" || q.type === "input_multi"
-    );
-  }
-
-  return [...pool]
-  .map(shuffleQuestion)
-  .filter((q) => q && q.choices && q.choices.length > 0)
-  .sort(() => Math.random() - 0.5);
 }, [topic, mode]);
 
-const question = questions[index] ?? null;
+const question = questions[index];
 
-if (!question || questions.length === 0) {
+if (!question) {
+  console.log("❌ QUESTION UNDEFINED:", index, questions.length);
   return (
     <View style={{ padding: 20 }}>
       <Text style={{ color: theme.colors.text }}>
-        No questions found.
+        Question failed to load.
       </Text>
     </View>
   );
@@ -268,7 +303,7 @@ function nextQuestion() {
 
       {/* MULTIPLE CHOICE */}
 {question.type === "multiple_choice" &&
-  (question.choices ?? []).map((choice: string, i: number) => {
+ (Array.isArray(question.choices) ? question.choices : []).map((choice: string, i: number) => {
     let borderColor = theme.colors.border;
 let bg = "transparent";
 

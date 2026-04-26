@@ -11,7 +11,7 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.galanisgalactus.geoforgeacademy",
       "appleTeamId": "QNP2XD3FM5",
-      "buildNumber": "16",
+      "buildNumber": "20",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
@@ -29,24 +29,24 @@
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
-   "plugins": [
-  "expo-router",
-  [
-    "expo-splash-screen",
-    {
-      "image": "./assets/images/applogo.png",
-      "imageWidth": 200,
-      "resizeMode": "contain",
-      "backgroundColor": "#1589B8"
-    }
-  ],
-  [
-    "@sentry/react-native/expo",
-    {
-      "disableNativeIntegration": true
-    }
-  ]
-],
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/applogo.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#1589B8"
+        }
+      ],
+      [
+        "@sentry/react-native/expo",
+        {
+          "disableNativeIntegration": true
+        }
+      ]
+    ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
