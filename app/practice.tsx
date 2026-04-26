@@ -45,15 +45,29 @@ export default function PracticeScreen() {
         ...(sedimentologyFB as any[]),
       ];
 
-      return shuffleArray(
-        all.filter(
-          (q) =>
-            q &&
-            q.question &&
-            Array.isArray(q.choices) &&
-            q.choices.length > 0
-        )
-      );
+    return shuffleArray(
+  all
+    .filter(
+      (q) =>
+        q &&
+        q.question &&
+        Array.isArray(q.choices) &&
+        q.choices.length > 0
+    )
+    .map((q) => {
+      // 🔥 shuffle choices safely
+      const choices = shuffleArray([...q.choices]);
+
+      const correctText = q.choices[q.correctAnswer];
+      const newIndex = choices.indexOf(correctText);
+
+      return {
+        ...q,
+        choices,
+        correctAnswer: newIndex,
+      };
+    })
+);
     } catch (e) {
       console.log("❌ build crash", e);
       return [];
