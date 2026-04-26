@@ -8,6 +8,16 @@ export default function Layout() {
   useEffect(() => {
     async function init() {
       try {
+        // 🔥 ONLY TRY AUTH IF ENV EXISTS
+        const hasEnv =
+          process.env.EXPO_PUBLIC_SUPABASE_URL &&
+          process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY;
+
+        if (!hasEnv) {
+          console.log("⚠️ NO SUPABASE ENV — skipping auth");
+          return;
+        }
+
         await signInAnon();
         console.log("✅ USER READY");
       } catch (e) {
