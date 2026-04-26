@@ -29,7 +29,7 @@ export default function HomeScreen() {
       {/* LOGO */}
       <View style={{ alignItems: "center", marginTop: -100, marginBottom: -60 }}>
         <Image
-          source={require("../assets/logo.png")}
+          source={require("@/assets/images/logo.png")}
           style={{
             width: 500,
             height: 500,
@@ -61,7 +61,7 @@ export default function HomeScreen() {
 
         {/* MINIGAMES */}
         <Pressable
-          onPress={() => safeNav("/minigames")}
+          onPress={() => safeNav("/minigames-test")}
           style={{
             padding: 25,
             borderRadius: 16,
@@ -80,7 +80,7 @@ export default function HomeScreen() {
 
         {/* PROFILE */}
         <Pressable
-          onPress={() => safeNav("/profile")}
+          onPress={() => safeNav("/profile-test")}
           style={{
             padding: 25,
             borderRadius: 16,

@@ -86,21 +86,21 @@ export default function ExamMenu() {
       <Card
         title="Random Exam"
         subtitle="Mixed questions from all topics"
-        onPress={() => safeNav("/exam-random")}
+        onPress={() => safeNav("/exam-test")}
       />
 
       {/* TOPIC */}
       <Card
         title="Topic Exam"
         subtitle="Focus on one subject"
-        onPress={() => safeNav("/exam-topic")}
+        onPress={() => safeNav("/exam-test")}
       />
 
       {/* PG */}
       <Card
         title="PG Exam Simulation"
         subtitle="100 questions • 120 minutes • real exam"
-        onPress={() => safeNav("/exam-pg")}
+        onPress={() => safeNav("/exam-test")}
         color="#7c3aed"
       />
     </View>

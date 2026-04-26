@@ -1,0 +1,452 @@
+[
+{
+"id": "str_mc_1",
+"category": "Structural Geology",
+"question": "What type of stress pulls rocks apart?",
+"choices": ["Tensional", "Compressional", "Shear", "Hydrostatic"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Tensional stress occurs when forces act to stretch or pull rock apart, often leading to thinning and normal fault formation."
+},
+{
+"id": "str_mc_2",
+"category": "Structural Geology",
+"question": "Which type of stress shortens rock?",
+"choices": ["Compressional", "Tensional", "Shear", "Differential"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Compressional stress squeezes rocks together, causing shortening and thickening of the crust, commonly forming folds and reverse faults."
+},
+{
+"id": "str_mc_3",
+"category": "Structural Geology",
+"question": "What type of stress causes rocks to slide past each other?",
+"choices": ["Shear", "Compressional", "Tensional", "Lithostatic"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Shear stress acts parallel to a surface and causes materials to move laterally past each other, often forming strike-slip faults."
+},
+{
+"id": "str_mc_4",
+"category": "Structural Geology",
+"question": "Which fault type forms under tensional stress?",
+"choices": ["Normal fault", "Reverse fault", "Thrust fault", "Strike-slip fault"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Normal faults form when the crust is stretched, causing the hanging wall to move downward relative to the footwall."
+},
+{
+"id": "str_mc_5",
+"category": "Structural Geology",
+"question": "Which fault type forms under compressional stress?",
+"choices": ["Reverse fault", "Normal fault", "Strike-slip fault", "Oblique fault"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Reverse faults occur when compressional forces push rocks together, causing the hanging wall to move upward relative to the footwall."
+},
+{
+"id": "str_mc_6",
+"category": "Structural Geology",
+"question": "What is a low-angle reverse fault called?",
+"choices": ["Thrust fault", "Normal fault", "Strike-slip fault", "Transform fault"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Thrust faults are reverse faults with a dip angle less than about 45°, commonly found in compressional mountain belts."
+},
+{
+"id": "str_mc_7",
+"category": "Structural Geology",
+"question": "In a normal fault, the hanging wall moves in which direction?",
+"choices": ["Down", "Up", "Sideways", "No movement"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "In normal faults, tensional stress causes the hanging wall to move downward relative to the footwall."
+},
+{
+"id": "str_mc_8",
+"category": "Structural Geology",
+"question": "In a reverse fault, the hanging wall moves in which direction?",
+"choices": ["Up", "Down", "Sideways", "No movement"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "In reverse faults, compressional stress causes the hanging wall to move upward relative to the footwall."
+},
+{
+"id": "str_mc_9",
+"category": "Structural Geology",
+"question": "What type of fault involves horizontal movement?",
+"choices": ["Strike-slip fault", "Normal fault", "Reverse fault", "Thrust fault"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Strike-slip faults involve lateral movement of blocks past each other due to shear stress."
+},
+{
+"id": "str_mc_10",
+"category": "Structural Geology",
+"question": "What is the block above a fault plane called?",
+"choices": ["Hanging wall", "Footwall", "Fault scarp", "Joint"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "The hanging wall is the block of rock that lies above an inclined fault plane."
+},
+{
+"id": "str_mc_11",
+"category": "Structural Geology",
+"question": "What is the block below a fault plane called?",
+"choices": ["Footwall", "Hanging wall", "Fault plane", "Joint"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "The footwall is the block of rock that lies beneath an inclined fault plane."
+},
+{
+"id": "str_mc_12",
+"category": "Structural Geology",
+"question": "What type of fold is arch-shaped?",
+"choices": ["Anticline", "Syncline", "Monocline", "Dome"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Anticlines are folds where rock layers arch upward, with the oldest rocks typically in the center."
+},
+{
+"id": "str_mc_13",
+"category": "Structural Geology",
+"question": "What type of fold is trough-shaped?",
+"choices": ["Syncline", "Anticline", "Dome", "Basin"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Synclines are folds that bend downward, with the youngest rocks typically at the center."
+},
+{
+"id": "str_mc_14",
+"category": "Structural Geology",
+"question": "What is the angle of inclination of a rock layer called?",
+"choices": ["Dip", "Strike", "Trend", "Plunge"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Dip is the angle at which a rock layer inclines from the horizontal, measured perpendicular to strike."
+},
+{
+"id": "str_mc_15",
+"category": "Structural Geology",
+"question": "What is the compass direction of a horizontal line on a plane called?",
+"choices": ["Strike", "Dip", "Trend", "Plunge"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Strike is the direction of a horizontal line on an inclined plane, measured as an angle from north."
+},
+{
+"id": "str_mc_16",
+"category": "Structural Geology",
+"question": "Which type of deformation occurs without breaking?",
+"choices": ["Ductile", "Brittle", "Elastic", "Plastic"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Ductile deformation occurs when rocks bend or flow without fracturing, typically under high temperature and pressure."
+},
+{
+"id": "str_mc_17",
+"category": "Structural Geology",
+"question": "Which type of deformation involves fracturing?",
+"choices": ["Brittle", "Ductile", "Elastic", "Viscous"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Brittle deformation causes rocks to break or fracture, forming faults and joints."
+},
+{
+"id": "str_mc_18",
+"category": "Structural Geology",
+"question": "What is a fracture with no displacement called?",
+"choices": ["Joint", "Fault", "Fold", "Shear zone"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Joints are cracks in rocks where there has been no significant movement along the fracture surface."
+},
+{
+"id": "str_mc_19",
+"category": "Structural Geology",
+"question": "What is a fracture with displacement called?",
+"choices": ["Fault", "Joint", "Fold", "Cleavage"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Faults are fractures where movement has occurred along the fracture plane."
+},
+{
+"id": "str_mc_20",
+"category": "Structural Geology",
+"question": "Which structure forms from compressional stress?",
+"choices": ["Fold", "Joint", "Normal fault", "Graben"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Folds form when compressional stress causes rock layers to bend rather than break."
+},
+{
+"id": "str_mc_21",
+"category": "Structural Geology",
+"question": "What is the line where two limbs of a fold meet called?",
+"choices": ["Hinge line", "Axial plane", "Strike line", "Fault trace"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "The hinge line connects points of maximum curvature in a fold and defines the fold’s axis."
+},
+{
+"id": "str_mc_22",
+"category": "Structural Geology",
+"question": "What is the plane that divides a fold into two halves called?",
+"choices": ["Axial plane", "Fault plane", "Dip plane", "Joint plane"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "The axial plane is an imaginary surface that splits a fold as symmetrically as possible."
+},
+{
+"id": "str_mc_23",
+"category": "Structural Geology",
+"question": "What is a step-like fold called?",
+"choices": ["Monocline", "Anticline", "Syncline", "Dome"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "A monocline is a fold with a single bend, creating a step-like structure in otherwise horizontal layers."
+},
+{
+"id": "str_mc_24",
+"category": "Structural Geology",
+"question": "Which structure forms when rock layers are warped upward in all directions?",
+"choices": ["Dome", "Basin", "Syncline", "Monocline"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "A dome is a circular uplift where rock layers dip away from a central high point."
+},
+{
+"id": "str_mc_25",
+"category": "Structural Geology",
+"question": "Which structure forms when rock layers dip inward toward a center?",
+"choices": ["Basin", "Dome", "Anticline", "Fault"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Basins are circular or elliptical structures where layers dip toward the center, often holding younger rocks."
+},
+{
+"id": "str_mc_26",
+"category": "Structural Geology",
+"question": "What type of fault shows both vertical and horizontal movement?",
+"choices": ["Oblique-slip fault", "Normal fault", "Reverse fault", "Strike-slip fault"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Oblique-slip faults combine dip-slip and strike-slip motion, producing both vertical and horizontal displacement."
+},
+{
+"id": "str_mc_27",
+"category": "Structural Geology",
+"question": "What is the downward movement of a fold axis called?",
+"choices": ["Plunge", "Strike", "Dip", "Trend"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Plunge refers to the angle at which a fold axis inclines relative to the horizontal."
+},
+{
+"id": "str_mc_28",
+"category": "Structural Geology",
+"question": "What describes the orientation of a line in space?",
+"choices": ["Trend", "Dip", "Strike", "Cleavage"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Trend is the compass direction of a linear feature, such as a fold axis or lineation."
+},
+{
+"id": "str_mc_29",
+"category": "Structural Geology",
+"question": "What type of fault boundary is the San Andreas Fault?",
+"choices": ["Transform boundary", "Divergent boundary", "Convergent boundary", "Subduction zone"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "The San Andreas Fault is a transform boundary where plates slide horizontally past each other."
+},
+{
+"id": "str_mc_30",
+"category": "Structural Geology",
+"question": "What is a block that drops down between two normal faults called?",
+"choices": ["Graben", "Horst", "Dome", "Basin"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "A graben is a depressed block bordered by normal faults, typically formed in extensional environments."
+},
+{
+"id": "str_mc_31",
+"category": "Structural Geology",
+"question": "What is a block that is uplifted between two normal faults called?",
+"choices": ["Horst", "Graben", "Syncline", "Monocline"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "A horst is an uplifted block formed between two normal faults due to crustal extension."
+},
+{
+"id": "str_mc_32",
+"category": "Structural Geology",
+"question": "Which type of fold has equal limb angles?",
+"choices": ["Symmetrical fold", "Asymmetrical fold", "Recumbent fold", "Overturned fold"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Symmetrical folds have limbs that dip at similar angles on either side of the axial plane."
+},
+{
+"id": "str_mc_33",
+"category": "Structural Geology",
+"question": "Which fold has one limb steeper than the other?",
+"choices": ["Asymmetrical fold", "Symmetrical fold", "Monocline", "Dome"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Asymmetrical folds have unequal limb angles due to uneven stress distribution."
+},
+{
+"id": "str_mc_34",
+"category": "Structural Geology",
+"question": "What type of fold has limbs that are nearly horizontal?",
+"choices": ["Recumbent fold", "Anticline", "Syncline", "Monocline"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Recumbent folds are highly deformed folds with near-horizontal axial planes and limbs."
+},
+{
+"id": "str_mc_35",
+"category": "Structural Geology",
+"question": "Which fold has both limbs dipping in the same direction?",
+"choices": ["Overturned fold", "Symmetrical fold", "Basin", "Dome"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Overturned folds occur when compressional forces push one limb past vertical, causing both limbs to dip the same way."
+},
+{
+"id": "str_mc_36",
+"category": "Structural Geology",
+"question": "What is the visible line where a fault intersects the Earth's surface?",
+"choices": ["Fault trace", "Fault plane", "Joint", "Cleavage"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "The fault trace is the line on the Earth's surface where a fault plane meets the ground."
+},
+{
+"id": "str_mc_37",
+"category": "Structural Geology",
+"question": "What is the surface along which movement occurs in a fault?",
+"choices": ["Fault plane", "Joint plane", "Axial plane", "Strike line"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "The fault plane is the surface where displacement happens between two rock blocks."
+},
+{
+"id": "str_mc_38",
+"category": "Structural Geology",
+"question": "What type of stress causes folding rather than faulting?",
+"choices": ["Slow compressional stress", "Rapid tensile stress", "Shear stress", "Hydrostatic pressure"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Slow compressional stress allows rocks to deform ductilely, producing folds instead of fractures."
+},
+{
+"id": "str_mc_39",
+"category": "Structural Geology",
+"question": "What type of rock behavior occurs at high temperature and pressure?",
+"choices": ["Ductile behavior", "Brittle behavior", "Elastic behavior", "Rigid behavior"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "At high temperatures and pressures, rocks tend to deform plastically rather than break."
+},
+{
+"id": "str_mc_40",
+"category": "Structural Geology",
+"question": "What is the measure of deformation in response to stress?",
+"choices": ["Strain", "Stress", "Force", "Pressure"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Strain describes how much a rock changes shape or size in response to applied stress."
+},
+{
+"id": "str_mc_41",
+"category": "Structural Geology",
+"question": "What is the force applied over an area called?",
+"choices": ["Stress", "Strain", "Pressure", "Load"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Stress is defined as force per unit area and is responsible for deformation in rocks."
+},
+{
+"id": "str_mc_42",
+"category": "Structural Geology",
+"question": "Which fault type is associated with mid-ocean ridges?",
+"choices": ["Normal fault", "Reverse fault", "Thrust fault", "Strike-slip fault"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Normal faults are common at divergent boundaries like mid-ocean ridges where the crust is being pulled apart."
+},
+{
+"id": "str_mc_43",
+"category": "Structural Geology",
+"question": "Which fault type is associated with subduction zones?",
+"choices": ["Reverse fault", "Normal fault", "Strike-slip fault", "Transform fault"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Reverse and thrust faults are typical in compressional settings like subduction zones."
+},
+{
+"id": "str_mc_44",
+"category": "Structural Geology",
+"question": "What is the angle between a fault plane and the horizontal called?",
+"choices": ["Dip angle", "Strike angle", "Trend", "Plunge"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "The dip angle measures how steeply a plane inclines relative to the horizontal."
+},
+{
+"id": "str_mc_45",
+"category": "Structural Geology",
+"question": "What is the movement along a fault called?",
+"choices": ["Slip", "Dip", "Strike", "Trend"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Slip refers to the relative displacement between two sides of a fault."
+},
+{
+"id": "str_mc_46",
+"category": "Structural Geology",
+"question": "What type of structure forms when rocks are bent downward into a U-shape?",
+"choices": ["Syncline", "Anticline", "Dome", "Horst"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Synclines are folds where layers bend downward, forming a trough-like structure."
+},
+{
+"id": "str_mc_47",
+"category": "Structural Geology",
+"question": "What type of structure forms when rocks bend upward into an arch?",
+"choices": ["Anticline", "Syncline", "Basin", "Graben"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Anticlines are upward-arching folds, typically exposing older rocks at their core."
+},
+{
+"id": "str_mc_48",
+"category": "Structural Geology",
+"question": "Which deformation type is most likely near Earth's surface?",
+"choices": ["Brittle deformation", "Ductile deformation", "Plastic flow", "Viscous flow"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Near the surface, lower temperatures and pressures favor brittle deformation and fracturing."
+},
+{
+"id": "str_mc_49",
+"category": "Structural Geology",
+"question": "Which deformation type dominates deep in the crust?",
+"choices": ["Ductile deformation", "Brittle deformation", "Elastic deformation", "Fracturing"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "At depth, higher temperatures and pressures allow rocks to deform ductilely rather than fracture."
+},
+{
+"id": "str_mc_50",
+"category": "Structural Geology",
+"question": "What is the bending of rock layers due to stress called?",
+"choices": ["Folding", "Faulting", "Fracturing", "Shearing"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Folding occurs when rock layers bend due to compressional forces instead of breaking."
+}
+]

@@ -1,0 +1,410 @@
+[
+{
+"id": "str_fb_1",
+"category": "Structural Geology",
+"question": "A(n) ______ is a fold that arches upward, with the oldest rocks in the center.",
+"answer": "anticline",
+"type": "input",
+"explanation": "An anticline is an upward-arching fold where older rock layers are exposed in the core."
+},
+{
+"id": "str_fb_2",
+"category": "Structural Geology",
+"question": "A ______ forms when rock layers bend downward, placing younger rocks in the center.",
+"answer": "syncline",
+"type": "input",
+"explanation": "A syncline is a downward fold where younger rocks are found at the center."
+},
+{
+"id": "str_fb_3",
+"category": "Structural Geology",
+"question": "Stress is defined as force per unit ______.",
+"answer": "area",
+"type": "input",
+"explanation": "Stress describes how force is distributed across an area, influencing deformation."
+},
+{
+"id": "str_fb_4",
+"category": "Structural Geology",
+"question": "The ______ of a plane is the compass direction of a horizontal line on that plane.",
+"answer": "strike",
+"type": "input",
+"explanation": "Strike is the direction of a horizontal line on a planar surface."
+},
+{
+"id": "str_fb_5",
+"category": "Structural Geology",
+"question": "The angle a plane makes with the horizontal is called ______.",
+"answer": "dip",
+"type": "input",
+"explanation": "Dip measures how steeply a plane is inclined from the horizontal."
+},
+{
+"id": "str_fb_6",
+"category": "Structural Geology",
+"question": "A fracture with no displacement is called a ______.",
+"answer": "joint",
+"type": "input",
+"explanation": "Joints are cracks in rock where no movement has occurred."
+},
+{
+"id": "str_fb_7",
+"category": "Structural Geology",
+"question": "A fracture with displacement is called a ______.",
+"answer": "fault",
+"type": "input",
+"explanation": "Faults are fractures where movement has occurred along the break."
+},
+{
+"id": "str_fb_8",
+"category": "Structural Geology",
+"question": "The ______ wall lies above a fault plane.",
+"answer": "hanging",
+"type": "input",
+"explanation": "The hanging wall is the block above the fault surface."
+},
+{
+"id": "str_fb_9",
+"category": "Structural Geology",
+"question": "The ______ wall lies below a fault plane.",
+"answer": "foot",
+"type": "input",
+"explanation": "The footwall is the block below the fault plane."
+},
+{
+"id": "str_fb_10",
+"category": "Structural Geology",
+"question": "Normal faults form under ______ stress.",
+"answer": "tensional",
+"type": "input",
+"explanation": "Tensional stress pulls rocks apart, creating normal faults."
+},
+
+{
+"id": "str_fb_11",
+"category": "Structural Geology",
+"question": "Reverse faults form under ______ stress.",
+"answer": "compressional",
+"type": "input",
+"explanation": "Compressional stress squeezes rocks, causing reverse faulting."
+},
+{
+"id": "str_fb_12",
+"category": "Structural Geology",
+"question": "Strike-slip faults are caused by ______ stress.",
+"answer": "shear",
+"type": "input",
+"explanation": "Shear stress causes horizontal movement along faults."
+},
+{
+"id": "str_fb_13",
+"category": "Structural Geology",
+"question": "A low-angle reverse fault is called a ______ fault.",
+"answer": "thrust",
+"type": "input",
+"explanation": "Thrust faults are shallow-angle reverse faults formed by compression."
+},
+{
+"id": "str_fb_14",
+"category": "Structural Geology",
+"question": "The line of maximum curvature in a fold is the ______ line.",
+"answer": "hinge",
+"type": "input",
+"explanation": "The hinge line marks where the fold bends the most."
+},
+{
+"id": "str_fb_15",
+"category": "Structural Geology",
+"question": "The plane dividing a fold into two halves is the ______ plane.",
+"answer": "axial",
+"type": "input",
+"explanation": "The axial plane splits the fold symmetrically."
+},
+
+{
+"id": "str_fb_16",
+"category": "Structural Geology",
+"question": "A down-dropped block between faults is called a ______.",
+"answer": "graben",
+"type": "input",
+"explanation": "Grabens form when blocks drop between normal faults."
+},
+{
+"id": "str_fb_17",
+"category": "Structural Geology",
+"question": "An uplifted block between faults is called a ______.",
+"answer": "horst",
+"type": "input",
+"explanation": "Horsts are raised blocks between faults."
+},
+{
+"id": "str_fb_18",
+"category": "Structural Geology",
+"question": "Folds form under ______ deformation conditions.",
+"answer": "ductile",
+"type": "input",
+"explanation": "Ductile conditions allow rocks to bend instead of break."
+},
+{
+"id": "str_fb_19",
+"category": "Structural Geology",
+"question": "Faults form under ______ deformation conditions.",
+"answer": "brittle",
+"type": "input",
+"explanation": "Brittle conditions cause rocks to fracture and fault."
+},
+{
+"id": "str_fb_20",
+"category": "Structural Geology",
+"question": "The total displacement along a fault is called ______.",
+"answer": "slip",
+"type": "input",
+"explanation": "Slip is the total movement along a fault plane."
+},
+
+{
+"id": "str_fb_21",
+"category": "Structural Geology",
+"question": "The angle a fold axis makes with the horizontal is called ______.",
+"answer": "plunge",
+"type": "input",
+"explanation": "Plunge describes how a fold axis tilts into the Earth."
+},
+{
+"id": "str_fb_22",
+"category": "Structural Geology",
+"question": "A fold with equal limb angles is ______.",
+"answer": "symmetrical",
+"type": "input",
+"explanation": "Symmetrical folds have limbs dipping at equal angles."
+},
+{
+"id": "str_fb_23",
+"category": "Structural Geology",
+"question": "A fold with unequal limb angles is ______.",
+"answer": "asymmetrical",
+"type": "input",
+"explanation": "Asymmetrical folds have limbs dipping at different angles."
+},
+{
+"id": "str_fb_24",
+"category": "Structural Geology",
+"question": "A fold lying on its side is called a ______ fold.",
+"answer": "recumbent",
+"type": "input",
+"explanation": "Recumbent folds have nearly horizontal axial planes."
+},
+{
+"id": "str_fb_25",
+"category": "Structural Geology",
+"question": "A fold where both limbs dip in the same direction is ______.",
+"answer": "overturned",
+"type": "input",
+"explanation": "Overturned folds have limbs tilted in the same direction."
+},
+
+{
+"id": "str_fb_26",
+"category": "Structural Geology",
+"question": "A step-like fold is known as a ______.",
+"answer": "monocline",
+"type": "input",
+"explanation": "Monoclines are folds with a single bend between flat layers."
+},
+{
+"id": "str_fb_27",
+"category": "Structural Geology",
+"question": "Circular uplifted structures are called ______.",
+"answer": "domes",
+"type": "input",
+"explanation": "Domes have rock layers dipping outward from a central high point."
+},
+{
+"id": "str_fb_28",
+"category": "Structural Geology",
+"question": "Circular downwarped structures are called ______.",
+"answer": "basins",
+"type": "input",
+"explanation": "Basins have layers dipping inward toward a central low."
+},
+{
+"id": "str_fb_29",
+"category": "Structural Geology",
+"question": "The surface where fault movement occurs is called the fault ______.",
+"answer": "plane",
+"type": "input",
+"explanation": "The fault plane is the surface along which rocks slip."
+},
+{
+"id": "str_fb_30",
+"category": "Structural Geology",
+"question": "The line where a fault intersects the surface is the fault ______.",
+"answer": "trace",
+"type": "input",
+"explanation": "The fault trace marks the surface expression of a fault."
+},
+
+{
+"id": "str_fb_31",
+"category": "Structural Geology",
+"question": "Rocks behave ______ at high temperature and pressure.",
+"answer": "ductile",
+"type": "input",
+"explanation": "High temperature and pressure allow rocks to flow rather than break."
+},
+{
+"id": "str_fb_32",
+"category": "Structural Geology",
+"question": "Near the surface, rocks behave in a ______ manner.",
+"answer": "brittle",
+"type": "input",
+"explanation": "Low pressure and temperature cause brittle failure."
+},
+{
+"id": "str_fb_33",
+"category": "Structural Geology",
+"question": "Compression leads to rock ______.",
+"answer": "shortening",
+"type": "input",
+"explanation": "Compression squeezes rocks, causing shortening and folding."
+},
+{
+"id": "str_fb_34",
+"category": "Structural Geology",
+"question": "Tension causes rock layers to ______.",
+"answer": "extend",
+"type": "input",
+"explanation": "Tension stretches rocks, leading to extension and normal faulting."
+},
+{
+"id": "str_fb_35",
+"category": "Structural Geology",
+"question": "Shear stress causes rocks to slide ______ one another.",
+"answer": "past",
+"type": "input",
+"explanation": "Shear stress causes lateral movement where rocks slide past each other."
+},
+
+{
+"id": "str_fb_36",
+"category": "Structural Geology",
+"question": "The San Andreas Fault is a ______ fault.",
+"answer": "strike-slip",
+"type": "input",
+"explanation": "The San Andreas Fault is a classic strike-slip fault with horizontal motion."
+},
+{
+"id": "str_fb_37",
+"category": "Structural Geology",
+"question": "Mid-ocean ridges are associated with ______ stress.",
+"answer": "tensional",
+"type": "input",
+"explanation": "Divergent boundaries create tensional stress and new crust."
+},
+{
+"id": "str_fb_38",
+"category": "Structural Geology",
+"question": "Subduction zones are associated with ______ stress.",
+"answer": "compressional",
+"type": "input",
+"explanation": "Convergent boundaries create compressional stress."
+},
+{
+"id": "str_fb_39",
+"category": "Structural Geology",
+"question": "A fold consists of two ______ that meet at the hinge.",
+"answer": "limbs",
+"type": "input",
+"explanation": "Fold limbs are the sides of the fold that meet at the hinge."
+},
+{
+"id": "str_fb_40",
+"category": "Structural Geology",
+"question": "The direction of a line on a map is called ______.",
+"answer": "trend",
+"type": "input",
+"explanation": "Trend refers to the compass direction of a line."
+},
+
+{
+"id": "str_fb_41",
+"category": "Structural Geology",
+"question": "The three principal stresses are σ1, σ2, and ______.",
+"answer": "σ3",
+"type": "input",
+"explanation": "σ1 is maximum stress, σ3 is minimum stress."
+},
+{
+"id": "str_fb_42",
+"category": "Structural Geology",
+"question": "Brittle deformation results in rock ______.",
+"answer": "fracture",
+"type": "input",
+"explanation": "Brittle deformation causes rocks to break."
+},
+{
+"id": "str_fb_43",
+"category": "Structural Geology",
+"question": "Ductile deformation results in rock ______.",
+"answer": "flow",
+"type": "input",
+"explanation": "Ductile deformation allows rocks to bend and flow."
+},
+{
+"id": "str_fb_44",
+"category": "Structural Geology",
+"question": "A normal fault moves the hanging wall ______ relative to the footwall.",
+"answer": "down",
+"type": "input",
+"explanation": "In normal faults, the hanging wall drops down."
+},
+{
+"id": "str_fb_45",
+"category": "Structural Geology",
+"question": "A reverse fault moves the hanging wall ______ relative to the footwall.",
+"answer": "up",
+"type": "input",
+"explanation": "In reverse faults, the hanging wall moves upward."
+},
+
+{
+"id": "str_fb_46",
+"category": "Structural Geology",
+"question": "The main stresses involved in deformation are ______, ______, and ______.",
+"answer": ["compression","tension","shear"],
+"type": "input_multi",
+"explanation": "These three stresses control most structural deformation in rocks."
+},
+{
+"id": "str_fb_47",
+"category": "Structural Geology",
+"question": "Strike and ______ are used together to describe the orientation of a plane.",
+"answer": "dip",
+"type": "input",
+"explanation": "Strike and dip define the orientation of planar features."
+},
+{
+"id": "str_fb_48",
+"category": "Structural Geology",
+"question": "The bending of rock layers is known as ______.",
+"answer": "folding",
+"type": "input",
+"explanation": "Folding occurs when rocks bend without breaking."
+},
+{
+"id": "str_fb_49",
+"category": "Structural Geology",
+"question": "Breaking and displacement of rock is known as ______.",
+"answer": "faulting",
+"type": "input",
+"explanation": "Faulting involves fracture and movement."
+},
+{
+"id": "str_fb_50",
+"category": "Structural Geology",
+"question": "A fault that shows horizontal displacement is called ______.",
+"answer": "strike-slip",
+"type": "input",
+"explanation": "Strike-slip faults involve lateral movement parallel to strike."
+}
+]

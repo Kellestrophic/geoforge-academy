@@ -136,7 +136,7 @@ async function load() {
 
         {/* MULTIPLE CHOICE */}
         {question.type === "multiple_choice" &&
-          question.choices.map((choice: string, i: number) => {
+          (question.choices ?? []).map((choice: string, i: number) => {
             let borderColor = theme.colors.border;
             let bg = "transparent";
 
