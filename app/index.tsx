@@ -80,7 +80,7 @@ export default function HomeScreen() {
 
         {/* PROFILE */}
         <Pressable
-          onPress={() => safeNav("/profile-test")}
+          onPress={() => safeNav("/profile")}
           style={{
             padding: 25,
             borderRadius: 16,

@@ -40,12 +40,13 @@
           "backgroundColor": "#1589B8"
         }
       ],
-      [
-        "@sentry/react-native/expo",
-        {
-          "disableNativeIntegration": true
-        }
-      ]
+[
+  "@sentry/react-native/expo",
+  {
+    "organization": "head-knight-studios",
+    "project": "geoforge"
+  }
+]
     ],
     "experiments": {
       "typedRoutes": true,
