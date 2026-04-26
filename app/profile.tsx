@@ -43,9 +43,27 @@ const [filter, setFilter] = useState<"all" | "pg" | "random" | "topic">("all");
   }, []);
 
   async function loadData() {
-    const { data: userData } = await supabase.auth.getUser();
-    const user = userData.user;
-    if (!user) return;
+let user = null;
+
+try {
+  const response = await supabase?.auth?.getUser?.();
+
+  if (
+    response &&
+    response.data &&
+    response.data.user &&
+    typeof response.data.user.id === "string"
+  ) {
+    user = response.data.user;
+  }
+} catch (e) {
+  console.log("❌ getUser crash prevented:", e);
+}
+
+if (!user) {
+  console.log("❌ NO USER - skipping load");
+  return;
+}
 
     // EXAMS
     const { data: examData } = await supabase
