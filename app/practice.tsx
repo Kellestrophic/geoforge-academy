@@ -64,24 +64,25 @@ export default function PracticeScreen() {
               q.choices.length > 0
           )
           .map((q) => {
-            // 🔥 MULTIPLE CHOICE ONLY → shuffle answers
-            if (typeof q.correctAnswer === "number") {
+            // ✅ ONLY treat as MC if explicitly marked
+            if (q.type === "multiple_choice") {
               const choices = shuffleArray([...q.choices]);
-              const correctText = q.choices[q.correctAnswer];
+
+              const correctText = q.choices[q.correctAnswer ?? 0];
               const newIndex = choices.indexOf(correctText);
 
               return {
                 ...q,
                 type: "multiple_choice",
                 choices,
-                correctAnswer: newIndex,
+                correctAnswer: newIndex >= 0 ? newIndex : 0,
               };
             }
 
-            // 🔥 INPUT TYPES
+            // ✅ INPUT (default)
             return {
               ...q,
-              type: q.type || "input",
+              type: q.type === "input_multi" ? "input_multi" : "input",
             };
           })
       );
@@ -114,7 +115,7 @@ export default function PracticeScreen() {
           {question.question}
         </Text>
 
-        {/* 🔥 INPUT FIELD */}
+        {/* INPUT */}
         {(question.type === "input" ||
           question.type === "input_multi") && (
           <TextInput
@@ -136,7 +137,7 @@ export default function PracticeScreen() {
           />
         )}
 
-        {/* 🔥 MULTIPLE CHOICE */}
+        {/* MULTIPLE CHOICE */}
         {question.type === "multiple_choice" &&
           question.choices.map((c, i) => {
             let bg = "transparent";
@@ -165,7 +166,7 @@ export default function PracticeScreen() {
             );
           })}
 
-        {/* 🔥 RESULT */}
+        {/* RESULT */}
         {showResult && (
           <View style={{ marginTop: 20 }}>
             <Text
@@ -185,7 +186,7 @@ export default function PracticeScreen() {
           </View>
         )}
 
-        {/* 🔥 BUTTON */}
+        {/* BUTTON */}
         <Pressable
           onPress={() => {
             if (!showResult) {
