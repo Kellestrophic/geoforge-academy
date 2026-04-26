@@ -1,3 +1,6 @@
+import { enableScreens } from "react-native-screens";
+enableScreens(false);
+
 import { UserProvider } from "@/context/UserContext";
 import * as Sentry from "@sentry/react-native";
 import { Stack } from "expo-router";
@@ -17,6 +20,7 @@ function Layout() {
           screenOptions={{
             headerShown: false,
             animation: "none",
+            gestureEnabled: false,
           }}
         />
       </UserProvider>
