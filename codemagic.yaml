@@ -10,6 +10,7 @@ workflows:
     environment:
       groups:
         - app_store
+        - sentry
 
       ios_signing:
         distribution_type: app_store
@@ -35,6 +36,14 @@ workflows:
       - name: Apply provisioning profiles
         script: |
           xcode-project use-profiles
+
+      # ✅ 🔥 THIS IS THE CRITICAL FIX
+      - name: Export Sentry token
+        script: |
+          echo "Exporting Sentry token"
+          export SENTRY_AUTH_TOKEN=$SENTRY_AUTH_TOKEN
+          export SENTRY_ORG=head-knight-studios
+          export SENTRY_PROJECT=geoforge
 
       - name: Build IPA
         script: |
