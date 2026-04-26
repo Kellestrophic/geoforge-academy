@@ -273,6 +273,22 @@ await trackActivity("exam", 10);
 
   const question = questions[currentIndex];
 
+if (!question) {
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text style={{ color: theme.colors.text }}>Loading question...</Text>
+    </View>
+  );
+}
+if (!question.type) {
+  console.log("❌ MISSING TYPE:", question);
+  return <Text>Invalid question</Text>;
+}
+
+if (question.type === "multiple_choice" && !Array.isArray(question.choices)) {
+  console.log("❌ BROKEN MC:", question);
+  return <Text>Invalid MC question</Text>;
+}
   function selectAnswer(index: number) {
     setAnswers((prev) => ({
       ...prev,
@@ -369,9 +385,10 @@ await trackActivity("exam", 10);
 
               setInputAnswer("");
 
-              setCurrentIndex((prev) =>
-                prev + 1 >= questions.length ? prev : prev + 1
-              );
+          setCurrentIndex((prev) => {
+  if (prev + 1 >= questions.length) return prev;
+  return prev + 1;
+});
             }}
             style={{
               marginTop: 10,
@@ -416,9 +433,10 @@ await trackActivity("exam", 10);
 
               setInputAnswer("");
 
-              setCurrentIndex((prev) =>
-                prev + 1 >= questions.length ? prev : prev + 1
-              );
+         setCurrentIndex((prev) => {
+  if (prev + 1 >= questions.length) return prev;
+  return prev + 1;
+});
             }}
             style={{
               marginTop: 10,
@@ -436,9 +454,10 @@ await trackActivity("exam", 10);
 
       <Pressable
         onPress={() =>
-          setCurrentIndex((prev) =>
-            prev + 1 >= questions.length ? prev : prev + 1
-          )
+    setCurrentIndex((prev) => {
+  if (prev + 1 >= questions.length) return prev;
+  return prev + 1;
+})
         }
         style={{
           marginTop: 20,

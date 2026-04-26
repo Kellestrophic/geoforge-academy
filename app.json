@@ -11,7 +11,7 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.galanisgalactus.geoforgeacademy",
       "appleTeamId": "QNP2XD3FM5",
-      "buildNumber": "12",
+      "buildNumber": "13",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
@@ -38,6 +38,14 @@
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#1589B8"
+        }
+      ],
+      [
+        "@sentry/react-native/expo",
+        {
+          "url": "https://sentry.io/",
+          "project": "geoforge",
+          "organization": "head-knight-studios"
         }
       ]
     ],
