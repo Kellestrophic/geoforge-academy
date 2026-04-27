@@ -5,7 +5,10 @@ import petrologyFB from "@/data/petrologyFB.json";
 import petrologyMC from "@/data/petrologyMC.json";
 import sedimentologyFB from "@/data/sedimentologyFB.json";
 import sedimentologyMC from "@/data/sedimentologyMC.json";
+import { trackActivity } from "@/lib/activity";
+import { saveWrongQuestion } from "@/lib/review";
 import { theme } from "@/lib/theme";
+import { useLocalSearchParams } from "expo-router";
 import { useMemo, useState } from "react";
 import {
   Pressable,
@@ -20,6 +23,7 @@ type Question = {
   choices: string[];
   correctAnswer?: number;
   type?: "multiple_choice" | "input" | "input_multi";
+  explanation?: string; // ✅ ADD THIS
 };
 
 function clean(str: string) {
@@ -41,56 +45,78 @@ export default function PracticeScreen() {
   const [input, setInput] = useState("");
   const [showResult, setShowResult] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
+const params = useLocalSearchParams();
 
-  const questions: Question[] = useMemo(() => {
-    try {
-      const all = [
-        ...(mineralogyMC as any[]),
-        ...(mineralogyFB as any[]),
-        ...(petrologyMC as any[]),
-        ...(petrologyFB as any[]),
-        ...(mineralFormulas as any[]),
-        ...(sedimentologyMC as any[]),
-        ...(sedimentologyFB as any[]),
-      ];
+const mode = Array.isArray(params.mode)
+  ? params.mode[0]
+  : params.mode;
+const questions: Question[] = useMemo(() => {
+  try {
+    const all = [
+      ...(mineralogyMC as any[]),
+      ...(mineralogyFB as any[]),
+      ...(petrologyMC as any[]),
+      ...(petrologyFB as any[]),
+      ...(mineralFormulas as any[]),
+      ...(sedimentologyMC as any[]),
+      ...(sedimentologyFB as any[]),
+    ];
 
-      return shuffleArray(
-        all
-          .filter(
-            (q) =>
-              q &&
-              q.question &&
-              Array.isArray(q.choices) &&
-              q.choices.length > 0
-          )
-          .map((q) => {
-            // ✅ ONLY treat as MC if explicitly marked
-            if (q.type === "multiple_choice") {
-              const choices = shuffleArray([...q.choices]);
+    // ✅ STEP 1: FORCE CLEAN TYPES
+    let processed = all
+      .filter(
+        (q) =>
+          q &&
+          q.question &&
+          Array.isArray(q.choices || [q.answer])
+      )
+      .map((q) => {
+        // ✅ MULTIPLE CHOICE (ONLY IF TYPE SAYS SO)
+        if (q.type === "multiple_choice") {
+          const choices = shuffleArray([...q.choices]);
 
-              const correctText = q.choices[q.correctAnswer ?? 0];
-              const newIndex = choices.indexOf(correctText);
+          const correctText = q.choices[q.correctAnswer ?? 0];
+          const newIndex = choices.indexOf(correctText);
 
-              return {
-                ...q,
-                type: "multiple_choice",
-                choices,
-                correctAnswer: newIndex >= 0 ? newIndex : 0,
-              };
-            }
+          return {
+            ...q,
+            type: "multiple_choice",
+            choices,
+            correctAnswer: newIndex >= 0 ? newIndex : 0,
+          };
+        }
 
-            // ✅ INPUT (default)
-            return {
-              ...q,
-              type: q.type === "input_multi" ? "input_multi" : "input",
-            };
-          })
+        // ✅ INPUT (CONVERT answer → choices)
+        const answers = Array.isArray(q.answer)
+          ? q.answer
+          : [q.answer];
+
+        return {
+          ...q,
+          type: q.type === "input_multi" ? "input_multi" : "input",
+          choices: answers.map(String),
+        };
+      });
+
+    // ✅ STEP 2: FILTER BY MODE (THIS IS WHAT YOU WERE MISSING PROPERLY)
+    if (mode === "mc") {
+      processed = processed.filter(
+        (q) => q.type === "multiple_choice"
       );
-    } catch (e) {
-      console.log("❌ build crash", e);
-      return [];
     }
-  }, []);
+
+    if (mode === "fb") {
+      processed = processed.filter(
+        (q) => q.type === "input" || q.type === "input_multi"
+      );
+    }
+
+    return shuffleArray(processed);
+  } catch (e) {
+    console.log("❌ build crash", e);
+    return [];
+  }
+}, [mode]);
 
   const question = questions[index];
 
@@ -185,7 +211,33 @@ export default function PracticeScreen() {
             )}
           </View>
         )}
+{showResult && (
+  <View style={{ marginTop: 20 }}>
+    <Text
+      style={{
+        color: isCorrect ? "#22c55e" : "#ef4444",
+        fontSize: 18,
+        marginBottom: 10,
+      }}
+    >
+      {isCorrect ? "✅ Correct!" : "❌ Incorrect"}
+    </Text>
 
+    {/* ✅ SHOW CORRECT FOR INPUT */}
+    {question.type !== "multiple_choice" && (
+      <Text style={{ color: theme.colors.text, marginBottom: 10 }}>
+        Correct Answer: {question.choices.join(", ")}
+      </Text>
+    )}
+
+    {/* ✅ EXPLANATION (SAFE) */}
+    {!!question.explanation && (
+      <Text style={{ color: theme.colors.subtext }}>
+        {question.explanation}
+      </Text>
+    )}
+  </View>
+)}
         {/* BUTTON */}
         <Pressable
           onPress={() => {
@@ -221,6 +273,11 @@ export default function PracticeScreen() {
 
               setIsCorrect(correct);
               setShowResult(true);
+              if (!correct) {
+  saveWrongQuestion(question);
+}
+
+trackActivity("practice");
             } else {
               setSelected(null);
               setInput("");

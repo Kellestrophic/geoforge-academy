@@ -104,6 +104,7 @@ const question = questions[index] ?? null;
 
     setIsCorrect(correct);
     setShowResult(true);
+    
     await trackActivity("review", 3);
   }
 
