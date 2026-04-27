@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import { Pressable, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-
 type ReviewQuestion = {
   id: string;
   question: string;
@@ -16,34 +15,50 @@ type ReviewQuestion = {
 };
 
 export default function ReviewQuiz() {
-const [questions, setQuestions] = useState<ReviewQuestion[]>([]);
-
-useEffect(() => {
-  load();
-}, []);
-
-async function load() {
-  const { data: userData } = await supabase.auth.getUser();
-  const user = userData.user;
-  if (!user) return;
-
-  const { data } = await supabase
-    .from("wrong_questions")
-    .select("*")
-    .eq("user_id", user.id);
-
-  setQuestions(data?.map((q) => q.question) || []);
-}
-
+  const [questions, setQuestions] = useState<ReviewQuestion[]>([]);
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [input, setInput] = useState("");
   const [showResult, setShowResult] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
 
-const question = questions[index] ?? null;
+  useEffect(() => {
+    load();
+  }, []);
 
-  // 🔥 EMPTY STATE
+  async function load() {
+    try {
+      const { data: userData } = await supabase.auth.getUser();
+      const user = userData?.user;
+
+      if (!user) return;
+
+      const { data } = await supabase
+        .from("wrong_questions")
+        .select("*")
+        .eq("user_id", user.id);
+
+      if (!data) return;
+
+      // 🔥 FIX: map FULL OBJECT
+      const formatted: ReviewQuestion[] = data.map((q: any) => ({
+        id: q.id,
+        question: q.question,
+        choices: Array.isArray(q.choices) ? q.choices : [],
+        correctAnswer: q.correct_answer ?? 0,
+        explanation: q.explanation ?? "",
+        type: q.type ?? "multiple_choice",
+      }));
+
+      setQuestions(formatted);
+    } catch (e) {
+      console.log("❌ load review quiz", e);
+    }
+  }
+
+  const question = questions[index] ?? null;
+
+  // EMPTY STATE
   if (!question) {
     return (
       <SafeAreaView style={{ flex: 1 }}>
@@ -67,22 +82,19 @@ const question = questions[index] ?? null;
     return String(str).toLowerCase().replace(/[^a-z0-9]/g, "");
   }
 
- async function handleSubmit() {
+  async function handleSubmit() {
     let correct = false;
 
-    // ✅ MULTIPLE CHOICE
     if (question.type === "multiple_choice") {
       if (selected === null) return;
       correct = selected === question.correctAnswer;
     }
 
-    // ✅ SINGLE INPUT
     else if (question.type === "input") {
       if (!input.trim()) return;
       correct = clean(input) === clean(question.choices[0]);
     }
 
-    // ✅ MULTI INPUT
     else if (question.type === "input_multi") {
       if (!input.trim()) return;
 
@@ -104,7 +116,7 @@ const question = questions[index] ?? null;
 
     setIsCorrect(correct);
     setShowResult(true);
-    
+
     await trackActivity("review", 3);
   }
 
@@ -137,18 +149,12 @@ const question = questions[index] ?? null;
 
         {/* MULTIPLE CHOICE */}
         {question.type === "multiple_choice" &&
-          (Array.isArray(question.choices) ? question.choices : []).map((choice: string, i: number) => {
-            let borderColor = theme.colors.border;
+          question.choices.map((choice, i) => {
             let bg = "transparent";
 
             if (showResult) {
-              if (i === question.correctAnswer) {
-                bg = "#16a34a";
-                borderColor = "#16a34a";
-              } else if (i === selected) {
-                bg = "#dc2626";
-                borderColor = "#dc2626";
-              }
+              if (i === question.correctAnswer) bg = "#16a34a";
+              else if (i === selected) bg = "#dc2626";
             } else if (selected === i) {
               bg = "#334155";
             }
@@ -159,14 +165,7 @@ const question = questions[index] ?? null;
                 onPress={() => !showResult && setSelected(i)}
                 style={{
                   borderWidth: 2,
-                  borderColor:
-                    showResult && i === question.correctAnswer
-                      ? "#16a34a"
-                      : showResult && i === selected
-                      ? "#dc2626"
-                      : selected === i
-                      ? "#334155"
-                      : borderColor,
+                  borderColor: "#444",
                   padding: 14,
                   borderRadius: 10,
                   marginBottom: 10,
@@ -188,11 +187,7 @@ const question = questions[index] ?? null;
             onChangeText={(text) =>
               !showResult && setInput(text)
             }
-            placeholder={
-              question.type === "input_multi"
-                ? "Type answers (comma separated)"
-                : "Type your answer"
-            }
+            placeholder="Type your answer"
             placeholderTextColor="#94a3b8"
             style={{
               borderWidth: 2,
@@ -218,7 +213,6 @@ const question = questions[index] ?? null;
               {isCorrect ? "✅ Correct!" : "❌ Incorrect"}
             </Text>
 
-            {/* SHOW CORRECT FOR INPUT */}
             {question.type !== "multiple_choice" && (
               <Text
                 style={{

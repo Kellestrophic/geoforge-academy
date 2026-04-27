@@ -240,7 +240,7 @@ const questions: Question[] = useMemo(() => {
 )}
         {/* BUTTON */}
         <Pressable
-          onPress={() => {
+          onPress={async () => {
             if (!showResult) {
               let correct = false;
 
@@ -273,11 +273,19 @@ const questions: Question[] = useMemo(() => {
 
               setIsCorrect(correct);
               setShowResult(true);
-              if (!correct) {
-  saveWrongQuestion(question);
+try {
+  if (!correct) {
+    await saveWrongQuestion(question);
+  }
+} catch (e) {
+  console.log("❌ saveWrongQuestion crash prevented", e);
 }
 
-trackActivity("practice");
+try {
+  await trackActivity("practice");
+} catch (e) {
+  console.log("❌ trackActivity crash prevented", e);
+}
             } else {
               setSelected(null);
               setInput("");

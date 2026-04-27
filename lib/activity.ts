@@ -3,7 +3,7 @@ import { supabase } from "@/lib/supabase";
 export async function trackActivity(type: string, minutes = 1) {
   try {
     // 🔥 SAFE USER GET
-    let user = null;
+    let user: any = null;
 
     try {
       const response = await supabase.auth.getUser();
@@ -18,6 +18,7 @@ export async function trackActivity(type: string, minutes = 1) {
       }
     } catch (e) {
       console.log("❌ getUser crash prevented:", e);
+      return; // 🔥 HARD STOP
     }
 
     if (!user) {
@@ -28,7 +29,7 @@ export async function trackActivity(type: string, minutes = 1) {
     const today = new Date().toISOString().split("T")[0];
 
     // 🔥 SAFE FETCH EXISTING
-    let existing = null;
+    let existing: any = null;
 
     try {
       const res = await supabase
@@ -39,18 +40,18 @@ export async function trackActivity(type: string, minutes = 1) {
         .eq("activity", type)
         .maybeSingle();
 
-      existing = res.data;
+      existing = res?.data ?? null;
     } catch (e) {
       console.log("❌ fetch existing crash prevented:", e);
     }
 
-    if (existing) {
+    if (existing && existing.id) {
       // 🔥 SAFE UPDATE
       try {
         await supabase
           .from("daily_activity")
           .update({
-            minutes: (existing.minutes || 0) + minutes,
+            minutes: Number(existing.minutes || 0) + minutes,
           })
           .eq("id", existing.id);
       } catch (e) {
