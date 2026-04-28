@@ -50,7 +50,7 @@ const params = useLocalSearchParams();
 const mode = Array.isArray(params.mode)
   ? params.mode[0]
   : params.mode;
-const questions = useMemo<Question[]>(() => {
+const questions: Question[] = useMemo(() => {
   try {
     const all = [
       ...(mineralogyMC as any[]),
@@ -62,54 +62,61 @@ const questions = useMemo<Question[]>(() => {
       ...(sedimentologyFB as any[]),
     ];
 
-    const processed = all
-      .map((q) => {
-        // ✅ MULTIPLE CHOICE
-        if (
+    // ✅ STEP 1: FORCE CLEAN TYPES
+    let processed = all
+      .filter(
+        (q) =>
           q &&
-          q.type === "multiple_choice" &&
-          Array.isArray(q.choices)
-        ) {
+          q.question &&
+          Array.isArray(q.choices || [q.answer])
+      )
+      .map((q) => {
+        // ✅ MULTIPLE CHOICE (ONLY IF TYPE SAYS SO)
+        if (q.type === "multiple_choice") {
           const choices = shuffleArray([...q.choices]);
 
           const correctText = q.choices[q.correctAnswer ?? 0];
           const newIndex = choices.indexOf(correctText);
 
           return {
-            question: String(q.question),
-            type: "multiple_choice" as const,
+            ...q,
+            type: "multiple_choice",
             choices,
             correctAnswer: newIndex >= 0 ? newIndex : 0,
           };
         }
 
-        // ✅ INPUT
-        if (q && q.answer) {
-          const answers = Array.isArray(q.answer)
-            ? q.answer
-            : [q.answer];
+        // ✅ INPUT (CONVERT answer → choices)
+        const answers = Array.isArray(q.answer)
+          ? q.answer
+          : [q.answer];
 
-          return {
-            question: String(q.question),
-            type:
-              q.type === "input_multi"
-                ? ("input_multi" as const)
-                : ("input" as const),
-            choices: answers.map(String),
-          };
-        }
+        return {
+          ...q,
+          type: q.type === "input_multi" ? "input_multi" : "input",
+          choices: answers.map(String),
+        };
+      });
 
-        return null;
-      })
-      .filter((q) => q !== null) as Question[];
+    // ✅ STEP 2: FILTER BY MODE (THIS IS WHAT YOU WERE MISSING PROPERLY)
+    if (mode === "mc") {
+      processed = processed.filter(
+        (q) => q.type === "multiple_choice"
+      );
+    }
+
+    if (mode === "fb") {
+      processed = processed.filter(
+        (q) => q.type === "input" || q.type === "input_multi"
+      );
+    }
 
     return shuffleArray(processed);
   } catch (e) {
     console.log("❌ build crash", e);
     return [];
   }
-}, []);
-
+}, [mode]);
   const question = questions[index];
 
   if (!question) {
