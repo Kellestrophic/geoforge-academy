@@ -50,7 +50,7 @@ const params = useLocalSearchParams();
 const mode = Array.isArray(params.mode)
   ? params.mode[0]
   : params.mode;
-const questions: Question[] = useMemo(() => {
+const questions = useMemo<Question[]>(() => {
   try {
     const all = [
       ...(mineralogyMC as any[]),
@@ -62,53 +62,48 @@ const questions: Question[] = useMemo(() => {
       ...(sedimentologyFB as any[]),
     ];
 
-    return shuffleArray(
-      all
-        .map((q) => {
-          // ✅ MULTIPLE CHOICE (unchanged logic)
-          if (
-            q.type === "multiple_choice" &&
-            Array.isArray(q.choices)
-          ) {
-            const choices = shuffleArray([...q.choices]);
+    const processed = all
+      .map((q) => {
+        // ✅ MULTIPLE CHOICE
+        if (
+          q &&
+          q.type === "multiple_choice" &&
+          Array.isArray(q.choices)
+        ) {
+          const choices = shuffleArray([...q.choices]);
 
-            const correctText = q.choices[q.correctAnswer ?? 0];
-            const newIndex = choices.indexOf(correctText);
+          const correctText = q.choices[q.correctAnswer ?? 0];
+          const newIndex = choices.indexOf(correctText);
 
-            return {
-              ...q,
-              type: "multiple_choice",
-              choices,
-              correctAnswer: newIndex >= 0 ? newIndex : 0,
-            };
-          }
+          return {
+            question: String(q.question),
+            type: "multiple_choice" as const,
+            choices,
+            correctAnswer: newIndex >= 0 ? newIndex : 0,
+          };
+        }
 
-          // ✅ FIX: convert answer → choices
-          if (q.answer) {
-            const answers = Array.isArray(q.answer)
-              ? q.answer
-              : [q.answer];
+        // ✅ INPUT
+        if (q && q.answer) {
+          const answers = Array.isArray(q.answer)
+            ? q.answer
+            : [q.answer];
 
-            return {
-              ...q,
-              type:
-                q.type === "input_multi"
-                  ? "input_multi"
-                  : "input",
-              choices: answers.map(String),
-            };
-          }
+          return {
+            question: String(q.question),
+            type:
+              q.type === "input_multi"
+                ? ("input_multi" as const)
+                : ("input" as const),
+            choices: answers.map(String),
+          };
+        }
 
-          return null;
-        })
-        .filter(
-          (q): q is Question =>
-            !!q &&
-            q.question &&
-            Array.isArray(q.choices) &&
-            q.choices.length > 0
-        )
-    );
+        return null;
+      })
+      .filter((q) => q !== null) as Question[];
+
+    return shuffleArray(processed);
   } catch (e) {
     console.log("❌ build crash", e);
     return [];
