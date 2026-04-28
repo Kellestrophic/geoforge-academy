@@ -62,61 +62,58 @@ const questions: Question[] = useMemo(() => {
       ...(sedimentologyFB as any[]),
     ];
 
-    // ✅ STEP 1: FORCE CLEAN TYPES
-    let processed = all
-      .filter(
-        (q) =>
-          q &&
-          q.question &&
-          Array.isArray(q.choices || [q.answer])
-      )
-      .map((q) => {
-        // ✅ MULTIPLE CHOICE (ONLY IF TYPE SAYS SO)
-        if (q.type === "multiple_choice") {
-          const choices = shuffleArray([...q.choices]);
+    return shuffleArray(
+      all
+        .map((q) => {
+          // ✅ MULTIPLE CHOICE (unchanged logic)
+          if (
+            q.type === "multiple_choice" &&
+            Array.isArray(q.choices)
+          ) {
+            const choices = shuffleArray([...q.choices]);
 
-          const correctText = q.choices[q.correctAnswer ?? 0];
-          const newIndex = choices.indexOf(correctText);
+            const correctText = q.choices[q.correctAnswer ?? 0];
+            const newIndex = choices.indexOf(correctText);
 
-          return {
-            ...q,
-            type: "multiple_choice",
-            choices,
-            correctAnswer: newIndex >= 0 ? newIndex : 0,
-          };
-        }
+            return {
+              ...q,
+              type: "multiple_choice",
+              choices,
+              correctAnswer: newIndex >= 0 ? newIndex : 0,
+            };
+          }
 
-        // ✅ INPUT (CONVERT answer → choices)
-        const answers = Array.isArray(q.answer)
-          ? q.answer
-          : [q.answer];
+          // ✅ FIX: convert answer → choices
+          if (q.answer) {
+            const answers = Array.isArray(q.answer)
+              ? q.answer
+              : [q.answer];
 
-        return {
-          ...q,
-          type: q.type === "input_multi" ? "input_multi" : "input",
-          choices: answers.map(String),
-        };
-      });
+            return {
+              ...q,
+              type:
+                q.type === "input_multi"
+                  ? "input_multi"
+                  : "input",
+              choices: answers.map(String),
+            };
+          }
 
-    // ✅ STEP 2: FILTER BY MODE (THIS IS WHAT YOU WERE MISSING PROPERLY)
-    if (mode === "mc") {
-      processed = processed.filter(
-        (q) => q.type === "multiple_choice"
-      );
-    }
-
-    if (mode === "fb") {
-      processed = processed.filter(
-        (q) => q.type === "input" || q.type === "input_multi"
-      );
-    }
-
-    return shuffleArray(processed);
+          return null;
+        })
+        .filter(
+          (q): q is Question =>
+            !!q &&
+            q.question &&
+            Array.isArray(q.choices) &&
+            q.choices.length > 0
+        )
+    );
   } catch (e) {
     console.log("❌ build crash", e);
     return [];
   }
-}, [mode]);
+}, []);
 
   const question = questions[index];
 
