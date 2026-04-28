@@ -1,4 +1,3 @@
-// ✅ FORCE JSON TO BE ANY[] (THIS FIXES YOUR ERROR)
 import mineralFormulasRaw from "@/data/mineralFormulas.json";
 import mineralogyFBRaw from "@/data/mineralogyFB.json";
 import mineralogyMCRaw from "@/data/mineralogyMC.json";
@@ -7,27 +6,18 @@ import petrologyMCRaw from "@/data/petrologyMC.json";
 import sedimentologyFBRaw from "@/data/sedimentologyFB.json";
 import sedimentologyMCRaw from "@/data/sedimentologyMC.json";
 
-const mineralFormulas: any[] = mineralFormulasRaw as any[];
-const mineralogyFB: any[] = mineralogyFBRaw as any[];
-const mineralogyMC: any[] = mineralogyMCRaw as any[];
-const petrologyFB: any[] = petrologyFBRaw as any[];
-const petrologyMC: any[] = petrologyMCRaw as any[];
-const sedimentologyFB: any[] = sedimentologyFBRaw as any[];
-const sedimentologyMC: any[] = sedimentologyMCRaw as any[];
+const mineralFormulas = mineralFormulasRaw as any[];
+const mineralogyFB = mineralogyFBRaw as any[];
+const mineralogyMC = mineralogyMCRaw as any[];
+const petrologyFB = petrologyFBRaw as any[];
+const petrologyMC = petrologyMCRaw as any[];
+const sedimentologyFB = sedimentologyFBRaw as any[];
+const sedimentologyMC = sedimentologyMCRaw as any[];
 
 import { theme } from "@/lib/theme";
-import { useLocalSearchParams } from "expo-router";
 import { useMemo, useState } from "react";
 import { Pressable, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
-// 🔥 KEEP TYPE SIMPLE (NO STRICT ERRORS)
-type Question = {
-  question: string;
-  choices: string[];
-  correctAnswer?: number;
-  type: "multiple_choice" | "input";
-};
 
 function clean(str: string) {
   return String(str).toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -48,9 +38,6 @@ export default function PracticeScreen() {
   const [input, setInput] = useState("");
   const [showResult, setShowResult] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
-
-  const params = useLocalSearchParams();
-  const mode = Array.isArray(params.mode) ? params.mode[0] : params.mode;
 
   const questions = useMemo(() => {
     try {
@@ -78,7 +65,6 @@ export default function PracticeScreen() {
             typeof q.correctAnswer === "number" ? q.correctAnswer : 0;
 
           const correctText = choices[correctIndex] || choices[0];
-
           const shuffled = shuffle(choices);
           const newIndex = shuffled.indexOf(correctText);
 
@@ -109,22 +95,12 @@ export default function PracticeScreen() {
         }
       }
 
-      let filtered = processed;
-
-      if (mode === "mc") {
-        filtered = processed.filter((q) => q.type === "multiple_choice");
-      }
-
-      if (mode === "fb") {
-        filtered = processed.filter((q) => q.type === "input");
-      }
-
-      return shuffle(filtered);
+      return shuffle(processed);
     } catch (e) {
       console.log("❌ build crash", e);
       return [];
     }
-  }, [mode]);
+  }, []);
 
   const question = questions[index];
 
@@ -132,7 +108,9 @@ export default function PracticeScreen() {
     return (
       <SafeAreaView style={{ flex: 1 }}>
         <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-          <Text style={{ color: theme.colors.text }}>No questions</Text>
+          <Text style={{ color: theme.colors.text }}>
+            No questions loaded
+          </Text>
         </View>
       </SafeAreaView>
     );
@@ -145,6 +123,7 @@ export default function PracticeScreen() {
           {question.question}
         </Text>
 
+        {/* INPUT */}
         {question.type === "input" && (
           <TextInput
             value={input}
@@ -161,6 +140,7 @@ export default function PracticeScreen() {
           />
         )}
 
+        {/* MC */}
         {question.type === "multiple_choice" &&
           question.choices.map((c: string, i: number) => {
             let bg = "transparent";
@@ -189,6 +169,7 @@ export default function PracticeScreen() {
             );
           })}
 
+        {/* RESULT */}
         {showResult && (
           <Text
             style={{
@@ -201,6 +182,7 @@ export default function PracticeScreen() {
           </Text>
         )}
 
+        {/* BUTTON */}
         <Pressable
           onPress={() => {
             if (!showResult) {
