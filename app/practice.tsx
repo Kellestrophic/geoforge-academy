@@ -72,7 +72,10 @@ export default function PracticeScreen() {
           if (!q || typeof q.question !== "string") continue;
 
           // MC
-          if (q.type === "multiple_choice" && Array.isArray(q.choices)) {
+         if (
+  (q.type === "multiple_choice" || q.type === "formula") &&
+  Array.isArray(q.choices)
+) {
             const choices = q.choices.map((c: any) => String(c));
             if (choices.length === 0) continue;
 
