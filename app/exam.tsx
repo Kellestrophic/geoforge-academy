@@ -1,61 +1,65 @@
-import { useUser } from "@/context/UserContext";
 import questionsData from "@/data/questions.json";
-import { trackActivity } from "@/lib/activity";
-import { supabase } from "@/lib/supabase";
 import { theme } from "@/lib/theme";
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
-const mineralogyFBRaw = require("../data/mineralogyFB.json");
-const mineralogyMCRaw = require("../data/mineralogyMC.json");
-const petrologyFBRaw = require("../data/petrologyFB.json");
-const petrologyMCRaw = require("../data/petrologyMC.json");
-const sedimentologyMCRaw = require("../data/sedimentologyMC.json");
-const sedimentologyFBRaw = require("../data/sedimentologyFB.json");
-const mineralFormulasRaw = require("../data/mineralFormulas.json");
 
-/* ---------------- SAFE UNWRAP ---------------- */
+const mineralogyFB = require("../data/mineralogyFB.json");
+const mineralogyMC = require("../data/mineralogyMC.json");
+const petrologyFB = require("../data/petrologyFB.json");
+const petrologyMC = require("../data/petrologyMC.json");
+const sedimentologyMC = require("../data/sedimentologyMC.json");
+const sedimentologyFB = require("../data/sedimentologyFB.json");
+const mineralFormulas = require("../data/mineralFormulas.json");
 
-const unwrap = (data: any) => {
+function unwrap(data: any) {
   if (Array.isArray(data)) return data;
-  if (Array.isArray(data?.questions)) return data.questions;
   if (Array.isArray(data?.default)) return data.default;
+  if (Array.isArray(data?.questions)) return data.questions;
   if (Array.isArray(data?.default?.questions)) return data.default.questions;
   return [];
-};
-
-/* ---------------- FINAL DATA ---------------- */
-
-const mineralogyFB = unwrap(mineralogyFBRaw);
-const mineralogyMC = unwrap(mineralogyMCRaw);
-const petrologyFB = unwrap(petrologyFBRaw);
-const petrologyMC = unwrap(petrologyMCRaw);
-const sedimentologyMC = unwrap(sedimentologyMCRaw);
-const sedimentologyFB = unwrap(sedimentologyFBRaw);
-const mineralFormulas = unwrap(mineralFormulasRaw);
-
-/* ---------------- TOPIC MAP ---------------- */
-
-const TOPIC_QUESTIONS: Record<string, any[]> = {
-  Mineralogy: [...mineralogyMC, ...mineralogyFB],
-  Petrology: [...petrologyMC, ...petrologyFB],
-  Sedimentology: [...sedimentologyMC, ...sedimentologyFB],
-  MineralFormulas: [...mineralFormulas],
-};
-
-/* ---------------- HELPERS ---------------- */
+}
 
 function shuffleArray<T>(array: T[]): T[] {
   return [...array].sort(() => Math.random() - 0.5);
 }
 
-/* ---------------- SCREEN ---------------- */
+function clean(str: any) {
+  return String(str ?? "").toLowerCase().trim();
+}
+
+function normalizeQuestion(q: any) {
+  if (!q || typeof q.question !== "string") return null;
+
+  if (
+    (q.type === "multiple_choice" || q.type === "formula") &&
+    Array.isArray(q.choices)
+  ) {
+    return {
+      question: q.question,
+      type: "multiple_choice",
+      choices: q.choices.map(String),
+      correctAnswer:
+        typeof q.correctAnswer === "number" ? q.correctAnswer : 0,
+      explanation: q.explanation ?? "",
+    };
+  }
+
+  if (q.answer !== undefined && q.answer !== null) {
+    return {
+      question: q.question,
+      type: q.type === "input_multi" ? "input_multi" : "input",
+      answer: q.answer,
+      explanation: q.explanation ?? "",
+    };
+  }
+
+  return null;
+}
 
 export default function ExamScreen() {
   const params = useLocalSearchParams();
-  const { addExam } = useUser();
 
-  const [saved, setSaved] = useState(false);
   const [questions, setQuestions] = useState<any[]>([]);
   const [answers, setAnswers] = useState<{ [key: number]: any }>({});
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -74,42 +78,39 @@ export default function ExamScreen() {
     ? params.topic[0]
     : params.topic;
 
-  /* ---------------- LOAD QUESTIONS ---------------- */
-
   useEffect(() => {
     try {
+      const topicMap: Record<string, any[]> = {
+        Mineralogy: [...unwrap(mineralogyMC), ...unwrap(mineralogyFB)],
+        Petrology: [...unwrap(petrologyMC), ...unwrap(petrologyFB)],
+        Sedimentology: [...unwrap(sedimentologyMC), ...unwrap(sedimentologyFB)],
+        "Mineral Formulas": [...unwrap(mineralFormulas)],
+        MineralFormulas: [...unwrap(mineralFormulas)],
+      };
+
       let pool: any[] = [];
 
       if (mode === "pg") {
-        pool = Array.isArray(questionsData) ? questionsData : [];
-      } else if (mode === "random") {
-        pool = [
-          ...mineralogyMC,
-          ...mineralogyFB,
-          ...petrologyMC,
-          ...petrologyFB,
-          ...sedimentologyMC,
-          ...sedimentologyFB, 
-          ...mineralFormulas,
-        ];
+        pool = unwrap(questionsData);
       } else if (mode === "topic" && selectedTopic) {
-        pool = TOPIC_QUESTIONS[selectedTopic] ?? [];
+        pool = topicMap[String(selectedTopic)] ?? [];
+      } else {
+        pool = Object.values(topicMap).flat();
       }
 
-      console.log("RAW MODE:", rawMode);
-      console.log("FINAL MODE:", mode);
-      console.log("SELECTED TOPIC:", selectedTopic);
-      console.log("POOL SIZE:", pool.length);
+      const safeQuestions = pool
+        .map(normalizeQuestion)
+        .filter(Boolean);
 
-      const shuffled = shuffleArray(pool).slice(0, count);
-      setQuestions(shuffled);
+      setQuestions(shuffleArray(safeQuestions).slice(0, count));
+      setCurrentIndex(0);
+      setAnswers({});
+      setFinished(false);
     } catch (e) {
-      console.log("LOAD ERROR:", e);
+      console.log("LOAD EXAM ERROR:", e);
       setQuestions([]);
     }
-  }, [mode, selectedTopic, count, rawMode]);
-
-  /* ---------------- TIMER ---------------- */
+  }, [mode, selectedTopic, count]);
 
   useEffect(() => {
     if (finished) return;
@@ -121,14 +122,13 @@ export default function ExamScreen() {
           setFinished(true);
           return 0;
         }
+
         return prev - 1;
       });
     }, 1000);
 
     return () => clearInterval(timer);
   }, [finished]);
-
-  /* ---------------- SCORE ---------------- */
 
   function calculateScore() {
     return questions.reduce((acc, q, i) => {
@@ -139,19 +139,16 @@ export default function ExamScreen() {
       }
 
       if (q.type === "input") {
-        return String(userAnswer).toLowerCase().trim() ===
-          String(q.answer).toLowerCase().trim()
-          ? acc + 1
-          : acc;
+        return clean(userAnswer) === clean(q.answer) ? acc + 1 : acc;
       }
 
       if (q.type === "input_multi") {
         const correct = Array.isArray(q.answer)
-          ? q.answer.map((a: string) => a.toLowerCase().trim())
-          : [];
+          ? q.answer.map(clean)
+          : [clean(q.answer)];
 
         const user = Array.isArray(userAnswer)
-          ? userAnswer.map((a: string) => a.toLowerCase().trim())
+          ? userAnswer.map(clean)
           : [];
 
         const isCorrect =
@@ -165,142 +162,28 @@ export default function ExamScreen() {
     }, 0);
   }
 
-  /* ---------------- SAVE RESULT ---------------- */
-
-useEffect(() => {
-  if (!finished || saved || questions.length === 0) return;
-
-  const run = async () => {
-    try {
-      const score = calculateScore();
-      const percent = Math.round((score / questions.length) * 100);
-
-      // 🔐 GET USER
-      const { data } = await supabase.auth.getUser();
-      const user = data.user;
-
-      if (!user) {
-        console.log("❌ NO USER FOUND");
-        return;
-      }
-
-      // ---------------------------
-      // ✅ SAVE EXAM HISTORY
-      // ---------------------------
-      await supabase.from("exam_history").insert({
-        user_id: user.id,
-        score: percent,
-        type: mode,
-      });
-
-      // ---------------------------
-      // ✅ SAVE DAILY ACTIVITY (STREAK)
-      // ---------------------------
-      const today = new Date().toISOString().split("T")[0];
-
-      const { data: existing } = await supabase
-        .from("daily_activity")
-        .select("*")
-        .eq("user_id", user.id)
-        .eq("date", today);
-
-      if (!existing || existing.length === 0) {
-        await supabase.from("daily_activity").insert({
-          user_id: user.id,
-          date: today,
-        });
-      }
-
-      // ---------------------------
-      // ✅ SAVE WRONG QUESTIONS
-      // ---------------------------
-      const wrong = questions.filter((q, i) => {
-        const userAnswer = answers[i];
-
-        if (q.type === "multiple_choice") {
-          return userAnswer !== q.correctAnswer;
-        }
-
-        if (q.type === "input") {
-          return (
-            String(userAnswer).toLowerCase().trim() !==
-            String(q.answer).toLowerCase().trim()
-          );
-        }
-
-        return false;
-      });
-
-      if (wrong.length > 0) {
-        await supabase.from("wrong_questions").insert(
-          wrong.map((q) => ({
-            user_id: user.id,
-            question: q,
-          }))
-        );
-      }
-
-      // ---------------------------
-      // LOCAL STATE (for graph UI)
-      // ---------------------------
-  addExam({
-  score: percent,
-  type: mode,
-});
-
-// ✅ TRACK ACTIVITY (RIGHT HERE)
-await trackActivity("exam", 10);
-
-      setSaved(true);
-
-      console.log("✅ EXAM SAVED");
-    } catch (err) {
-      console.log("❌ SAVE ERROR:", err);
-    }
-  };
-
-  run();
-}, [finished]);
-  /* ---------------- LOADING ---------------- */
+  function goNext() {
+    setInputAnswer("");
+    setCurrentIndex((prev) => {
+      if (prev + 1 >= questions.length) return prev;
+      return prev + 1;
+    });
+  }
 
   if (questions.length === 0) {
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: theme.colors.background,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <Text style={{ color: theme.colors.text }}>Loading Exam...</Text>
       </View>
     );
   }
-
-  const question = questions[currentIndex];
-
-if (!question) {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text style={{ color: theme.colors.text }}>Loading question...</Text>
-    </View>
-  );
-}
-if (!question.type) {
-  console.log("❌ MISSING TYPE:", question);
-  return <Text>Invalid question</Text>;
-}
-
-if (question.type === "multiple_choice" && !Array.isArray(question.choices)) {
-  console.log("❌ BROKEN MC:", question);
-  return <Text>Invalid MC question</Text>;
-}
-  function selectAnswer(index: number) {
-    setAnswers((prev) => ({
-      ...prev,
-      [currentIndex]: index,
-    }));
-  }
-
-  function finishExam() {
-    setFinished(true);
-  }
-
-  /* ---------------- RESULT ---------------- */
 
   if (finished) {
     const score = calculateScore();
@@ -328,27 +211,56 @@ if (question.type === "multiple_choice" && !Array.isArray(question.choices)) {
     );
   }
 
-  /* ---------------- EXAM UI ---------------- */
+  const question = questions[currentIndex];
+
+  if (!question) {
+    return (
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: theme.colors.background,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Text style={{ color: theme.colors.text }}>Loading question...</Text>
+      </View>
+    );
+  }
 
   return (
-    <ScrollView contentContainerStyle={{ padding: 20 }}>
-      <Text style={{ color: theme.colors.text }}>
+    <ScrollView
+      contentContainerStyle={{
+        padding: 20,
+        backgroundColor: theme.colors.background,
+      }}
+    >
+      <Text style={{ color: theme.colors.subtext }}>
+        Time Left: {Math.floor(timeLeft / 60)}:
+        {String(timeLeft % 60).padStart(2, "0")}
+      </Text>
+
+      <Text style={{ color: theme.colors.text, marginTop: 10 }}>
         Question {currentIndex + 1} / {questions.length}
       </Text>
 
-      <Text style={{ marginTop: 20, color: theme.colors.text }}>
+      <Text style={{ marginTop: 20, color: theme.colors.text, fontSize: 18 }}>
         {question.question}
       </Text>
 
       {question.type === "multiple_choice" &&
-        Array.isArray(question.choices) &&
         question.choices.map((choice: string, index: number) => {
           const isSelected = answers[currentIndex] === index;
 
           return (
             <Pressable
-              key={index}
-              onPress={() => selectAnswer(index)}
+              key={`${choice}-${index}`}
+              onPress={() =>
+                setAnswers((prev) => ({
+                  ...prev,
+                  [currentIndex]: index,
+                }))
+              }
               style={{
                 marginTop: 10,
                 padding: 15,
@@ -361,12 +273,16 @@ if (question.type === "multiple_choice" && !Array.isArray(question.choices)) {
           );
         })}
 
-      {question.type === "input" && (
+      {(question.type === "input" || question.type === "input_multi") && (
         <View style={{ marginTop: 20 }}>
           <TextInput
             value={inputAnswer}
             onChangeText={setInputAnswer}
-            placeholder="Type your answer..."
+            placeholder={
+              question.type === "input_multi"
+                ? "Comma separated answers"
+                : "Type your answer..."
+            }
             placeholderTextColor="#888"
             style={{
               backgroundColor: "#1e293b",
@@ -378,17 +294,17 @@ if (question.type === "multiple_choice" && !Array.isArray(question.choices)) {
 
           <Pressable
             onPress={() => {
+              const finalAnswer =
+                question.type === "input_multi"
+                  ? inputAnswer.split(",").map((s) => s.trim()).filter(Boolean)
+                  : inputAnswer;
+
               setAnswers((prev) => ({
                 ...prev,
-                [currentIndex]: inputAnswer,
+                [currentIndex]: finalAnswer,
               }));
 
-              setInputAnswer("");
-
-          setCurrentIndex((prev) => {
-  if (prev + 1 >= questions.length) return prev;
-  return prev + 1;
-});
+              goNext();
             }}
             style={{
               marginTop: 10,
@@ -404,61 +320,8 @@ if (question.type === "multiple_choice" && !Array.isArray(question.choices)) {
         </View>
       )}
 
-      {question.type === "input_multi" && (
-        <View style={{ marginTop: 20 }}>
-          <TextInput
-            value={inputAnswer}
-            onChangeText={setInputAnswer}
-            placeholder="Comma separated answers"
-            placeholderTextColor="#888"
-            style={{
-              backgroundColor: "#1e293b",
-              color: "white",
-              padding: 15,
-              borderRadius: 10,
-            }}
-          />
-
-          <Pressable
-            onPress={() => {
-              const split = inputAnswer
-                .toLowerCase()
-                .split(",")
-                .map((s) => s.trim());
-
-              setAnswers((prev) => ({
-                ...prev,
-                [currentIndex]: split,
-              }));
-
-              setInputAnswer("");
-
-         setCurrentIndex((prev) => {
-  if (prev + 1 >= questions.length) return prev;
-  return prev + 1;
-});
-            }}
-            style={{
-              marginTop: 10,
-              backgroundColor: "#4CAF50",
-              padding: 12,
-              borderRadius: 10,
-            }}
-          >
-            <Text style={{ color: "white", textAlign: "center" }}>
-              Submit Answers
-            </Text>
-          </Pressable>
-        </View>
-      )}
-
       <Pressable
-        onPress={() =>
-    setCurrentIndex((prev) => {
-  if (prev + 1 >= questions.length) return prev;
-  return prev + 1;
-})
-        }
+        onPress={goNext}
         style={{
           marginTop: 20,
           backgroundColor: "#1e293b",
@@ -466,13 +329,11 @@ if (question.type === "multiple_choice" && !Array.isArray(question.choices)) {
           borderRadius: 10,
         }}
       >
-        <Text style={{ color: "white", textAlign: "center" }}>
-          Next
-        </Text>
+        <Text style={{ color: "white", textAlign: "center" }}>Next</Text>
       </Pressable>
 
       <Pressable
-        onPress={finishExam}
+        onPress={() => setFinished(true)}
         style={{
           marginTop: 10,
           backgroundColor: "#ef4444",
