@@ -10,7 +10,7 @@ import sedimentologyMCRaw from "@/data/sedimentologyMC.json";
 
 import { theme } from "@/lib/theme";
 import { useLocalSearchParams } from "expo-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -52,11 +52,32 @@ export default function ExamScreen() {
   const mode: "random" | "topic" | "pg" =
     rawMode === "topic" || rawMode === "pg" ? rawMode : "random";
 
+  const count = Number(params.count) || 20;
+  const timeLimit = Number(params.time) || 30;
+
   const [index, setIndex] = useState(0);
-  const [selected, setSelected] = useState<number | null>(null);
-  const [input, setInput] = useState("");
-  const [showResult, setShowResult] = useState(false);
-  const [isCorrect, setIsCorrect] = useState(false);
+  const [answers, setAnswers] = useState<any>({});
+  const [finished, setFinished] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(timeLimit * 60);
+
+  /* ---------------- TIMER ---------------- */
+
+  useEffect(() => {
+    if (finished) return;
+
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev <= 1) {
+          clearInterval(timer);
+          setFinished(true);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [finished]);
 
   /* ---------------- BUILD QUESTIONS ---------------- */
 
@@ -71,50 +92,40 @@ export default function ExamScreen() {
 
       let pool: any[] = [];
 
-      // ✅ PG
       if (mode === "pg") {
         pool = Array.isArray(questionsData) ? questionsData : [];
-      }
-
-      // ✅ RANDOM
-      else if (mode === "random") {
+      } else if (mode === "random") {
         pool = [
           ...topicMap.Mineralogy,
           ...topicMap.Petrology,
           ...topicMap.Sedimentology,
           ...topicMap["Mineral Formulas"],
         ];
-      }
-
-      // ✅ TOPIC
-      else if (mode === "topic" && selectedTopic) {
+      } else if (mode === "topic" && selectedTopic) {
         pool = topicMap[selectedTopic] ?? [];
       }
-
-      // ---------------- SAFE NORMALIZE ----------------
 
       const safe: any[] = [];
 
       for (const q of pool) {
         if (!q || typeof q.question !== "string") continue;
 
-        // MC
-        if (q.type === "multiple_choice" && Array.isArray(q.choices)) {
+        // MC + FORMULA
+        if (
+          (q.type === "multiple_choice" || q.type === "formula") &&
+          Array.isArray(q.choices)
+        ) {
           const choices = q.choices.map((c: any) => String(c));
           if (choices.length === 0) continue;
 
           const correctIndex =
             typeof q.correctAnswer === "number" ? q.correctAnswer : 0;
 
-          const correctText = choices[correctIndex] || choices[0];
-          const shuffled = shuffle(choices);
-          const newIndex = shuffled.indexOf(correctText);
-
           safe.push({
             question: q.question,
             type: "multiple_choice",
-            choices: shuffled,
-            correctAnswer: newIndex >= 0 ? newIndex : 0,
+            choices,
+            correctAnswer: correctIndex,
           });
 
           continue;
@@ -126,37 +137,91 @@ export default function ExamScreen() {
             ? q.answer
             : [q.answer];
 
-          const safeAnswers = answers.map((x: any) => String(x));
-
-          if (safeAnswers.length === 0) continue;
-
           safe.push({
             question: q.question,
             type: "input",
-            choices: safeAnswers,
+            answer: answers.map((x: any) => String(x)),
           });
         }
       }
 
-      return shuffle(safe);
+      return shuffle(safe).slice(0, count);
     } catch (e) {
       console.log("❌ BUILD CRASH", e);
       return [];
     }
-  }, [mode, selectedTopic]);
+  }, [mode, selectedTopic, count]);
 
   const question = questions[index];
+
+  /* ---------------- SCORE ---------------- */
+
+  function calculateScore() {
+    let correct = 0;
+
+    questions.forEach((q, i) => {
+      const user = answers[i];
+
+      if (q.type === "multiple_choice") {
+        if (user === q.correctAnswer) correct++;
+      } else {
+        const correctAnswer = q.answer?.[0] ?? "";
+        if (clean(user) === clean(correctAnswer)) correct++;
+      }
+    });
+
+    return correct;
+  }
+
+  /* ---------------- RESULT ---------------- */
+
+  if (finished) {
+    const score = calculateScore();
+
+    return (
+      <SafeAreaView style={{ flex: 1 }}>
+        <ScrollView contentContainerStyle={{ padding: 20 }}>
+          <Text style={{ fontSize: 24, color: theme.colors.text }}>
+            Score: {score} / {questions.length}
+          </Text>
+
+          {questions.map((q, i) => {
+            const user = answers[i];
+
+            let correct = false;
+
+            if (q.type === "multiple_choice") {
+              correct = user === q.correctAnswer;
+            } else {
+              correct =
+                clean(user) === clean(q.answer?.[0] ?? "");
+            }
+
+            return (
+              <View key={i} style={{ marginTop: 15 }}>
+                <Text style={{ color: theme.colors.text }}>
+                  {q.question}
+                </Text>
+
+                <Text style={{ color: correct ? "#22c55e" : "#ef4444" }}>
+                  Your Answer: {String(user ?? "—")}
+                </Text>
+              </View>
+            );
+          })}
+        </ScrollView>
+      </SafeAreaView>
+    );
+  }
 
   /* ---------------- EMPTY ---------------- */
 
   if (!question) {
     return (
       <SafeAreaView style={{ flex: 1 }}>
-        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-          <Text style={{ color: theme.colors.text }}>
-            No questions loaded
-          </Text>
-        </View>
+        <Text style={{ color: theme.colors.text }}>
+          No questions loaded
+        </Text>
       </SafeAreaView>
     );
   }
@@ -166,15 +231,51 @@ export default function ExamScreen() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView contentContainerStyle={{ padding: 20 }}>
+
+        {/* TIMER */}
+        <Text style={{ color: theme.colors.subtext, marginBottom: 10 }}>
+          Time Left: {Math.floor(timeLeft / 60)}:
+          {(timeLeft % 60).toString().padStart(2, "0")}
+        </Text>
+
         <Text style={{ color: theme.colors.text, fontSize: 20 }}>
           {question.question}
         </Text>
 
+        {/* MC */}
+        {question.type === "multiple_choice" &&
+          question.choices.map((c: string, i: number) => (
+            <Pressable
+              key={i}
+              onPress={() =>
+                setAnswers((prev: any) => ({
+                  ...prev,
+                  [index]: i,
+                }))
+              }
+              style={{
+                marginTop: 10,
+                padding: 14,
+                borderWidth: 1,
+                borderColor: "#444",
+                backgroundColor:
+                  answers[index] === i ? "#334155" : "#1e293b",
+              }}
+            >
+              <Text style={{ color: "white" }}>{c}</Text>
+            </Pressable>
+          ))}
+
         {/* INPUT */}
         {question.type === "input" && (
           <TextInput
-            value={input}
-            onChangeText={(t) => !showResult && setInput(t)}
+            value={answers[index] || ""}
+            onChangeText={(t) =>
+              setAnswers((prev: any) => ({
+                ...prev,
+                [index]: t,
+              }))
+            }
             placeholder="Type answer"
             placeholderTextColor="#94a3b8"
             style={{
@@ -187,74 +288,13 @@ export default function ExamScreen() {
           />
         )}
 
-        {/* MC */}
-        {question.type === "multiple_choice" &&
-          question.choices.map((c: string, i: number) => {
-            let bg = "transparent";
-
-            if (showResult) {
-              if (i === question.correctAnswer) bg = "#16a34a";
-              else if (i === selected) bg = "#dc2626";
-            } else if (selected === i) {
-              bg = "#334155";
-            }
-
-            return (
-              <Pressable
-                key={i}
-                onPress={() => !showResult && setSelected(i)}
-                style={{
-                  padding: 14,
-                  marginTop: 10,
-                  borderWidth: 1,
-                  borderColor: "#444",
-                  backgroundColor: bg,
-                }}
-              >
-                <Text style={{ color: theme.colors.text }}>{c}</Text>
-              </Pressable>
-            );
-          })}
-
-        {/* RESULT */}
-        {showResult && (
-          <Text
-            style={{
-              marginTop: 20,
-              color: isCorrect ? "#22c55e" : "#ef4444",
-              fontSize: 18,
-            }}
-          >
-            {isCorrect ? "✅ Correct!" : "❌ Incorrect"}
-          </Text>
-        )}
-
-        {/* BUTTON */}
+        {/* NEXT */}
         <Pressable
-          onPress={() => {
-            if (!showResult) {
-              let correct = false;
-
-              if (question.type === "multiple_choice") {
-                if (selected === null) return;
-                correct = selected === question.correctAnswer;
-              } else {
-                correct =
-                  clean(input) === clean(question.choices[0] || "");
-              }
-
-              setIsCorrect(correct);
-              setShowResult(true);
-            } else {
-              setSelected(null);
-              setInput("");
-              setShowResult(false);
-
-              setIndex((prev) =>
-                prev + 1 >= questions.length ? 0 : prev + 1
-              );
-            }
-          }}
+          onPress={() =>
+            setIndex((prev) =>
+              prev + 1 >= questions.length ? prev : prev + 1
+            )
+          }
           style={{
             marginTop: 20,
             backgroundColor: "#2563eb",
@@ -262,7 +302,21 @@ export default function ExamScreen() {
           }}
         >
           <Text style={{ color: "white", textAlign: "center" }}>
-            {showResult ? "Next" : "Submit"}
+            Next
+          </Text>
+        </Pressable>
+
+        {/* SUBMIT */}
+        <Pressable
+          onPress={() => setFinished(true)}
+          style={{
+            marginTop: 10,
+            backgroundColor: "#ef4444",
+            padding: 14,
+          }}
+        >
+          <Text style={{ color: "white", textAlign: "center" }}>
+            Submit Exam
           </Text>
         </Pressable>
       </ScrollView>
