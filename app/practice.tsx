@@ -6,6 +6,12 @@ import petrologyMCRaw from "@/data/petrologyMC.json";
 import sedimentologyFBRaw from "@/data/sedimentologyFB.json";
 import sedimentologyMCRaw from "@/data/sedimentologyMC.json";
 
+import { theme } from "@/lib/theme";
+import { useLocalSearchParams } from "expo-router";
+import { useMemo, useState } from "react";
+import { Pressable, Text, TextInput, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+
 const mineralFormulas = mineralFormulasRaw as any[];
 const mineralogyFB = mineralogyFBRaw as any[];
 const mineralogyMC = mineralogyMCRaw as any[];
@@ -13,11 +19,6 @@ const petrologyFB = petrologyFBRaw as any[];
 const petrologyMC = petrologyMCRaw as any[];
 const sedimentologyFB = sedimentologyFBRaw as any[];
 const sedimentologyMC = sedimentologyMCRaw as any[];
-
-import { theme } from "@/lib/theme";
-import { useMemo, useState } from "react";
-import { Pressable, Text, TextInput, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 function clean(str: string) {
   return String(str).toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -39,72 +40,95 @@ export default function PracticeScreen() {
   const [showResult, setShowResult] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
 
- const questions = useMemo(() => {
-  try {
-    const topicMap: Record<string, any[]> = {
-      Mineralogy: [...mineralogyMC, ...mineralogyFB],
-      Petrology: [...petrologyMC, ...petrologyFB],
-      Sedimentology: [...sedimentologyMC, ...sedimentologyFB],
-      Formulas: [...mineralFormulas],
-    };
+  // ✅ MUST BE INSIDE COMPONENT
+  const params = useLocalSearchParams();
 
-    const processed: any[] = [];
+  const selectedTopic = Array.isArray(params.topic)
+    ? params.topic[0]
+    : params.topic;
 
-    // 🔥 LOOP BY TOPIC
-    for (const topic in topicMap) {
-      const list = topicMap[topic];
+  const mode = Array.isArray(params.mode)
+    ? params.mode[0]
+    : params.mode;
 
-      for (const q of list) {
-        if (!q || typeof q.question !== "string") continue;
+  const questions = useMemo(() => {
+    try {
+      const topicMap: Record<string, any[]> = {
+        Mineralogy: [...mineralogyMC, ...mineralogyFB],
+        Petrology: [...petrologyMC, ...petrologyFB],
+        Sedimentology: [...sedimentologyMC, ...sedimentologyFB],
+        "Mineral Formulas": [...mineralFormulas],
+      };
 
-        // MULTIPLE CHOICE
-        if (q.type === "multiple_choice" && Array.isArray(q.choices)) {
-          const choices = q.choices.map((c: any) => String(c));
-          if (choices.length === 0) continue;
+      const processed: any[] = [];
 
-          const correctIndex =
-            typeof q.correctAnswer === "number" ? q.correctAnswer : 0;
+      for (const topic in topicMap) {
+        // ✅ TOPIC FILTER
+        if (selectedTopic && topic !== selectedTopic) continue;
 
-          const correctText = choices[correctIndex] || choices[0];
-          const shuffled = shuffle(choices);
-          const newIndex = shuffled.indexOf(correctText);
+        const list = topicMap[topic];
 
-          processed.push({
-            question: q.question,
-            type: "multiple_choice",
-            choices: shuffled,
-            correctAnswer: newIndex >= 0 ? newIndex : 0,
-            topic, // ✅ ADD THIS
-          });
+        for (const q of list) {
+          if (!q || typeof q.question !== "string") continue;
 
-          continue;
-        }
+          // MC
+          if (q.type === "multiple_choice" && Array.isArray(q.choices)) {
+            const choices = q.choices.map((c: any) => String(c));
+            if (choices.length === 0) continue;
 
-        // INPUT
-        if (q.answer !== undefined && q.answer !== null) {
-          const answers = Array.isArray(q.answer)
-            ? q.answer
-            : [q.answer];
+            const correctIndex =
+              typeof q.correctAnswer === "number" ? q.correctAnswer : 0;
 
-          const safe = answers.map((x: any) => String(x));
-          if (safe.length === 0) continue;
+            const correctText = choices[correctIndex] || choices[0];
+            const shuffled = shuffle(choices);
+            const newIndex = shuffled.indexOf(correctText);
 
-          processed.push({
-            question: q.question,
-            type: "input",
-            choices: safe,
-            topic, // ✅ ADD THIS
-          });
+            processed.push({
+              question: q.question,
+              type: "multiple_choice",
+              choices: shuffled,
+              correctAnswer: newIndex >= 0 ? newIndex : 0,
+            });
+
+            continue;
+          }
+
+          // INPUT
+          if (q.answer !== undefined && q.answer !== null) {
+            const answers = Array.isArray(q.answer)
+              ? q.answer
+              : [q.answer];
+
+            const safe = answers.map((x: any) => String(x));
+            if (safe.length === 0) continue;
+
+            processed.push({
+              question: q.question,
+              type: "input",
+              choices: safe,
+            });
+          }
         }
       }
-    }
 
-    return shuffle(processed);
-  } catch (e) {
-    console.log("❌ build crash", e);
-    return [];
-  }
-}, []);
+      // ✅ MODE FILTER (THIS WAS MISSING PROPERLY)
+      let filtered = processed;
+
+      if (mode === "mc") {
+        filtered = processed.filter((q) => q.type === "multiple_choice");
+      }
+
+      if (mode === "fb") {
+        filtered = processed.filter((q) => q.type === "input");
+      }
+
+      return shuffle(filtered);
+    } catch (e) {
+      console.log("❌ build crash", e);
+      return [];
+    }
+  }, [selectedTopic, mode]); // ✅ IMPORTANT
+
   const question = questions[index];
 
   if (!question) {
@@ -126,7 +150,6 @@ export default function PracticeScreen() {
           {question.question}
         </Text>
 
-        {/* INPUT */}
         {question.type === "input" && (
           <TextInput
             value={input}
@@ -143,7 +166,6 @@ export default function PracticeScreen() {
           />
         )}
 
-        {/* MC */}
         {question.type === "multiple_choice" &&
           question.choices.map((c: string, i: number) => {
             let bg = "transparent";
@@ -172,7 +194,6 @@ export default function PracticeScreen() {
             );
           })}
 
-        {/* RESULT */}
         {showResult && (
           <Text
             style={{
@@ -185,7 +206,6 @@ export default function PracticeScreen() {
           </Text>
         )}
 
-        {/* BUTTON */}
         <Pressable
           onPress={() => {
             if (!showResult) {
