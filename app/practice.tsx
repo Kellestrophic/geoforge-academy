@@ -39,21 +39,22 @@ export default function PracticeScreen() {
   const [showResult, setShowResult] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
 
-  const questions = useMemo(() => {
-    try {
-      const all = [
-        ...mineralogyMC,
-        ...mineralogyFB,
-        ...petrologyMC,
-        ...petrologyFB,
-        ...mineralFormulas,
-        ...sedimentologyMC,
-        ...sedimentologyFB,
-      ];
+ const questions = useMemo(() => {
+  try {
+    const topicMap: Record<string, any[]> = {
+      Mineralogy: [...mineralogyMC, ...mineralogyFB],
+      Petrology: [...petrologyMC, ...petrologyFB],
+      Sedimentology: [...sedimentologyMC, ...sedimentologyFB],
+      Formulas: [...mineralFormulas],
+    };
 
-      const processed: any[] = [];
+    const processed: any[] = [];
 
-      for (const q of all) {
+    // 🔥 LOOP BY TOPIC
+    for (const topic in topicMap) {
+      const list = topicMap[topic];
+
+      for (const q of list) {
         if (!q || typeof q.question !== "string") continue;
 
         // MULTIPLE CHOICE
@@ -73,6 +74,7 @@ export default function PracticeScreen() {
             type: "multiple_choice",
             choices: shuffled,
             correctAnswer: newIndex >= 0 ? newIndex : 0,
+            topic, // ✅ ADD THIS
           });
 
           continue;
@@ -91,17 +93,18 @@ export default function PracticeScreen() {
             question: q.question,
             type: "input",
             choices: safe,
+            topic, // ✅ ADD THIS
           });
         }
       }
-
-      return shuffle(processed);
-    } catch (e) {
-      console.log("❌ build crash", e);
-      return [];
     }
-  }, []);
 
+    return shuffle(processed);
+  } catch (e) {
+    console.log("❌ build crash", e);
+    return [];
+  }
+}, []);
   const question = questions[index];
 
   if (!question) {
