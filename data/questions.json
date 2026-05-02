@@ -1204,16 +1204,15 @@
     "id": "q71",
     "type": "formula",
     "category": "Engineering Geology",
-    "subcategory": [],
     "question": "A-Line",
     "choices": [
-      "An elastic constant (does not exceed 0.5). The ratio of the lateral unit strain to the longitudinal unit strain in a body that has been stressed longitudinally within its elastic limit.",
-      "The movement of an unsupported cliff or stream bank toward the free face during an earthquake. A series of more or less parallel cracks are formed, separating the ground into blocks.",
-      "A theory that forecasts location and magnitude of future earthquakes based on the absense of earthquakes in one area as compared to the presence of earthquakes adjacent to the gap.",
-      "The line on the plasticity chart that divides clays from silts. Equation of the line is horizontal at PI = 4 to LL 25.5, then PI = 0.73 (LL - 20)"
+      "A boundary on the plasticity chart separating coarse-grained from fine-grained soils.",
+      "A line on the plasticity chart that separates clays from silts, defined by PI = 0.73(LL − 20).",
+      "A curve representing the relationship between shear stress and strain in soils.",
+      "A line indicating the boundary between liquid and plastic limits of soil."
     ],
-    "correctAnswer": 3,
-    "explanation": "Line on the plasticity chart that divides clays from silts.",
+    "correctAnswer": 1,
+    "explanation": "The A-line separates clays from silts on the plasticity chart. Above the line are clays; below are silts. It follows PI = 0.73(LL − 20).",
     "difficulty": "hard",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1222,16 +1221,15 @@
     "id": "q72",
     "type": "multiple_choice",
     "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Atterberg Limits",
     "choices": [
-      "Soil or rock that creeps into a tunnel and maintains a constant volume.",
-      "Vertical distance between the dam crest and the water surface of the reservoir.",
-      "Water content at the boundaries between the states of consistency of a soil.",
-      "The degree of adhesion between soil particles that can resist deformation or rupture."
+      "The range of stresses over which soil behaves elastically.",
+      "Water contents that define transitions between solid, plastic, and liquid states of soil.",
+      "The maximum load a soil can support before failure.",
+      "The degree of compaction achieved under standard conditions."
     ],
-    "correctAnswer": 2,
-    "explanation": "Water content at the boundaries between the states of consistency of a soil.",
+    "correctAnswer": 1,
+    "explanation": "Atterberg limits define the boundaries between soil consistency states (solid, semi-solid, plastic, and liquid) based on water content.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1240,16 +1238,15 @@
     "id": "q73",
     "type": "multiple_choice",
     "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Bearing Capacity",
     "choices": [
-      "A group of clay minerals that expand when they absorb large quantites of water.",
-      "The average time interval between earthquake occurrences of equal magnitude on the same fault.",
-      "The load per unit area which the ground can safely support without excessive yield.",
-      "The property of a soil that is able to absorb stress by plastic deformation."
+      "The resistance of soil to erosion by flowing water.",
+      "The load per unit area that soil can support without failure.",
+      "The ability of soil to retain water under saturated conditions.",
+      "The compressibility of soil under applied stress."
     ],
-    "correctAnswer": 2,
-    "explanation": "The max load an area can handle before deformation.",
+    "correctAnswer": 1,
+    "explanation": "Bearing capacity is the maximum load per unit area that the ground can safely support without shear failure or excessive settlement.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1258,16 +1255,15 @@
     "id": "q74",
     "type": "multiple_choice",
     "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "Bulk Density (p)",
+    "question": "Bulk Density (ρ)",
     "choices": [
-      "A theory proposed by Reid to explain the cause of earthquakes.",
-      "The density of a material measured in mass per unit volume.",
-      "Landslide movement that occurs predominantly along planar or gently undulating surfaces.",
-      "The gradual, steady downhill movement of soil and loose rock material."
+      "Mass per unit volume of a material, including both solids and voids.",
+      "Mass per unit volume of solid particles only.",
+      "The ratio of void space to total volume.",
+      "The weight of water contained in a soil sample."
     ],
-    "correctAnswer": 1,
-    "explanation": "NOTE: Don't overcomplicate this. This is just density. p = M / V",
+    "correctAnswer": 0,
+    "explanation": "Bulk density is defined as total mass divided by total volume, including both solids and void spaces.",
     "difficulty": "easy",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1276,16 +1272,15 @@
     "id": "q75",
     "type": "multiple_choice",
     "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "Bulk Modulus (K) / Incompressibility",
+    "question": "Bulk Modulus (K)",
     "choices": [
-      "The lower limit of the plastic state. Water content at which the soil begins to crumble when rolled out into thin threads.",
-      "A modulus of elasticity which relates a change in volume to the hydrostatic state of stress. It is the reciprocal of compressibility.",
-      "Bedrock or soil on a ridge top that has been thoroughly pulverized due to high accelerations over many cycles of earthquake shattering.",
-      "Gradual or slow reduction in volume and increase in density of a soil mass in response to increased load or compressive stress."
+      "The ratio of shear stress to shear strain.",
+      "The relationship between pressure and volumetric strain; resistance to compression.",
+      "The ratio of lateral strain to axial strain.",
+      "The measure of soil permeability under flow conditions."
     ],
     "correctAnswer": 1,
-    "explanation": "Relates pressure to a change in volume. Bulk Modulus = Hydrostatic Pressure / Volumetric Strain",
+    "explanation": "Bulk modulus describes how resistant a material is to uniform compression and is defined as pressure divided by volumetric strain.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1294,16 +1289,15 @@
     "id": "q76",
     "type": "multiple_choice",
     "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Coefficient of Curvature (Cc)",
     "choices": [
-      "Graphical representation of the state of stress (normal and shear) on a particular plane inclined at an angle to the major principal stress.",
-      "Bedrock or soil on a ridge top that has been thoroughly pulverized due to high accelerations over many cycles of earthquake shattering.",
-      "A cone-shaped deposit of sand formed during an earthquake when subsurface sand layers liquefy, and then are blown to the surface through cracks.",
-      "A measure of the curvature of the grain size distribution plot. Well-graded sands and gravels have coefficients of curvature between 1 and 3."
+      "A ratio used to determine permeability of fine-grained soils.",
+      "A measure of grain size distribution curvature, defined as (D30²)/(D10 × D60).",
+      "The ratio of void space to total soil volume.",
+      "A parameter describing soil compressibility under load."
     ],
-    "correctAnswer": 3,
-    "explanation": "Cc = D30^2 / (D10 x D60)",
+    "correctAnswer": 1,
+    "explanation": "Coefficient of curvature (Cc) describes the shape of the grain-size distribution curve. Well-graded soils typically have Cc between 1 and 3.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1312,16 +1306,15 @@
     "id": "q77",
     "type": "multiple_choice",
     "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Coefficient of Uniformity (Cu)",
     "choices": [
-      "A localized mass movement that involves the gradual downwards settling or sinking of the Earth's surface.",
-      "Wells drilled at the toe of the dam to reduce the uplift pressure and prevent piping.",
-      "Rock or soil that drops out of the roof or walls of a tunnel over time.",
-      "A measure of the grain size uniformity using the ratio of particles sizes D60 to D10"
+      "A measure of soil compressibility under stress.",
+      "The ratio of void space to solid volume.",
+      "A measure of grain size uniformity defined as D60/D10.",
+      "A parameter describing soil permeability under flow conditions."
     ],
-    "correctAnswer": 3,
-    "explanation": "Cu = D60 / D10",
+    "correctAnswer": 2,
+    "explanation": "Coefficient of uniformity (Cu) = D60/D10 and indicates the spread of particle sizes. Higher values indicate more well-graded soils.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1330,16 +1323,15 @@
     "id": "q78",
     "type": "multiple_choice",
     "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Compaction",
     "choices": [
-      "A measure of the intactness of rock core, relating the percentage of intact core to the total core run.",
-      "The final void ratio at ultimate strength achieved by loose and dense samples of the same soil after shearing.",
-      "Take the weight, and divide it by the unit weight of that substance. That leaves you with the volume.",
-      "The process of increasing the density of a soil (usually fill) by rolling, tamping, vibrating or other mechanical means."
+      "The process of reducing soil volume through water expulsion under load.",
+      "The mechanical densification of soil by reducing air voids through rolling or vibration.",
+      "The natural settlement of soil over long periods under its own weight.",
+      "The deformation of soil due to shear stress."
     ],
-    "correctAnswer": 3,
-    "explanation": "The process of increasing the density of a soil (usually fill) by rolling, tamping, vibrating or other mechanical means.",
+    "correctAnswer": 1,
+    "explanation": "Compaction increases soil density by mechanically reducing air voids, typically using rollers or vibratory equipment.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1348,16 +1340,15 @@
     "id": "q79",
     "type": "multiple_choice",
     "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Consistency",
     "choices": [
-      "The degree of adhesion between soil particles that can resist deformation or rupture.",
-      "Vertical distance between the dam crest and the water surface of the reservoir.",
-      "Soil or rock that creeps into a tunnel and maintains a constant volume.",
-      "The strength of a soil when dry as determined by the crushing test."
+      "The resistance of soil to deformation or rupture depending on water content.",
+      "The ability of soil to transmit water under a hydraulic gradient.",
+      "The ratio of void space to total volume in a soil.",
+      "The process of soil densification under mechanical effort."
     ],
     "correctAnswer": 0,
-    "explanation": "The degree of adhesion between soil particles that can resist deformation or rupture.",
+    "explanation": "Consistency describes the firmness or resistance of soil to deformation, which varies with moisture content.",
     "difficulty": "easy",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1366,16 +1357,15 @@
     "id": "q80",
     "type": "multiple_choice",
     "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Consolidation",
     "choices": [
-      "The lower limit of the plastic state. Water content at which the soil begins to crumble when rolled out into thin threads.",
-      "Gradual or slow reduction in volume and increase in density of a soil mass in response to increased load or compressive stress.",
-      "Slope movement due to forces that cause an overturning moment about a pivot point below the center of gravity of the unit.",
-      "Bedrock or soil on a ridge top that has been thoroughly pulverized due to high accelerations over many cycles of earthquake shattering."
+      "The immediate densification of soil due to mechanical compaction.",
+      "The gradual reduction in soil volume due to expulsion of water under sustained load.",
+      "The process of soil expansion due to water absorption.",
+      "The deformation of soil under shear stress conditions."
     ],
     "correctAnswer": 1,
-    "explanation": "Gradual or slow reduction in volume and increase in density of a soil mass in response to increased load or compressive stress.",
+    "explanation": "Consolidation is the time-dependent settlement of saturated soils caused by expulsion of pore water under load.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1384,16 +1374,15 @@
     "id": "q81",
     "type": "multiple_choice",
     "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Critical Void Ratio",
     "choices": [
-      "The process of increasing the density of a soil (usually fill) by rolling, tamping, vibrating or other mechanical means.",
-      "The final void ratio at ultimate strength achieved by loose and dense samples of the same soil after shearing.",
-      "Take the weight, and divide it by the unit weight of that substance. That leaves you with the volume.",
-      "A measure of the intactness of rock core, relating the percentage of intact core to the total core run."
+      "The void ratio at which soil transitions between contractive and dilative behavior during shear.",
+      "The void ratio of a soil in its densest possible state.",
+      "The ratio of void space to solid particles in a soil sample at rest.",
+      "The void ratio at which maximum permeability occurs."
     ],
-    "correctAnswer": 1,
-    "explanation": "The void ratio present in a soil when it's pushed to its strength limits.",
+    "correctAnswer": 0,
+    "explanation": "The critical void ratio is the state at which soil neither contracts nor expands during shear. It represents a condition of constant volume deformation.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1402,16 +1391,15 @@
     "id": "q82",
     "type": "multiple_choice",
     "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "Degree of Saturation (SR)",
+    "question": "Degree of Saturation (Sr)",
     "choices": [
-      "The ratio of the volume of water to the total volume of void space. The value of SR can range from zero for a completely dry soil to one (or 100%) for a fully saturated soil.",
-      "The ratio of the difference between the void ratio of a cohesionless soil in the loosest state and any given void ratio to the difference between its void ratios in the loosest and in the densest states.",
-      "A dry mixture of Portland cement and sand, forced by compressed air through a special hose, with water applied at the nozzel and sprayed onto mine timbers, tunnel supports, and roadways to seal and fireproof them.",
-      "That part of the total stress that is due entirely to the solid particles of soil, and represents an excess over the neutral stress or pore-water pressure. Effective stress - total stress minus pore-water pressure."
+      "The ratio of water volume to total void volume in a soil.",
+      "The ratio of void volume to total soil volume.",
+      "The ratio of air volume to total void volume.",
+      "The ratio of solid volume to total soil volume."
     ],
     "correctAnswer": 0,
-    "explanation": "Also Given as Degree of Saturation = (Water Content x Specific Gravity) / e",
+    "explanation": "Degree of saturation (Sr) = volume of water / volume of voids. It ranges from 0 (dry) to 1 (fully saturated).",
     "difficulty": "hard",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1420,16 +1408,15 @@
     "id": "q83",
     "type": "multiple_choice",
     "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Dilatancy",
     "choices": [
-      "An increase in the bulk volume during deformation, caused by a change from a close-packed structure to an open-packed structure.",
-      "A soil with all grain sizes present with no excess in any size range. Equivalent to the geologist's term \"poorly sorted.",
-      "A measure of the intactness of rock core, relating the percentage of intact core to the total core run.",
-      "The process of increasing the density of a soil (usually fill) by rolling, tamping, vibrating or other mechanical means."
+      "An increase in soil volume during shear deformation.",
+      "A decrease in soil volume due to water expulsion under load.",
+      "The rearrangement of particles into a denser configuration under vibration.",
+      "The ability of soil to resist shear stress due to cohesion."
     ],
     "correctAnswer": 0,
-    "explanation": "When deformation causes expansion.",
+    "explanation": "Dilatancy occurs when dense soils expand in volume during shear as particles move into a more open structure.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1438,16 +1425,15 @@
     "id": "q84",
     "type": "multiple_choice",
     "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Direct Shear Test",
     "choices": [
-      "A theory proposed by Reid to explain the cause of earthquakes.",
-      "Landslide movement that occurs predominantly along planar or gently undulating surfaces.",
-      "A laboratory test to measure the shear strength of a soil.",
-      "The gradual, steady downhill movement of soil and loose rock material."
+      "A test used to measure soil compressibility under load.",
+      "A laboratory test used to determine shear strength parameters of soil.",
+      "A field test used to measure groundwater velocity.",
+      "A test used to determine grain size distribution."
     ],
-    "correctAnswer": 2,
-    "explanation": "A laboratory test to measure the shear strength of a soil.",
+    "correctAnswer": 1,
+    "explanation": "The direct shear test measures soil shear strength, providing parameters such as cohesion and internal friction angle.",
     "difficulty": "easy",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1456,16 +1442,15 @@
     "id": "q85",
     "type": "multiple_choice",
     "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "Dry Density (pd)",
+    "question": "Dry Density (ρd)",
     "choices": [
-      "Water clinging to mineral grains through surface tension.",
-      "Organic silts and organic silt-clays of low plasticity",
-      "The density of soil when it's completely dry.",
-      "Boards which are joined, side-by-side, lining an excavation."
+      "Density of soil excluding water content.",
+      "Density of soil including water and air.",
+      "Mass of solids divided by volume of solids only.",
+      "Ratio of void volume to total volume."
     ],
-    "correctAnswer": 2,
-    "explanation": "Dry Density = Bulk Density / (1 + Water Content)",
+    "correctAnswer": 0,
+    "explanation": "Dry density is the mass of soil solids divided by total volume, excluding the mass of water.",
     "difficulty": "easy",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1474,16 +1459,15 @@
     "id": "q86",
     "type": "multiple_choice",
     "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Dry Strength",
     "choices": [
-      "Soil or rock that creeps into a tunnel and maintains a constant volume.",
-      "Vertical distance between the dam crest and the water surface of the reservoir.",
-      "The strength of a soil when dry as determined by the crushing test.",
-      "The degree of adhesion between soil particles that can resist deformation or rupture."
+      "The strength of soil when saturated under load.",
+      "The resistance of soil to deformation under shear stress.",
+      "The strength of soil when dry, typically assessed by crushing resistance.",
+      "The ability of soil to retain water under capillary forces."
     ],
     "correctAnswer": 2,
-    "explanation": "The strength of a soil when dry as determined by the crushing test.",
+    "explanation": "Dry strength refers to the strength of soil when moisture is removed, often evaluated using a crushing or breaking test.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1492,16 +1476,15 @@
     "id": "q87",
     "type": "multiple_choice",
     "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Effective Size (D10)",
     "choices": [
-      "That part of the total stress that is due entirely to the solid particles of soil, and represents an excess over the neutral stress or pore-water pressure. Effective stress - total stress minus pore-water pressure.",
-      "The diameter D10 which corresponds to the percentage, by weight, of grains equal to 10% on the grain-size diagram. Ten percent of the particles are finer and 90% are coarser than the effective size.",
-      "A grout barrier used in the vicinity of tunnels or dams where cracks or oints in rocks are filled with a liquid cement that is pumped or poured into spaces to seal them.",
-      "The ratio of the volume of water to the total volume of void space. The value of SR can range from zero for a completely dry soil to one (or 100%) for a fully saturated soil."
+      "The grain diameter at which 10% of the sample is finer by weight.",
+      "The average grain diameter of a soil sample.",
+      "The largest grain diameter present in a soil.",
+      "The diameter at which 60% of the sample is finer."
     ],
-    "correctAnswer": 1,
-    "explanation": "THE IMPORTANT PART -> Ten percent of the particles are finer and 90% are coarser than the effective size.",
+    "correctAnswer": 0,
+    "explanation": "D10 is the grain size at which 10% of the particles are finer and 90% are coarser, commonly used in permeability and gradation analysis.",
     "difficulty": "hard",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1510,16 +1493,15 @@
     "id": "q88",
     "type": "multiple_choice",
     "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "Effective Stress (sigma ' )",
+    "question": "Effective Stress (σ')",
     "choices": [
-      "The ratio of the volume of water to the total volume of void space. The value of SR can range from zero for a completely dry soil to one (or 100%) for a fully saturated soil.",
-      "A dry mixture of Portland cement and sand, forced by compressed air through a special hose, with water applied at the nozzel and sprayed onto mine timbers, tunnel supports, and roadways to seal and fireproof them.",
-      "The diameter D10 which corresponds to the percentage, by weight, of grains equal to 10% on the grain-size diagram. Ten percent of the particles are finer and 90% are coarser than the effective size.",
-      "That part of the total stress that is due entirely to the solid particles of soil, and represents an excess over the neutral stress or pore-water pressure. Effective stress - total stress minus pore-water pressure."
+      "The total stress acting on a soil mass.",
+      "The stress carried by pore water in a saturated soil.",
+      "The difference between total stress and pore water pressure.",
+      "The stress required to initiate soil failure."
     ],
-    "correctAnswer": 3,
-    "explanation": "The amount of stress left after considering stress reduction from pore-water pressure.",
+    "correctAnswer": 2,
+    "explanation": "Effective stress is defined as σ' = σ − u, where σ is total stress and u is pore water pressure. It controls soil strength and deformation.",
     "difficulty": "hard",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1528,16 +1510,15 @@
     "id": "q89",
     "type": "multiple_choice",
     "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "Gap-Graded",
+    "question": "Gap-Graded Soil",
     "choices": [
-      "The process whereby soils collapse when they are wetted.",
-      "A relatively narrow, horizontal bench built along an embankment.",
-      "A soil in which some particle sizes are missing.",
-      "Vp = sqrt(bulk modulus + [4/3shear modulus] / density)"
+      "A soil with a continuous distribution of all particle sizes.",
+      "A soil missing one or more intermediate particle sizes.",
+      "A soil composed entirely of fine-grained particles.",
+      "A soil with equal proportions of all grain sizes."
     ],
-    "correctAnswer": 2,
-    "explanation": "Also called skip-graded.",
+    "correctAnswer": 1,
+    "explanation": "Gap-graded soils lack certain size fractions, resulting in a discontinuous grain size distribution.",
     "difficulty": "easy",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1546,16 +1527,15 @@
     "id": "q90",
     "type": "multiple_choice",
     "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Gradation Curve",
     "choices": [
-      "The gradual downward movement of an engineered structure due to compression of the soil below the foundation.",
-      "A graphic representation of the results of a sieve analysis plotted as percent passing vs. grain size.",
-      "The internal resistance of a soil to shear stress consisting of a combination of friction and cohesion.",
-      "The uneven lowering of different parts of an engineered structure, often resulting in damage to the structure."
+      "A plot of shear stress versus strain for soil samples.",
+      "A graph showing percent passing versus grain size from sieve analysis.",
+      "A curve representing consolidation over time.",
+      "A diagram showing stress distribution in soil layers."
     ],
     "correctAnswer": 1,
-    "explanation": "A graphic representation of the results of a sieve analysis plotted as percent passing vs. grain size.",
+    "explanation": "A gradation curve is generated from sieve analysis and shows the distribution of particle sizes in a soil sample.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1564,16 +1544,15 @@
     "id": "q91",
     "type": "multiple_choice",
     "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Hygroscopic Water",
     "choices": [
-      "The density of soil when it's completely dry.",
-      "Water clinging to mineral grains through surface tension.",
-      "Organic silts and organic silt-clays of low plasticity",
-      "Boards which are joined, side-by-side, lining an excavation."
+      "Water held tightly to soil particles by molecular attraction and not available for flow.",
+      "Water filling all pore spaces in a saturated soil.",
+      "Water that drains freely from soil under gravity.",
+      "Water present only in coarse-grained soils."
     ],
-    "correctAnswer": 1,
-    "explanation": "Water clinging to mineral grains through surface tension.",
+    "correctAnswer": 0,
+    "explanation": "Hygroscopic water is adsorbed onto mineral surfaces by molecular forces and is not available for plant use or groundwater flow.",
     "difficulty": "easy",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1582,16 +1561,15 @@
     "id": "q92",
     "type": "formula",
     "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Hooke's Law",
     "choices": [
-      "A reduction in the amplitude of seismic waves produced by divergence, scattering, reflection, and absorption.",
-      "The component of stress that acts along a plane through any point in the body.",
-      "The floor or bottom of a closed conduit, such as a tunnel, aquaduct, or drain.",
-      "A statement of elastic deformation - the strain is linearly proportional to the applied stress."
+      "Stress is proportional to strain within the elastic limit.",
+      "Shear strength equals cohesion plus normal stress times friction angle.",
+      "Flow rate is proportional to hydraulic gradient and conductivity.",
+      "Volume change is proportional to applied load over time."
     ],
-    "correctAnswer": 3,
-    "explanation": "A statement of elastic deformation - the strain is linearly proportional to the applied stress.",
+    "correctAnswer": 0,
+    "explanation": "Hooke’s Law states that stress is linearly proportional to strain within the elastic range of a material.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1600,16 +1578,15 @@
     "id": "q93",
     "type": "multiple_choice",
     "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Liquid Limit (LL)",
     "choices": [
-      "The ratio of the difference between the void ratio of a cohesionless soil in the loosest state and any given void ratio to the difference between its void ratios in the loosest and in the densest states.",
-      "Dams constructed of excavated rocks and / or soils (earth fill). Earth fill is either placed by lifts, or compacted in layers. The key portion of rockfill is an impervious core. The dam cross-section is structure as rockfill - clay core - rockfill.",
-      "The upper limit of the plastic state. Water content, in percent of dry weight, at which two sections of a pat of soil, separated by a specified distance, barely touch each other but do not flow together when given a sharp blow.",
-      "A wet mix of Portland cement, sand, and water, often with coarse aggregate up to about 1 inch (2 cm), that is applied through a pneumatic hose onto mine timbers, tunnel supports, and roadways to seal and fireproof them."
+      "The water content at which soil begins to behave as a liquid.",
+      "The water content at which soil begins to crumble when rolled.",
+      "The maximum water content a soil can hold under saturation.",
+      "The moisture content at which maximum compaction occurs."
     ],
-    "correctAnswer": 2,
-    "explanation": "THE IMPORTANT PART -> The upper limit of the plastic state.",
+    "correctAnswer": 0,
+    "explanation": "The liquid limit is the upper boundary of the plastic state where soil begins to flow like a liquid under applied stress.",
     "difficulty": "hard",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1618,16 +1595,15 @@
     "id": "q94",
     "type": "multiple_choice",
     "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Mohr Circle",
     "choices": [
-      "Graphical representation of the state of stress (normal and shear) on a particular plane inclined at an angle to the major principal stress.",
-      "A cone-shaped deposit of sand formed during an earthquake when subsurface sand layers liquefy, and then are blown to the surface through cracks.",
-      "Bedrock or soil on a ridge top that has been thoroughly pulverized due to high accelerations over many cycles of earthquake shattering.",
-      "A measure of the curvature of the grain size distribution plot. Well-graded sands and gravels have coefficients of curvature between 1 and 3."
+      "A graphical representation of stress states showing normal and shear stress relationships.",
+      "A plot showing grain size distribution of soils.",
+      "A curve describing consolidation over time.",
+      "A diagram showing groundwater flow direction."
     ],
     "correctAnswer": 0,
-    "explanation": "Graphical representation of the state of stress (normal and shear) on a particular plane inclined at an angle to the major principal stress.",
+    "explanation": "Mohr’s Circle graphically represents normal and shear stresses acting on different planes within a material.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1636,16 +1612,15 @@
     "id": "q95",
     "type": "formula",
     "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Mohr-Coulomb Equation",
     "choices": [
-      "An equation describing the failure of a material in shear fracture. The rupture line in a Mohr circle can be approximated by this equation.",
-      "Change in the shape or volume of a body as a result of stress, defined as the ratio of the change to the original shape.",
-      "Disintegration of rock or soil when submerged in water. Outcrops of sound rock when subjected to a shrink swell cycle crumble into flakes or particles.",
-      "Rock or soil that increases in volume when excavaated. Volume increase is usually caused by the presence of clay minerals with a high swelling capacity."
+      "τ = c + σ tan(φ)",
+      "σ = Eε",
+      "Q = -KiA",
+      "T = Kb"
     ],
     "correctAnswer": 0,
-    "explanation": "Shear Strength = cohesion + (normal stress x tan(coefficient of friction))",
+    "explanation": "The Mohr-Coulomb equation describes shear strength: τ = c + σ tan(φ), where c is cohesion and φ is the angle of internal friction.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1654,16 +1629,15 @@
     "id": "q96",
     "type": "multiple_choice",
     "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "Normal Stress (sigma n )",
+    "question": "Normal Stress (σn)",
     "choices": [
-      "Well-graded sand (or gravelly sands - little or no fines)",
-      "The component of stress that acts perpendicular to the plane.",
-      "The point on the Earth's surface directly above the focus.",
-      "Shear Strength = Normal Stress x (tan(Internal Angle of Friction))"
+      "The stress acting perpendicular to a surface.",
+      "The stress acting parallel to a surface.",
+      "The stress caused by pore water pressure.",
+      "The total stress minus effective stress."
     ],
-    "correctAnswer": 1,
-    "explanation": "The component of stress that acts perpendicular to the plane.",
+    "correctAnswer": 0,
+    "explanation": "Normal stress acts perpendicular to a plane, while shear stress acts parallel to it.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1672,16 +1646,15 @@
     "id": "q97",
     "type": "multiple_choice",
     "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Optimum Moisture Content",
     "choices": [
-      "A group of clay minerals that expand when they absorb large quantites of water.",
-      "The load per unit area which the ground can safely support without excessive yield.",
-      "The property of a soil that is able to absorb stress by plastic deformation.",
-      "The moisture content at which the maximum dry density of a soil is attained."
+      "The moisture content at which soil reaches maximum dry density during compaction.",
+      "The moisture content at which soil becomes fully saturated.",
+      "The moisture content at which soil begins to flow.",
+      "The moisture content at which consolidation begins."
     ],
-    "correctAnswer": 3,
-    "explanation": "The moisture content at which the maximum dry density of a soil is attained.",
+    "correctAnswer": 0,
+    "explanation": "Optimum moisture content is the water content at which compaction produces the maximum dry density.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1690,16 +1663,15 @@
     "id": "q98",
     "type": "multiple_choice",
     "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Piping",
     "choices": [
-      "A theory that forecasts location and magnitude of future earthquakes based on the absense of earthquakes in one area as compared to the presence of earthquakes adjacent to the gap.",
-      "The force per unit area. The symbol sigma is used to denote the overall stress as well as the component of stress that acts normal to the plane (normal stress)",
-      "Soil that flows into a tunnel from the floor, roof, or wals of a tunnel driven by water seepage. The flow typically consists of cohesionaless soil below the water table.",
-      "Erosion by percolating waters or seepage in a layer of subsoil resulting in caving and the formation of tunnels or pipes through which the soluble or granular material is removed."
+      "The transport of soil particles by seepage flow, forming channels within soil.",
+      "The upward movement of water through capillary action.",
+      "The consolidation of soil under applied load.",
+      "The compaction of soil through mechanical means."
     ],
-    "correctAnswer": 3,
-    "explanation": "As the name suggest. When groundwater transports eroded material in a \"pipe\" like manner.",
+    "correctAnswer": 0,
+    "explanation": "Piping is erosion caused by seepage forces that remove soil particles, forming channels or 'pipes' within the soil.",
     "difficulty": "hard",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1708,16 +1680,15 @@
     "id": "q99",
     "type": "multiple_choice",
     "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Plastic Limit (PL)",
     "choices": [
-      "Slope movement due to forces that cause an overturning moment about a pivot point below the center of gravity of the unit.",
-      "Bedrock or soil on a ridge top that has been thoroughly pulverized due to high accelerations over many cycles of earthquake shattering.",
-      "The lower limit of the plastic state. Water content at which the soil begins to crumble when rolled out into thin threads.",
-      "Gradual or slow reduction in volume and increase in density of a soil mass in response to increased load or compressive stress."
+      "The water content at which soil transitions from plastic to semi-solid state.",
+      "The water content at which soil begins to flow like a liquid.",
+      "The moisture content at which soil reaches maximum density.",
+      "The moisture content at which soil becomes fully saturated."
     ],
-    "correctAnswer": 2,
-    "explanation": "THE IMPORTANT PART -> The lower limit of the plastic state.",
+    "correctAnswer": 0,
+    "explanation": "Plastic limit is the lower boundary of the plastic state where soil begins to crumble when rolled into threads.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1726,16 +1697,15 @@
     "id": "q100",
     "type": "multiple_choice",
     "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Plasticity Index (PI)",
     "choices": [
-      "A group of clay minerals that expand when they absorb large quantites of water.",
-      "The property of a soil that is able to absorb stress by plastic deformation.",
-      "The load per unit area which the ground can safely support without excessive yield.",
-      "Range in water content between the liquid limit (LL) and the plastic limit (PL)"
+      "The difference between liquid limit and plastic limit (PI = LL − PL).",
+      "The ratio of void volume to total volume.",
+      "The moisture content at maximum compaction.",
+      "The ratio of water volume to void volume."
     ],
-    "correctAnswer": 3,
-    "explanation": "PI = LL - PL",
+    "correctAnswer": 0,
+    "explanation": "Plasticity Index (PI) = LL − PL and represents the range of water content over which soil behaves plastically.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"

@@ -80,22 +80,23 @@ export default function HomeScreen() {
 
         {/* PROFILE */}
         <Pressable
-          onPress={() => safeNav("/profile")}
-          style={{
-            padding: 25,
-            borderRadius: 16,
-            backgroundColor: "#1e293b",
-            borderWidth: 1,
-            borderColor: "#334155",
-          }}
-        >
-          <Text style={{ color: "white", fontSize: 18, fontWeight: "600" }}>
-            📊 Results
-          </Text>
-          <Text style={{ color: "#94a3b8", marginTop: 5 }}>
-            Stats, progress, analytics
-          </Text>
-        </Pressable>
+  disabled
+  style={{
+    padding: 25,
+    borderRadius: 16,
+    backgroundColor: "#0f172a", // darker
+    borderWidth: 1,
+    borderColor: "#1e293b",
+    opacity: 0.5, // 🔥 greyed out
+  }}
+>
+  <Text style={{ color: "#64748b", fontSize: 18, fontWeight: "600" }}>
+    📊 Results (Coming Soon)
+  </Text>
+  <Text style={{ color: "#475569", marginTop: 5 }}>
+    Stats, progress, analytics
+  </Text>
+</Pressable>
       </View>
     </View>
   );

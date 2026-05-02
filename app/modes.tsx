@@ -8,14 +8,16 @@ function ModeCard({
   title,
   subtitle,
   onPress,
+  disabled = false, // ✅ ADDED
 }: {
   title: string;
   subtitle: string;
   onPress: () => void;
+  disabled?: boolean; // ✅ ADDED
 }) {
   return (
     <Pressable
-      onPress={onPress}
+      onPress={disabled ? undefined : onPress} // ✅ BLOCK CLICK
       style={{
         backgroundColor: "#1e293b",
         padding: 20,
@@ -23,12 +25,24 @@ function ModeCard({
         marginBottom: 16,
         borderWidth: 2,
         borderColor: theme.colors.border,
+        opacity: disabled ? 0.5 : 1, // ✅ GREY OUT
       }}
     >
-      <Text style={{ color: theme.colors.text, fontSize: 18, fontWeight: "600" }}>
+      <Text
+        style={{
+          color: disabled ? "#64748b" : theme.colors.text, // ✅ DIM TEXT
+          fontSize: 18,
+          fontWeight: "600",
+        }}
+      >
         {title}
       </Text>
-      <Text style={{ color: theme.colors.subtext, marginTop: 3 }}>
+      <Text
+        style={{
+          color: disabled ? "#475569" : theme.colors.subtext, // ✅ DIM SUBTEXT
+          marginTop: 3,
+        }}
+      >
         {subtitle}
       </Text>
     </Pressable>
@@ -56,31 +70,28 @@ export default function ModesScreen() {
         onPress={() => {
           if (tapLock.current) return;
           tapLock.current = true;
-           router.push("/practice-menu");
+          router.push("/practice-menu");
           setTimeout(() => (tapLock.current = false), 400);
         }}
       />
 
-<ModeCard
-  title="Topic Mode"
-  subtitle="Focus on specific geology subjects"
-  onPress={() => {
-    if (tapLock.current) return;
-    tapLock.current = true;
-    router.push("/topics");
-    setTimeout(() => (tapLock.current = false), 400);
-  }}
-/>
-
       <ModeCard
-        title="Review Mode"
-        subtitle="Practice your missed questions"
+        title="Topic Mode"
+        subtitle="Focus on specific geology subjects"
         onPress={() => {
           if (tapLock.current) return;
           tapLock.current = true;
-          router.push("/review");
+          router.push("/topics");
           setTimeout(() => (tapLock.current = false), 400);
         }}
+      />
+
+      {/* 🔒 LOCKED REVIEW MODE */}
+      <ModeCard
+        title="Review Mode (Coming Soon)"
+        subtitle="Practice your missed questions"
+        onPress={() => {}}
+        disabled // ✅ THIS LOCKS IT
       />
 
       <ModeCard
