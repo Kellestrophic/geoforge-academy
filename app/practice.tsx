@@ -1,3 +1,5 @@
+import questionsData from "@/data/questions.json";
+
 import mineralFormulasRaw from "@/data/mineralFormulas.json";
 import mineralogyFBRaw from "@/data/mineralogyFB.json";
 import mineralogyMCRaw from "@/data/mineralogyMC.json";
@@ -8,9 +10,11 @@ import sedimentologyMCRaw from "@/data/sedimentologyMC.json";
 
 import { theme } from "@/lib/theme";
 import { useLocalSearchParams } from "expo-router";
-import { useMemo, useState } from "react";
-import { Pressable, Text, TextInput, View } from "react-native";
+import { useEffect, useMemo, useState } from "react";
+import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+
+/* ---------------- DATA ---------------- */
 
 const mineralFormulas = mineralFormulasRaw as any[];
 const mineralogyFB = mineralogyFBRaw as any[];
@@ -19,6 +23,8 @@ const petrologyFB = petrologyFBRaw as any[];
 const petrologyMC = petrologyMCRaw as any[];
 const sedimentologyFB = sedimentologyFBRaw as any[];
 const sedimentologyMC = sedimentologyMCRaw as any[];
+
+/* ---------------- HELPERS ---------------- */
 
 function clean(str: string) {
   return String(str).toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -33,23 +39,47 @@ function shuffle(arr: any[]) {
   return copy;
 }
 
-export default function PracticeScreen() {
-  const [index, setIndex] = useState(0);
-  const [selected, setSelected] = useState<number | null>(null);
-  const [input, setInput] = useState("");
-  const [showResult, setShowResult] = useState(false);
-  const [isCorrect, setIsCorrect] = useState(false);
+/* ---------------- SCREEN ---------------- */
 
-  // ✅ MUST BE INSIDE COMPONENT
+export default function ExamScreen() {
   const params = useLocalSearchParams();
 
+  const rawMode = Array.isArray(params.mode) ? params.mode[0] : params.mode;
   const selectedTopic = Array.isArray(params.topic)
     ? params.topic[0]
     : params.topic;
 
-  const mode = Array.isArray(params.mode)
-    ? params.mode[0]
-    : params.mode;
+  const mode: "random" | "topic" | "pg" =
+    rawMode === "topic" || rawMode === "pg" ? rawMode : "random";
+
+  const count = Number(params.count) || 20;
+  const timeLimit = Number(params.time) || 30;
+
+  const [index, setIndex] = useState(0);
+  const [answers, setAnswers] = useState<any>({});
+  const [finished, setFinished] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(timeLimit * 60);
+
+  /* ---------------- TIMER ---------------- */
+
+  useEffect(() => {
+    if (finished) return;
+
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev <= 1) {
+          clearInterval(timer);
+          setFinished(true);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [finished]);
+
+  /* ---------------- BUILD QUESTIONS ---------------- */
 
   const questions = useMemo(() => {
     try {
@@ -60,37 +90,62 @@ export default function PracticeScreen() {
         "Mineral Formulas": [...mineralFormulas],
       };
 
+      // ✅ PG MODE
+      if (mode === "pg") {
+        return shuffle(
+          (Array.isArray(questionsData) ? questionsData : [])
+            .map((q: any) => {
+              if (
+                (q.type === "multiple_choice" || q.type === "formula") &&
+                Array.isArray(q.choices)
+              ) {
+                return {
+                  question: q.question,
+                  type: "multiple_choice",
+                  choices: q.choices.map((c: any) => String(c)),
+                  correctAnswer: q.correctAnswer ?? 0,
+                };
+              }
+
+              if (q.answer) {
+                return {
+                  question: q.question,
+                  type: "input",
+                  answer: [String(q.answer)],
+                };
+              }
+
+              return null;
+            })
+            .filter(Boolean)
+        ).slice(0, count);
+      }
+
       const processed: any[] = [];
 
       for (const topic in topicMap) {
         // ✅ TOPIC FILTER
-        if (selectedTopic && topic !== selectedTopic) continue;
+        if (mode === "topic") {
+          if (!selectedTopic || topic !== selectedTopic) continue;
+        }
 
         const list = topicMap[topic];
 
         for (const q of list) {
           if (!q || typeof q.question !== "string") continue;
 
-          // MC
-         if (
-  (q.type === "multiple_choice" || q.type === "formula") &&
-  Array.isArray(q.choices)
-) {
+          // MC + FORMULA
+          if (
+            (q.type === "multiple_choice" || q.type === "formula") &&
+            Array.isArray(q.choices)
+          ) {
             const choices = q.choices.map((c: any) => String(c));
-            if (choices.length === 0) continue;
-
-            const correctIndex =
-              typeof q.correctAnswer === "number" ? q.correctAnswer : 0;
-
-            const correctText = choices[correctIndex] || choices[0];
-            const shuffled = shuffle(choices);
-            const newIndex = shuffled.indexOf(correctText);
 
             processed.push({
               question: q.question,
               type: "multiple_choice",
-              choices: shuffled,
-              correctAnswer: newIndex >= 0 ? newIndex : 0,
+              choices,
+              correctAnswer: q.correctAnswer ?? 0,
             });
 
             continue;
@@ -102,61 +157,152 @@ export default function PracticeScreen() {
               ? q.answer
               : [q.answer];
 
-            const safe = answers.map((x: any) => String(x));
-            if (safe.length === 0) continue;
-
             processed.push({
               question: q.question,
               type: "input",
-              choices: safe,
+              answer: answers.map((x: any) => String(x)),
             });
           }
         }
       }
 
-      // ✅ MODE FILTER (THIS WAS MISSING PROPERLY)
-      let filtered = processed;
-
-      if (mode === "mc") {
-        filtered = processed.filter((q) => q.type === "multiple_choice");
-      }
-
-      if (mode === "fb") {
-        filtered = processed.filter((q) => q.type === "input");
-      }
-
-      return shuffle(filtered);
+      return shuffle(processed).slice(0, count);
     } catch (e) {
-      console.log("❌ build crash", e);
+      console.log("❌ BUILD CRASH", e);
       return [];
     }
-  }, [selectedTopic, mode]); // ✅ IMPORTANT
+  }, [mode, selectedTopic, count]);
 
   const question = questions[index];
 
-  if (!question) {
+  /* ---------------- SCORE ---------------- */
+
+  function calculateScore() {
+    let correct = 0;
+
+    questions.forEach((q, i) => {
+      const user = answers[i];
+
+      if (q.type === "multiple_choice") {
+        const correctText = q.choices[q.correctAnswer];
+        if (user === correctText) correct++;
+      } else {
+        const correctAnswer = q.answer?.[0] ?? "";
+        if (clean(user) === clean(correctAnswer)) correct++;
+      }
+    });
+
+    return correct;
+  }
+
+  /* ---------------- RESULT ---------------- */
+
+  if (finished) {
+    const score = calculateScore();
+
     return (
       <SafeAreaView style={{ flex: 1 }}>
-        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-          <Text style={{ color: theme.colors.text }}>
-            No questions loaded
+        <ScrollView contentContainerStyle={{ padding: 20 }}>
+          <Text style={{ fontSize: 24, color: theme.colors.text }}>
+            Score: {score} / {questions.length}
           </Text>
-        </View>
+
+          {questions.map((q, i) => {
+            const user = answers[i];
+
+            const correctText =
+              q.type === "multiple_choice"
+                ? q.choices[q.correctAnswer]
+                : q.answer?.[0];
+
+            const isCorrect =
+              q.type === "multiple_choice"
+                ? user === correctText
+                : clean(user) === clean(correctText);
+
+            return (
+              <View key={i} style={{ marginTop: 15 }}>
+                <Text style={{ color: theme.colors.text }}>
+                  {q.question}
+                </Text>
+
+                <Text style={{ color: isCorrect ? "#22c55e" : "#ef4444" }}>
+                  Your Answer: {String(user ?? "—")}
+                </Text>
+
+                <Text style={{ color: "#94a3b8" }}>
+                  Correct Answer: {correctText}
+                </Text>
+              </View>
+            );
+          })}
+        </ScrollView>
       </SafeAreaView>
     );
   }
 
+  /* ---------------- EMPTY ---------------- */
+
+  if (!question) {
+    return (
+      <SafeAreaView style={{ flex: 1 }}>
+        <Text style={{ color: theme.colors.text }}>
+          No questions loaded
+        </Text>
+      </SafeAreaView>
+    );
+  }
+
+  /* ---------------- UI ---------------- */
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={{ flex: 1, padding: 20, backgroundColor: theme.colors.background }}>
+      <ScrollView contentContainerStyle={{ padding: 20 }}>
+
+        {/* TIMER */}
+        <Text style={{ color: theme.colors.subtext }}>
+          Time Left: {Math.floor(timeLeft / 60)}:
+          {(timeLeft % 60).toString().padStart(2, "0")}
+        </Text>
+
         <Text style={{ color: theme.colors.text, fontSize: 20 }}>
           {question.question}
         </Text>
 
+        {/* MC */}
+        {question.type === "multiple_choice" &&
+          question.choices.map((c: string, i: number) => (
+            <Pressable
+              key={i}
+              onPress={() =>
+                setAnswers((prev: any) => ({
+                  ...prev,
+                  [index]: c,
+                }))
+              }
+              style={{
+                marginTop: 10,
+                padding: 14,
+                borderWidth: 1,
+                borderColor: "#444",
+                backgroundColor:
+                  answers[index] === c ? "#334155" : "#1e293b",
+              }}
+            >
+              <Text style={{ color: "white" }}>{c}</Text>
+            </Pressable>
+          ))}
+
+        {/* INPUT */}
         {question.type === "input" && (
           <TextInput
-            value={input}
-            onChangeText={(t) => !showResult && setInput(t)}
+            value={answers[index] || ""}
+            onChangeText={(t) =>
+              setAnswers((prev: any) => ({
+                ...prev,
+                [index]: t,
+              }))
+            }
             placeholder="Type answer"
             placeholderTextColor="#94a3b8"
             style={{
@@ -169,70 +315,13 @@ export default function PracticeScreen() {
           />
         )}
 
-        {question.type === "multiple_choice" &&
-          question.choices.map((c: string, i: number) => {
-            let bg = "transparent";
-
-            if (showResult) {
-              if (i === question.correctAnswer) bg = "#16a34a";
-              else if (i === selected) bg = "#dc2626";
-            } else if (selected === i) {
-              bg = "#334155";
-            }
-
-            return (
-              <Pressable
-                key={i}
-                onPress={() => !showResult && setSelected(i)}
-                style={{
-                  padding: 14,
-                  marginTop: 10,
-                  borderWidth: 1,
-                  borderColor: "#444",
-                  backgroundColor: bg,
-                }}
-              >
-                <Text style={{ color: theme.colors.text }}>{c}</Text>
-              </Pressable>
-            );
-          })}
-
-        {showResult && (
-          <Text
-            style={{
-              marginTop: 20,
-              color: isCorrect ? "#22c55e" : "#ef4444",
-              fontSize: 18,
-            }}
-          >
-            {isCorrect ? "✅ Correct!" : "❌ Incorrect"}
-          </Text>
-        )}
-
+        {/* NEXT */}
         <Pressable
-          onPress={() => {
-            if (!showResult) {
-              let correct = false;
-
-              if (question.type === "multiple_choice") {
-                if (selected === null) return;
-                correct = selected === question.correctAnswer;
-              } else {
-                correct =
-                  clean(input) === clean(question.choices[0] || "");
-              }
-
-              setIsCorrect(correct);
-              setShowResult(true);
-            } else {
-              setSelected(null);
-              setInput("");
-              setShowResult(false);
-              setIndex((prev) =>
-                prev + 1 >= questions.length ? 0 : prev + 1
-              );
-            }
-          }}
+          onPress={() =>
+            setIndex((prev) =>
+              prev + 1 >= questions.length ? prev : prev + 1
+            )
+          }
           style={{
             marginTop: 20,
             backgroundColor: "#2563eb",
@@ -240,10 +329,24 @@ export default function PracticeScreen() {
           }}
         >
           <Text style={{ color: "white", textAlign: "center" }}>
-            {showResult ? "Next" : "Submit"}
+            Next
           </Text>
         </Pressable>
-      </View>
+
+        {/* SUBMIT */}
+        <Pressable
+          onPress={() => setFinished(true)}
+          style={{
+            marginTop: 10,
+            backgroundColor: "#ef4444",
+            padding: 14,
+          }}
+        >
+          <Text style={{ color: "white", textAlign: "center" }}>
+            Submit Exam
+          </Text>
+        </Pressable>
+      </ScrollView>
     </SafeAreaView>
   );
 }

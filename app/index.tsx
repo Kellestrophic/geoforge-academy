@@ -61,7 +61,7 @@ export default function HomeScreen() {
 
         {/* MINIGAMES */}
         <Pressable
-          onPress={() => safeNav("/minigames-test")}
+          onPress={() => safeNav("/minigames")}
           style={{
             padding: 25,
             borderRadius: 16,
