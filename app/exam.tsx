@@ -8,12 +8,13 @@ import petrologyMCRaw from "@/data/petrologyMC.json";
 import sedimentologyFBRaw from "@/data/sedimentologyFB.json";
 import sedimentologyMCRaw from "@/data/sedimentologyMC.json";
 
+import { trackActivity } from "@/lib/activity";
+import { saveExam } from "@/lib/saveExam";
 import { theme } from "@/lib/theme";
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useMemo, useState } from "react";
 import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
 /* ---------------- DATA ---------------- */
 
 const mineralFormulas = mineralFormulasRaw as any[];
@@ -174,7 +175,19 @@ export default function ExamScreen() {
 
   if (finished) {
     const score = calculateScore();
+useEffect(() => {
+  if (!finished) return;
 
+  const run = async () => {
+    const score = calculateScore();
+    const percent = Math.round((score / questions.length) * 100);
+
+    await saveExam(percent, mode, selectedTopic);
+    await trackActivity("exam", 10);
+  };
+
+  run();
+}, [finished]);
     return (
       <SafeAreaView style={{ flex: 1 }}>
         <ScrollView contentContainerStyle={{ padding: 20 }}>

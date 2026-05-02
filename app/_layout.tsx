@@ -1,10 +1,21 @@
+import { ensureUser } from "@/lib/auth";
 import { theme } from "@/lib/theme";
 import { Stack } from "expo-router";
+import { useEffect } from "react";
 import "react-native-gesture-handler";
 import "react-native-reanimated";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function Layout() {
+  useEffect(() => {
+    const init = async () => {
+      const user = await ensureUser();
+      console.log("✅ USER READY:", user?.id);
+    };
+
+    init();
+  }, []);
+
   return (
     <SafeAreaProvider>
       <Stack
@@ -20,7 +31,7 @@ export default function Layout() {
             backgroundColor: theme?.colors?.background || "#000",
           },
 
-          // ✅ IMPORTANT (prevents iOS crashes)
+          // prevents iOS crash
           animation: "none",
           gestureEnabled: false,
         }}

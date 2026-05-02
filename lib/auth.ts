@@ -1,31 +1,23 @@
 import { supabase } from "./supabase";
 
-export async function signInAnon() {
+export async function ensureUser() {
   try {
     const { data: sessionData } = await supabase.auth.getSession();
 
-    if (sessionData.session?.user) {
-      console.log("Reusing user:", sessionData.session.user.id);
+    if (sessionData?.session?.user) {
       return sessionData.session.user;
     }
 
     const { data, error } = await supabase.auth.signInAnonymously();
 
-    if (error || !data.user) {
-      console.log("Auth error:", error);
+    if (error) {
+      console.log("❌ SIGN IN ERROR:", error);
       return null;
     }
 
-    console.log("New user created:", data.user.id);
-
-    // 🔥 CREATE USER ROW IN YOUR TABLE
-    await supabase.from("users").upsert({
-      id: data.user.id,
-    });
-
     return data.user;
-  } catch (err) {
-    console.log("SIGN IN CRASH:", err);
+  } catch (e) {
+    console.log("❌ AUTH CRASH:", e);
     return null;
   }
 }

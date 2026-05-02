@@ -79,7 +79,8 @@ export default function ExamScreen() {
   const params = useLocalSearchParams();
 
   const rawMode = Array.isArray(params.mode) ? params.mode[0] : params.mode;
- const isPractice = rawMode === "practice";
+const isPractice =
+  rawMode === "practice" || (!params.mode && !params.time);
   const selectedTopic = Array.isArray(params.topic)
     ? params.topic[0]
     : params.topic;
@@ -87,15 +88,14 @@ export default function ExamScreen() {
   const mode: "random" | "topic" | "pg" =
     rawMode === "topic" || rawMode === "pg" ? rawMode : "random";
 
-  const count = Number(params.count) || 20;
+ const count = isPractice ? 9999 : Number(params.count) || 20;
 const timeLimit = isPractice ? 0 : Number(params.time) || 30;
 
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<any>({});
   const [finished, setFinished] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(
-  isPractice ? 0 : timeLimit * 60
-);
+const [timeLeft, setTimeLeft] = useState(0);
+
 const [selected, setSelected] = useState<number | null>(null);
 const [input, setInput] = useState("");
 const [showResult, setShowResult] = useState(false);
@@ -103,21 +103,25 @@ const [isCorrect, setIsCorrect] = useState(false);
   /* ---------------- TIMER ---------------- */
 
 useEffect(() => {
-  if (isPractice || finished) return;
+  if (isPractice) return; // 🔥 HARD BLOCK
 
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev <= 1) {
-          clearInterval(timer);
-          setFinished(true);
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
+  if (finished) return;
 
-    return () => clearInterval(timer);
-  }, [finished]);
+  setTimeLeft(timeLimit * 60);
+
+  const timer = setInterval(() => {
+    setTimeLeft((prev) => {
+      if (prev <= 1) {
+        clearInterval(timer);
+        setFinished(true);
+        return 0;
+      }
+      return prev - 1;
+    });
+  }, 1000);
+
+  return () => clearInterval(timer);
+}, [finished, isPractice]);
 
   /* ---------------- BUILD QUESTIONS ---------------- */
 

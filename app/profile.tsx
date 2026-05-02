@@ -43,27 +43,9 @@ const [filter, setFilter] = useState<"all" | "pg" | "random" | "topic">("all");
   }, []);
 
   async function loadData() {
-let user = null;
-
-try {
-  const response = await supabase?.auth?.getUser?.();
-
-  if (
-    response &&
-    response.data &&
-    response.data.user &&
-    typeof response.data.user.id === "string"
-  ) {
-    user = response.data.user;
-  }
-} catch (e) {
-  console.log("❌ getUser crash prevented:", e);
-}
-
-if (!user) {
-  console.log("❌ NO USER - skipping load");
-  return;
-}
+    const { data: userData } = await supabase.auth.getUser();
+    const user = userData.user;
+    if (!user) return;
 
     // EXAMS
     const { data: examData } = await supabase
@@ -92,10 +74,7 @@ if (!user) {
   }))
 );
   }
-function safeDate(value: any) {
-  const d = new Date(value);
-  return isNaN(d.getTime()) ? null : d;
-}
+
   /* ---------------- STREAK (FIXED) ---------------- */
 
   function calculateStreak() {
@@ -135,10 +114,7 @@ const filteredExams = exams.filter((e) => {
 const groupedByDay: Record<string, Exam[]> = {};
 
 filteredExams.forEach((e) => {
- const d = safeDate(e.date);
-if (!d) return;
-
-const day = d.toDateString();
+  const day = new Date(e.date).toDateString();
   if (!groupedByDay[day]) groupedByDay[day] = [];
   groupedByDay[day].push(e);
 });
@@ -326,7 +302,7 @@ activity.forEach((a) => {
       </Text>
 
       <Text style={{ color: "#94a3b8" }}>
-        Date: {safeDate(selectedExam.date)?.toLocaleDateString()}
+        Date: {new Date(selectedExam.date).toLocaleDateString()}
       </Text>
 
       {selectedExam.topic && (
