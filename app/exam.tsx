@@ -14,7 +14,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-/* ---------------- SAFE CAST ---------------- */
+/* ---------------- DATA ---------------- */
 
 const mineralFormulas = mineralFormulasRaw as any[];
 const mineralogyFB = mineralogyFBRaw as any[];
@@ -110,14 +110,11 @@ export default function ExamScreen() {
       for (const q of pool) {
         if (!q || typeof q.question !== "string") continue;
 
-        // MC + FORMULA
         if (
           (q.type === "multiple_choice" || q.type === "formula") &&
           Array.isArray(q.choices)
         ) {
           const choices = q.choices.map((c: any) => String(c));
-          if (choices.length === 0) continue;
-
           const correctIndex =
             typeof q.correctAnswer === "number" ? q.correctAnswer : 0;
 
@@ -131,7 +128,6 @@ export default function ExamScreen() {
           continue;
         }
 
-        // INPUT
         if (q.answer !== undefined && q.answer !== null) {
           const answers = Array.isArray(q.answer)
             ? q.answer
@@ -163,7 +159,8 @@ export default function ExamScreen() {
       const user = answers[i];
 
       if (q.type === "multiple_choice") {
-        if (user === q.correctAnswer) correct++;
+        const correctText = q.choices[q.correctAnswer];
+        if (user === correctText) correct++;
       } else {
         const correctAnswer = q.answer?.[0] ?? "";
         if (clean(user) === clean(correctAnswer)) correct++;
@@ -188,14 +185,15 @@ export default function ExamScreen() {
           {questions.map((q, i) => {
             const user = answers[i];
 
-            let correct = false;
+            const correctText =
+              q.type === "multiple_choice"
+                ? q.choices[q.correctAnswer]
+                : q.answer?.[0];
 
-            if (q.type === "multiple_choice") {
-              correct = user === q.correctAnswer;
-            } else {
-              correct =
-                clean(user) === clean(q.answer?.[0] ?? "");
-            }
+            const isCorrect =
+              q.type === "multiple_choice"
+                ? user === correctText
+                : clean(user) === clean(correctText);
 
             return (
               <View key={i} style={{ marginTop: 15 }}>
@@ -203,8 +201,12 @@ export default function ExamScreen() {
                   {q.question}
                 </Text>
 
-                <Text style={{ color: correct ? "#22c55e" : "#ef4444" }}>
+                <Text style={{ color: isCorrect ? "#22c55e" : "#ef4444" }}>
                   Your Answer: {String(user ?? "—")}
+                </Text>
+
+                <Text style={{ color: "#94a3b8" }}>
+                  Correct Answer: {correctText}
                 </Text>
               </View>
             );
@@ -233,7 +235,7 @@ export default function ExamScreen() {
       <ScrollView contentContainerStyle={{ padding: 20 }}>
 
         {/* TIMER */}
-        <Text style={{ color: theme.colors.subtext, marginBottom: 10 }}>
+        <Text style={{ color: theme.colors.subtext }}>
           Time Left: {Math.floor(timeLeft / 60)}:
           {(timeLeft % 60).toString().padStart(2, "0")}
         </Text>
@@ -250,7 +252,7 @@ export default function ExamScreen() {
               onPress={() =>
                 setAnswers((prev: any) => ({
                   ...prev,
-                  [index]: i,
+                  [index]: c, // ✅ STORE TEXT
                 }))
               }
               style={{
@@ -259,7 +261,7 @@ export default function ExamScreen() {
                 borderWidth: 1,
                 borderColor: "#444",
                 backgroundColor:
-                  answers[index] === i ? "#334155" : "#1e293b",
+                  answers[index] === c ? "#334155" : "#1e293b",
               }}
             >
               <Text style={{ color: "white" }}>{c}</Text>
