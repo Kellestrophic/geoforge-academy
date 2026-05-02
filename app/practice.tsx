@@ -79,8 +79,7 @@ export default function ExamScreen() {
   const params = useLocalSearchParams();
 
   const rawMode = Array.isArray(params.mode) ? params.mode[0] : params.mode;
-const isPractice =
-  rawMode === "practice" || (!params.mode && !params.time);
+const isPractice = rawMode === "practice";
   const selectedTopic = Array.isArray(params.topic)
     ? params.topic[0]
     : params.topic;

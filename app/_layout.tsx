@@ -1,10 +1,36 @@
+import { ensureUser } from "@/lib/auth";
 import { theme } from "@/lib/theme";
 import { Stack } from "expo-router";
+import { useEffect } from "react";
 import "react-native-gesture-handler";
 import "react-native-reanimated";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function Layout() {
+  useEffect(() => {
+  let mounted = true;
+
+  const init = async () => {
+    try {
+      // slight delay prevents Hermes crash on cold boot
+      await new Promise((res) => setTimeout(res, 300));
+
+      const user = await ensureUser();
+
+      if (mounted) {
+        console.log("✅ USER READY:", user?.id);
+      }
+    } catch (e) {
+      console.log("❌ INIT ERROR:", e);
+    }
+  };
+
+  init();
+
+  return () => {
+    mounted = false;
+  };
+}, []);
   return (
     <SafeAreaProvider>
       <Stack

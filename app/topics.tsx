@@ -26,13 +26,16 @@ export default function TopicsScreen() {
         {TOPIC_LIST.map((topic) => (
           <Pressable
             key={topic}
-           onPress={() => {
+onPress={() => {
   const displayName =
     topic === "MineralFormulas" ? "Mineral Formulas" : topic;
 
   router.push({
     pathname: "/practice",
-    params: { topic: displayName },
+    params: {
+      mode: "topic",   // 🔥 REQUIRED
+      topic: displayName,
+    },
   });
 }}
             style={{

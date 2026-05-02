@@ -71,20 +71,20 @@
     "examRelevant": true,
     "verifiedStatus": "reviewed"
   },
-  {
+{
     "id": "q5",
     "type": "multiple_choice",
     "category": "Hydrogeology",
     "subcategory": [],
     "question": "Aquifuge",
     "choices": [
-      "Sodium, calcium, magnesium, potassium, chloride, bicarbonate, sulfate",
-      "acre-feet per year or gallons per year.",
-      "Two-dimensional representation of flow lines and equipotentials.",
-      "A geologic unit that is COMPLETELY impermeable."
+      "A geologic unit that can store groundwater but transmits it very slowly due to low permeability.",
+      "A geologic unit that is completely impermeable and neither stores nor transmits groundwater.",
+      "A geologic unit that stores and transmits groundwater efficiently for use.",
+      "A geologic unit that stores water but transmits negligible amounts of groundwater."
     ],
-    "correctAnswer": 3,
-    "explanation": "A geologic unit that is COMPLETELY impermeable.",
+    "correctAnswer": 1,
+    "explanation": "An aquifuge is completely impermeable, meaning it neither stores nor transmits groundwater. This distinguishes it from an aquiclude (may store but does not transmit) and an aquitard (stores and transmits slowly).",
     "difficulty": "easy",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -96,13 +96,13 @@
     "subcategory": [],
     "question": "Capillary Fringe",
     "choices": [
-      "Ratio of the volume of water a soil or rock can retain against gravity drainage to the total volume of the soil or rock, usually stated as a percentage.",
-      "The capacity of an aquifer to trasmit water of the prevailing kinematic viscosity. T = kb, where b = saturated thickness of the aquifer. Dimensions are gpd/ft of ft^2/day.",
-      "[1] The hydraulic gradient equals the slope of the water table. [2] The direction of groundwater flow (streamlines) is horizontal. [3] Contours of equal head (equipotentional lines) are vertical.",
-      "The lowest part of the vadose zone, immediately above the water table, where water is under pressure that is less than atmospheric pressure. Water is held by capillary tension."
+      "The zone below the water table where all pore spaces are fully saturated with groundwater.",
+      "The upper portion of the vadose zone where water infiltrates downward under gravitational forces.",
+      "The zone immediately above the water table where water is held in pores by capillary forces under negative pressure.",
+      "A region within an aquifer where groundwater flow is primarily horizontal and controlled by hydraulic gradients."
     ],
-    "correctAnswer": 3,
-    "explanation": "The lowest part of the vadose zone, immediately above the water table, where water is under pressure that is less than atmospheric pressure. Water is held by capillary tension.",
+    "correctAnswer": 2,
+    "explanation": "The capillary fringe lies directly above the water table within the vadose zone. In this zone, water is pulled upward from the saturated zone and held in pore spaces by capillary forces, creating negative (less than atmospheric) pressure conditions. It is distinct from the saturated zone below and the unsaturated infiltration zone above.",
     "difficulty": "hard",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -114,13 +114,13 @@
     "subcategory": [],
     "question": "Confined Aquifer",
     "choices": [
-      "A geologic unit that can store, and SLUGGISHLY transmit water.",
-      "An area where water infiltrates downward into the saturated zone.",
-      "An aquifer overlain by a confining layer of low permeability.",
-      "K = ki(intrinsic permeability) x gamma(specific weight) / mu(dynamic viscosity)"
+      "A geologic unit that stores groundwater but transmits it slowly due to low permeability.",
+      "An aquifer that is bounded above by a confining layer and contains water under pressure.",
+      "A subsurface zone where water infiltrates downward into the saturated zone.",
+      "An aquifer in which the water table is directly exposed to atmospheric pressure."
     ],
-    "correctAnswer": 2,
-    "explanation": "An aquifer overlain by a confining layer of low permeability.",
+    "correctAnswer": 1,
+    "explanation": "A confined aquifer is overlain by a low-permeability confining layer, causing groundwater to be under pressure. This pressure can result in water rising in wells (artesian conditions). It differs from unconfined aquifers, where the water table is exposed to atmospheric pressure.",
     "difficulty": "easy",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -132,13 +132,13 @@
     "subcategory": [],
     "question": "Connate Water",
     "choices": [
-      "Rate of change in total head per unit of distance of flow in a given direction.",
-      "An area where subsurface water is discharged to land, bodies of water, or the atmosphere.",
-      "Water trapped in the pores of a sedimentary rock at the time of deposittion; fossil water.",
-      "The surface within unconfined groundwater at which the hydraulic pressure is equal to atmospheric pressure."
+      "Water stored in the saturated zone that actively participates in the modern hydrologic cycle.",
+      "Water that discharges from the subsurface to the land surface or bodies of water.",
+      "Water trapped in the pores of sedimentary rock at the time of deposition, often isolated from modern circulation.",
+      "The water surface in an unconfined aquifer where pressure equals atmospheric pressure."
     ],
     "correctAnswer": 2,
-    "explanation": "Water trapped in the pores of a sedimentary rock at the time of deposittion; fossil water.",
+    "explanation": "Connate water is water that was trapped in sediment pore spaces at the time the sediment was deposited. It is typically isolated from the active hydrologic cycle and may be highly saline due to long-term geochemical interactions.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -150,13 +150,13 @@
     "subcategory": [],
     "question": "Darcy",
     "choices": [
-      "A unit of intrinsic permeability = to 9.87 x 10^9 cm^2",
-      "When the water level of an aquifer is above land surface.",
-      "Vd = -K(h1-h2/L) & Vd = Q/A & Vd = Ki",
-      "An area where water infiltrates downward into the saturated zone."
+      "A unit of intrinsic permeability equal to approximately 9.87 × 10⁻⁹ cm².",
+      "A measure of groundwater velocity through interconnected pore spaces.",
+      "An equation used to calculate volumetric groundwater flow through porous media.",
+      "A unit describing the storage capacity of an aquifer under changing head conditions."
     ],
     "correctAnswer": 0,
-    "explanation": "NOTE: Be careful with where you apply this. This unit isn't used for the end result of the Darcy's Law equation. It's used as the unit for Intrinsic Permeability",
+    "explanation": "The darcy is a unit of intrinsic permeability, which describes how easily a material allows fluid to pass through it. It is not a flow rate or velocity, but a property of the porous medium itself used within Darcy’s Law.",
     "difficulty": "easy",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -168,31 +168,30 @@
     "subcategory": [],
     "question": "Darcy's Law",
     "choices": [
-      "Storativity = (+- Volume of Water) / (Area x Change in Head Height)",
-      "Generalized term for water in the saturated zone / above the water table.",
-      "The basic equation describing groundwater flow put forth by Darcy: Q = -KiA",
-      "Unconfined groundwater separated from an underlying body of groundwater by an unsaturated zone."
+      "S = (change in stored water) / (area × change in hydraulic head).",
+      "A relationship describing groundwater flow as proportional to hydraulic gradient and permeability: Q = -KiA.",
+      "A definition describing groundwater stored above the water table in unsaturated conditions.",
+      "A concept describing isolated groundwater bodies separated by impermeable layers."
     ],
-    "correctAnswer": 2,
-    "explanation": "The basic equation describing groundwater flow put forth by Darcy: Q = -KiA",
+    "correctAnswer": 1,
+    "explanation": "Darcy’s Law describes groundwater flow through porous media. It states that flow rate (Q) is proportional to hydraulic conductivity (K), hydraulic gradient (i), and cross-sectional area (A). The negative sign indicates flow from higher to lower head.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
   },
-  {
+   {
     "id": "q11",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "Discharge Area",
     "choices": [
-      "The percentage of the bulk volume of a soil that is occupied by void space.",
-      "The surface within unconfined groundwater at which the hydraulic pressure is equal to atmospheric pressure.",
-      "Substances that can be used to determine the physical and chemical properties of groundwater.",
-      "An area where subsurface water is discharged to land, bodies of water, or the atmosphere."
+      "The zone where groundwater moves downward from the surface into the subsurface.",
+      "The surface in an unconfined aquifer where pressure equals atmospheric pressure.",
+      "An area where groundwater emerges to the surface or enters surface water bodies.",
+      "A region where groundwater is stored but not actively flowing."
     ],
-    "correctAnswer": 3,
-    "explanation": "An area where subsurface water is discharged to land, bodies of water, or the atmosphere.",
+    "correctAnswer": 2,
+    "explanation": "A discharge area is where groundwater leaves the subsurface system, such as springs, wetlands, or streams. It is the opposite of a recharge area, where water enters the groundwater system.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -201,16 +200,15 @@
     "id": "q12",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "Effective Porosity",
     "choices": [
-      "The principle that states that the depth to which fresh water extends below sea level is approximately 40 times the height of the water table above sea level.",
-      "A subsurface zone containing water under pressure that is less than atmospheric pressure. It is measured from the ground surface to the water table.",
-      "Development and use of groundwater in a manner that can be maintained for an indefinite time without causing unacceptable environmental economic or social consequences.",
-      "The percentage of the total volume of a soil or rock that consists of interconnected pore space. The term is smetimes used analogously to specific yield."
+      "The total percentage of void space within a soil or rock, regardless of connectivity.",
+      "The portion of pore space that contributes to groundwater flow through interconnected pathways.",
+      "The amount of water retained in a soil after gravitational drainage has ceased.",
+      "The ratio of water volume drained from a saturated material to its total volume."
     ],
-    "correctAnswer": 3,
-    "explanation": "The amount of void space that's able to transmit water. [Capillary forces cause some water (and thus void space) to stay in the rock, so the effective porosity is lower than standard porosity].",
+    "correctAnswer": 1,
+    "explanation": "Effective porosity refers only to interconnected pore spaces that allow fluid flow. Total porosity includes all voids, even isolated ones that do not contribute to groundwater movement.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -219,16 +217,15 @@
     "id": "q13",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "Field Capacity",
     "choices": [
-      "A property of the porous medium that measure the relative ease with which a fluid can be transmitted through it under a hydraulic gradient. It is dependent upon the pore size and is measured in darcy's.",
-      "A measure of the potential energy of a fluid at any given point with respect to a given datum. In practice, it is the elevation to which water rises at a given point as a result of reservoir pressure.",
-      "The quantity of water held by the soil or rock against the pull of gravity. Field capacity is dependent on the length of time the soil or rock has been undergoing gravity drainage, while specific retention is not.",
-      "Ratio of the volume of water that drains from a saturated soil or rock due to gravity to the total volume of soil or rock, stated as a percentage. Sy = Draining Water Volume / Total Volume"
+      "The ability of a material to transmit water under a hydraulic gradient.",
+      "The elevation to which groundwater rises due to pressure conditions.",
+      "The amount of water retained in soil after excess gravitational water has drained away.",
+      "The proportion of water that can drain freely from a saturated soil."
     ],
     "correctAnswer": 2,
-    "explanation": "The amount of water held in a rock/soil due to capillary forces. Kinda like the inverse of effective porosity in a way.",
+    "explanation": "Field capacity is the water remaining in soil after gravity drainage has occurred. It represents water held by capillary forces and is important for soil moisture and plant availability.",
     "difficulty": "hard",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -237,16 +234,15 @@
     "id": "q14",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "Flow Net",
     "choices": [
-      "acre-feet per year or gallons per year.",
-      "A geologic unit that is COMPLETELY impermeable.",
-      "Sodium, calcium, magnesium, potassium, chloride, bicarbonate, sulfate",
-      "Two-dimensional representation of flow lines and equipotentials."
+      "A graphical representation of groundwater flow using flow lines and equipotential lines.",
+      "A measure of groundwater discharge per unit area over time.",
+      "A geologic unit that restricts groundwater flow due to low permeability.",
+      "A classification system for groundwater chemistry based on ionic composition."
     ],
-    "correctAnswer": 3,
-    "explanation": "Two-dimensional representation of flow lines and equipotentials.",
+    "correctAnswer": 0,
+    "explanation": "A flow net is a 2D graphical tool used to visualize groundwater flow. It consists of flow lines (direction of flow) and equipotential lines (equal hydraulic head), which intersect at right angles.",
     "difficulty": "easy",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -255,16 +251,15 @@
     "id": "q15",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "Ghyben-Herzberg Principle",
     "choices": [
-      "The principle that states that the depth to which fresh water extends below sea level is approximately 40 times the height of the water table above sea level.",
-      "Ratio of the volume of water a soil or rock can retain against gravity drainage to the total volume of the soil or rock, usually stated as a percentage.",
-      "The capacity of an aquifer to trasmit water of the prevailing kinematic viscosity. T = kb, where b = saturated thickness of the aquifer. Dimensions are gpd/ft of ft^2/day.",
-      "[1] The hydraulic gradient equals the slope of the water table. [2] The direction of groundwater flow (streamlines) is horizontal. [3] Contours of equal head (equipotentional lines) are vertical."
+      "Freshwater extends below sea level to a depth proportional to its elevation above sea level, approximately 40:1.",
+      "The rate of groundwater flow is proportional to hydraulic gradient and permeability.",
+      "Groundwater flow occurs perpendicular to equipotential lines and parallel to hydraulic gradient.",
+      "The storage capacity of an aquifer depends on compressibility and pore volume."
     ],
     "correctAnswer": 0,
-    "explanation": "There's about 40 times more freshwater below sea level, than above it. (1 ft above SL = 40 ft below SL). Expressed as Z = 40ht where Z is the depth of fresh-water-salt-water interface below sea level, and ht is the height of the potentiometric surface above sea level.",
+    "explanation": "The Ghyben-Herzberg principle states that in coastal aquifers, freshwater extends below sea level approximately 40 times the height of the water table above sea level due to density differences between freshwater and saltwater.",
     "difficulty": "hard",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -273,16 +268,15 @@
     "id": "q16",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
-    "question": "Head (K)",
+    "question": "Hydraulic Head",
     "choices": [
-      "A property of the porous medium that measure the relative ease with which a fluid can be transmitted through it under a hydraulic gradient. It is dependent upon the pore size and is measured in darcy's.",
-      "A measure of the potential energy of a fluid at any given point with respect to a given datum. In practice, it is the elevation to which water rises at a given point as a result of reservoir pressure.",
-      "Ratio of the volume of water that drains from a saturated soil or rock due to gravity to the total volume of soil or rock, stated as a percentage. Sy = Draining Water Volume / Total Volume",
-      "The quantity of water held by the soil or rock against the pull of gravity. Field capacity is dependent on the length of time the soil or rock has been undergoing gravity drainage, while specific retention is not."
+      "The ability of a material to transmit fluid under pressure.",
+      "The total mechanical energy per unit weight of groundwater relative to a datum.",
+      "The fraction of pore space that contributes to groundwater flow.",
+      "The amount of water released from storage due to gravity drainage."
     ],
     "correctAnswer": 1,
-    "explanation": "A point of water potential energy.",
+    "explanation": "Hydraulic head represents the total energy of groundwater, including elevation head and pressure head. It determines the direction of groundwater flow, which moves from higher to lower head.",
     "difficulty": "hard",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -291,16 +285,15 @@
     "id": "q17",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "Hydraulic Gradient (i)",
     "choices": [
-      "Water trapped in the pores of a sedimentary rock at the time of deposittion; fossil water.",
-      "An area where subsurface water is discharged to land, bodies of water, or the atmosphere.",
-      "The surface within unconfined groundwater at which the hydraulic pressure is equal to atmospheric pressure.",
-      "Rate of change in total head per unit of distance of flow in a given direction."
+      "The difference in groundwater velocity between two points in a flow system.",
+      "The change in hydraulic head per unit distance in the direction of flow.",
+      "The ratio of water stored in an aquifer to the total volume of the aquifer.",
+      "The elevation at which groundwater pressure equals atmospheric pressure."
     ],
-    "correctAnswer": 3,
-    "explanation": "i = (high head - low head / distance)",
+    "correctAnswer": 1,
+    "explanation": "Hydraulic gradient is defined as the change in hydraulic head divided by the distance over which the change occurs (i = Δh / L). It controls the direction and rate of groundwater flow.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -309,16 +302,15 @@
     "id": "q18",
     "type": "formula",
     "category": "Hydrogeology",
-    "subcategory": [],
-    "question": "Intrinsic Permbeability (ki)",
+    "question": "Intrinsic Permeability (ki)",
     "choices": [
-      "Ratio of the volume of water that drains from a saturated soil or rock due to gravity to the total volume of soil or rock, stated as a percentage. Sy = Draining Water Volume / Total Volume",
-      "The quantity of water held by the soil or rock against the pull of gravity. Field capacity is dependent on the length of time the soil or rock has been undergoing gravity drainage, while specific retention is not.",
-      "A property of the porous medium that measure the relative ease with which a fluid can be transmitted through it under a hydraulic gradient. It is dependent upon the pore size and is measured in darcy's.",
-      "Amount of water per unit volume of a saturated formation that is stored or expelled from storage due to compressibility of mineral skeleton and pore water per unit change in head. Units are ft^-1."
+      "The proportion of water that drains from a saturated soil under gravity.",
+      "The amount of water retained in soil due to capillary forces.",
+      "A property of the porous medium describing its ability to transmit fluids, independent of fluid properties.",
+      "The volume of water released from storage per unit change in hydraulic head."
     ],
     "correctAnswer": 2,
-    "explanation": "The degree of rock/soil permeability when there's a hydraulic gradient. (The unit is the darcy, a unit of area... So this isn't a time rate.)",
+    "explanation": "Intrinsic permeability (ki) is a property of the porous medium itself and does not depend on the fluid. It reflects pore size and connectivity and is commonly expressed in darcys.",
     "difficulty": "hard",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -327,16 +319,15 @@
     "id": "q19",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "Juvenile Water",
     "choices": [
-      "The property of a porous rock or soil for transmitting a fluid. It measures the relative ease of flow under unequal pressure.",
-      "Assesses the amount of both surface water and groundwater in a basin. dSt = P - E +- R +- U",
-      "Q = -1/2 x K x (higher water table height ^2 - lower water table height ^2 / L) x W",
-      "Water that is derived directly from magma and is thought to have come to the Earth's surface for the first time."
+      "Water actively circulating within the modern hydrologic cycle.",
+      "Water that has been stored in an aquifer for long geologic periods.",
+      "Water derived from deep within the Earth, typically of magmatic origin.",
+      "Water that infiltrates into the ground from precipitation."
     ],
-    "correctAnswer": 3,
-    "explanation": "Water that is derived directly from magma and is thought to have come to the Earth's surface for the first time.",
+    "correctAnswer": 2,
+    "explanation": "Juvenile water originates from deep within the Earth, often from magmatic processes, and has not previously been part of the surface hydrologic cycle.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -345,34 +336,32 @@
     "id": "q20",
     "type": "formula",
     "category": "Hydrogeology",
-    "subcategory": [],
-    "question": "Meinzer",
+    "question": "Meinzer Unit",
     "choices": [
-      "A unit of hydraulic conductivity in gpd/ft^2. Rate of flow in gallons per day through a cross section of 1 square foot under a unit hydraulic gradient at 60 degrees F.",
-      "Ratio of the volume of water a soil or rock can retain against gravity drainage to the total volume of the soil or rock, usually stated as a percentage.",
-      "[1] The hydraulic gradient equals the slope of the water table. [2] The direction of groundwater flow (streamlines) is horizontal. [3] Contours of equal head (equipotentional lines) are vertical.",
-      "The capacity of an aquifer to trasmit water of the prevailing kinematic viscosity. T = kb, where b = saturated thickness of the aquifer. Dimensions are gpd/ft of ft^2/day."
+      "A unit of hydraulic conductivity describing flow through a unit area under a unit gradient.",
+      "A measure of water retained in soil after gravitational drainage.",
+      "A graphical representation of groundwater flow patterns.",
+      "A parameter describing aquifer storage and compressibility."
     ],
     "correctAnswer": 0,
-    "explanation": "The flow rate of hydraulic conductivity. (gallons per day / ft^2)",
+    "explanation": "The Meinzer unit is a measure of hydraulic conductivity, defined as the flow rate (gallons per day) through a cross-sectional area of one square foot under a unit hydraulic gradient.",
     "difficulty": "hard",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
-  },
+  }, 
   {
     "id": "q21",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "Perched Groundwater",
     "choices": [
-      "Unconfined groundwater separated from an underlying body of groundwater by an unsaturated zone.",
-      "Storativity = (+- Volume of Water) / (Area x Change in Head Height)",
-      "Generalized term for water in the saturated zone / above the water table.",
-      "The basic equation describing groundwater flow put forth by Darcy: Q = -KiA"
+      "Groundwater occurring above the main water table, separated by an unsaturated zone due to a local impermeable layer.",
+      "Groundwater stored under pressure beneath a confining layer.",
+      "Water located in the saturated zone that is directly connected to regional groundwater flow.",
+      "Water that infiltrates downward through the vadose zone into the aquifer."
     ],
     "correctAnswer": 0,
-    "explanation": "Unconfined groundwater separated from an underlying body of groundwater by an unsaturated zone.",
+    "explanation": "Perched groundwater forms when water accumulates above a localized low-permeability layer, creating a small, isolated saturated zone above the regional water table.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -381,16 +370,15 @@
     "id": "q22",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "Permeability",
     "choices": [
-      "The property of a porous rock or soil for transmitting a fluid. It measures the relative ease of flow under unequal pressure.",
-      "A surface that represents the total head of groundwater and is defined by the level to which water will rise in a well.",
-      "Q = -1/2 x K x (higher water table height ^2 - lower water table height ^2 / L) x W",
-      "Water that is derived directly from magma and is thought to have come to the Earth's surface for the first time."
+      "The ability of a porous material to transmit fluids under a hydraulic gradient.",
+      "The total amount of void space within a soil or rock.",
+      "The energy level of groundwater relative to a reference point.",
+      "The proportion of water that can drain from a saturated material."
     ],
     "correctAnswer": 0,
-    "explanation": "Also uses the darcy, so it's conceptually an area measurement.",
+    "explanation": "Permeability describes how easily a fluid can move through a material. It depends on pore size and connectivity and is distinct from porosity, which only measures void space.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -399,16 +387,15 @@
     "id": "q23",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "Phreatic Water",
     "choices": [
-      "Unconfined groundwater separated from an underlying body of groundwater by an unsaturated zone.",
-      "Storativity = (+- Volume of Water) / (Area x Change in Head Height)",
-      "The basic equation describing groundwater flow put forth by Darcy: Q = -KiA",
-      "Generalized term for water in the saturated zone / above the water table."
+      "Groundwater located above an impermeable layer and isolated from the main aquifer.",
+      "Water held in soil pores by capillary forces above the water table.",
+      "Groundwater within the saturated zone below the water table.",
+      "Water that is newly introduced into the hydrologic cycle from deep Earth sources."
     ],
-    "correctAnswer": 3,
-    "explanation": "Generalized term for water in the saturated zone / above the water table.",
+    "correctAnswer": 2,
+    "explanation": "Phreatic water refers to groundwater in the saturated zone below the water table, where all pore spaces are filled with water.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -417,16 +404,15 @@
     "id": "q24",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "Porosity (n)",
     "choices": [
-      "An area where subsurface water is discharged to land, bodies of water, or the atmosphere.",
-      "Substances that can be used to determine the physical and chemical properties of groundwater.",
-      "The percentage of the bulk volume of a soil that is occupied by void space.",
-      "The surface within unconfined groundwater at which the hydraulic pressure is equal to atmospheric pressure."
+      "The proportion of void space within a material relative to its total volume.",
+      "The ability of a material to transmit groundwater.",
+      "The amount of water that drains from a saturated soil under gravity.",
+      "The elevation to which groundwater rises in a well."
     ],
-    "correctAnswer": 2,
-    "explanation": "Porosity (n) = (Void Space Volume / Total Volume) x 100",
+    "correctAnswer": 0,
+    "explanation": "Porosity is the ratio of void space to total volume. It indicates how much water a material can store, but not how easily that water can move.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -435,16 +421,15 @@
     "id": "q25",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "Potentiometric Surface",
     "choices": [
-      "Development and use of groundwater in a manner that can be maintained for an indefinite time without causing unacceptable environmental economic or social consequences.",
-      "A surface that represents the total head of groundwater and is defined by the level to which water will rise in a well.",
-      "The property of a porous rock or soil for transmitting a fluid. It measures the relative ease of flow under unequal pressure.",
-      "A subsurface zone containing water under pressure that is less than atmospheric pressure. It is measured from the ground surface to the water table."
+      "A surface representing groundwater pressure and elevation, indicating the level to which water will rise in a well.",
+      "The boundary between saturated and unsaturated zones in an unconfined aquifer.",
+      "A measure of groundwater flow velocity within an aquifer.",
+      "A zone where groundwater is discharged to the surface."
     ],
-    "correctAnswer": 1,
-    "explanation": "A surface that represents the total head of groundwater and is defined by the level to which water will rise in a well.",
+    "correctAnswer": 0,
+    "explanation": "The potentiometric surface represents hydraulic head. In confined aquifers, it shows the height to which water will rise in wells due to pressure conditions.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -453,16 +438,15 @@
     "id": "q26",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "Recharge Area",
     "choices": [
-      "A geologic unit that can store, and SLUGGISHLY transmit water.",
-      "K = ki(intrinsic permeability) x gamma(specific weight) / mu(dynamic viscosity)",
-      "An area where water infiltrates downward into the saturated zone.",
-      "An aquifer overlain by a confining layer of low permeability."
+      "A region where groundwater emerges to the surface.",
+      "An area where water infiltrates downward into the subsurface to replenish groundwater.",
+      "A geologic unit that stores and slowly transmits groundwater.",
+      "A confined aquifer under pressure beneath a low-permeability layer."
     ],
-    "correctAnswer": 2,
-    "explanation": "An area where water infiltrates downward into the saturated zone.",
+    "correctAnswer": 1,
+    "explanation": "A recharge area is where water enters the groundwater system, typically through infiltration from precipitation or surface water.",
     "difficulty": "easy",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -471,16 +455,15 @@
     "id": "q27",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "Runoff (R)",
     "choices": [
-      "When the water level of an aquifer is above land surface.",
-      "Unconfined groundwater separated from an underlying body of groundwater by an unsaturated zone.",
-      "Vd = -K(h1-h2/L) & Vd = Q/A & Vd = Ki",
-      "That part of precipitation appearing in surface streams... (Not a good definition)..."
+      "Water that infiltrates into the soil and becomes groundwater.",
+      "Surface water flow that occurs when precipitation exceeds infiltration capacity.",
+      "Groundwater flow driven by hydraulic gradients within an aquifer.",
+      "Water stored in soil pores due to capillary forces."
     ],
-    "correctAnswer": 3,
-    "explanation": "When you have water infiltrating the soil, it may become fully saturated, meaning that all void space has been filled with water. Because of this, water has no room to infiltrate downwards, thus \"runs off\" as surface water. Quantitatively (R = stream inflow - stream outflow).",
+    "correctAnswer": 1,
+    "explanation": "Runoff occurs when precipitation exceeds the soil’s ability to absorb water, causing excess water to flow over the land surface into streams and rivers.",
     "difficulty": "easy",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -489,16 +472,15 @@
     "id": "q28",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "Specific Retention (Sr)",
     "choices": [
-      "[1] The hydraulic gradient equals the slope of the water table. [2] The direction of groundwater flow (streamlines) is horizontal. [3] Contours of equal head (equipotentional lines) are vertical.",
-      "The lowest part of the vadose zone, immediately above the water table, where water is under pressure that is less than atmospheric pressure. Water is held by capillary tension.",
-      "Ratio of the volume of water a soil or rock can retain against gravity drainage to the total volume of the soil or rock, usually stated as a percentage.",
-      "The capacity of an aquifer to trasmit water of the prevailing kinematic viscosity. T = kb, where b = saturated thickness of the aquifer. Dimensions are gpd/ft of ft^2/day."
+      "The fraction of water that drains from a saturated material under gravity.",
+      "The amount of water retained in a material due to capillary forces after drainage.",
+      "The total void space within a soil or rock.",
+      "The rate at which groundwater flows through a porous medium."
     ],
-    "correctAnswer": 2,
-    "explanation": "The amount of water remaining in a rock/soil due to capillary forces related to the overal volume. [Sr = (volume of remaining water / overall volume) x 100 ]",
+    "correctAnswer": 1,
+    "explanation": "Specific retention is the portion of water that remains in a material after gravitational drainage, held by capillary forces. It is complementary to specific yield.",
     "difficulty": "hard",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -507,16 +489,15 @@
     "id": "q29",
     "type": "formula",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "Specific Storage (Ss)",
     "choices": [
-      "A unit of hydraulic conductivity in gpd/ft^2. Rate of flow in gallons per day through a cross section of 1 square foot under a unit hydraulic gradient at 60 degrees F.",
-      "Volume of water that a permeable unit released from or takes into storage per unit surface area of the aquifer per unit change in head. In an unconfined aquifer, storage = specific yield.",
-      "Amount of water per unit volume of a saturated formation that is stored or expelled from storage due to compressibility of mineral skeleton and pore water per unit change in head. Units are ft^-1.",
-      "A property of the porous medium that measure the relative ease with which a fluid can be transmitted through it under a hydraulic gradient. It is dependent upon the pore size and is measured in darcy's."
+      "The amount of water released per unit surface area of an aquifer per unit change in head.",
+      "The volume of water released from storage per unit volume of aquifer per unit change in head.",
+      "The proportion of water that drains freely from a saturated material.",
+      "The ability of a material to transmit groundwater under a hydraulic gradient."
     ],
-    "correctAnswer": 2,
-    "explanation": "A bit confusing. Tl;dr - The amount of water released from an aquifer while it remains fully saturated.",
+    "correctAnswer": 1,
+    "explanation": "Specific storage (Ss) is the amount of water released or taken into storage per unit volume of aquifer per unit change in hydraulic head, due to compressibility of the fluid and matrix.",
     "difficulty": "hard",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -525,16 +506,15 @@
     "id": "q30",
     "type": "formula",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "Specific Yield (Sy)",
     "choices": [
-      "Ratio of the volume of water that drains from a saturated soil or rock due to gravity to the total volume of soil or rock, stated as a percentage. Sy = Draining Water Volume / Total Volume",
-      "A property of the porous medium that measure the relative ease with which a fluid can be transmitted through it under a hydraulic gradient. It is dependent upon the pore size and is measured in darcy's.",
-      "The quantity of water held by the soil or rock against the pull of gravity. Field capacity is dependent on the length of time the soil or rock has been undergoing gravity drainage, while specific retention is not.",
-      "A measure of the potential energy of a fluid at any given point with respect to a given datum. In practice, it is the elevation to which water rises at a given point as a result of reservoir pressure."
+      "The proportion of water that drains from a saturated material under gravity relative to its total volume.",
+      "The amount of water retained in a soil after gravitational drainage.",
+      "The total void space within a material.",
+      "The energy level of groundwater relative to a reference datum."
     ],
     "correctAnswer": 0,
-    "explanation": "The opposite of specific retention... Basically the ratio amount that leaves a porous medium when considering capillary forces.",
+    "explanation": "Specific yield is the portion of water that can drain freely from a saturated material due to gravity. It is complementary to specific retention.",
     "difficulty": "hard",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -543,16 +523,15 @@
     "id": "q31",
     "type": "formula",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "Storativity / Storage Coefficient (S)",
     "choices": [
-      "A unit of hydraulic conductivity in gpd/ft^2. Rate of flow in gallons per day through a cross section of 1 square foot under a unit hydraulic gradient at 60 degrees F.",
-      "Volume of water that a permeable unit released from or takes into storage per unit surface area of the aquifer per unit change in head. In an unconfined aquifer, storage = specific yield.",
-      "A property of the porous medium that measure the relative ease with which a fluid can be transmitted through it under a hydraulic gradient. It is dependent upon the pore size and is measured in darcy's.",
-      "Amount of water per unit volume of a saturated formation that is stored or expelled from storage due to compressibility of mineral skeleton and pore water per unit change in head. Units are ft^-1."
+      "The volume of water released from or taken into storage per unit surface area of an aquifer per unit change in hydraulic head.",
+      "The volume of water released per unit volume of aquifer per unit change in head.",
+      "The ability of a porous medium to transmit water under a hydraulic gradient.",
+      "The proportion of water that drains from a saturated material due to gravity."
     ],
-    "correctAnswer": 1,
-    "explanation": "Storativity = (+- Volume of Water) / (Area x Change in Head Height)",
+    "correctAnswer": 0,
+    "explanation": "Storativity (S) is defined as the volume of water released from or taken into storage per unit surface area of an aquifer per unit change in head. In unconfined aquifers, it approximates specific yield; in confined aquifers, it is much smaller and controlled by compressibility.",
     "difficulty": "hard",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -561,16 +540,15 @@
     "id": "q32",
     "type": "formula",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "Transmissivity (T)",
     "choices": [
-      "The capacity of an aquifer to trasmit water of the prevailing kinematic viscosity. T = kb, where b = saturated thickness of the aquifer. Dimensions are gpd/ft of ft^2/day.",
-      "The lowest part of the vadose zone, immediately above the water table, where water is under pressure that is less than atmospheric pressure. Water is held by capillary tension.",
-      "[1] The hydraulic gradient equals the slope of the water table. [2] The direction of groundwater flow (streamlines) is horizontal. [3] Contours of equal head (equipotentional lines) are vertical.",
-      "Ratio of the volume of water a soil or rock can retain against gravity drainage to the total volume of the soil or rock, usually stated as a percentage."
+      "The ability of an aquifer to transmit water through its entire saturated thickness, defined as T = Kb.",
+      "The total void space within a soil or rock.",
+      "The amount of water retained in a material after drainage.",
+      "The change in hydraulic head per unit distance."
     ],
     "correctAnswer": 0,
-    "explanation": "NOTE: Sorta like hydraulic conductivity (being a volume/time rate), except takes into consideration viscosity.",
+    "explanation": "Transmissivity (T) represents the total capacity of an aquifer to transmit water and is equal to hydraulic conductivity (K) multiplied by saturated thickness (b).",
     "difficulty": "hard",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -579,16 +557,15 @@
     "id": "q33",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "Unconfined Aquifer",
     "choices": [
-      "An aquifer having a water table.",
-      "It is less than atmospheric pressure.",
-      "It is greater than atmospheric pressure.",
-      "It is equal to atmospheric pressure."
+      "An aquifer in which the upper boundary is the water table exposed to atmospheric pressure.",
+      "An aquifer bounded above and below by confining layers under pressure.",
+      "A geologic unit that transmits water very slowly due to low permeability.",
+      "A fully impermeable unit that prevents groundwater flow."
     ],
     "correctAnswer": 0,
-    "explanation": "Below is an aquiclude, above is the water table.",
+    "explanation": "An unconfined aquifer has a water table as its upper boundary and is directly influenced by atmospheric pressure, unlike confined aquifers which are under pressure.",
     "difficulty": "easy",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -597,16 +574,15 @@
     "id": "q34",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "Underflow (U)",
     "choices": [
-      "Rate of change in total head per unit of distance of flow in a given direction.",
-      "The surface within unconfined groundwater at which the hydraulic pressure is equal to atmospheric pressure.",
-      "Groundwater that flows beneath the bed or alluvial plain of a surface stream, especially in arid regions.",
-      "Water trapped in the pores of a sedimentary rock at the time of deposittion; fossil water."
+      "Surface runoff flowing directly into streams and rivers.",
+      "Groundwater flow beneath a stream channel through permeable sediments.",
+      "Water stored in soil pores above the water table.",
+      "Water discharged from aquifers into springs and lakes."
     ],
-    "correctAnswer": 2,
-    "explanation": "Technically not surface water, since it's flowing through a rock/soil layer... Just an extremely porous layer... Quantitatively (U = groundwater inflow - groundwater outflow)",
+    "correctAnswer": 1,
+    "explanation": "Underflow refers to groundwater that moves beneath a stream channel through permeable materials, contributing to streamflow without being visible at the surface.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -615,16 +591,15 @@
     "id": "q35",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "Vadose Zone / Zone of Aeration",
     "choices": [
-      "Development and use of groundwater in a manner that can be maintained for an indefinite time without causing unacceptable environmental economic or social consequences.",
-      "A surface that represents the total head of groundwater and is defined by the level to which water will rise in a well.",
-      "A subsurface zone containing water under pressure that is less than atmospheric pressure. It is measured from the ground surface to the water table.",
-      "The property of a porous rock or soil for transmitting a fluid. It measures the relative ease of flow under unequal pressure."
+      "The saturated zone below the water table where all pores are filled with water.",
+      "The zone above the water table where pores contain both air and water.",
+      "A confined zone where groundwater is under pressure.",
+      "A surface representing groundwater pressure levels."
     ],
-    "correctAnswer": 2,
-    "explanation": "Upper most portion of an aquifer system. From the surface to the water table / zone of saturation.",
+    "correctAnswer": 1,
+    "explanation": "The vadose zone lies above the water table and contains both air and water in pore spaces. It differs from the saturated zone below, where all pores are filled with water.",
     "difficulty": "hard",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -633,16 +608,15 @@
     "id": "q36",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "Water Table",
     "choices": [
-      "An area where subsurface water is discharged to land, bodies of water, or the atmosphere.",
-      "The percentage of the bulk volume of a soil that is occupied by void space.",
-      "Substances that can be used to determine the physical and chemical properties of groundwater.",
-      "The surface within unconfined groundwater at which the hydraulic pressure is equal to atmospheric pressure."
+      "The boundary between saturated and unsaturated zones where pressure equals atmospheric pressure.",
+      "The region where groundwater is discharged to the surface.",
+      "The total void space within a soil or rock.",
+      "The ability of a material to transmit groundwater."
     ],
-    "correctAnswer": 3,
-    "explanation": "The surface within unconfined groundwater at which the hydraulic pressure is equal to atmospheric pressure.",
+    "correctAnswer": 0,
+    "explanation": "The water table is the surface where groundwater pressure equals atmospheric pressure and marks the top of the saturated zone.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -651,16 +625,15 @@
     "id": "q37",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "Watershed",
     "choices": [
-      "Substances that can be used to determine the physical and chemical properties of groundwater.",
-      "The region drained by a stream or body of water, or a drainage divide.",
-      "Assesses the amount of only groundwater in a basin. dS = I - O",
-      "The surface within unconfined groundwater at which the hydraulic pressure is equal to atmospheric pressure."
+      "The region drained by a stream system, bounded by drainage divides.",
+      "A zone where groundwater is stored below the water table.",
+      "The portion of precipitation that infiltrates into the ground.",
+      "A measure of groundwater flow rate within a basin."
     ],
-    "correctAnswer": 1,
-    "explanation": "The region drained by a stream or body of water, or a drainage divide.",
+    "correctAnswer": 0,
+    "explanation": "A watershed is the land area that drains water to a common outlet, such as a river, lake, or ocean, and is bounded by topographic divides.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -669,16 +642,15 @@
     "id": "q38",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
-    "question": "Water with a TDS of 0-1000 ppm would be considered...",
+    "question": "Water with a TDS of 0–1000 ppm would be considered:",
     "choices": [
-      "Fresh Water",
-      ": 5000",
-      "Brackish Water",
-      "Saline Water"
+      "Fresh water",
+      "Brackish water",
+      "Saline water",
+      "Highly saline water"
     ],
     "correctAnswer": 0,
-    "explanation": "Fresh Water",
+    "explanation": "Water with total dissolved solids (TDS) between 0 and 1000 ppm is classified as fresh water and is typically suitable for drinking and most uses.",
     "difficulty": "easy",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -687,16 +659,15 @@
     "id": "q39",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
-    "question": "Water with a TDS of 1000-10,000 would be considered...",
+    "question": "Water with a TDS of 1000–10,000 ppm would be considered:",
     "choices": [
-      "Brackish Water",
-      "Saline Water",
-      ": 5000",
-      "Fresh Water"
+      "Fresh water",
+      "Brackish water",
+      "Saline water",
+      "Highly saline water"
     ],
     "correctAnswer": 1,
-    "explanation": "Saline Water",
+    "explanation": "Water with TDS between 1000 and 10,000 ppm is classified as brackish water, containing more dissolved salts than fresh water but less than saline water.",
     "difficulty": "easy",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -705,16 +676,15 @@
     "id": "q40",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
-    "question": "Water with a TDS of 10,000-100,000 would be considered...",
+    "question": "Water with a TDS of 10,000–100,000 ppm would be considered:",
     "choices": [
-      "Saline Water",
-      "Fresh Water",
-      ": 5000",
-      "Brackish Water"
+      "Fresh water",
+      "Brackish water",
+      "Saline water",
+      "Highly saline water"
     ],
-    "correctAnswer": 3,
-    "explanation": "Brackish Water",
+    "correctAnswer": 2,
+    "explanation": "Water with TDS between 10,000 and 100,000 ppm is classified as saline water. Values above this range are considered highly saline or brine.",
     "difficulty": "easy",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -723,16 +693,15 @@
     "id": "q41",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
-    "question": "What is the maximum TDS value considered suitable for livestock in mg/L?",
+    "question": "What is the maximum TDS value generally considered suitable for livestock (mg/L)?",
     "choices": [
-      "Saline Water",
-      "Brackish Water",
-      ": 5000",
-      "Fresh Water"
+      "1000 mg/L",
+      "3000 mg/L",
+      "5000 mg/L",
+      "10,000 mg/L"
     ],
     "correctAnswer": 2,
-    "explanation": ": 5000",
+    "explanation": "Livestock can tolerate higher TDS than humans. Water up to about 5000 mg/L is generally acceptable for most livestock, though tolerance varies by species.",
     "difficulty": "easy",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -741,16 +710,15 @@
     "id": "q42",
     "type": "formula",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "What is the hydrologic budget equation?",
     "choices": [
-      "Q = -1/2 x K x (higher water table height ^2 - lower water table height ^2 / L) x W",
-      "Water that is derived directly from magma and is thought to have come to the Earth's surface for the first time.",
-      "Assesses the amount of both surface water and groundwater in a basin. dSt = P - E +- R +- U",
-      "The property of a porous rock or soil for transmitting a fluid. It measures the relative ease of flow under unequal pressure."
+      "Q = -KiA",
+      "dSt = P - E ± R ± U",
+      "i = Δh / L",
+      "T = Kb"
     ],
-    "correctAnswer": 2,
-    "explanation": "Where dSt = change in total storage, P = precipitation, E = evapotranspiration, R = runoff, U = underflow",
+    "correctAnswer": 1,
+    "explanation": "The hydrologic budget accounts for all water inputs and outputs in a basin: dSt = change in storage, P = precipitation, E = evapotranspiration, R = runoff, and U = underflow.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -759,16 +727,15 @@
     "id": "q43",
     "type": "formula",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "What is the groundwater budget equation?",
     "choices": [
-      "The surface within unconfined groundwater at which the hydraulic pressure is equal to atmospheric pressure.",
-      "Substances that can be used to determine the physical and chemical properties of groundwater.",
-      "The region drained by a stream or body of water, or a drainage divide.",
-      "Assesses the amount of only groundwater in a basin. dS = I - O"
+      "Q = -KiA",
+      "dS = P - E",
+      "dS = I - O",
+      "i = Δh / L"
     ],
-    "correctAnswer": 3,
-    "explanation": "Where dS = change in storage of an aquifer, I = input or recharge to aquifer, O = output or discharge from aquifer",
+    "correctAnswer": 2,
+    "explanation": "The groundwater budget considers only subsurface flow: dS = change in aquifer storage, I = recharge (input), and O = discharge (output).",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -777,16 +744,15 @@
     "id": "q44",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
-    "question": "What units are dSt (change in total storage) and dS (change in aquifer storage) measured in?",
+    "question": "What units are dSt (total storage change) and dS (aquifer storage change) typically expressed in?",
     "choices": [
-      "Two-dimensional representation of flow lines and equipotentials.",
-      "acre-feet per year or gallons per year.",
-      "A geologic unit that is COMPLETELY impermeable.",
-      "Sodium, calcium, magnesium, potassium, chloride, bicarbonate, sulfate"
+      "Length (ft or m)",
+      "Volume per time (e.g., acre-feet/year)",
+      "Pressure (psi or Pa)",
+      "Area (ft² or m²)"
     ],
     "correctAnswer": 1,
-    "explanation": "acre-feet per year or gallons per year.",
+    "explanation": "Storage change terms are typically expressed as volume per time, such as acre-feet per year or gallons per year, because they represent rates of change in stored water.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -795,16 +761,15 @@
     "id": "q45",
     "type": "formula",
     "category": "Conversion Factor",
-    "subcategory": [],
-    "question": "How many acres is 1 mile^2 equal to?",
+    "question": "How many acres are in 1 square mile?",
     "choices": [
-      "62.4 lbs/ft^3",
-      "640 acres.",
-      "325,829 gallons are in one acre-foot.",
-      "5280 ft"
+      "5280 acres",
+      "640 acres",
+      "325,829 acres",
+      "43,560 acres"
     ],
     "correctAnswer": 1,
-    "explanation": "640 acres.",
+    "explanation": "1 square mile equals 640 acres. This is a key unit conversion in hydrology and land measurement.",
     "difficulty": "easy",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -813,16 +778,15 @@
     "id": "q46",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "How does pressure in the vadose zone compare to atmospheric pressure?",
     "choices": [
-      "It is equal to atmospheric pressure.",
-      "It is less than atmospheric pressure.",
-      "An aquifer having a water table.",
-      "It is greater than atmospheric pressure."
+      "Equal to atmospheric pressure",
+      "Less than atmospheric pressure",
+      "Greater than atmospheric pressure",
+      "Varies randomly with depth"
     ],
     "correctAnswer": 1,
-    "explanation": "It is less than atmospheric pressure.",
+    "explanation": "In the vadose zone, water is under negative pressure (suction) due to capillary forces, meaning it is less than atmospheric pressure.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -831,18 +795,16 @@
     "id": "q47",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [
-      "Engineering Geology"
-    ],
-    "question": "Which is more porous, sand or clay?",
+    "subcategory": ["Engineering Geology"],
+    "question": "Which material typically has higher porosity, sand or clay?",
     "choices": [
-      "Brackish Water",
-      "High",
-      "Low",
-      "Clay."
+      "Sand",
+      "Clay",
+      "They are equal",
+      "Depends only on depth"
     ],
-    "correctAnswer": 3,
-    "explanation": "Clay.",
+    "correctAnswer": 1,
+    "explanation": "Clay generally has higher porosity than sand due to its small particle size and large total surface area, even though its permeability is much lower.",
     "difficulty": "easy",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -851,16 +813,15 @@
     "id": "q48",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "How does pressure at the water table compare to atmospheric pressure?",
     "choices": [
-      "It is less than atmospheric pressure.",
-      "It is greater than atmospheric pressure.",
-      "It is equal to atmospheric pressure.",
-      "An aquifer having a water table."
+      "Less than atmospheric pressure",
+      "Greater than atmospheric pressure",
+      "Equal to atmospheric pressure",
+      "Variable depending on depth"
     ],
     "correctAnswer": 2,
-    "explanation": "It is equal to atmospheric pressure.",
+    "explanation": "At the water table, pressure is equal to atmospheric pressure. This defines the boundary between the vadose and saturated zones.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -869,16 +830,15 @@
     "id": "q49",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
-    "question": "How does pressure right below the water table compare to atmospheric pressure?",
+    "question": "How does pressure just below the water table compare to atmospheric pressure?",
     "choices": [
-      "An aquifer having a water table.",
-      "It is greater than atmospheric pressure.",
-      "It is less than atmospheric pressure.",
-      "It is equal to atmospheric pressure."
+      "Less than atmospheric pressure",
+      "Greater than atmospheric pressure",
+      "Equal to atmospheric pressure",
+      "Zero pressure"
     ],
     "correctAnswer": 1,
-    "explanation": "It is greater than atmospheric pressure.",
+    "explanation": "Below the water table, pressure increases with depth due to the weight of overlying water, making it greater than atmospheric pressure.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -887,16 +847,15 @@
     "id": "q50",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
-    "question": "When a soil is saturated, is the matric potential (phi) high or low?",
+    "question": "When a soil is fully saturated, is the matric potential (φ) high or low?",
     "choices": [
       "High",
-      "Clay.",
-      "Brackish Water",
-      "Low"
+      "Low",
+      "Zero",
+      "Infinite"
     ],
-    "correctAnswer": 3,
-    "explanation": "Low",
+    "correctAnswer": 1,
+    "explanation": "Matric potential is lowest (approaching zero from negative values) when soil is saturated because capillary forces are minimal. In unsaturated conditions, matric potential becomes more negative.",
     "difficulty": "easy",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -905,16 +864,15 @@
     "id": "q51",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
-    "question": "When a soil is unsaturated, is the matric potential (phi) high or low?",
+    "question": "When a soil is unsaturated, is the matric potential (φ) high or low?",
     "choices": [
-      "Brackish Water",
-      "Clay.",
-      "Low",
-      "High"
+      "High (more negative)",
+      "Low (near zero)",
+      "Equal to atmospheric pressure",
+      "Positive pressure"
     ],
-    "correctAnswer": 3,
-    "explanation": "High",
+    "correctAnswer": 0,
+    "explanation": "In unsaturated soils, matric potential is high in magnitude but negative (strong suction). As soil dries, matric potential becomes more negative.",
     "difficulty": "easy",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -923,16 +881,15 @@
     "id": "q52",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "Artesian Well",
     "choices": [
-      "Vd = -K(h1-h2/L) & Vd = Q/A & Vd = Ki",
-      "An area where water infiltrates downward into the saturated zone.",
-      "A unit of intrinsic permeability = to 9.87 x 10^9 cm^2",
-      "When the water level of an aquifer is above land surface."
+      "A well where groundwater rises above the top of the aquifer due to pressure.",
+      "A well that taps an unconfined aquifer at the water table.",
+      "A well that only produces water through pumping.",
+      "A well located in a recharge area."
     ],
-    "correctAnswer": 3,
-    "explanation": "When the water level of an aquifer is above land surface.",
+    "correctAnswer": 0,
+    "explanation": "An artesian well taps a confined aquifer where pressure causes water to rise above the aquifer. If it rises above land surface, it is a flowing artesian well.",
     "difficulty": "easy",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -941,16 +898,15 @@
     "id": "q53",
     "type": "formula",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "What are two ways to express storativity (S)?",
     "choices": [
-      "Storativity = (+- Volume of Water) / (Area x Change in Head Height)",
-      "Generalized term for water in the saturated zone / above the water table.",
-      "The basic equation describing groundwater flow put forth by Darcy: Q = -KiA",
-      "Unconfined groundwater separated from an underlying body of groundwater by an unsaturated zone."
+      "S = ΔV / (A × Δh) and S = Ss × b",
+      "Q = -KiA and i = Δh / L",
+      "T = Kb and K = kiγ/μ",
+      "Sy = Vd / Vt and Sr = Vr / Vt"
     ],
     "correctAnswer": 0,
-    "explanation": "Storativity = b(saturated thickness of the aquifer) x Ss(Specific Storage)",
+    "explanation": "Storativity can be expressed as S = ΔV / (A × Δh) or as S = Ss × b, where Ss is specific storage and b is aquifer thickness.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -959,16 +915,15 @@
     "id": "q54",
     "type": "formula",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "What equation defines hydraulic conductivity (K)?",
     "choices": [
-      "K = ki(intrinsic permeability) x gamma(specific weight) / mu(dynamic viscosity)",
-      "A geologic unit that can store, and SLUGGISHLY transmit water.",
-      "An aquifer overlain by a confining layer of low permeability.",
-      "An area where water infiltrates downward into the saturated zone."
+      "K = (ki × γ) / μ",
+      "Q = -KiA",
+      "T = Kb",
+      "i = Δh / L"
     ],
     "correctAnswer": 0,
-    "explanation": "K = ki(intrinsic permeability) x gamma(specific weight) / mu(dynamic viscosity)",
+    "explanation": "Hydraulic conductivity (K) depends on both the medium and fluid properties: K = (intrinsic permeability × specific weight) / dynamic viscosity.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -977,55 +932,49 @@
     "id": "q55",
     "type": "formula",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "What equation defines transmissivity (T)?",
     "choices": [
-      "A geologic unit that is COMPLETELY impermeable.",
-      "T(transmissivity) = K(hydraulic conductivity) x b(saturated aquifer thickness)",
-      "acre-feet per year or gallons per year.",
-      "Sodium, calcium, magnesium, potassium, chloride, bicarbonate, sulfate"
+      "T = Kb",
+      "Q = -KiA",
+      "S = Ss × b",
+      "i = Δh / L"
     ],
-    "correctAnswer": 1,
-    "explanation": "T(transmissivity) = K(hydraulic conductivity) x b(saturated aquifer thickness)",
+    "correctAnswer": 0,
+    "explanation": "Transmissivity is defined as T = K × b, where K is hydraulic conductivity and b is the saturated thickness of the aquifer.",
     "difficulty": "easy",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
   },
-  {
-    "id": "q56",
-    "type": "formula",
-    "category": "Hydrogeology",
-    "subcategory": [
-      "Structural",
-      "Field"
-    ],
-    "question": "How do you solve a three point problem (for groundwater flow direction)?",
-    "choices": [
-      "[STEP 1] Measure distance from low point to high point. [STEP 2] Apply the equation... (mid elevation - low elevation)/(high elevation - low elevation = (X/distance from low point to high point) ... and solve for X. [ STEP 3] Measure the X distance away from the low elevation point along the low-high point line. [STEP 4] Draw in a line connecting this new point to the mid elevation point. This is your strike. [STEP 5] Add 90 to obtain the dip direction (groundwater flow direction).",
-      "The quantity of water held by the soil or rock against the pull of gravity. Field capacity is dependent on the length of time the soil or rock has been undergoing gravity drainage, while specific retention is not.",
-      "[STEP 1] Do the calculations necessary for a three point problem. [STEP 2] Take the elevation of the determined strike... (This SHOULD be equivalent to the midpoint elevation.[STEP 3] Apply the hydraulic gradient equation, i = (high head - low head) / distance ... Treating the high head as the strike elevation, low head as the low elevation point, and distance as ... well the distance between the low elevation and strike elevation.",
-      "A measure of the potential energy of a fluid at any given point with respect to a given datum. In practice, it is the elevation to which water rises at a given point as a result of reservoir pressure."
-    ],
-    "correctAnswer": 0,
-    "explanation": "[STEP 1] Measure distance from low point to high point. [STEP 2] Apply the equation... (mid elevation - low elevation)/(high elevation - low elevation = (X/distance from low point to high point) ... and solve for X. [ STEP 3] Measure the X distance away from the low elevation point along the low-high point line. [STEP 4] Draw in a line connecting this new point to the mid elevation point. This is your strike. [STEP 5] Add 90 to obtain the dip direction (groundwater flow direction).",
-    "difficulty": "hard",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+{
+  "id": "q56",
+  "type": "formula",
+  "category": "Hydrogeology",
+  "question": "How do you solve a three-point problem (groundwater flow direction)?",
+  "choices": [
+    "[1] Determine a point of equal head between high and low elevations. [2] Construct an equipotential line through that point. [3] Draw groundwater flow direction perpendicular to the equipotential line.",
+    "[1] Calculate hydraulic conductivity between all three points. [2] Average the values. [3] Flow direction follows the highest conductivity.",
+    "[1] Identify the lowest elevation point. [2] Draw a straight line to the highest point. [3] Groundwater flows directly along this line.",
+    "[1] Calculate porosity at each point. [2] Connect equal porosity values. [3] Flow direction follows increasing porosity."
+  ],
+  "correctAnswer": 0,
+  "explanation": "The three-point problem is solved by constructing an equipotential line (equal head). Groundwater flow is always perpendicular to equipotential lines, moving from higher head to lower head.",
+  "difficulty": "hard",
+  "examRelevant": true,
+  "verifiedStatus": "reviewed"
   },
   {
     "id": "q57",
     "type": "formula",
     "category": "Hydrogeology",
-    "subcategory": [],
-    "question": "How do you find the hydraulic gradient from a three point problem?",
+    "question": "How do you find hydraulic gradient from a three-point problem?",
     "choices": [
-      "[STEP 1] Do the calculations necessary for a three point problem. [STEP 2] Take the elevation of the determined strike... (This SHOULD be equivalent to the midpoint elevation.[STEP 3] Apply the hydraulic gradient equation, i = (high head - low head) / distance ... Treating the high head as the strike elevation, low head as the low elevation point, and distance as ... well the distance between the low elevation and strike elevation.",
-      "[STEP 1] Measure distance from low point to high point. [STEP 2] Apply the equation... (mid elevation - low elevation)/(high elevation - low elevation = (X/distance from low point to high point) ... and solve for X. [ STEP 3] Measure the X distance away from the low elevation point along the low-high point line. [STEP 4] Draw in a line connecting this new point to the mid elevation point. This is your strike. [STEP 5] Add 90 to obtain the dip direction (groundwater flow direction).",
-      "A measure of the potential energy of a fluid at any given point with respect to a given datum. In practice, it is the elevation to which water rises at a given point as a result of reservoir pressure.",
-      "The quantity of water held by the soil or rock against the pull of gravity. Field capacity is dependent on the length of time the soil or rock has been undergoing gravity drainage, while specific retention is not."
+      "i = Δh / L using head difference between points and distance along flow direction.",
+      "Q = -KiA",
+      "T = Kb",
+      "S = Ss × b"
     ],
     "correctAnswer": 0,
-    "explanation": "[STEP 1] Do the calculations necessary for a three point problem. [STEP 2] Take the elevation of the determined strike... (This SHOULD be equivalent to the midpoint elevation.[STEP 3] Apply the hydraulic gradient equation, i = (high head - low head) / distance ... Treating the high head as the strike elevation, low head as the low elevation point, and distance as ... well the distance between the low elevation and strike elevation.",
+    "explanation": "Hydraulic gradient is calculated as i = Δh / L, where Δh is the difference in head and L is the distance along the flow path.",
     "difficulty": "hard",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1034,16 +983,15 @@
     "id": "q58",
     "type": "formula",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "What is the generalized expression for Darcy's Law?",
     "choices": [
-      "Brackish Water",
-      "Fresh Water",
-      ": 5000",
-      "Q = -KiA"
+      "Q = -KiA",
+      "i = Δh / L",
+      "T = Kb",
+      "S = ΔV / (AΔh)"
     ],
-    "correctAnswer": 3,
-    "explanation": "Q = -KiA",
+    "correctAnswer": 0,
+    "explanation": "Darcy’s Law states that flow rate (Q) equals hydraulic conductivity (K) times gradient (i) times area (A), with a negative sign indicating flow from high to low head.",
     "difficulty": "easy",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1052,16 +1000,15 @@
     "id": "q59",
     "type": "formula",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "What are the three discharge velocity expressions for Darcy's Law?",
     "choices": [
-      "A unit of intrinsic permeability = to 9.87 x 10^9 cm^2",
-      "An area where water infiltrates downward into the saturated zone.",
-      "When the water level of an aquifer is above land surface.",
-      "Vd = -K(h1-h2/L) & Vd = Q/A & Vd = Ki"
+      "v = -K(Δh/L), v = Q/A, v = Ki",
+      "Q = -KiA, T = Kb, i = Δh/L",
+      "S = Ss × b, Sy = Vd/Vt, Sr = Vr/Vt",
+      "K = (kiγ)/μ, T = Kb, Q = -KiA"
     ],
-    "correctAnswer": 3,
-    "explanation": "NOTE: The two dimensions given by area A, are found as the length between the two heads, and the height of the aquifer thickness (height)",
+    "correctAnswer": 0,
+    "explanation": "Discharge velocity can be expressed as v = -K(Δh/L), v = Q/A, or v = Ki. These represent equivalent forms linking Darcy’s Law and velocity.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1070,16 +1017,15 @@
     "id": "q60",
     "type": "formula",
     "category": "Hydrogeology",
-    "subcategory": [],
-    "question": "What are the three Dupuit Assumptions used to apply Darcy's Law for unconfined aquifers?",
+    "question": "What are the three Dupuit assumptions for unconfined flow?",
     "choices": [
-      "The lowest part of the vadose zone, immediately above the water table, where water is under pressure that is less than atmospheric pressure. Water is held by capillary tension.",
-      "[1] The hydraulic gradient equals the slope of the water table. [2] The direction of groundwater flow (streamlines) is horizontal. [3] Contours of equal head (equipotentional lines) are vertical.",
-      "The capacity of an aquifer to trasmit water of the prevailing kinematic viscosity. T = kb, where b = saturated thickness of the aquifer. Dimensions are gpd/ft of ft^2/day.",
-      "Ratio of the volume of water a soil or rock can retain against gravity drainage to the total volume of the soil or rock, usually stated as a percentage."
+      "Flow is horizontal, hydraulic gradient equals slope of water table, equipotential lines are vertical.",
+      "Flow is vertical, gradient is constant, equipotential lines are horizontal.",
+      "Flow is turbulent, gradient varies randomly, equipotential lines are curved.",
+      "Flow depends only on porosity and not hydraulic head."
     ],
-    "correctAnswer": 1,
-    "explanation": "[1] The hydraulic gradient equals the slope of the water table. [2] The direction of groundwater flow (streamlines) is horizontal. [3] Contours of equal head (equipotentional lines) are vertical.",
+    "correctAnswer": 0,
+    "explanation": "Dupuit assumptions simplify unconfined flow: flow is horizontal, the hydraulic gradient equals the slope of the water table, and equipotential lines are vertical.",
     "difficulty": "hard",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1088,16 +1034,15 @@
     "id": "q61",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
-    "question": "What are some common minerals dissolved in groundwater?",
+    "question": "What are common dissolved ions in groundwater?",
     "choices": [
-      "acre-feet per year or gallons per year.",
-      "A geologic unit that is COMPLETELY impermeable.",
-      "Two-dimensional representation of flow lines and equipotentials.",
-      "Sodium, calcium, magnesium, potassium, chloride, bicarbonate, sulfate"
+      "Sodium, calcium, magnesium, potassium, chloride, bicarbonate, sulfate",
+      "Quartz, feldspar, mica, olivine",
+      "Nitrogen, oxygen, carbon dioxide, methane",
+      "Gold, silver, copper, iron"
     ],
-    "correctAnswer": 3,
-    "explanation": "Sodium, calcium, magnesium, potassium, chloride, bicarbonate, sulfate",
+    "correctAnswer": 0,
+    "explanation": "Common dissolved ions (major ions) in groundwater include Na⁺, Ca²⁺, Mg²⁺, K⁺, Cl⁻, HCO₃⁻, and SO₄²⁻. These control water chemistry and classification.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1106,16 +1051,15 @@
     "id": "q62",
     "type": "formula",
     "category": "Hydrogeology",
-    "subcategory": [],
-    "question": "What is the Duipuit equation for flow in an unconfined aquifer?",
+    "question": "What is the Dupuit equation for steady flow in an unconfined aquifer?",
     "choices": [
-      "The property of a porous rock or soil for transmitting a fluid. It measures the relative ease of flow under unequal pressure.",
-      "Assesses the amount of both surface water and groundwater in a basin. dSt = P - E +- R +- U",
-      "Q = -1/2 x K x (higher water table height ^2 - lower water table height ^2 / L) x W",
-      "Water that is derived directly from magma and is thought to have come to the Earth's surface for the first time."
+      "Q = -KiA",
+      "Q = -½ K (h₁² - h₂²) / L × W",
+      "i = Δh / L",
+      "T = Kb"
     ],
-    "correctAnswer": 2,
-    "explanation": "Where L is the distance between the two wells, and W is the width of the aquifer (will often be given in the problem).",
+    "correctAnswer": 1,
+    "explanation": "The Dupuit equation for unconfined flow is Q = -½K(h₁² - h₂²)/L × W, accounting for changing saturated thickness along flow.",
     "difficulty": "hard",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1124,16 +1068,15 @@
     "id": "q63",
     "type": "multiple_choice",
     "category": "Conversion Factor",
-    "subcategory": [],
-    "question": "How many feet are in a mile?",
+    "question": "How many feet are in one mile?",
     "choices": [
-      "62.4 lbs/ft^3",
-      "325,829 gallons are in one acre-foot.",
       "5280 ft",
-      "640 acres."
+      "640 ft",
+      "43,560 ft",
+      "325,829 ft"
     ],
-    "correctAnswer": 2,
-    "explanation": "5280 ft",
+    "correctAnswer": 0,
+    "explanation": "1 mile = 5280 feet. This is a fundamental unit conversion used frequently in hydrology problems.",
     "difficulty": "easy",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1142,16 +1085,15 @@
     "id": "q64",
     "type": "formula",
     "category": "Hydrogeology",
-    "subcategory": [],
-    "question": "What is the seepage velocity, Vs, and what's its equation?",
+    "question": "What is seepage velocity (Vs)?",
     "choices": [
-      "The seepage velocity is the rate of groundwater transmission when taking into account which pores can actually transmit (effective porosity)",
-      "The area within which the potentiometric surface is lowered by withdrawal or raised by injection, of water through a well.",
-      "Water that is derived directly from magma and is thought to have come to the Earth's surface for the first time.",
-      "A geologic unit that is saturated and sufficiently permeable to transmit significant economic quantities of water to wells and springs."
+      "The velocity of groundwater flow accounting for only interconnected pore space, Vs = Ki / ne",
+      "The total flow rate through an aquifer, Q = -KiA",
+      "The hydraulic gradient between two points, i = Δh / L",
+      "The transmissivity of an aquifer, T = Kb"
     ],
     "correctAnswer": 0,
-    "explanation": "Vs = K(hydraultic conductivity) x i(hydraulic gradient) / ne(effective porosity)",
+    "explanation": "Seepage velocity accounts for actual flow through interconnected pores: Vs = Ki / ne. It is greater than Darcy velocity because flow is restricted to effective porosity.",
     "difficulty": "hard",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1160,16 +1102,15 @@
     "id": "q65",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
-    "question": "What is the shape of the equipotential surface for a confined aquifer?",
+    "question": "What is the general shape of equipotential surfaces in a confined aquifer?",
     "choices": [
-      "It is equal to atmospheric pressure.",
-      "The shape is generally planar.",
-      "It is greater than atmospheric pressure.",
-      "It is less than atmospheric pressure."
+      "Generally planar surfaces",
+      "Strongly controlled by surface topography",
+      "Highly irregular due to air-water interactions",
+      "Always vertical planes"
     ],
-    "correctAnswer": 1,
-    "explanation": "The shape is generally planar.",
+    "correctAnswer": 0,
+    "explanation": "In confined aquifers, equipotential surfaces are generally planar because pressure conditions are more uniform and not directly controlled by surface topography.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1178,16 +1119,15 @@
     "id": "q66",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
-    "question": "What is the shape of the equipotential surface for an unconfined aquifer?",
+    "question": "What is the general shape of equipotential surfaces in an unconfined aquifer?",
     "choices": [
-      "A geologic unit that can store, and SLUGGISHLY transmit water.",
-      "An area where water infiltrates downward into the saturated zone.",
-      "The shape generally follows the shape of overlying topography.",
-      "An aquifer overlain by a confining layer of low permeability."
+      "Generally planar surfaces",
+      "Controlled primarily by subsurface pressure only",
+      "Closely follows the shape of the water table and surface topography",
+      "Always horizontal planes"
     ],
     "correctAnswer": 2,
-    "explanation": "The shape generally follows the shape of overlying topography.",
+    "explanation": "In unconfined aquifers, equipotential surfaces reflect the shape of the water table, which often mimics surface topography.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1196,16 +1136,15 @@
     "id": "q67",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "Sustainable Yield",
     "choices": [
-      "A subsurface zone containing water under pressure that is less than atmospheric pressure. It is measured from the ground surface to the water table.",
-      "A surface that represents the total head of groundwater and is defined by the level to which water will rise in a well.",
-      "Development and use of groundwater in a manner that can be maintained for an indefinite time without causing unacceptable environmental economic or social consequences.",
-      "The property of a porous rock or soil for transmitting a fluid. It measures the relative ease of flow under unequal pressure."
+      "The maximum rate at which groundwater can be withdrawn without causing unacceptable impacts",
+      "The total volume of water stored in an aquifer",
+      "The rate of groundwater flow through a unit area",
+      "The amount of water discharged from an aquifer annually"
     ],
-    "correctAnswer": 2,
-    "explanation": "Development and use of groundwater in a manner that can be maintained for an indefinite time without causing unacceptable environmental economic or social consequences.",
+    "correctAnswer": 0,
+    "explanation": "Sustainable yield refers to groundwater use that can continue indefinitely without causing environmental, economic, or social harm.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1214,16 +1153,15 @@
     "id": "q68",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
-    "question": "Interpretation of stereo-paired aerial photographs is NOT helpful when evaluating a site for... ?",
+    "question": "Interpretation of stereo-paired aerial photographs is NOT helpful for evaluating:",
     "choices": [
-      "A geologic unit that is COMPLETELY impermeable.",
-      "Sodium, calcium, magnesium, potassium, chloride, bicarbonate, sulfate",
-      "acre-feet per year or gallons per year.",
-      "Contaminant plume migration in a confined aquifer."
+      "Surface drainage patterns",
+      "Topography and landforms",
+      "Geologic structures at the surface",
+      "Contaminant plume migration in a confined aquifer"
     ],
     "correctAnswer": 3,
-    "explanation": "Contaminant plume migration in a confined aquifer.",
+    "explanation": "Aerial photos provide surface information, but cannot directly reveal subsurface contaminant movement, especially in confined aquifers.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1232,16 +1170,15 @@
     "id": "q69",
     "type": "multiple_choice",
     "category": "Hydrogeology",
-    "subcategory": [],
     "question": "Tracers",
     "choices": [
-      "Substances that can be used to determine the physical and chemical properties of groundwater.",
-      "The surface within unconfined groundwater at which the hydraulic pressure is equal to atmospheric pressure.",
-      "Assesses the amount of only groundwater in a basin. dS = I - O",
-      "The region drained by a stream or body of water, or a drainage divide."
+      "Substances used to track groundwater flow and determine physical or chemical properties",
+      "Natural boundaries that separate groundwater basins",
+      "Measures of hydraulic head within an aquifer",
+      "Units used to express groundwater storage"
     ],
     "correctAnswer": 0,
-    "explanation": "Substances that can be used to determine the physical and chemical properties of groundwater.",
+    "explanation": "Tracers are introduced or naturally occurring substances used to study groundwater movement, flow paths, and chemical behavior.",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -1250,16 +1187,15 @@
     "id": "q70",
     "type": "multiple_choice",
     "category": "Conversion Factor",
-    "subcategory": [],
-    "question": "How many gallons are in an acre-foot?",
+    "question": "How many gallons are in one acre-foot?",
     "choices": [
-      "62.4 lbs/ft^3",
-      "325,829 gallons are in one acre-foot.",
-      "5280 ft",
-      "640 acres."
+      "325,829 gallons",
+      "43,560 gallons",
+      "5280 gallons",
+      "640 gallons"
     ],
-    "correctAnswer": 1,
-    "explanation": "325,829 gallons are in one acre-foot.",
+    "correctAnswer": 0,
+    "explanation": "One acre-foot equals 325,829 gallons. This represents the volume needed to cover one acre to a depth of one foot.",
     "difficulty": "easy",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
