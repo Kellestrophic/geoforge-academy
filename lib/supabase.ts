@@ -1,23 +1,19 @@
 import { createClient } from "@supabase/supabase-js";
-import Constants from "expo-constants";
 
 let supabaseInstance: any = null;
 
 export function getSupabase() {
   if (supabaseInstance) return supabaseInstance;
 
-  const supabaseUrl =
-    Constants.expoConfig?.extra?.supabaseUrl ?? "";
-
-  const supabaseAnonKey =
-    Constants.expoConfig?.extra?.supabaseAnonKey ?? "";
+  const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL;
+  const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY;
 
   if (!supabaseUrl || !supabaseAnonKey) {
-    console.log("❌ Supabase config missing");
+    console.log("❌ ENV VARS MISSING");
     return null;
   }
 
-  console.log("✅ Creating Supabase instance");
+  console.log("✅ Supabase init");
 
   supabaseInstance = createClient(supabaseUrl, supabaseAnonKey, {
     auth: {
