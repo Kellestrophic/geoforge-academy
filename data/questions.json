@@ -1908,276 +1908,197 @@
   {
     "id": "q116",
     "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Toughness",
     "choices": [
-      "A group of clay minerals that expand when they absorb large quantites of water.",
-      "The load per unit area which the ground can safely support without excessive yield.",
-      "The property of a soil that is able to absorb stress by plastic deformation.",
-      "The average time interval between earthquake occurrences of equal magnitude on the same fault."
+      "The ability of a soil to resist shear failure under stress.",
+      "The capacity of a soil to absorb energy and deform plastically without fracturing.",
+      "The resistance of soil to volume change under pressure.",
+      "The ability of soil to transmit fluids."
     ],
-    "correctAnswer": 2,
-    "explanation": "The property of a soil that is able to absorb stress by plastic deformation.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 1,
+    "explanation": "Toughness refers to how much energy a soil can absorb before failure. It reflects plastic deformation capacity, especially important in cohesive soils like clays."
   },
   {
     "id": "q117",
     "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Triaxial Test",
     "choices": [
-      "The component of stress that acts along a plane through any point in the body.",
-      "The most widely used shear strength test in which the drainage conditions can be controlled.",
-      "The floor or bottom of a closed conduit, such as a tunnel, aquaduct, or drain.",
-      "A statement of elastic deformation - the strain is linearly proportional to the applied stress."
+      "A laboratory test measuring compressibility under one-dimensional loading.",
+      "A shear strength test where confining pressure and drainage conditions are controlled.",
+      "A test used to determine grain size distribution.",
+      "A method for measuring permeability in field conditions."
     ],
     "correctAnswer": 1,
-    "explanation": "The most widely used shear strength test in which the drainage conditions can be controlled.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "The triaxial test is the most versatile shear strength test. It allows control over confining pressure and drainage (CD, CU, UU), making it widely used in geotechnical analysis."
   },
   {
     "id": "q118",
     "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "U-Line",
     "choices": [
-      "1) The flow lines should be drawn evenly spaced between the boundaries. 2) The flow lines begin and end at equipotential surfaces and intersect them at right angles to form approximate squares. 3) Entrance and exit requirements of the flow lines and equipotential lines must be met.",
-      "The upper limit of the plastic state. Water content, in percent of dry weight, at which two sections of a pat of soil, separated by a specified distance, barely touch each other but do not flow together when given a sharp blow.",
-      "The line on the plasticity chart that marks the approximate upper limit of the relationship between the plasticity index and the liquid limit for natural soils. It is a check against erroneous data. If a data point plots above or to the left of the line, verify the information.",
-      "Dams constructed of excavated rocks and / or soils (earth fill). Earth fill is either placed by lifts, or compacted in layers. The key portion of rockfill is an impervious core. The dam cross-section is structure as rockfill - clay core - rockfill."
+      "A boundary line separating sand and gravel on a grain size curve.",
+      "A theoretical line representing maximum void ratio for soils.",
+      "The upper limit line on a plasticity chart used to check for unrealistic soil data.",
+      "A line defining the transition between saturated and unsaturated soils."
     ],
     "correctAnswer": 2,
-    "explanation": "The line on the plasticity chart that marks the approximate upper limit of the relationship between the plasticity index and the liquid limit for natural soils. It is a check against erroneous data. If a data point plots above or to the left of the line, verify the information.",
-    "difficulty": "hard",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "The U-line represents the upper bound of the plasticity index vs liquid limit relationship. If soil data plots above this line, it is likely erroneous."
   },
   {
     "id": "q119",
     "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Unconfined Compressive Strength Test",
     "choices": [
-      "An impermeable structure placed beneath the base of a dam to prevent or reduce seepage loss. The structure may be made of concrete, compacted clay, or grout.",
-      "An elastic constant given by the ratio of stress to its corresponding strain under given conditions of load for materials that deform elastically according to Hook's Law.",
-      "Areas within the dam where excavated materials are placed. A random zone is paced where permeability and sheaer strength are not critical and where weight is important.",
-      "A special case of the triaxial test in which axial stress is applied to a specimen under atmospheric pressure to obtain the value of the shear strength."
+      "A test measuring permeability under constant head conditions.",
+      "A test applying shear stress under controlled drainage.",
+      "A test measuring tensile strength of soils.",
+      "A special case of the triaxial test with no confining pressure."
     ],
     "correctAnswer": 3,
-    "explanation": "Pressure is applied until the rock busts.",
-    "difficulty": "hard",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "This test applies axial stress without lateral confinement. It is essentially a triaxial test with zero confining pressure and is commonly used for cohesive soils."
   },
   {
     "id": "q120",
     "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Uniformity Coefficient (Cu)",
     "choices": [
-      "The load per unit area which the ground can safely support without excessive yield.",
-      "A group of clay minerals that expand when they absorb large quantites of water.",
-      "The ratio of the D60 size to D10 size. See also Coefficient of Uniformity.",
-      "The property of a soil that is able to absorb stress by plastic deformation."
+      "The ratio of void volume to solid volume.",
+      "A measure of grain size spread using D60/D10.",
+      "The ratio of water content to dry density.",
+      "The slope of the gradation curve."
     ],
-    "correctAnswer": 2,
-    "explanation": "The ratio of the D60 size to D10 size. See also Coefficient of Uniformity.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 1,
+    "explanation": "Cu = D60 / D10. It indicates how well graded a soil is. Higher values mean a wider range of particle sizes."
   },
   {
     "id": "q121",
     "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "Unit Weight (lambda)",
+    "question": "Unit Weight (γ)",
     "choices": [
-      "A relatively narrow, horizontal bench built along an embankment.",
-      "The weight of soil plus water per unit volume.",
-      "The process whereby soils collapse when they are wetted.",
-      "Vp = sqrt(bulk modulus + [4/3shear modulus] / density)"
+      "Mass per unit volume of soil solids.",
+      "Weight of soil and water per unit volume.",
+      "Ratio of soil density to water density.",
+      "Volume of voids per total volume."
     ],
     "correctAnswer": 1,
-    "explanation": "Unit Weight = Weight of Soil and Water / Volume",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Unit weight is the total weight (solids + water) divided by volume. It is important in calculating stresses in soil."
   },
   {
     "id": "q122",
     "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Void Ratio (e)",
     "choices": [
-      "The ratio of the volume of void space to the volume of solids.",
-      "Vertical distance between the dam crest and the water surface of the reservoir.",
-      "The degree of adhesion between soil particles that can resist deformation or rupture.",
-      "Soil or rock that creeps into a tunnel and maintains a constant volume."
+      "Ratio of void volume to solid volume.",
+      "Ratio of water volume to total volume.",
+      "Ratio of solids to voids.",
+      "Ratio of density to unit weight."
     ],
     "correctAnswer": 0,
-    "explanation": "e = void volume / solid volume",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Void ratio is defined as e = Vv / Vs. It describes how much empty space exists relative to solids in soil."
   },
   {
     "id": "q123",
     "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "Well-Graded",
+    "question": "Well-Graded Soil",
     "choices": [
-      "Slow ground displacement usually occurring without accompanying earthquakes. It may be of tectonic origin or result from oil or ground-water withdrawal.",
-      "A soil with all grain sizes present with no excess in any size range. Equivalent to the geologist's term \"poorly sorted.",
-      "The area in which there is no possibility for earthquake early warning notifications because it is too close to the epicenter.",
-      "Bedrock or soil on a ridge top that has been thoroughly pulverized due to high accelerations over many cycles of earthquake shattering."
+      "Soil composed primarily of fine particles.",
+      "Soil with uniform grain sizes.",
+      "Soil with a wide distribution of grain sizes.",
+      "Soil lacking intermediate particle sizes."
     ],
-    "correctAnswer": 1,
-    "explanation": "A soil with all grain sizes present with no excess in any size range. Equivalent to the geologist's term \"poorly sorted.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 2,
+    "explanation": "Well-graded soils contain a wide variety of particle sizes, which allows smaller grains to fill voids between larger grains, increasing density."
   },
   {
     "id": "q124",
-    "type": "formula",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "Young's Modulus (E) / Modulus of Elasticity",
+    "type": "multiple_choice",
+    "question": "Young's Modulus (E)",
     "choices": [
-      "Areas within the dam where excavated materials are placed. A random zone is paced where permeability and sheaer strength are not critical and where weight is important.",
-      "A wave oscillation of the surface of water in an enclosed basin (such as a lake or bay) initiated by an earthquake or changes in atmospheric pressure.",
-      "An elastic constant given by the ratio of stress to its corresponding strain under given conditions of load for materials that deform elastically according to Hook's Law.",
-      "An impermeable structure placed beneath the base of a dam to prevent or reduce seepage loss. The structure may be made of concrete, compacted clay, or grout."
+      "Ratio of shear stress to shear strain.",
+      "Ratio of stress to axial strain.",
+      "Resistance to volumetric compression.",
+      "Ratio of void volume to total volume."
     ],
-    "correctAnswer": 2,
-    "explanation": "E = stress / strain",
-    "difficulty": "hard",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 1,
+    "explanation": "Young’s modulus is defined as E = stress / strain and measures stiffness under axial loading."
   },
   {
     "id": "q125",
     "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [
-      "Hydrogeology"
-    ],
     "question": "Water Content (w)",
     "choices": [
-      "A theory proposed by Reid to explain the cause of earthquakes.",
-      "The gradual, steady downhill movement of soil and loose rock material.",
-      "The amount of water relative to the amount of solid mass.",
-      "Landslide movement that occurs predominantly along planar or gently undulating surfaces."
+      "Ratio of water volume to void volume.",
+      "Ratio of water mass to solid mass.",
+      "Ratio of total mass to volume.",
+      "Ratio of pore pressure to stress."
     ],
-    "correctAnswer": 2,
-    "explanation": "Water Content = Water Mass / Solid Mass",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 1,
+    "explanation": "Water content is defined as w = Mw / Ms. It is one of the most fundamental soil properties."
   },
   {
     "id": "q126",
-    "type": "formula",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "What are the equation relationships between void ratio (e) and porosity (n)?",
+    "type": "multiple_choice",
+    "question": "Relationship between void ratio (e) and porosity (n)",
     "choices": [
-      "Sigma 1 - The maximum stress axis.",
-      "The outermost maergin of displaced landslide material.",
       "n = e / (1 + e)",
-      "Sigma 3 - The minimum stress axis."
+      "e = n / (1 - n)",
+      "n = 1 / e",
+      "e = n + 1"
     ],
-    "correctAnswer": 2,
-    "explanation": "e = n / (1 + n)",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Porosity and void ratio are related by n = e / (1 + e). This converts between volume-based ratios."
   },
   {
     "id": "q127",
-    "type": "formula",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "What is the density of water at 4 degrees C?",
+    "type": "multiple_choice",
+    "question": "Density of water at 4°C",
     "choices": [
-      "Clayey Sands",
-      "1000 Kg/m^3",
-      "Silty Sand",
-      ">190 mi"
+      "1000 kg/m³",
+      "62.4 lb/ft³",
+      "1.5 g/cm³",
+      "980 kg/m³"
     ],
-    "correctAnswer": 1,
-    "explanation": "1.0 g/cm^3",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Water has maximum density at 4°C, equal to 1000 kg/m³ (or 1 g/cm³)."
   },
   {
     "id": "q128",
-    "type": "formula",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "What is the generalized \"dry\" equation form?",
+    "type": "multiple_choice",
+    "question": "Generalized 'dry' equation form",
     "choices": [
-      "The process whereby soils collapse when they are wetted.",
-      "A relatively narrow, horizontal bench built along an embankment.",
-      "Dry Value = Value / (1 + Water Content)",
-      "Vp = sqrt(bulk modulus + [4/3shear modulus] / density)"
+      "Dry value = total value × (1 + water content)",
+      "Dry value = value / (1 + water content)",
+      "Dry value = water content / value",
+      "Dry value = value × water content"
     ],
-    "correctAnswer": 2,
-    "explanation": "Dry Value = Value / (1 + Water Content)",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 1,
+    "explanation": "This relationship removes water influence, converting bulk values into dry values."
   },
   {
     "id": "q129",
-    "type": "formula",
-    "category": "Engineering Geology",
-    "subcategory": [
-      "Hydrogeology"
-    ],
-    "question": "What is the void ratio equation in terms of specific gravity?",
+    "type": "multiple_choice",
+    "question": "Void ratio in terms of specific gravity",
     "choices": [
-      "e = wGs",
-      "Less than 4.",
-      "The Shear Stress.",
-      "2 x theta"
+      "e = w × Gs",
+      "e = Gs / w",
+      "e = w / Gs",
+      "e = Gs + w"
     ],
     "correctAnswer": 0,
-    "explanation": "Void Ratio = Water Content x Specific Gravity",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "For saturated soils, void ratio can be approximated as e = wGs, linking water content and specific gravity."
   },
   {
     "id": "q130",
     "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "In a gradation curve, how does a well graded soil plot?",
+    "question": "Well-graded soil on a gradation curve",
     "choices": [
-      "The process whereby soils collapse when they are wetted.",
-      "A relatively narrow, horizontal bench built along an embankment.",
-      "Vp = sqrt(bulk modulus + [4/3shear modulus] / density)",
-      "The curve has a wide spread across the x-axis."
+      "Steep vertical curve",
+      "Flat horizontal curve",
+      "Narrow distribution curve",
+      "Wide spread curve across particle sizes"
     ],
     "correctAnswer": 3,
-    "explanation": "The curve has a wide spread across the x-axis.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "A well-graded soil shows a broad distribution of particle sizes, resulting in a wide curve across the x-axis."
   },
   {
     "id": "q131",
@@ -2196,798 +2117,534 @@
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
-  },
+  }, 
   {
     "id": "q132",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "What is the uniformity coefficient range of a well graded sample?",
+    "question": "What is the uniformity coefficient range of a well-graded sample?",
     "choices": [
-      "1000 Kg/m^3",
-      "Silty Sand",
-      ">190 mi",
-      "Above 6."
+      "Less than 4",
+      "Between 1 and 3",
+      "Greater than 6",
+      "Equal to 1"
     ],
-    "correctAnswer": 3,
-    "explanation": "Above 6.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 2,
+    "explanation": "Well-graded soils have a wide range of particle sizes, reflected by a high uniformity coefficient (Cu > 6)."
   },
   {
     "id": "q133",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "What is the uniformity coefficient range of a poorly graded sample?",
     "choices": [
-      "Less than 4.",
-      "e = wGs",
-      "2 x theta",
-      "The Shear Stress."
+      "Less than 4",
+      "Greater than 6",
+      "Between 4 and 6",
+      "Equal to 10"
     ],
     "correctAnswer": 0,
-    "explanation": "Less than 4.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Poorly graded soils have a narrow particle size distribution, giving a low uniformity coefficient (Cu < 4)."
   },
   {
     "id": "q134",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "If normal stress is acting inwards towards a body, is it treated as positive or negative?",
+    "question": "If normal stress is acting inward toward a body, how is it treated?",
     "choices": [
-      "well-graded",
-      "Sand",
-      "Shrinkage",
-      "Positive."
+      "Negative",
+      "Zero",
+      "Variable",
+      "Positive"
     ],
     "correctAnswer": 3,
-    "explanation": "Positive.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "By convention in geotechnical engineering, compressive (inward) normal stresses are considered positive."
   },
   {
     "id": "q135",
-    "type": "formula",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "What stress equation quantifies vertically loaded stress?",
+    "question": "What equation represents vertically applied stress in soil?",
     "choices": [
-      "sigma(stress) = Z(depth) x Unit Weight(lambda)",
-      "Peat & other highly organic soils",
-      "The flat top of a dam.",
-      "Vs = Sqrt(shear modulus / density)"
+      "σ = γz",
+      "σ = F/A",
+      "σ = Eε",
+      "σ = τ tanφ"
     ],
     "correctAnswer": 0,
-    "explanation": "sigma(stress) = Z(depth) x Unit Weight(lambda)",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Vertical stress is calculated as σ = γz, where γ is unit weight and z is depth."
   },
   {
     "id": "q136",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "What is the vertical axis on a Mohr circle diagram?",
+    "question": "What is plotted on the vertical axis of a Mohr circle?",
     "choices": [
-      "Less than 4.",
-      "The Shear Stress.",
-      "2 x theta",
-      "e = wGs"
+      "Normal stress",
+      "Shear stress",
+      "Strain",
+      "Displacement"
     ],
     "correctAnswer": 1,
-    "explanation": "The Shear Stress.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "The vertical axis represents shear stress (τ), while the horizontal axis represents normal stress (σ)."
   },
   {
     "id": "q137",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "For Atterberg limits, the boundary between the solid and semisolid states is called the [what] limit?",
+    "question": "Which Atterberg limit defines the boundary between solid and semi-solid states?",
     "choices": [
-      "Sand",
-      "Shrinkage",
-      "well-graded",
-      "Gravel"
+      "Liquid limit",
+      "Plastic limit",
+      "Shrinkage limit",
+      "Flow limit"
     ],
-    "correctAnswer": 1,
-    "explanation": "Shrinkage",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 2,
+    "explanation": "The shrinkage limit marks the transition between solid and semi-solid states in soil."
   },
   {
     "id": "q138",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "The coarse grained and fine grained soil boundary in engineering is placed at what number sieve (0.003 in)?",
+    "question": "The boundary between coarse- and fine-grained soils is defined at which sieve?",
     "choices": [
-      ">190 mi",
-      "Silty Sand",
-      ": 200",
-      "1000 Kg/m^3"
+      "No. 40 sieve",
+      "No. 100 sieve",
+      "No. 200 sieve",
+      "No. 4 sieve"
     ],
     "correctAnswer": 2,
-    "explanation": ": 200",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "The No. 200 sieve (0.075 mm) is used to distinguish coarse-grained from fine-grained soils."
   },
   {
     "id": "q139",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "For a coarse grained soil, what percent of soil is retained on the No. 200 sieve?",
+    "question": "For coarse-grained soils, what percentage is retained on the No. 200 sieve?",
     "choices": [
-      "Silty Sand",
-      ">190 mi",
-      "1000 Kg/m^3",
-      ": 50%"
+      "Less than 25%",
+      "Less than 35%",
+      "More than 50%",
+      "Exactly 10%"
     ],
-    "correctAnswer": 3,
-    "explanation": ": 50%",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 2,
+    "explanation": "Coarse-grained soils have more than 50% of material retained on the No. 200 sieve."
   },
   {
     "id": "q140",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Abutment",
     "choices": [
-      "Areas within the dam where excavated materials are placed. A random zone is paced where permeability and sheaer strength are not critical and where weight is important.",
-      "The sides of a stream channel or a structure that supports the end of a dam or bridge. Sides of the abutment are viewed facing downstream.",
-      "The condition of soil in which a decrease in intergranular pressure allows water to flow upward with sufficient velocity to reduce significantly the soil's bearing capacity.",
-      "Rock or soil that increases in volume when excavaated. Volume increase is usually caused by the presence of clay minerals with a high swelling capacity."
+      "A foundation layer beneath a dam",
+      "The side support of a dam or bridge",
+      "A spillway channel",
+      "A drainage layer beneath structures"
     ],
     "correctAnswer": 1,
-    "explanation": "The sides of a stream channel or a structure that supports the end of a dam or bridge. Sides of the abutment are viewed facing downstream.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Abutments are the sides that support structures like dams or bridges."
   },
   {
     "id": "q141",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Berm",
     "choices": [
-      "A relatively narrow, horizontal bench built along an embankment.",
-      "Vp = sqrt(bulk modulus + [4/3shear modulus] / density)",
-      "A thrust fault that does not reach the surface.",
-      "The process whereby soils collapse when they are wetted."
+      "A horizontal bench cut into a slope",
+      "A drainage trench beneath a structure",
+      "A retaining wall component",
+      "A sediment deposit at the base of a slope"
     ],
     "correctAnswer": 0,
-    "explanation": "A relatively narrow, horizontal bench built along an embankment.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "A berm is a horizontal bench used to stabilize slopes or embankments."
   },
   {
     "id": "q142",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Crown",
     "choices": [
-      "Peat & other highly organic soils",
-      "A channel for reservoir overflow.",
-      "It is the unstable area.",
-      "The roof of a mine."
+      "The base of a tunnel",
+      "The highest water level in a reservoir",
+      "The roof of a tunnel or mine",
+      "The downstream face of a dam"
     ],
-    "correctAnswer": 3,
-    "explanation": "The roof of a mine.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 2,
+    "explanation": "The crown refers to the top or roof of a tunnel or underground opening."
   },
   {
     "id": "q143",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Cutoff",
     "choices": [
-      "An impermeable structure placed beneath the base of a dam to prevent or reduce seepage loss. The structure may be made of concrete, compacted clay, or grout.",
-      "Areas within the dam where excavated materials are placed. A random zone is paced where permeability and sheaer strength are not critical and where weight is important.",
-      "A wave oscillation of the surface of water in an enclosed basin (such as a lake or bay) initiated by an earthquake or changes in atmospheric pressure.",
-      "An elastic constant given by the ratio of stress to its corresponding strain under given conditions of load for materials that deform elastically according to Hook's Law."
+      "A drainage channel",
+      "A structural reinforcement layer",
+      "An impermeable barrier beneath a dam",
+      "A spillway outlet"
     ],
-    "correctAnswer": 0,
-    "explanation": "An impermeable structure placed beneath the base of a dam to prevent or reduce seepage loss. The structure may be made of concrete, compacted clay, or grout.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 2,
+    "explanation": "Cutoffs are impermeable barriers used to prevent seepage beneath dams."
   },
   {
     "id": "q144",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "Damn Crest",
+    "question": "Dam Crest",
     "choices": [
-      "The flat top of a dam.",
-      "sigma(stress) = Z(depth) x Unit Weight(lambda)",
-      "Peat & other highly organic soils",
-      "Vs = Sqrt(shear modulus / density)"
+      "The base of a dam",
+      "The sloped face of a dam",
+      "The top of a dam",
+      "The drainage system of a dam"
     ],
-    "correctAnswer": 0,
-    "explanation": "The flat top of a dam.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 2,
+    "explanation": "The crest is the topmost part of a dam structure."
   },
   {
     "id": "q145",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Flowing Ground",
     "choices": [
-      "Erosion by percolating waters or seepage in a layer of subsoil resulting in caving and the formation of tunnels or pipes through which the soluble or granular material is removed.",
-      "The force per unit area. The symbol sigma is used to denote the overall stress as well as the component of stress that acts normal to the plane (normal stress)",
-      "Soil that flows into a tunnel from the floor, roof, or wals of a tunnel driven by water seepage. The flow typically consists of cohesionaless soil below the water table.",
-      "A theory that forecasts location and magnitude of future earthquakes based on the absense of earthquakes in one area as compared to the presence of earthquakes adjacent to the gap."
+      "Soil movement due to slope instability",
+      "Soil erosion by wind",
+      "Soil that flows into excavations due to water seepage",
+      "Soil expansion due to moisture absorption"
     ],
     "correctAnswer": 2,
-    "explanation": "Soil that flows into a tunnel from the floor, roof, or wals of a tunnel driven by water seepage. The flow typically consists of cohesionaless soil below the water table.",
-    "difficulty": "hard",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Flowing ground occurs when water-saturated, cohesionless soil flows into excavations like tunnels."
   },
   {
     "id": "q146",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Freeboard",
     "choices": [
-      "Soil or rock that creeps into a tunnel and maintains a constant volume.",
-      "Vertical distance between the dam crest and the water surface of the reservoir.",
-      "The degree of adhesion between soil particles that can resist deformation or rupture.",
-      "The strength of a soil when dry as determined by the crushing test."
+      "The vertical distance between the foundation and the base of a dam",
+      "The vertical distance between the dam crest and the water surface",
+      "The horizontal distance between spillway and crest",
+      "The thickness of the dam crest"
     ],
     "correctAnswer": 1,
-    "explanation": "Vertical distance between the dam crest and the water surface of the reservoir.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Freeboard is the vertical distance between the dam crest and the water surface, providing safety against overtopping."
   },
   {
     "id": "q147",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Grout",
     "choices": [
-      "Landslide movement that occurs predominantly along planar or gently undulating surfaces.",
-      "A cement slurry of high water content used to seal fissures.",
-      "The gradual, steady downhill movement of soil and loose rock material.",
-      "A theory proposed by Reid to explain the cause of earthquakes."
+      "A compacted clay barrier used in dams",
+      "A cement slurry used to fill cracks and voids",
+      "A drainage layer beneath structures",
+      "A type of soil stabilization using lime"
     ],
     "correctAnswer": 1,
-    "explanation": "A cement slurry of high water content used to seal fissures.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Grout is a fluid mixture (often cement-based) used to seal fissures and voids in rock or soil."
   },
   {
     "id": "q148",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Grout Curtain",
     "choices": [
-      "The line on the plasticity chart that divides clays from silts. Equation of the line is horizontal at PI = 4 to LL 25.5, then PI = 0.73 (LL - 20)",
-      "A grout barrier used in the vicinity of tunnels or dams where cracks or oints in rocks are filled with a liquid cement that is pumped or poured into spaces to seal them.",
-      "The diameter D10 which corresponds to the percentage, by weight, of grains equal to 10% on the grain-size diagram. Ten percent of the particles are finer and 90% are coarser than the effective size.",
-      "That part of the total stress that is due entirely to the solid particles of soil, and represents an excess over the neutral stress or pore-water pressure. Effective stress - total stress minus pore-water pressure."
+      "A surface drainage system for dams",
+      "A subsurface impermeable barrier formed by injected grout",
+      "A reinforced concrete dam wall",
+      "A filter layer preventing soil migration"
     ],
     "correctAnswer": 1,
-    "explanation": "A grout barrier used in the vicinity of tunnels or dams where cracks or oints in rocks are filled with a liquid cement that is pumped or poured into spaces to seal them.",
-    "difficulty": "hard",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "A grout curtain is created by injecting grout into subsurface fractures to reduce seepage beneath dams."
   },
   {
     "id": "q149",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Gunite",
     "choices": [
-      "A dry mixture of Portland cement and sand, forced by compressed air through a special hose, with water applied at the nozzel and sprayed onto mine timbers, tunnel supports, and roadways to seal and fireproof them.",
-      "The ratio of the volume of water to the total volume of void space. The value of SR can range from zero for a completely dry soil to one (or 100%) for a fully saturated soil.",
-      "The ratio of the difference between the void ratio of a cohesionless soil in the loosest state and any given void ratio to the difference between its void ratios in the loosest and in the densest states.",
-      "That part of the total stress that is due entirely to the solid particles of soil, and represents an excess over the neutral stress or pore-water pressure. Effective stress - total stress minus pore-water pressure."
+      "A wet concrete mix poured into molds",
+      "A dry cement-sand mix sprayed pneumatically with added water",
+      "A clay slurry used in drilling",
+      "A coarse aggregate used in riprap"
     ],
-    "correctAnswer": 0,
-    "explanation": "A dry mixture of Portland cement and sand, forced by compressed air through a special hose, with water applied at the nozzel and sprayed onto mine timbers, tunnel supports, and roadways to seal and fireproof them.",
-    "difficulty": "hard",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 1,
+    "explanation": "Gunite is a dry mix sprayed using compressed air, with water added at the nozzle."
   },
   {
     "id": "q150",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Invert",
     "choices": [
-      "The floor or bottom of a closed conduit, such as a tunnel, aquaduct, or drain.",
-      "The component of stress that acts along a plane through any point in the body.",
-      "A statement of elastic deformation - the strain is linearly proportional to the applied stress.",
-      "A reduction in the amplitude of seismic waves produced by divergence, scattering, reflection, and absorption."
+      "The roof of a tunnel",
+      "The floor of a tunnel or conduit",
+      "The sidewall support of a tunnel",
+      "The drainage system beneath a tunnel"
     ],
-    "correctAnswer": 0,
-    "explanation": "The floor or bottom of a closed conduit, such as a tunnel, aquaduct, or drain.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 1,
+    "explanation": "The invert is the bottom surface or floor of a tunnel or conduit."
   },
   {
     "id": "q151",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Lagging",
     "choices": [
-      "Boards which are joined, side-by-side, lining an excavation.",
-      "The density of soil when it's completely dry.",
-      "Water clinging to mineral grains through surface tension.",
-      "Organic silts and organic silt-clays of low plasticity"
+      "Boards lining an excavation to support soil",
+      "A steel reinforcement system in tunnels",
+      "A drainage pipe beneath excavations",
+      "A concrete lining applied to tunnels"
     ],
     "correctAnswer": 0,
-    "explanation": "Boards which are joined, side-by-side, lining an excavation.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Lagging consists of timber or panels placed between supports to hold back soil."
   },
   {
     "id": "q152",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Phreatic Line / Seepage Line",
     "choices": [
-      "Water content at which the soil volume is at its lower limit.",
-      "The uppermost level at which flowing water emerges along a seepage face.",
-      "Mo = Shear Modulus x Fault Area x Average Slip Along Fault",
-      "A loose assemblage of broken rocks used for foundations or slope protection."
+      "The boundary between saturated and unsaturated zones",
+      "The line representing seepage flow through a dam",
+      "The upper surface of groundwater in confined aquifers",
+      "The pressure distribution line in soil"
     ],
     "correctAnswer": 1,
-    "explanation": "The uppermost level at which flowing water emerges along a seepage face.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "The phreatic line represents the top of the saturated flow region within a dam."
   },
   {
     "id": "q153",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Piping",
     "choices": [
-      "Erosion by percolating water or seepage in a layer of subsoil resulting in caving and the formation of tunnels or pipes through which the soluble or granular material is removed.",
-      "A theory that forecasts location and magnitude of future earthquakes based on the absense of earthquakes in one area as compared to the presence of earthquakes adjacent to the gap.",
-      "Erosion by percolating waters or seepage in a layer of subsoil resulting in caving and the formation of tunnels or pipes through which the soluble or granular material is removed.",
-      "Soil that flows into a tunnel from the floor, roof, or wals of a tunnel driven by water seepage. The flow typically consists of cohesionaless soil below the water table."
+      "Surface erosion caused by rainfall",
+      "Internal erosion caused by seepage forming channels",
+      "Soil collapse due to overloading",
+      "Movement of soil due to slope failure"
     ],
-    "correctAnswer": 0,
-    "explanation": "Erosion by percolating water or seepage in a layer of subsoil resulting in caving and the formation of tunnels or pipes through which the soluble or granular material is removed.",
-    "difficulty": "hard",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 1,
+    "explanation": "Piping occurs when seepage removes soil particles, forming channels that can lead to failure."
   },
   {
     "id": "q154",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Pozzolan",
     "choices": [
-      "A group of clay minerals that expand when they absorb large quantites of water.",
-      "The property of a soil that is able to absorb stress by plastic deformation.",
-      "The load per unit area which the ground can safely support without excessive yield.",
-      "Siliceous or siliceous aluminous materials that whne mixed with Calcium hydroxide has cement-like characteristics."
+      "A clay mineral that expands with water",
+      "A material that reacts with lime to form cementitious compounds",
+      "A type of fine-grained soil",
+      "A natural sand used in concrete"
     ],
-    "correctAnswer": 3,
-    "explanation": "Siliceous or siliceous aluminous materials that whne mixed with Calcium hydroxide has cement-like characteristics.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 1,
+    "explanation": "Pozzolans react with calcium hydroxide to form cement-like compounds."
   },
   {
     "id": "q155",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Pressure-Relief Well",
     "choices": [
-      "A measure of the grain size uniformity using the ratio of particles sizes D60 to D10",
-      "Rock or soil that drops out of the roof or walls of a tunnel over time.",
-      "Wells drilled at the toe of the dam to reduce the uplift pressure and prevent piping.",
-      "A localized mass movement that involves the gradual downwards settling or sinking of the Earth's surface."
+      "A well used for water supply",
+      "A drainage system for surface runoff",
+      "A well used to reduce uplift pressure beneath structures",
+      "A monitoring well for groundwater levels"
     ],
     "correctAnswer": 2,
-    "explanation": "Wells drilled at the toe of the dam to reduce the uplift pressure and prevent piping.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "These wells relieve hydrostatic pressure to prevent uplift and piping."
   },
   {
     "id": "q156",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Random Zones",
     "choices": [
-      "An elastic constant given by the ratio of stress to its corresponding strain under given conditions of load for materials that deform elastically according to Hook's Law.",
-      "An impermeable structure placed beneath the base of a dam to prevent or reduce seepage loss. The structure may be made of concrete, compacted clay, or grout.",
-      "A wave oscillation of the surface of water in an enclosed basin (such as a lake or bay) initiated by an earthquake or changes in atmospheric pressure.",
-      "Areas within the dam where excavated materials are placed. A random zone is paced where permeability and sheaer strength are not critical and where weight is important."
+      "Highly compacted clay cores in dams",
+      "Zones where material is placed without strict gradation control",
+      "Drainage layers beneath dams",
+      "Reinforced sections of embankments"
     ],
-    "correctAnswer": 3,
-    "explanation": "Areas within the dam where excavated materials are placed. A random zone is paced where permeability and sheaer strength are not critical and where weight is important.",
-    "difficulty": "hard",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 1,
+    "explanation": "Random zones contain materials where permeability and strength are not critical."
   },
   {
     "id": "q157",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Raveling Ground",
     "choices": [
-      "A localized mass movement that involves the gradual downwards settling or sinking of the Earth's surface.",
-      "Rock or soil that drops out of the roof or walls of a tunnel over time.",
-      "A measure of the grain size uniformity using the ratio of particles sizes D60 to D10",
-      "Wells drilled at the toe of the dam to reduce the uplift pressure and prevent piping."
+      "Soil collapsing due to saturation",
+      "Loose particles falling from tunnel surfaces over time",
+      "Soil flowing under pressure",
+      "Rock fracturing due to stress"
     ],
     "correctAnswer": 1,
-    "explanation": "Rock or soil that drops out of the roof or walls of a tunnel over time.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Raveling ground involves gradual detachment of particles from tunnel walls or roofs."
   },
   {
     "id": "q158",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Riprap",
     "choices": [
-      "Water content at which the soil volume is at its lower limit.",
-      "A loose assemblage of broken rocks used for foundations or slope protection.",
-      "Mo = Shear Modulus x Fault Area x Average Slip Along Fault",
-      "Magnitude of an earthquake as estimated from the apmplitude of body waves."
+      "A compacted clay layer",
+      "A protective layer of loose rock against erosion",
+      "A fine-grained soil barrier",
+      "A concrete reinforcement structure"
     ],
     "correctAnswer": 1,
-    "explanation": "A loose assemblage of broken rocks used for foundations or slope protection.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Riprap protects slopes and structures from erosion using large rocks."
   },
   {
     "id": "q159",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Rock Quality Designation (RQD)",
     "choices": [
-      "A measure of the intactness of rock core, relating the percentage of intact core to the total core run.",
-      "The final void ratio at ultimate strength achieved by loose and dense samples of the same soil after shearing.",
-      "The process of increasing the density of a soil (usually fill) by rolling, tamping, vibrating or other mechanical means.",
-      "Take the weight, and divide it by the unit weight of that substance. That leaves you with the volume."
+      "Measure of rock permeability",
+      "Measure of intact core percentage from drilling",
+      "Measure of rock compressive strength",
+      "Measure of fracture spacing"
     ],
-    "correctAnswer": 0,
-    "explanation": "A measure of the intactness of rock core, relating the percentage of intact core to the total core run.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 1,
+    "explanation": "RQD measures the percentage of intact core pieces longer than 10 cm."
   },
   {
     "id": "q160",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Running Ground",
     "choices": [
-      "The gradual downward movement of an engineered structure due to compression of the soil below the foundation.",
-      "A graphic representation of the results of a sieve analysis plotted as percent passing vs. grain size.",
-      "Soil that runs into the tunnel after removal of roof and wall supports; typically dry cohesionless sand.",
-      "The uneven lowering of different parts of an engineered structure, often resulting in damage to the structure."
+      "Soil collapsing due to saturation",
+      "Dry sand flowing into excavations after support removal",
+      "Rock fragments falling from tunnel ceilings",
+      "Soil creeping under long-term loading"
     ],
-    "correctAnswer": 2,
-    "explanation": "Soil that runs into the tunnel after removal of roof and wall supports; typically dry cohesionless sand.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 1,
+    "explanation": "Running ground occurs when dry, cohesionless soil flows into an excavation without support."
   },
   {
     "id": "q161",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Shotcrete",
     "choices": [
-      "A measure of the stability of a slope in which the resisting forces are compared to the driving forces. If the resisting force is equal to or less than the driving force, then the slope will fail.",
-      "The upper limit of the plastic state. Water content, in percent of dry weight, at which two sections of a pat of soil, separated by a specified distance, barely touch each other but do not flow together when given a sharp blow.",
-      "The ratio of the difference between the void ratio of a cohesionless soil in the loosest state and any given void ratio to the difference between its void ratios in the loosest and in the densest states.",
-      "A wet mix of Portland cement, sand, and water, often with coarse aggregate up to about 1 inch (2 cm), that is applied through a pneumatic hose onto mine timbers, tunnel supports, and roadways to seal and fireproof them."
+      "A dry mix of cement applied without water",
+      "A wet concrete mix sprayed through a pneumatic hose",
+      "A compacted clay liner for dams",
+      "A cement grout injected into fractures"
     ],
-    "correctAnswer": 3,
-    "explanation": "A wet mix of Portland cement, sand, and water, often with coarse aggregate up to about 1 inch (2 cm), that is applied through a pneumatic hose onto mine timbers, tunnel supports, and roadways to seal and fireproof them.",
-    "difficulty": "hard",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 1,
+    "explanation": "Shotcrete is a wet mix of concrete (cement, sand, water, often aggregate) sprayed through a hose for structural support."
   },
   {
     "id": "q162",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Slaking",
     "choices": [
-      "Disintegration of rock or soil when submerged in water. Outcrops of sound rock when subjected to a shrink swell cycle crumble into flakes or particles.",
-      "The sides of a stream channel or a structure that supports the end of a dam or bridge. Sides of the abutment are viewed facing downstream.",
-      "Change in the shape or volume of a body as a result of stress, defined as the ratio of the change to the original shape.",
-      "Rock or soil that increases in volume when excavaated. Volume increase is usually caused by the presence of clay minerals with a high swelling capacity."
+      "Disintegration of rock when exposed to water or wetting-drying cycles",
+      "Expansion of soil due to hydration",
+      "Compression of soil under load",
+      "Shear failure along weak planes"
     ],
     "correctAnswer": 0,
-    "explanation": "Disintegration of rock or soil when submerged in water. Outcrops of sound rock when subjected to a shrink swell cycle crumble into flakes or particles.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Slaking is the breakdown of rock (often shale) due to wetting and drying cycles."
   },
   {
     "id": "q163",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Spillway",
     "choices": [
-      "The roof of a mine.",
-      "Peat & other highly organic soils",
-      "It is the unstable area.",
-      "A channel for reservoir overflow."
+      "The structural core of a dam",
+      "A drainage tunnel beneath a dam",
+      "A channel used to safely pass excess water",
+      "The base foundation of a reservoir"
     ],
-    "correctAnswer": 3,
-    "explanation": "A channel for reservoir overflow.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 2,
+    "explanation": "A spillway prevents overtopping by safely routing excess reservoir water."
   },
   {
     "id": "q164",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Squeezing Ground",
     "choices": [
-      "Vertical distance between the dam crest and the water surface of the reservoir.",
-      "The strength of a soil when dry as determined by the crushing test.",
-      "The degree of adhesion between soil particles that can resist deformation or rupture.",
-      "Soil or rock that creeps into a tunnel and maintains a constant volume."
+      "Rock that fractures under stress",
+      "Soil that flows rapidly when saturated",
+      "Ground that deforms plastically into an excavation",
+      "Dry sand collapsing under gravity"
     ],
-    "correctAnswer": 3,
-    "explanation": "Soil or rock that creeps into a tunnel and maintains a constant volume.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 2,
+    "explanation": "Squeezing ground slowly deforms into tunnels due to high stress and low strength."
   },
   {
     "id": "q165",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Swelling Ground",
     "choices": [
-      "Rock or soil that increases in volume when excavaated. Volume increase is usually caused by the presence of clay minerals with a high swelling capacity.",
-      "Disintegration of rock or soil when submerged in water. Outcrops of sound rock when subjected to a shrink swell cycle crumble into flakes or particles.",
-      "Change in the shape or volume of a body as a result of stress, defined as the ratio of the change to the original shape.",
-      "The sides of a stream channel or a structure that supports the end of a dam or bridge. Sides of the abutment are viewed facing downstream."
+      "Soil that expands due to moisture absorption",
+      "Soil collapsing under load",
+      "Rock disintegrating in water",
+      "Ground compressing due to stress"
     ],
     "correctAnswer": 0,
-    "explanation": "Rock or soil that increases in volume when excavaated. Volume increase is usually caused by the presence of clay minerals with a high swelling capacity.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Swelling ground increases in volume, typically due to clay minerals absorbing water."
   },
   {
     "id": "q166",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Embankment Dams",
     "choices": [
-      "Dams constructed of excavated rocks and / or soils (earth fill). Earth fill is either placed by lifts, or compacted in layers. The key portion of rockfill is an impervious core. The dam cross-section is structure as rockfill - clay core - rockfill.",
-      "The upper limit of the plastic state. Water content, in percent of dry weight, at which two sections of a pat of soil, separated by a specified distance, barely touch each other but do not flow together when given a sharp blow.",
-      "A wet mix of Portland cement, sand, and water, often with coarse aggregate up to about 1 inch (2 cm), that is applied through a pneumatic hose onto mine timbers, tunnel supports, and roadways to seal and fireproof them.",
-      "1) The flow lines should be drawn evenly spaced between the boundaries. 2) The flow lines begin and end at equipotential surfaces and intersect them at right angles to form approximate squares. 3) Entrance and exit requirements of the flow lines and equipotential lines must be met."
+      "Dams constructed from compacted earth or rock with an impermeable core",
+      "Concrete dams built using reinforced steel",
+      "Dams formed naturally by landslides",
+      "Dams constructed entirely from masonry"
     ],
     "correctAnswer": 0,
-    "explanation": "Dams constructed of excavated rocks and / or soils (earth fill). Earth fill is either placed by lifts, or compacted in layers. The key portion of rockfill is an impervious core. The dam cross-section is structure as rockfill - clay core - rockfill.",
-    "difficulty": "hard",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Embankment dams use earth/rock fill with a core (often clay) to prevent seepage."
   },
   {
     "id": "q167",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "What are the three primary rules for flow net construction?",
+    "question": "Primary rules for flow net construction",
     "choices": [
-      "Dams constructed of excavated rocks and / or soils (earth fill). Earth fill is either placed by lifts, or compacted in layers. The key portion of rockfill is an impervious core. The dam cross-section is structure as rockfill - clay core - rockfill.",
-      "The line on the plasticity chart that marks the approximate upper limit of the relationship between the plasticity index and the liquid limit for natural soils. It is a check against erroneous data. If a data point plots above or to the left of the line, verify the information.",
-      "1) The flow lines should be drawn evenly spaced between the boundaries. 2) The flow lines begin and end at equipotential surfaces and intersect them at right angles to form approximate squares. 3) Entrance and exit requirements of the flow lines and equipotential lines must be met.",
-      "The upper limit of the plastic state. Water content, in percent of dry weight, at which two sections of a pat of soil, separated by a specified distance, barely touch each other but do not flow together when given a sharp blow."
+      "Flow lines and equipotential lines must be parallel",
+      "Flow lines intersect equipotential lines at right angles forming approximate squares",
+      "Flow lines must follow topography exactly",
+      "Equipotential lines must be evenly spaced horizontally"
     ],
-    "correctAnswer": 2,
-    "explanation": "1) The flow lines should be drawn evenly spaced between the boundaries. 2) The flow lines begin and end at equipotential surfaces and intersect them at right angles to form approximate squares. 3) Entrance and exit requirements of the flow lines and equipotential lines must be met.",
-    "difficulty": "hard",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 1,
+    "explanation": "Flow nets require perpendicular intersections and roughly square elements."
   },
   {
     "id": "q168",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "What are the three grouting methods used for dam construction?",
+    "question": "Grouting methods used in dam construction",
     "choices": [
-      "A relatively narrow, horizontal bench built along an embankment.",
-      "1) Grout Blanket, 2) Grout Curtain, 3) Off-Pattern Grouting",
-      "Vp = sqrt(bulk modulus + [4/3shear modulus] / density)",
-      "The process whereby soils collapse when they are wetted."
+      "Curtain grouting, blanket grouting, consolidation grouting",
+      "Surface grouting, deep grouting, hydraulic grouting",
+      "Clay grouting, sand grouting, cement grouting",
+      "Core grouting, shell grouting, filter grouting"
     ],
-    "correctAnswer": 1,
-    "explanation": "1) Grout Blanket, 2) Grout Curtain, 3) Off-Pattern Grouting",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Common methods include grout curtains, blankets, and consolidation grouting."
   },
   {
     "id": "q169",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Afterslip",
     "choices": [
-      "A seismic fault slip that occurs following a large earthquake.",
-      "The point on the Earth's surface directly above the focus.",
-      "Well-graded sand (or gravelly sands - little or no fines)",
-      "The component of stress that acts perpendicular to the plane."
+      "Slip occurring after a major earthquake",
+      "Initial rupture during an earthquake",
+      "Movement along a fault before rupture",
+      "Seismic wave propagation"
     ],
     "correctAnswer": 0,
-    "explanation": "A seismic fault slip that occurs following a large earthquake.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Afterslip is continued fault movement after the main shock."
   },
   {
     "id": "q170",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Attenuation",
     "choices": [
-      "A reduction in the amplitude of seismic waves produced by divergence, scattering, reflection, and absorption.",
-      "A statement of elastic deformation - the strain is linearly proportional to the applied stress.",
-      "The component of stress that acts along a plane through any point in the body.",
-      "The floor or bottom of a closed conduit, such as a tunnel, aquaduct, or drain."
+      "Increase in wave amplitude",
+      "Reduction in seismic wave energy over distance",
+      "Reflection of waves at boundaries",
+      "Amplification of ground motion"
     ],
-    "correctAnswer": 0,
-    "explanation": "A reduction in the amplitude of seismic waves produced by divergence, scattering, reflection, and absorption.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 1,
+    "explanation": "Attenuation is the loss of wave energy due to spreading, absorption, and scattering."
   },
   {
     "id": "q171",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "Blind Thurst",
+    "question": "Blind Thrust",
     "choices": [
-      "The process whereby soils collapse when they are wetted.",
-      "Vp = sqrt(bulk modulus + [4/3shear modulus] / density)",
-      "A relatively narrow, horizontal bench built along an embankment.",
-      "A thrust fault that does not reach the surface."
+      "A thrust fault that reaches the surface",
+      "A normal fault below ground",
+      "A thrust fault that does not reach the surface",
+      "A strike-slip fault with no displacement"
     ],
-    "correctAnswer": 3,
-    "explanation": "A thrust fault that does not reach the surface.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 2,
+    "explanation": "Blind thrust faults do not break the surface but can still generate earthquakes."
   },
   {
     "id": "q172",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Blind Zone",
     "choices": [
-      "The area in which there is no possibility for earthquake early warning notifications because it is too close to the epicenter.",
-      "Slow ground displacement usually occurring without accompanying earthquakes. It may be of tectonic origin or result from oil or ground-water withdrawal.",
-      "Bedrock or soil on a ridge top that has been thoroughly pulverized due to high accelerations over many cycles of earthquake shattering.",
-      "A soil with all grain sizes present with no excess in any size range. Equivalent to the geologist's term \"poorly sorted."
+      "Region too close to epicenter for early warning",
+      "Area with no seismic activity",
+      "Zone of maximum ground shaking",
+      "Region of aftershock concentration"
     ],
     "correctAnswer": 0,
-    "explanation": "The area in which there is no possibility for earthquake early warning notifications because it is too close to the epicenter.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "The blind zone is too close to the earthquake source for warning systems to react."
   },
   {
     "id": "q173",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Body-Wave Magnitude",
     "choices": [
-      "A loose assemblage of broken rocks used for foundations or slope protection.",
-      "Magnitude of an earthquake as estimated from the apmplitude of body waves.",
-      "Water content at which the soil volume is at its lower limit.",
-      "Mo = Shear Modulus x Fault Area x Average Slip Along Fault"
+      "Magnitude based on surface waves",
+      "Magnitude based on body wave amplitude",
+      "Magnitude based on energy release",
+      "Magnitude based on fault length"
     ],
     "correctAnswer": 1,
-    "explanation": "Magnitude of an earthquake as estimated from the apmplitude of body waves.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Body-wave magnitude (Mb) uses P-wave amplitudes."
   },
   {
     "id": "q174",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Differential Settlement",
     "choices": [
-      "The internal resistance of a soil to shear stress consisting of a combination of friction and cohesion.",
-      "The gradual downward movement of an engineered structure due to compression of the soil below the foundation.",
-      "The uneven lowering of different parts of an engineered structure, often resulting in damage to the structure.",
-      "A graphic representation of the results of a sieve analysis plotted as percent passing vs. grain size."
+      "Uniform lowering of a structure",
+      "Uneven settlement causing structural damage",
+      "Elastic deformation under load",
+      "Temporary soil compression"
     ],
-    "correctAnswer": 2,
-    "explanation": "The uneven lowering of different parts of an engineered structure, often resulting in damage to the structure.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 1,
+    "explanation": "Differential settlement occurs when parts of a structure settle unevenly."
   },
   {
     "id": "q175",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Elastic Rebound Theory",
     "choices": [
-      "The gradual, steady downhill movement of soil and loose rock material.",
-      "A theory proposed by Reid to explain the cause of earthquakes.",
-      "Landslide movement that occurs predominantly along planar or gently undulating surfaces.",
-      "A laboratory test to measure the shear strength of a soil."
+      "Theory explaining landslides",
+      "Theory explaining earthquakes via stress accumulation and release",
+      "Theory explaining soil consolidation",
+      "Theory explaining wave propagation"
     ],
     "correctAnswer": 1,
-    "explanation": "A theory proposed by Reid to explain the cause of earthquakes.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Elastic rebound explains earthquakes as stored strain released along faults."
   },
   {
     "id": "q176",
