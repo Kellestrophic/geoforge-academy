@@ -93,7 +93,9 @@ const timeLimit = isPractice ? 0 : Number(params.time) || 30;
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<any>({});
   const [finished, setFinished] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(timeLimit * 60);
+  const [timeLeft, setTimeLeft] = useState(
+  isPractice ? 0 : timeLimit * 60
+);
 const [selected, setSelected] = useState<number | null>(null);
 const [input, setInput] = useState("");
 const [showResult, setShowResult] = useState(false);
@@ -101,7 +103,7 @@ const [isCorrect, setIsCorrect] = useState(false);
   /* ---------------- TIMER ---------------- */
 
 useEffect(() => {
-  if (finished || isPractice) return;
+  if (isPractice || finished) return;
 
     const timer = setInterval(() => {
       setTimeLeft((prev) => {
