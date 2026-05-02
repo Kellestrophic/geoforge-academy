@@ -6,13 +6,13 @@
     "subcategory": [],
     "question": "Area of Influence",
     "choices": [
-      "A geologic unit that is saturated and sufficiently permeable to transmit significant economic quantities of water to wells and springs.",
-      "The seepage velocity is the rate of groundwater transmission when taking into account which pores can actually transmit (effective porosity)",
-      "Water that is derived directly from magma and is thought to have come to the Earth's surface for the first time.",
-      "The area within which the potentiometric surface is lowered by withdrawal or raised by injection, of water through a well."
+      "The area surrounding a well where groundwater levels fluctuate due to natural recharge and discharge processes.",
+      "The zone around a well in which groundwater flow is directed toward the well due to hydraulic gradients.",
+      "The region around a well where the potentiometric surface remains unchanged during groundwater withdrawal or injection.",
+      "The area within which the potentiometric surface is lowered by withdrawal or raised by injection of water through a well."
     ],
     "correctAnswer": 3,
-    "explanation": "The area that has a change in potentiometric surface due to a well.",
+    "explanation": "The area of influence refers specifically to the region where a well actively alters the potentiometric surface. Pumping lowers the surface (drawdown), while injection raises it. This distinguishes it from natural fluctuations (choice 1), flow direction toward a well (choice 2, zone of contribution), and conditions where no change occurs (choice 3).",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -24,13 +24,13 @@
     "subcategory": [],
     "question": "Aquifer",
     "choices": [
-      "Water that is derived directly from magma and is thought to have come to the Earth's surface for the first time.",
-      "The area within which the potentiometric surface is lowered by withdrawal or raised by injection, of water through a well.",
-      "A geologic unit that is saturated and sufficiently permeable to transmit significant economic quantities of water to wells and springs.",
-      "The seepage velocity is the rate of groundwater transmission when taking into account which pores can actually transmit (effective porosity)"
+      "Water that originates from deep within the Earth and is introduced into the hydrologic cycle for the first time.",
+      "The area around a well where groundwater levels are altered due to pumping or injection.",
+      "A geologic unit that is saturated and sufficiently permeable to store and transmit usable quantities of groundwater.",
+      "The rate at which groundwater moves through the interconnected pore spaces of a material."
     ],
     "correctAnswer": 2,
-    "explanation": "Permeable rocks that are able to both store and transmit water effectively.",
+    "explanation": "An aquifer is a subsurface geologic unit that both stores water (porosity) and allows it to flow (permeability) in quantities sufficient for use. This distinguishes it from deep-origin water (choice 1, juvenile water), localized well effects (choice 2, area of influence), and groundwater velocity concepts (choice 4, seepage velocity).",
     "difficulty": "medium",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -42,13 +42,13 @@
     "subcategory": [],
     "question": "Aquitard",
     "choices": [
-      "An area where water infiltrates downward into the saturated zone.",
-      "K = ki(intrinsic permeability) x gamma(specific weight) / mu(dynamic viscosity)",
-      "An aquifer overlain by a confining layer of low permeability.",
-      "A geologic unit that can store, and SLUGGISHLY transmit water."
+      "A geologic unit that allows groundwater to move freely and rapidly due to high permeability.",
+      "A subsurface zone where water infiltrates downward from the surface into groundwater systems.",
+      "A geologic unit that can store groundwater but transmits it very slowly due to low permeability.",
+      "A fully impermeable geologic unit that prevents any groundwater movement."
     ],
-    "correctAnswer": 3,
-    "explanation": "A geologic unit that can store, and SLUGGISHLY transmit water.",
+    "correctAnswer": 2,
+    "explanation": "An aquitard is a geologic unit with low permeability that can store water but only transmits it slowly. It differs from an aquifer (high permeability, fast transmission) and an aquiclude (essentially impermeable).",
     "difficulty": "easy",
     "examRelevant": true,
     "verifiedStatus": "reviewed"
@@ -60,13 +60,13 @@
     "subcategory": [],
     "question": "Aquiclude",
     "choices": [
-      "Sodium, calcium, magnesium, potassium, chloride, bicarbonate, sulfate",
-      "acre-feet per year or gallons per year.",
-      "A geologic unit that is ALMOST impermeable.",
-      "A geologic unit that is COMPLETELY impermeable."
+      "A geologic unit that stores and slowly transmits groundwater due to low permeability.",
+      "A geologic unit that transmits groundwater efficiently and yields usable quantities of water.",
+      "A geologic unit that is nearly impermeable and transmits negligible amounts of groundwater.",
+      "A subsurface zone where groundwater flow is enhanced by interconnected pore spaces."
     ],
     "correctAnswer": 2,
-    "explanation": "A geologic unit that is ALMOST impermeable.",
+    "explanation": "An aquiclude is a geologic unit that is essentially impermeable, meaning it may store water but does not transmit it in significant amounts. This distinguishes it from an aquitard (slow transmission) and an aquifer (efficient transmission).",
     "difficulty": "easy",
     "examRelevant": true,
     "verifiedStatus": "reviewed"

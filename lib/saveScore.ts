@@ -1,26 +1,27 @@
 import { supabase } from "./supabase";
 
-export async function saveExam(score: number, type: string, topic?: string) {
+export async function saveScore(score: number, type: string) {
   try {
-    const { data: session } = await supabase.auth.getSession();
-    const user = session?.session?.user;
+    const { data } = await supabase.auth.getUser();
+    const userId = data?.user?.id;
 
-    if (!user) {
-      console.log("❌ NO USER");
+    if (!userId) {
+      console.log("NO USER");
       return;
     }
 
     const { error } = await supabase.from("exam_history").insert({
-      user_id: user.id,
-      score,
-      type,
-      topic: topic || null,
+      user_id: userId,
+      score: Number(score) || 0,
+      type: typeof type === "string" ? type : "random",
     });
 
     if (error) {
-      console.log("❌ SAVE ERROR:", error);
+      console.log("SAVE ERROR:", error);
+    } else {
+      console.log("SAVED:", score, type);
     }
   } catch (e) {
-    console.log("❌ SAVE CRASH:", e);
+    console.log("SAVE CRASH:", e);
   }
 }
