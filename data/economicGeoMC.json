@@ -1,0 +1,461 @@
+
+[
+{
+"id": "eco_mc_1",
+"category": "Economic Geology",
+"question": "Which factor MOST directly determines whether a mineral deposit is considered an ore?",
+"choices": ["Economic viability", "Mineral color", "Depth of formation", "Crystal size"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "A deposit becomes an ore only if it can be mined profitably, which depends on market price, extraction cost, and technology."
+},
+{
+"id": "eco_mc_2",
+"category": "Economic Geology",
+"question": "Which process is responsible for the formation of most porphyry copper deposits?",
+"choices": ["Magmatic-hydrothermal activity", "Glacial transport", "Aeolian deposition", "Chemical precipitation"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Porphyry copper deposits form from hydrothermal fluids associated with cooling magmas that circulate through fractures."
+},
+{
+"id": "eco_mc_3",
+"category": "Economic Geology",
+"question": "Which mineral is the principal ore of aluminum?",
+"choices": ["Bauxite", "Hematite", "Galena", "Gypsum"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Bauxite forms through intense weathering in tropical climates and is the main aluminum source."
+},
+{
+"id": "eco_mc_4",
+"category": "Economic Geology",
+"question": "Placer deposits form primarily due to differences in which property?",
+"choices": ["Density", "Hardness", "Color", "Cleavage"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Dense minerals like gold settle out of moving water more easily than lighter minerals."
+},
+{
+"id": "eco_mc_5",
+"category": "Economic Geology",
+"question": "Which ore mineral is the main source of lead?",
+"choices": ["Galena", "Sphalerite", "Chalcopyrite", "Magnetite"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Galena (PbS) is the most important lead ore mineral."
+},
+
+{
+"id": "eco_mc_6",
+"category": "Economic Geology",
+"question": "Which environment is MOST favorable for evaporite formation?",
+"choices": ["Arid, restricted basins", "Deep ocean trenches", "Glacial valleys", "Volcanic arcs"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Evaporites form where water evaporates faster than it is replenished, concentrating dissolved salts."
+},
+{
+"id": "eco_mc_7",
+"category": "Economic Geology",
+"question": "Secondary enrichment of ore deposits typically occurs:",
+"choices": ["Near the Earth's surface", "Deep in the mantle", "Only in volcanic rocks", "At mid-ocean ridges"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Weathering redistributes metals downward, enriching ore zones near the surface."
+},
+{
+"id": "eco_mc_8",
+"category": "Economic Geology",
+"question": "Which mining method is most suitable for shallow, widespread deposits?",
+"choices": ["Open pit mining", "Shaft mining", "Drift mining", "Solution mining"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Open pit mining removes large volumes of surface material to access shallow ore bodies."
+},
+{
+"id": "eco_mc_9",
+"category": "Economic Geology",
+"question": "What is the primary economic significance of banded iron formations?",
+"choices": ["Major source of iron", "Gold deposits", "Coal formation", "Petroleum reservoirs"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "BIFs formed in Precambrian oceans and are a major global iron resource."
+},
+{
+"id": "eco_mc_10",
+"category": "Economic Geology",
+"question": "Which process extracts metals by heating ore to high temperatures?",
+"choices": ["Smelting", "Leaching", "Beneficiation", "Sedimentation"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Smelting separates metals from ore using heat and chemical reactions."
+},
+
+{
+"id": "eco_mc_11",
+"category": "Economic Geology",
+"question": "Which rock type is most commonly associated with nickel deposits?",
+"choices": ["Ultramafic", "Felsic", "Sedimentary", "Metamorphic"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Ultramafic rocks are rich in magnesium and iron, often hosting nickel deposits."
+},
+{
+"id": "eco_mc_12",
+"category": "Economic Geology",
+"question": "What is the primary component of natural gas?",
+"choices": ["Methane", "Ethane", "Propane", "Butane"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Methane (CH₄) dominates natural gas composition."
+},
+{
+"id": "eco_mc_13",
+"category": "Economic Geology",
+"question": "Which structure commonly traps petroleum?",
+"choices": ["Anticline", "Syncline", "Fault scarp", "Horst"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Anticlines create upward arching structures that trap hydrocarbons beneath impermeable layers."
+},
+{
+"id": "eco_mc_14",
+"category": "Economic Geology",
+"question": "Which mineral is commonly used in cement production?",
+"choices": ["Gypsum", "Quartz", "Feldspar", "Olivine"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Gypsum controls the setting time of cement."
+},
+{
+"id": "eco_mc_15",
+"category": "Economic Geology",
+"question": "Which deposit type forms directly from magma crystallization?",
+"choices": ["Magmatic segregation", "Placer", "Hydrothermal vein", "Evaporite"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Dense minerals crystallize and settle from magma, forming layered deposits."
+},
+
+{
+"id": "eco_mc_16",
+"category": "Economic Geology",
+"question": "Which ore mineral is the main source of zinc?",
+"choices": ["Sphalerite", "Galena", "Hematite", "Magnetite"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Sphalerite (ZnS) is the most important zinc ore."
+},
+{
+"id": "eco_mc_17",
+"category": "Economic Geology",
+"question": "Which factor does NOT affect ore profitability?",
+"choices": ["Rock color", "Market price", "Extraction cost", "Ore grade"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Rock color has no economic significance compared to grade and cost."
+},
+{
+"id": "eco_mc_18",
+"category": "Economic Geology",
+"question": "Which material is removed to access ore in surface mining?",
+"choices": ["Overburden", "Tailings", "Slag", "Ore concentrate"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Overburden is the material above the ore body."
+},
+{
+"id": "eco_mc_19",
+"category": "Economic Geology",
+"question": "Which process increases ore grade near the surface?",
+"choices": ["Supergene enrichment", "Magmatic differentiation", "Lithification", "Metamorphism"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Supergene processes concentrate metals through weathering."
+},
+{
+"id": "eco_mc_20",
+"category": "Economic Geology",
+"question": "Which deposit type forms from hot fluids filling fractures?",
+"choices": ["Vein", "Placer", "Evaporite", "Residual"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Veins form when hydrothermal fluids deposit minerals in cracks."
+},
+{
+"id": "eco_mc_21",
+"category": "Economic Geology",
+"question": "Which process forms residual mineral deposits such as bauxite?",
+"choices": ["Intense chemical weathering", "Glacial erosion", "Volcanic activity", "Mechanical deposition"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Residual deposits form when soluble material is removed by weathering, leaving behind concentrated minerals like bauxite."
+},
+{
+"id": "eco_mc_22",
+"category": "Economic Geology",
+"question": "Which type of ore deposit is most associated with subduction zones?",
+"choices": ["Porphyry copper", "Placer gold", "Evaporite", "Residual"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Porphyry copper deposits are commonly formed in magmatic arcs at subduction zones."
+},
+{
+"id": "eco_mc_23",
+"category": "Economic Geology",
+"question": "Which mining method is best suited for extracting deep, narrow ore bodies?",
+"choices": ["Underground mining", "Open pit mining", "Strip mining", "Placer mining"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Underground mining allows access to deep ore bodies with minimal surface disturbance."
+},
+{
+"id": "eco_mc_24",
+"category": "Economic Geology",
+"question": "Which mineral deposit is most likely formed by seawater evaporation?",
+"choices": ["Halite", "Chalcopyrite", "Galena", "Magnetite"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Halite (salt) forms in evaporite deposits where seawater evaporates."
+},
+{
+"id": "eco_mc_25",
+"category": "Economic Geology",
+"question": "Which metal is most commonly associated with porphyry deposits?",
+"choices": ["Copper", "Gold", "Iron", "Lead"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Porphyry systems are large, low-grade deposits primarily mined for copper."
+},
+
+{
+"id": "eco_mc_26",
+"category": "Economic Geology",
+"question": "Which environment is most favorable for placer gold deposits?",
+"choices": ["River channels", "Deserts", "Glaciers", "Volcanic vents"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Gold accumulates in river systems due to its high density and resistance to weathering."
+},
+{
+"id": "eco_mc_27",
+"category": "Economic Geology",
+"question": "Which property allows gold to concentrate in placer deposits?",
+"choices": ["High density", "Low hardness", "High solubility", "Low melting point"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Gold’s high density causes it to settle out of moving water quickly."
+},
+{
+"id": "eco_mc_28",
+"category": "Economic Geology",
+"question": "Which process is used to extract metals using chemical solutions?",
+"choices": ["Leaching", "Smelting", "Crushing", "Sorting"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Leaching dissolves metals from ore using chemical solutions."
+},
+{
+"id": "eco_mc_29",
+"category": "Economic Geology",
+"question": "Which type of rock commonly serves as a petroleum source rock?",
+"choices": ["Shale", "Granite", "Basalt", "Quartzite"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Organic-rich shale generates hydrocarbons under heat and pressure."
+},
+{
+"id": "eco_mc_30",
+"category": "Economic Geology",
+"question": "Which structure is LEAST likely to trap oil?",
+"choices": ["Syncline", "Anticline", "Fault trap", "Salt dome"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Synclines do not trap hydrocarbons because they do not create upward migration barriers."
+},
+
+{
+"id": "eco_mc_31",
+"category": "Economic Geology",
+"question": "Which mineral is a major source of uranium?",
+"choices": ["Uraninite", "Galena", "Sphalerite", "Magnetite"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Uraninite (UO₂) is the primary uranium ore mineral."
+},
+{
+"id": "eco_mc_32",
+"category": "Economic Geology",
+"question": "Which type of deposit is formed by weathering and concentration in place?",
+"choices": ["Residual deposit", "Hydrothermal deposit", "Magmatic deposit", "Placer deposit"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Residual deposits form as weathering removes unwanted material."
+},
+{
+"id": "eco_mc_33",
+"category": "Economic Geology",
+"question": "Which process is responsible for the formation of coal?",
+"choices": ["Compaction of plant material", "Cooling of magma", "Evaporation of seawater", "Chemical precipitation"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Coal forms from buried plant material undergoing compaction and alteration."
+},
+{
+"id": "eco_mc_34",
+"category": "Economic Geology",
+"question": "Which factor increases the likelihood that a resource becomes an ore?",
+"choices": ["Increase in market price", "Decrease in temperature", "Increase in grain size", "Decrease in pressure"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Higher commodity prices can make previously uneconomic deposits profitable."
+},
+{
+"id": "eco_mc_35",
+"category": "Economic Geology",
+"question": "Which material is produced after smelting?",
+"choices": ["Metal", "Ore", "Overburden", "Sediment"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Smelting produces purified metal from ore."
+},
+
+{
+"id": "eco_mc_36",
+"category": "Economic Geology",
+"question": "Which type of deposit forms from circulating hot water in the crust?",
+"choices": ["Hydrothermal", "Magmatic", "Residual", "Placer"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Hydrothermal systems transport dissolved metals and deposit them in veins."
+},
+{
+"id": "eco_mc_37",
+"category": "Economic Geology",
+"question": "Which mineral is most resistant to weathering and commonly found in placers?",
+"choices": ["Gold", "Calcite", "Gypsum", "Halite"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Gold is chemically stable and does not easily weather or dissolve."
+},
+{
+"id": "eco_mc_38",
+"category": "Economic Geology",
+"question": "Which type of rock is most likely to act as a reservoir rock?",
+"choices": ["Sandstone", "Shale", "Granite", "Basalt"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Sandstone has high porosity and permeability, ideal for storing fluids."
+},
+{
+"id": "eco_mc_39",
+"category": "Economic Geology",
+"question": "Which factor is MOST important in determining ore grade?",
+"choices": ["Metal concentration", "Color", "Texture", "Density"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Ore grade refers to the concentration of valuable metal."
+},
+{
+"id": "eco_mc_40",
+"category": "Economic Geology",
+"question": "Which process forms banded iron formations?",
+"choices": ["Chemical precipitation", "Volcanic eruption", "Mechanical weathering", "Glacial erosion"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "BIFs formed from precipitation of iron in ancient oceans."
+},
+
+{
+"id": "eco_mc_41",
+"category": "Economic Geology",
+"question": "Which resource is classified as non-renewable?",
+"choices": ["Petroleum", "Timber", "Wind energy", "Solar energy"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Petroleum forms over millions of years and cannot be replaced quickly."
+},
+{
+"id": "eco_mc_42",
+"category": "Economic Geology",
+"question": "Which mining method removes horizontal layers of material?",
+"choices": ["Strip mining", "Shaft mining", "Drift mining", "Placer mining"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Strip mining removes layers to access shallow ore deposits."
+},
+{
+"id": "eco_mc_43",
+"category": "Economic Geology",
+"question": "Which deposit type is associated with mid-ocean ridges?",
+"choices": ["Seafloor massive sulfide", "Evaporite", "Residual", "Placer"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Hydrothermal vents deposit sulfide minerals on the seafloor."
+},
+{
+"id": "eco_mc_44",
+"category": "Economic Geology",
+"question": "Which metal is commonly mined from laterite deposits?",
+"choices": ["Nickel", "Gold", "Iron", "Copper"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Laterites form through weathering and often contain nickel."
+},
+{
+"id": "eco_mc_45",
+"category": "Economic Geology",
+"question": "Which term describes waste material left after ore processing?",
+"choices": ["Tailings", "Overburden", "Slag", "Ore"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Tailings are the fine-grained waste left after extraction."
+},
+
+{
+"id": "eco_mc_46",
+"category": "Economic Geology",
+"question": "Which process separates valuable minerals from gangue?",
+"choices": ["Beneficiation", "Smelting", "Erosion", "Deposition"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Beneficiation improves ore quality before metal extraction."
+},
+{
+"id": "eco_mc_47",
+"category": "Economic Geology",
+"question": "Which rock type commonly hosts petroleum reservoirs?",
+"choices": ["Sedimentary", "Igneous", "Metamorphic", "Volcanic"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Sedimentary rocks provide porosity and permeability needed for hydrocarbons."
+},
+{
+"id": "eco_mc_48",
+"category": "Economic Geology",
+"question": "Which type of deposit is formed by accumulation of organic material?",
+"choices": ["Coal", "Evaporite", "Hydrothermal", "Magmatic"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Coal forms from plant remains in sedimentary environments."
+},
+{
+"id": "eco_mc_49",
+"category": "Economic Geology",
+"question": "Which factor reduces the economic viability of a deposit?",
+"choices": ["High extraction cost", "High ore grade", "High demand", "Shallow depth"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Higher costs reduce profitability even if the deposit is large."
+},
+{
+"id": "eco_mc_50",
+"category": "Economic Geology",
+"question": "Which deposit type is formed by hydrothermal activity at spreading centers?",
+"choices": ["Seafloor massive sulfide", "Placer", "Residual", "Evaporite"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Metal-rich fluids at mid-ocean ridges create sulfide deposits on the seafloor."
+}
+]

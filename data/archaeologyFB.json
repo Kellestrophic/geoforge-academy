@@ -1,0 +1,411 @@
+[
+{
+"id": "arch_fb_1",
+"category": "Archaeology",
+"question": "Archaeology studies past human ______ through material remains.",
+"answer": "cultures",
+"type": "input",
+"explanation": "Archaeology reconstructs past cultures using artifacts and environmental evidence."
+},
+{
+"id": "arch_fb_2",
+"category": "Archaeology",
+"question": "A human-made object found at a site is called an ______.",
+"answer": "artifact",
+"type": "input",
+"explanation": "Artifacts are objects made or modified by humans."
+},
+{
+"id": "arch_fb_3",
+"category": "Archaeology",
+"question": "The exact 3D location of an artifact is known as ______.",
+"answer": "provenience",
+"type": "input",
+"explanation": "Provenience records where an artifact was found in space."
+},
+{
+"id": "arch_fb_4",
+"category": "Archaeology",
+"question": "The relationship between artifacts and their surroundings is called ______.",
+"answer": "context",
+"type": "input",
+"explanation": "Context provides meaning to archaeological finds."
+},
+{
+"id": "arch_fb_5",
+"category": "Archaeology",
+"question": "The principle that deeper layers are older is called the law of ______.",
+"answer": "superposition",
+"type": "input",
+"explanation": "Lower layers are deposited before upper ones."
+},
+
+{
+"id": "arch_fb_6",
+"category": "Archaeology",
+"question": "Radiocarbon dating is used on ______ material.",
+"answer": "organic",
+"type": "input",
+"explanation": "Only organic remains contain carbon for dating."
+},
+{
+"id": "arch_fb_7",
+"category": "Archaeology",
+"question": "Tree-ring dating is called ______.",
+"answer": "dendrochronology",
+"type": "input",
+"explanation": "Tree rings provide annual growth records."
+},
+{
+"id": "arch_fb_8",
+"category": "Archaeology",
+"question": "The study of layered deposits is known as ______.",
+"answer": "stratigraphy",
+"type": "input",
+"explanation": "Stratigraphy analyzes layers to determine chronology."
+},
+{
+"id": "arch_fb_9",
+"category": "Archaeology",
+"question": "Artifacts are embedded within the soil ______.",
+"answer": "matrix",
+"type": "input",
+"explanation": "Matrix is the surrounding material of artifacts."
+},
+{
+"id": "arch_fb_10",
+"category": "Archaeology",
+"question": "Non-movable remains like hearths are called ______.",
+"answer": "features",
+"type": "input",
+"explanation": "Features cannot be removed without destruction."
+},
+
+{
+"id": "arch_fb_11",
+"category": "Archaeology",
+"question": "Pollen analysis used to reconstruct environments is called ______.",
+"answer": "palynology",
+"type": "input",
+"explanation": "Palynology studies pollen grains."
+},
+{
+"id": "arch_fb_12",
+"category": "Archaeology",
+"question": "Animal bones studied in archaeology fall under ______archaeology.",
+"answer": "zoo",
+"type": "input",
+"explanation": "Zooarchaeology focuses on animal remains."
+},
+{
+"id": "arch_fb_13",
+"category": "Archaeology",
+"question": "Plant remains studied for diet reconstruction are part of ______ethnobotany.",
+"answer": "paleo",
+"type": "input",
+"explanation": "Paleoethnobotany examines ancient plant use."
+},
+{
+"id": "arch_fb_14",
+"category": "Archaeology",
+"question": "Dry preservation of organic material is called ______.",
+"answer": "desiccation",
+"type": "input",
+"explanation": "Dry environments prevent decay."
+},
+{
+"id": "arch_fb_15",
+"category": "Archaeology",
+"question": "Waterlogged environments preserve remains by limiting ______.",
+"answer": "oxygen",
+"type": "input",
+"explanation": "Low oxygen slows decomposition."
+},
+
+{
+"id": "arch_fb_16",
+"category": "Archaeology",
+"question": "The ordering of artifacts based on style changes is called ______.",
+"answer": "seriation",
+"type": "input",
+"explanation": "Seriation tracks changes over time."
+},
+{
+"id": "arch_fb_17",
+"category": "Archaeology",
+"question": "Artifacts grouped by shared characteristics form a ______.",
+"answer": "typology",
+"type": "input",
+"explanation": "Typology classifies artifacts into categories."
+},
+{
+"id": "arch_fb_18",
+"category": "Archaeology",
+"question": "The principle that processes today operated in the past is called ______.",
+"answer": "uniformitarianism",
+"type": "input",
+"explanation": "The present explains the past."
+},
+{
+"id": "arch_fb_19",
+"category": "Archaeology",
+"question": "Disturbance of layers by organisms is called ______.",
+"answer": "bioturbation",
+"type": "input",
+"explanation": "Animals and plants can disrupt stratigraphy."
+},
+{
+"id": "arch_fb_20",
+"category": "Archaeology",
+"question": "A trash deposit at a site is known as a ______.",
+"answer": "midden",
+"type": "input",
+"explanation": "Middens provide insight into daily life."
+},
+
+{
+"id": "arch_fb_21",
+"category": "Archaeology",
+"question": "Remote sensing includes ______ photography and satellite imaging.",
+"answer": "aerial",
+"type": "input",
+"explanation": "Aerial methods reveal hidden features."
+},
+{
+"id": "arch_fb_22",
+"category": "Archaeology",
+"question": "Magnetometry detects differences in soil ______.",
+"answer": "magnetism",
+"type": "input",
+"explanation": "Magnetic anomalies indicate buried structures."
+},
+{
+"id": "arch_fb_23",
+"category": "Archaeology",
+"question": "Ground-penetrating radar uses ______ waves.",
+"answer": "radio",
+"type": "input",
+"explanation": "Radar waves reflect off subsurface features."
+},
+{
+"id": "arch_fb_24",
+"category": "Archaeology",
+"question": "Electrical resistivity measures soil ______ to current.",
+"answer": "resistance",
+"type": "input",
+"explanation": "Different materials conduct electricity differently."
+},
+{
+"id": "arch_fb_25",
+"category": "Archaeology",
+"question": "Artifacts moved from their original location are said to be ______ context.",
+"answer": "secondary",
+"type": "input",
+"explanation": "Secondary context means they were displaced."
+},
+
+{
+"id": "arch_fb_26",
+"category": "Archaeology",
+"question": "Artifacts in their original position are in ______ context.",
+"answer": "primary",
+"type": "input",
+"explanation": "Primary context preserves original relationships."
+},
+{
+"id": "arch_fb_27",
+"category": "Archaeology",
+"question": "Carbonized remains are preserved through ______.",
+"answer": "burning",
+"type": "input",
+"explanation": "Burning converts organic matter into charcoal."
+},
+{
+"id": "arch_fb_28",
+"category": "Archaeology",
+"question": "The study of soil and sediments at sites is called ______archaeology.",
+"answer": "geo",
+"type": "input",
+"explanation": "Geoarchaeology applies geology to archaeology."
+},
+{
+"id": "arch_fb_29",
+"category": "Archaeology",
+"question": "Artifacts and ecofacts together make up archaeological ______.",
+"answer": "evidence",
+"type": "input",
+"explanation": "All material remains are considered evidence."
+},
+{
+"id": "arch_fb_30",
+"category": "Archaeology",
+"question": "A structure used for cooking is called a ______.",
+"answer": "hearth",
+"type": "input",
+"explanation": "Hearths indicate fire use."
+},
+
+{
+"id": "arch_fb_31",
+"category": "Archaeology",
+"question": "Relative dating determines ______ order, not exact age.",
+"answer": "chronological",
+"type": "input",
+"explanation": "It places events in sequence."
+},
+{
+"id": "arch_fb_32",
+"category": "Archaeology",
+"question": "Absolute dating provides ______ ages in years.",
+"answer": "numerical",
+"type": "input",
+"explanation": "Absolute dating gives measurable ages."
+},
+{
+"id": "arch_fb_33",
+"category": "Archaeology",
+"question": "Artifacts made of ______ are most likely to preserve.",
+"answer": "stone",
+"type": "input",
+"explanation": "Stone resists decay."
+},
+{
+"id": "arch_fb_34",
+"category": "Archaeology",
+"question": "Organic remains preserved in ice are protected by ______ conditions.",
+"answer": "freezing",
+"type": "input",
+"explanation": "Cold prevents decomposition."
+},
+{
+"id": "arch_fb_35",
+"category": "Archaeology",
+"question": "The process of soil layer formation is called ______.",
+"answer": "deposition",
+"type": "input",
+"explanation": "Layers build over time through deposition."
+},
+
+{
+"id": "arch_fb_36",
+"category": "Archaeology",
+"question": "Two methods used for dating are ______ and ______ dating.",
+"answer": ["relative", "absolute"],
+"type": "input_multi",
+"explanation": "Relative orders events, absolute gives ages."
+},
+{
+"id": "arch_fb_37",
+"category": "Archaeology",
+"question": "Artifacts are carefully uncovered through ______.",
+"answer": "excavation",
+"type": "input",
+"explanation": "Excavation is controlled digging."
+},
+{
+"id": "arch_fb_38",
+"category": "Archaeology",
+"question": "Soil disturbance by roots is a type of ______.",
+"answer": "bioturbation",
+"type": "input",
+"explanation": "Plants can disturb archaeological layers."
+},
+{
+"id": "arch_fb_39",
+"category": "Archaeology",
+"question": "The process of removing soil is called ______.",
+"answer": "excavation",
+"type": "input",
+"explanation": "Excavation exposes artifacts and features."
+},
+{
+"id": "arch_fb_40",
+"category": "Archaeology",
+"question": "Artifacts that help date layers are called ______ artifacts.",
+"answer": "diagnostic",
+"type": "input",
+"explanation": "Diagnostic artifacts have known time ranges."
+},
+
+{
+"id": "arch_fb_41",
+"category": "Archaeology",
+"question": "The study of ancient human environments is called ______ archaeology.",
+"answer": "environmental",
+"type": "input",
+"explanation": "Environmental archaeology reconstructs past ecosystems."
+},
+{
+"id": "arch_fb_42",
+"category": "Archaeology",
+"question": "Dating volcanic rock often uses ______-argon dating.",
+"answer": "potassium",
+"type": "input",
+"explanation": "K-Ar dating is used for volcanic materials."
+},
+{
+"id": "arch_fb_43",
+"category": "Archaeology",
+"question": "Artifacts found together form an archaeological ______.",
+"answer": "assemblage",
+"type": "input",
+"explanation": "Assemblages provide cultural information."
+},
+{
+"id": "arch_fb_44",
+"category": "Archaeology",
+"question": "Artifacts buried in layers are studied using ______.",
+"answer": "stratigraphy",
+"type": "input",
+"explanation": "Layer relationships determine sequence."
+},
+{
+"id": "arch_fb_45",
+"category": "Archaeology",
+"question": "Remote sensing and ______ are used before excavation.",
+"answer": "survey",
+"type": "input",
+"explanation": "Survey identifies site locations."
+},
+
+{
+"id": "arch_fb_46",
+"category": "Archaeology",
+"question": "A buried structure detected underground is called a ______ feature.",
+"answer": "subsurface",
+"type": "input",
+"explanation": "Subsurface features are below ground."
+},
+{
+"id": "arch_fb_47",
+"category": "Archaeology",
+"question": "The study of human past using artifacts is called ______.",
+"answer": "archaeology",
+"type": "input",
+"explanation": "Archaeology investigates past human activity."
+},
+{
+"id": "arch_fb_48",
+"category": "Archaeology",
+"question": "Material remains from plants and animals are called ______.",
+"answer": "ecofacts",
+"type": "input",
+"explanation": "Ecofacts are natural materials used by humans."
+},
+{
+"id": "arch_fb_49",
+"category": "Archaeology",
+"question": "The analysis of soils at sites helps reconstruct ______ environments.",
+"answer": "past",
+"type": "input",
+"explanation": "Soils reveal ancient environmental conditions."
+},
+{
+"id": "arch_fb_50",
+"category": "Archaeology",
+"question": "The careful recording of artifacts and their position is called ______.",
+"answer": "documentation",
+"type": "input",
+"explanation": "Accurate recording preserves archaeological information."
+}
+]

@@ -1,0 +1,463 @@
+
+
+[
+{
+"id": "eng_mc_1",
+"category": "Engineering Geology",
+"question": "Which soil property controls its ability to transmit water?",
+"choices": ["Permeability", "Porosity", "Density", "Plasticity"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Permeability measures how easily water flows through soil, which is critical for drainage and foundation design."
+},
+{
+"id": "eng_mc_2",
+"category": "Engineering Geology",
+"question": "Which soil type typically has the lowest permeability?",
+"choices": ["Clay", "Sand", "Gravel", "Silt"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Clay has very small pore spaces, which restrict water movement."
+},
+{
+"id": "eng_mc_3",
+"category": "Engineering Geology",
+"question": "Which property describes the ratio of void space to total volume?",
+"choices": ["Porosity", "Permeability", "Density", "Strength"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Porosity determines how much fluid a material can store."
+},
+{
+"id": "eng_mc_4",
+"category": "Engineering Geology",
+"question": "Which factor most influences slope stability?",
+"choices": ["Water content", "Rock color", "Mineral hardness", "Grain shape"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Water increases pore pressure and reduces friction, making slopes more unstable."
+},
+{
+"id": "eng_mc_5",
+"category": "Engineering Geology",
+"question": "Which type of mass movement is fastest?",
+"choices": ["Rockfall", "Creep", "Slump", "Earthflow"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Rockfalls involve free-falling material and are extremely rapid."
+},
+
+{
+"id": "eng_mc_6",
+"category": "Engineering Geology",
+"question": "Which soil property reflects its resistance to deformation?",
+"choices": ["Strength", "Porosity", "Permeability", "Color"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Strength determines how much load soil can support without failure."
+},
+{
+"id": "eng_mc_7",
+"category": "Engineering Geology",
+"question": "Which test measures soil consistency limits?",
+"choices": ["Atterberg limits", "Permeability test", "Compaction test", "Shear test"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Atterberg limits define plastic and liquid limits of fine-grained soils."
+},
+{
+"id": "eng_mc_8",
+"category": "Engineering Geology",
+"question": "Which geologic hazard is most associated with earthquakes?",
+"choices": ["Liquefaction", "Creep", "Erosion", "Weathering"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Liquefaction occurs when saturated soil loses strength during shaking."
+},
+{
+"id": "eng_mc_9",
+"category": "Engineering Geology",
+"question": "Which type of foundation is used for weak soils?",
+"choices": ["Deep foundation", "Shallow foundation", "Strip footing", "Pad footing"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Deep foundations transfer loads to stronger layers at depth."
+},
+{
+"id": "eng_mc_10",
+"category": "Engineering Geology",
+"question": "Which rock type is generally strongest for construction?",
+"choices": ["Igneous", "Sedimentary", "Metamorphic", "Clay-rich"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Igneous rocks like granite are dense and strong, making them ideal for construction."
+},
+
+{
+"id": "eng_mc_11",
+"category": "Engineering Geology",
+"question": "Which process weakens rock through expansion and contraction?",
+"choices": ["Thermal weathering", "Chemical weathering", "Biological weathering", "Erosion"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Temperature changes cause expansion and contraction, leading to cracking."
+},
+{
+"id": "eng_mc_12",
+"category": "Engineering Geology",
+"question": "Which factor increases landslide risk?",
+"choices": ["Steep slope", "Flat terrain", "Low rainfall", "Strong rock"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Steeper slopes have higher gravitational stress, increasing failure likelihood."
+},
+{
+"id": "eng_mc_13",
+"category": "Engineering Geology",
+"question": "Which material has the highest bearing capacity?",
+"choices": ["Bedrock", "Clay", "Silt", "Loose sand"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Bedrock provides a stable and strong foundation for structures."
+},
+{
+"id": "eng_mc_14",
+"category": "Engineering Geology",
+"question": "Which soil type is most prone to liquefaction?",
+"choices": ["Loose sand", "Clay", "Gravel", "Bedrock"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Loose, saturated sand can lose strength during shaking."
+},
+{
+"id": "eng_mc_15",
+"category": "Engineering Geology",
+"question": "Which hazard involves slow downslope movement of soil?",
+"choices": ["Creep", "Rockfall", "Debris flow", "Avalanche"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Creep is a very slow, gradual movement of soil downslope."
+},
+
+{
+"id": "eng_mc_16",
+"category": "Engineering Geology",
+"question": "Which property affects soil compaction?",
+"choices": ["Moisture content", "Color", "Mineral type", "Temperature"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Optimal moisture allows particles to pack more efficiently."
+},
+{
+"id": "eng_mc_17",
+"category": "Engineering Geology",
+"question": "Which structure is used to stabilize slopes?",
+"choices": ["Retaining wall", "Bridge", "Dam", "Tunnel"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Retaining walls resist lateral soil pressure and prevent collapse."
+},
+{
+"id": "eng_mc_18",
+"category": "Engineering Geology",
+"question": "Which test measures shear strength?",
+"choices": ["Direct shear test", "Atterberg limits", "Compaction test", "Permeability test"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Shear tests determine how soils resist sliding forces."
+},
+{
+"id": "eng_mc_19",
+"category": "Engineering Geology",
+"question": "Which material expands when wet and shrinks when dry?",
+"choices": ["Clay", "Sand", "Gravel", "Quartz"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Clay minerals absorb water and expand significantly."
+},
+{
+"id": "eng_mc_20",
+"category": "Engineering Geology",
+"question": "Which hazard is associated with karst terrain?",
+"choices": ["Sinkholes", "Volcanoes", "Earthquakes", "Glaciers"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Karst forms in soluble rocks like limestone, leading to sinkholes."
+},
+
+{
+"id": "eng_mc_21",
+"category": "Engineering Geology",
+"question": "Which factor reduces slope stability?",
+"choices": ["Increased water pressure", "Vegetation growth", "Strong rock", "Low slope angle"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Water pressure reduces friction and cohesion between particles."
+},
+{
+"id": "eng_mc_22",
+"category": "Engineering Geology",
+"question": "Which soil type drains water most quickly?",
+"choices": ["Gravel", "Clay", "Silt", "Loam"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Gravel has large pore spaces allowing rapid drainage."
+},
+{
+"id": "eng_mc_23",
+"category": "Engineering Geology",
+"question": "Which hazard is caused by sudden ground shaking?",
+"choices": ["Earthquake", "Landslide", "Flood", "Erosion"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Earthquakes release energy along faults, causing ground motion."
+},
+{
+"id": "eng_mc_24",
+"category": "Engineering Geology",
+"question": "Which rock type is most susceptible to weathering?",
+"choices": ["Sedimentary", "Igneous", "Metamorphic", "Granite"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Sedimentary rocks are often weaker and more porous."
+},
+{
+"id": "eng_mc_25",
+"category": "Engineering Geology",
+"question": "Which property describes resistance to fluid flow?",
+"choices": ["Permeability", "Porosity", "Density", "Strength"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Permeability directly measures fluid flow resistance."
+},
+
+{
+"id": "eng_mc_26",
+"category": "Engineering Geology",
+"question": "Which condition increases liquefaction risk?",
+"choices": ["High water table", "Dry soil", "Bedrock", "Low rainfall"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Water saturation is necessary for liquefaction."
+},
+{
+"id": "eng_mc_27",
+"category": "Engineering Geology",
+"question": "Which factor improves slope stability?",
+"choices": ["Vegetation", "Water saturation", "Steep angle", "Loose soil"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Roots help bind soil and increase stability."
+},
+{
+"id": "eng_mc_28",
+"category": "Engineering Geology",
+"question": "Which type of stress causes rocks to be pulled apart?",
+"choices": ["Tension", "Compression", "Shear", "Pressure"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Tensional stress stretches materials."
+},
+{
+"id": "eng_mc_29",
+"category": "Engineering Geology",
+"question": "Which structure is best for crossing weak ground?",
+"choices": ["Pile foundation", "Shallow footing", "Slab", "Wall"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Pile foundations transfer load to deeper stable layers."
+},
+{
+"id": "eng_mc_30",
+"category": "Engineering Geology",
+"question": "Which process breaks rock into smaller pieces?",
+"choices": ["Weathering", "Metamorphism", "Deposition", "Lithification"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Weathering physically and chemically breaks down rock."
+},
+
+{
+"id": "eng_mc_31",
+"category": "Engineering Geology",
+"question": "Which hazard involves flowing saturated material?",
+"choices": ["Debris flow", "Rockfall", "Creep", "Slump"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Debris flows are fast-moving mixtures of water and sediment."
+},
+{
+"id": "eng_mc_32",
+"category": "Engineering Geology",
+"question": "Which rock property affects strength?",
+"choices": ["Fracturing", "Color", "Age", "Texture"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Fractures weaken rock and reduce load-bearing capacity."
+},
+{
+"id": "eng_mc_33",
+"category": "Engineering Geology",
+"question": "Which type of fault movement is horizontal?",
+"choices": ["Strike-slip", "Normal", "Reverse", "Thrust"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Strike-slip faults move laterally."
+},
+{
+"id": "eng_mc_34",
+"category": "Engineering Geology",
+"question": "Which property describes soil compressibility?",
+"choices": ["Compaction", "Permeability", "Strength", "Density"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Compaction affects how soil settles under load."
+},
+{
+"id": "eng_mc_35",
+"category": "Engineering Geology",
+"question": "Which rock type dissolves easily in water?",
+"choices": ["Limestone", "Granite", "Basalt", "Quartzite"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Limestone dissolves, forming karst landscapes."
+},
+
+{
+"id": "eng_mc_36",
+"category": "Engineering Geology",
+"question": "Which stress pushes rocks together?",
+"choices": ["Compression", "Tension", "Shear", "Gravity"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Compression shortens and thickens materials."
+},
+{
+"id": "eng_mc_37",
+"category": "Engineering Geology",
+"question": "Which soil type is easiest to compact?",
+"choices": ["Sand", "Clay", "Gravel", "Silt"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Sand compacts well due to particle size and drainage."
+},
+{
+"id": "eng_mc_38",
+"category": "Engineering Geology",
+"question": "Which factor causes frost heave?",
+"choices": ["Water freezing in soil", "Heat expansion", "Wind erosion", "Rainfall"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Frozen water expands, lifting soil and structures."
+},
+{
+"id": "eng_mc_39",
+"category": "Engineering Geology",
+"question": "Which material has the lowest strength?",
+"choices": ["Clay", "Granite", "Basalt", "Quartz"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Clay is weak and easily deforms under load."
+},
+{
+"id": "eng_mc_40",
+"category": "Engineering Geology",
+"question": "Which process forms soil from rock?",
+"choices": ["Weathering", "Metamorphism", "Erosion", "Deposition"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Weathering breaks down rock into soil."
+},
+
+{
+"id": "eng_mc_41",
+"category": "Engineering Geology",
+"question": "Which factor increases erosion?",
+"choices": ["High rainfall", "Low slope", "Vegetation", "Hard rock"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Water accelerates erosion processes."
+},
+{
+"id": "eng_mc_42",
+"category": "Engineering Geology",
+"question": "Which type of soil has medium permeability?",
+"choices": ["Silt", "Clay", "Gravel", "Sand"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Silt is intermediate between clay and sand."
+},
+{
+"id": "eng_mc_43",
+"category": "Engineering Geology",
+"question": "Which hazard is caused by ground shaking and soil failure?",
+"choices": ["Liquefaction", "Flooding", "Erosion", "Weathering"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Liquefaction causes soil to behave like a liquid."
+},
+{
+"id": "eng_mc_44",
+"category": "Engineering Geology",
+"question": "Which structure prevents erosion on slopes?",
+"choices": ["Terracing", "Drilling", "Mining", "Excavation"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Terraces reduce slope length and runoff speed."
+},
+{
+"id": "eng_mc_45",
+"category": "Engineering Geology",
+"question": "Which soil type is most stable?",
+"choices": ["Gravel", "Clay", "Silt", "Loam"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Gravel is stable due to large particle size and drainage."
+},
+
+{
+"id": "eng_mc_46",
+"category": "Engineering Geology",
+"question": "Which factor increases landslide probability?",
+"choices": ["Heavy rainfall", "Flat terrain", "Dry soil", "Strong rock"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Rain increases weight and reduces cohesion."
+},
+{
+"id": "eng_mc_47",
+"category": "Engineering Geology",
+"question": "Which soil property affects settlement?",
+"choices": ["Compressibility", "Color", "Texture", "Mineral type"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Highly compressible soils settle more under load."
+},
+{
+"id": "eng_mc_48",
+"category": "Engineering Geology",
+"question": "Which structure supports soil laterally?",
+"choices": ["Retaining wall", "Foundation", "Roof", "Bridge"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Retaining walls resist lateral pressure from soil."
+},
+{
+"id": "eng_mc_49",
+"category": "Engineering Geology",
+"question": "Which factor controls groundwater flow?",
+"choices": ["Permeability", "Density", "Color", "Temperature"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Groundwater moves through permeable materials."
+},
+{
+"id": "eng_mc_50",
+"category": "Engineering Geology",
+"question": "Which hazard is caused by dissolving bedrock?",
+"choices": ["Sinkholes", "Landslides", "Earthquakes", "Floods"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Sinkholes form when soluble rock dissolves and collapses."
+}
+]

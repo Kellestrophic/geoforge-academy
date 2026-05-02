@@ -1,0 +1,411 @@
+[
+{
+"id": "hydro_fb2_1",
+"category": "Hydrogeology",
+"question": "In an ______ aquifer, water is under pressure due to overlying impermeable layers.",
+"answer": "confined",
+"type": "input",
+"explanation": "Confined aquifers are trapped between low-permeability layers and are pressurized."
+},
+{
+"id": "hydro_fb2_2",
+"category": "Hydrogeology",
+"question": "The movement of groundwater is controlled by the ______ gradient between two points.",
+"answer": "hydraulic",
+"type": "input",
+"explanation": "Hydraulic gradient drives groundwater flow."
+},
+{
+"id": "hydro_fb2_3",
+"category": "Hydrogeology",
+"question": "Water that fills only some pore spaces is found in the ______ zone.",
+"answer": "unsaturated",
+"type": "input",
+"explanation": "The unsaturated (vadose) zone contains both air and water."
+},
+{
+"id": "hydro_fb2_4",
+"category": "Hydrogeology",
+"question": "An aquifer’s ability to store water is largely controlled by its ______.",
+"answer": "porosity",
+"type": "input",
+"explanation": "Porosity determines how much water a material can hold."
+},
+{
+"id": "hydro_fb2_5",
+"category": "Hydrogeology",
+"question": "Groundwater tends to flow toward areas of ______ potential.",
+"answer": "lower",
+"type": "input",
+"explanation": "Water flows from high to low hydraulic head."
+},
+
+{
+"id": "hydro_fb2_6",
+"category": "Hydrogeology",
+"question": "A ______ surface such as asphalt reduces infiltration into the ground.",
+"answer": "impermeable",
+"type": "input",
+"explanation": "Impermeable surfaces block water entry into soil."
+},
+{
+"id": "hydro_fb2_7",
+"category": "Hydrogeology",
+"question": "The process by which water seeps downward into soil is called ______.",
+"answer": "percolation",
+"type": "input",
+"explanation": "Percolation refers to downward movement through soil layers."
+},
+{
+"id": "hydro_fb2_8",
+"category": "Hydrogeology",
+"question": "In Darcy’s Law, flow rate is proportional to the ______ gradient.",
+"answer": "hydraulic",
+"type": "input",
+"explanation": "Greater gradient increases flow velocity."
+},
+{
+"id": "hydro_fb2_9",
+"category": "Hydrogeology",
+"question": "An aquifer that easily transmits water must have high permeability and ______.",
+"answer": "connectivity",
+"type": "input",
+"explanation": "Pore connectivity is essential for flow."
+},
+{
+"id": "hydro_fb2_10",
+"category": "Hydrogeology",
+"question": "The top of groundwater saturation is referred to as the ______ table.",
+"answer": "water",
+"type": "input",
+"explanation": "Water table marks the top of saturated conditions."
+},
+
+{
+"id": "hydro_fb2_11",
+"category": "Hydrogeology",
+"question": "A material that stores water but transmits it slowly is called an ______.",
+"answer": "aquitard",
+"type": "input",
+"explanation": "Aquitards restrict flow but can store water."
+},
+{
+"id": "hydro_fb2_12",
+"category": "Hydrogeology",
+"question": "Groundwater movement is generally much ______ than surface water flow.",
+"answer": "slower",
+"type": "input",
+"explanation": "Flow through pores is significantly slower."
+},
+{
+"id": "hydro_fb2_13",
+"category": "Hydrogeology",
+"question": "A well that penetrates a confined aquifer may produce ______ flow.",
+"answer": "artesian",
+"type": "input",
+"explanation": "Pressure can force water upward without pumping."
+},
+{
+"id": "hydro_fb2_14",
+"category": "Hydrogeology",
+"question": "The difference in hydraulic head between two points is called head ______.",
+"answer": "difference",
+"type": "input",
+"explanation": "Head difference drives groundwater flow."
+},
+{
+"id": "hydro_fb2_15",
+"category": "Hydrogeology",
+"question": "The permeability of sediment generally increases with ______ grain size.",
+"answer": "increasing",
+"type": "input",
+"explanation": "Larger grains create larger pathways for flow."
+},
+
+{
+"id": "hydro_fb2_16",
+"category": "Hydrogeology",
+"question": "Fine-grained materials like clay typically have ______ permeability.",
+"answer": "low",
+"type": "input",
+"explanation": "Small pore spaces restrict flow."
+},
+{
+"id": "hydro_fb2_17",
+"category": "Hydrogeology",
+"question": "Recharge to aquifers most commonly comes from ______.",
+"answer": "precipitation",
+"type": "input",
+"explanation": "Rainfall and snowmelt replenish groundwater."
+},
+{
+"id": "hydro_fb2_18",
+"category": "Hydrogeology",
+"question": "Groundwater emerging at the surface naturally is called a ______.",
+"answer": "spring",
+"type": "input",
+"explanation": "Springs are natural discharge points."
+},
+{
+"id": "hydro_fb2_19",
+"category": "Hydrogeology",
+"question": "Karst systems develop primarily in rocks composed of ______ carbonate.",
+"answer": "calcium",
+"type": "input",
+"explanation": "Calcium carbonate dissolves easily in acidic water."
+},
+{
+"id": "hydro_fb2_20",
+"category": "Hydrogeology",
+"question": "Dissolution of limestone by acidic water creates ______ features.",
+"answer": "karst",
+"type": "input",
+"explanation": "Karst landscapes include caves and sinkholes."
+},
+
+{
+"id": "hydro_fb2_21",
+"category": "Hydrogeology",
+"question": "The downward movement of water through soil layers is called ______.",
+"answer": "infiltration",
+"type": "input",
+"explanation": "Infiltration begins groundwater recharge."
+},
+{
+"id": "hydro_fb2_22",
+"category": "Hydrogeology",
+"question": "Groundwater flow paths are controlled by rock ______ and permeability.",
+"answer": "structure",
+"type": "input",
+"explanation": "Fractures and bedding affect flow direction."
+},
+{
+"id": "hydro_fb2_23",
+"category": "Hydrogeology",
+"question": "The ability of a rock to transmit fluid is its ______.",
+"answer": "permeability",
+"type": "input",
+"explanation": "Permeability determines flow rate."
+},
+{
+"id": "hydro_fb2_24",
+"category": "Hydrogeology",
+"question": "Water stored above the regional water table is called ______ water.",
+"answer": "perched",
+"type": "input",
+"explanation": "Perched water sits on localized impermeable layers."
+},
+{
+"id": "hydro_fb2_25",
+"category": "Hydrogeology",
+"question": "The water table typically follows the shape of the ______.",
+"answer": "topography",
+"type": "input",
+"explanation": "It often mimics surface elevation."
+},
+
+{
+"id": "hydro_fb2_26",
+"category": "Hydrogeology",
+"question": "Overpumping can cause the water table to ______.",
+"answer": "decline",
+"type": "input",
+"explanation": "Excess withdrawal lowers groundwater levels."
+},
+{
+"id": "hydro_fb2_27",
+"category": "Hydrogeology",
+"question": "Saltwater intrusion occurs when ______ water replaces freshwater.",
+"answer": "seawater",
+"type": "input",
+"explanation": "Overpumping near coasts causes intrusion."
+},
+{
+"id": "hydro_fb2_28",
+"category": "Hydrogeology",
+"question": "The zone immediately above the water table is called the capillary ______.",
+"answer": "fringe",
+"type": "input",
+"explanation": "Capillary forces pull water upward."
+},
+{
+"id": "hydro_fb2_29",
+"category": "Hydrogeology",
+"question": "Groundwater contamination spreads through processes like advection and ______.",
+"answer": "diffusion",
+"type": "input",
+"explanation": "Diffusion spreads contaminants."
+},
+{
+"id": "hydro_fb2_30",
+"category": "Hydrogeology",
+"question": "A well drawing water from a confined aquifer may show a ______ surface.",
+"answer": "potentiometric",
+"type": "input",
+"explanation": "Potentiometric surface shows pressure levels."
+},
+
+{
+"id": "hydro_fb2_31",
+"category": "Hydrogeology",
+"question": "Hydraulic conductivity includes both rock permeability and fluid ______.",
+"answer": "viscosity",
+"type": "input",
+"explanation": "Fluid properties affect flow rate."
+},
+{
+"id": "hydro_fb2_32",
+"category": "Hydrogeology",
+"question": "The total water content in soil is related to its ______.",
+"answer": "porosity",
+"type": "input",
+"explanation": "Higher porosity = more storage."
+},
+{
+"id": "hydro_fb2_33",
+"category": "Hydrogeology",
+"question": "Groundwater generally moves along the path of least ______.",
+"answer": "resistance",
+"type": "input",
+"explanation": "Flow follows easiest pathways."
+},
+{
+"id": "hydro_fb2_34",
+"category": "Hydrogeology",
+"question": "Fractures increase permeability by creating additional ______.",
+"answer": "pathways",
+"type": "input",
+"explanation": "Water flows through cracks."
+},
+{
+"id": "hydro_fb2_35",
+"category": "Hydrogeology",
+"question": "The hydrologic cycle involves movement between the surface, subsurface, and ______.",
+"answer": "atmosphere",
+"type": "input",
+"explanation": "All water reservoirs are connected."
+},
+
+{
+"id": "hydro_fb2_36",
+"category": "Hydrogeology",
+"question": "In porous media, water flows through interconnected ______ spaces.",
+"answer": "pore",
+"type": "input",
+"explanation": "Pore spaces allow groundwater flow."
+},
+{
+"id": "hydro_fb2_37",
+"category": "Hydrogeology",
+"question": "Groundwater stored in rock fractures is called ______ porosity.",
+"answer": "secondary",
+"type": "input",
+"explanation": "Secondary porosity forms after rock formation."
+},
+{
+"id": "hydro_fb2_38",
+"category": "Hydrogeology",
+"question": "The amount of water that drains from soil is called specific ______.",
+"answer": "yield",
+"type": "input",
+"explanation": "Specific yield measures usable water."
+},
+{
+"id": "hydro_fb2_39",
+"category": "Hydrogeology",
+"question": "Water that remains bound to grains is called specific ______.",
+"answer": "retention",
+"type": "input",
+"explanation": "Retention is water that cannot drain."
+},
+{
+"id": "hydro_fb2_40",
+"category": "Hydrogeology",
+"question": "The slope of the potentiometric surface defines the flow ______.",
+"answer": "direction",
+"type": "input",
+"explanation": "Water flows downhill in head."
+},
+
+{
+"id": "hydro_fb2_41",
+"category": "Hydrogeology",
+"question": "Groundwater velocity increases with higher ______.",
+"answer": "gradient",
+"type": "input",
+"explanation": "Steeper gradient = faster flow."
+},
+{
+"id": "hydro_fb2_42",
+"category": "Hydrogeology",
+"question": "Large, well-connected pores result in ______ permeability.",
+"answer": "high",
+"type": "input",
+"explanation": "Connectivity enhances flow."
+},
+{
+"id": "hydro_fb2_43",
+"category": "Hydrogeology",
+"question": "Water movement through soil is slowed by ______ grain size.",
+"answer": "small",
+"type": "input",
+"explanation": "Smaller grains restrict flow."
+},
+{
+"id": "hydro_fb2_44",
+"category": "Hydrogeology",
+"question": "Groundwater systems are part of Earth's overall ______ cycle.",
+"answer": "water",
+"type": "input",
+"explanation": "Groundwater is a major part of the water cycle."
+},
+{
+"id": "hydro_fb2_45",
+"category": "Hydrogeology",
+"question": "A lowering of the water table around a pumping well forms a cone of ______.",
+"answer": "depression",
+"type": "input",
+"explanation": "Pumping draws water inward."
+},
+
+{
+"id": "hydro_fb2_46",
+"category": "Hydrogeology",
+"question": "Water entering aquifers from streams is called ______ recharge.",
+"answer": "induced",
+"type": "input",
+"explanation": "Streams can contribute water to aquifers."
+},
+{
+"id": "hydro_fb2_47",
+"category": "Hydrogeology",
+"question": "Contaminant transport with flowing groundwater is called ______.",
+"answer": "advection",
+"type": "input",
+"explanation": "Advection moves contaminants with flow."
+},
+{
+"id": "hydro_fb2_48",
+"category": "Hydrogeology",
+"question": "Water stored in soil pores due to surface tension is called ______ water.",
+"answer": "capillary",
+"type": "input",
+"explanation": "Capillary water is held above the water table."
+},
+{
+"id": "hydro_fb2_49",
+"category": "Hydrogeology",
+"question": "Groundwater eventually discharges into surface bodies like ______.",
+"answer": "streams",
+"type": "input",
+"explanation": "Streams receive groundwater flow."
+},
+{
+"id": "hydro_fb2_50",
+"category": "Hydrogeology",
+"question": "An aquifer must have both storage capacity and ______ ability.",
+"answer": "transmission",
+"type": "input",
+"explanation": "It must both hold and move water."
+}
+]

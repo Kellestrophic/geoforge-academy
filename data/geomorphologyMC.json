@@ -1,0 +1,461 @@
+[
+{
+"id": "geo_mc_1",
+"category": "Geomorphology",
+"question": "Which process primarily shapes landscapes through the removal of material?",
+"choices": ["Erosion", "Deposition", "Lithification", "Compaction"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Erosion removes and transports material, unlike weathering which breaks rock in place without movement."
+},
+{
+"id": "geo_mc_2",
+"category": "Geomorphology",
+"question": "Weathering that involves chemical alteration is called:",
+"choices": ["Chemical weathering", "Mechanical weathering", "Physical erosion", "Mass wasting"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Chemical weathering alters mineral composition through reactions like hydrolysis, oxidation, and dissolution."
+},
+{
+"id": "geo_mc_3",
+"category": "Geomorphology",
+"question": "Which agent of erosion is most responsible for shaping valleys?",
+"choices": ["Running water", "Wind", "Glaciers", "Waves"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Running water is the most effective erosional agent due to its abundance and ability to transport sediment over long distances."
+},
+{
+"id": "geo_mc_4",
+"category": "Geomorphology",
+"question": "A U-shaped valley is typically formed by:",
+"choices": ["Glaciers", "Rivers", "Wind", "Mass wasting"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Glaciers erode both valley floors and walls, creating wide U-shaped valleys unlike narrow V-shaped river valleys."
+},
+{
+"id": "geo_mc_5",
+"category": "Geomorphology",
+"question": "Which process breaks rock without changing its composition?",
+"choices": ["Mechanical weathering", "Chemical weathering", "Oxidation", "Hydrolysis"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Mechanical weathering physically breaks rock into smaller pieces, increasing surface area for further weathering."
+},
+
+{
+"id": "geo_mc_6",
+"category": "Geomorphology",
+"question": "Which landform is created by wind deposition?",
+"choices": ["Sand dune", "Delta", "Alluvial fan", "Moraines"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Sand dunes form when wind velocity decreases and deposits transported sand."
+},
+{
+"id": "geo_mc_7",
+"category": "Geomorphology",
+"question": "Which mass wasting process involves rapid downslope movement?",
+"choices": ["Landslide", "Creep", "Solifluction", "Slump"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Landslides are fast-moving events driven by gravity, often triggered by water saturation or slope failure."
+},
+{
+"id": "geo_mc_8",
+"category": "Geomorphology",
+"question": "Which river feature forms where a river meets standing water?",
+"choices": ["Delta", "Meander", "Levee", "Floodplain"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Deltas form when a river slows at its mouth, causing sediment deposition."
+},
+{
+"id": "geo_mc_9",
+"category": "Geomorphology",
+"question": "The gradual downhill movement of soil is called:",
+"choices": ["Creep", "Slump", "Fall", "Avalanche"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Creep is a slow process caused by expansion-contraction cycles like freeze-thaw or wet-dry conditions."
+},
+{
+"id": "geo_mc_10",
+"category": "Geomorphology",
+"question": "Which factor most influences slope stability?",
+"choices": ["Water content", "Rock color", "Wind speed", "Vegetation height"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Water increases weight and reduces friction between particles, making slopes more prone to failure."
+},
+
+{
+"id": "geo_mc_11",
+"category": "Geomorphology",
+"question": "Which process involves the movement of sediment by wind?",
+"choices": ["Aeolian transport", "Fluvial transport", "Glacial transport", "Marine transport"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Aeolian processes involve wind transporting and depositing sediment, common in deserts."
+},
+{
+"id": "geo_mc_12",
+"category": "Geomorphology",
+"question": "Which feature is formed by river erosion on the outer bend?",
+"choices": ["Cut bank", "Point bar", "Levee", "Delta"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Cut banks form where water velocity is highest, causing erosion on the outer curve of meanders."
+},
+{
+"id": "geo_mc_13",
+"category": "Geomorphology",
+"question": "Which feature forms on the inside of a meander?",
+"choices": ["Point bar", "Cut bank", "Terrace", "Delta"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Point bars form from deposition where water velocity decreases on the inner bend."
+},
+{
+"id": "geo_mc_14",
+"category": "Geomorphology",
+"question": "Which weathering process involves expansion of freezing water?",
+"choices": ["Frost wedging", "Hydrolysis", "Oxidation", "Dissolution"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Water expands when it freezes, exerting pressure that fractures rock over repeated cycles."
+},
+{
+"id": "geo_mc_15",
+"category": "Geomorphology",
+"question": "Which process forms soil from rock?",
+"choices": ["Weathering", "Deposition", "Erosion", "Compaction"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Weathering breaks down rock into smaller particles that eventually become soil."
+},
+
+{
+"id": "geo_mc_16",
+"category": "Geomorphology",
+"question": "Which landform is associated with glacial deposition?",
+"choices": ["Moraine", "Canyon", "Dune", "Delta"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Moraines are unsorted sediment deposits left behind as glaciers retreat."
+},
+{
+"id": "geo_mc_17",
+"category": "Geomorphology",
+"question": "Which process removes material from a slope?",
+"choices": ["Erosion", "Deposition", "Lithification", "Cementation"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Erosion transports material away from its original location."
+},
+{
+"id": "geo_mc_18",
+"category": "Geomorphology",
+"question": "Which agent is most effective in transporting sediment long distances?",
+"choices": ["Water", "Wind", "Ice", "Gravity"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Water can carry large amounts of sediment continuously over long distances."
+},
+{
+"id": "geo_mc_19",
+"category": "Geomorphology",
+"question": "Which feature is formed by wave erosion?",
+"choices": ["Sea cliff", "Delta", "Alluvial fan", "Dune"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Wave action undercuts rock, forming steep coastal cliffs."
+},
+{
+"id": "geo_mc_20",
+"category": "Geomorphology",
+"question": "Which process adds sediment to a landscape?",
+"choices": ["Deposition", "Erosion", "Weathering", "Transport"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Deposition occurs when transporting energy decreases and sediment settles."
+},
+
+{
+"id": "geo_mc_21",
+"category": "Geomorphology",
+"question": "Which environment is dominated by wind processes?",
+"choices": ["Desert", "Mountain", "Ocean", "Forest"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Deserts have limited vegetation, allowing wind to easily transport sediment."
+},
+{
+"id": "geo_mc_22",
+"category": "Geomorphology",
+"question": "Which type of weathering involves acids dissolving minerals?",
+"choices": ["Chemical weathering", "Mechanical weathering", "Frost wedging", "Abrasion"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Acidic solutions dissolve minerals, especially in carbonate rocks."
+},
+{
+"id": "geo_mc_23",
+"category": "Geomorphology",
+"question": "Which process moves sediment downhill due to gravity?",
+"choices": ["Mass wasting", "Erosion", "Deposition", "Weathering"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Mass wasting includes all gravity-driven movement like landslides and creep."
+},
+{
+"id": "geo_mc_24",
+"category": "Geomorphology",
+"question": "Which river stage has the greatest erosion?",
+"choices": ["Youthful stage", "Mature stage", "Old age stage", "Flood stage"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Youthful rivers have steep gradients and actively downcut into bedrock."
+},
+{
+"id": "geo_mc_25",
+"category": "Geomorphology",
+"question": "Which feature forms from repeated flooding?",
+"choices": ["Floodplain", "Delta", "Terrace", "Dune"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Floodplains build from repeated sediment deposition during floods."
+},
+
+{
+"id": "geo_mc_26",
+"category": "Geomorphology",
+"question": "Which glacial feature is streamlined by ice movement?",
+"choices": ["Drumlin", "Moraine", "Cirque", "Kettle"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Drumlins are elongated hills shaped in the direction of glacier flow."
+},
+{
+"id": "geo_mc_27",
+"category": "Geomorphology",
+"question": "Which feature forms at the base of mountains from sediment?",
+"choices": ["Alluvial fan", "Delta", "Dune", "Moraine"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Alluvial fans form where steep streams lose energy and deposit sediment."
+},
+{
+"id": "geo_mc_28",
+"category": "Geomorphology",
+"question": "Which process rounds sediment particles?",
+"choices": ["Transport", "Weathering", "Deposition", "Compaction"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Particles collide during transport, smoothing and rounding edges."
+},
+{
+"id": "geo_mc_29",
+"category": "Geomorphology",
+"question": "Which environment has the highest rate of chemical weathering?",
+"choices": ["Tropical", "Arctic", "Desert", "Mountain"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Warm, wet climates accelerate chemical reactions."
+},
+{
+"id": "geo_mc_30",
+"category": "Geomorphology",
+"question": "Which force primarily drives mass wasting?",
+"choices": ["Gravity", "Wind", "Water", "Ice"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Gravity pulls materials downslope regardless of medium."
+},
+
+{
+"id": "geo_mc_31",
+"category": "Geomorphology",
+"question": "Which landform forms from glacial erosion?",
+"choices": ["Cirque", "Delta", "Dune", "Fan"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Cirques are bowl-shaped depressions carved by glaciers."
+},
+{
+"id": "geo_mc_32",
+"category": "Geomorphology",
+"question": "Which sediment transport method involves particles bouncing?",
+"choices": ["Saltation", "Suspension", "Solution", "Traction"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Saltation is a hopping motion caused by fluid flow."
+},
+{
+"id": "geo_mc_33",
+"category": "Geomorphology",
+"question": "Which process breaks rock along joints due to root growth?",
+"choices": ["Biological weathering", "Chemical weathering", "Physical weathering", "Erosion"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Plant roots exert pressure and break rock apart."
+},
+{
+"id": "geo_mc_34",
+"category": "Geomorphology",
+"question": "Which feature indicates past glacial activity?",
+"choices": ["Striations", "Ripple marks", "Cross-bedding", "Mud cracks"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Striations are scratches formed by rocks dragged under glaciers."
+},
+{
+"id": "geo_mc_35",
+"category": "Geomorphology",
+"question": "Which river process increases channel sinuosity?",
+"choices": ["Meandering", "Downcutting", "Braiding", "Flooding"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Meandering increases curvature due to erosion and deposition differences."
+},
+
+{
+"id": "geo_mc_36",
+"category": "Geomorphology",
+"question": "Which coastal feature forms from sediment deposition?",
+"choices": ["Beach", "Cliff", "Arch", "Stack"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Beaches form from accumulation of sand and sediment along shorelines."
+},
+{
+"id": "geo_mc_37",
+"category": "Geomorphology",
+"question": "Which process causes rock to break due to temperature changes?",
+"choices": ["Thermal expansion", "Hydrolysis", "Oxidation", "Dissolution"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Repeated expansion and contraction fractures rock over time."
+},
+{
+"id": "geo_mc_38",
+"category": "Geomorphology",
+"question": "Which sediment size is transported in suspension?",
+"choices": ["Clay", "Gravel", "Cobble", "Boulder"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Fine particles like clay remain suspended in water."
+},
+{
+"id": "geo_mc_39",
+"category": "Geomorphology",
+"question": "Which feature forms from wind erosion?",
+"choices": ["Yardang", "Delta", "Fan", "Levee"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Yardangs are streamlined ridges carved by persistent wind erosion."
+},
+{
+"id": "geo_mc_40",
+"category": "Geomorphology",
+"question": "Which process involves dissolved ions carried by water?",
+"choices": ["Solution transport", "Saltation", "Traction", "Suspension"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Solution transport carries dissolved minerals in water."
+},
+
+{
+"id": "geo_mc_41",
+"category": "Geomorphology",
+"question": "Which feature is formed by river erosion cutting downward?",
+"choices": ["Canyon", "Delta", "Fan", "Dune"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Canyons form through prolonged vertical erosion by rivers."
+},
+{
+"id": "geo_mc_42",
+"category": "Geomorphology",
+"question": "Which type of slope failure rotates along a curved surface?",
+"choices": ["Slump", "Creep", "Fall", "Flow"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Slumps involve rotational movement along a concave surface."
+},
+{
+"id": "geo_mc_43",
+"category": "Geomorphology",
+"question": "Which process produces rounded pebbles in rivers?",
+"choices": ["Abrasion", "Compaction", "Cementation", "Lithification"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Abrasion smooths particles as they collide during transport."
+},
+{
+"id": "geo_mc_44",
+"category": "Geomorphology",
+"question": "Which process forms soil horizons?",
+"choices": ["Weathering", "Erosion", "Deposition", "Transport"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Weathering and biological processes create layered soils."
+},
+{
+"id": "geo_mc_45",
+"category": "Geomorphology",
+"question": "Which feature forms from glacial meltwater?",
+"choices": ["Outwash plain", "Cirque", "Moraine", "Drumlin"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Outwash plains form from sediment deposited by glacial meltwater streams."
+},
+
+{
+"id": "geo_mc_46",
+"category": "Geomorphology",
+"question": "Which force causes sediment to settle from water?",
+"choices": ["Gravity", "Wind", "Pressure", "Temperature"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Gravity causes particles to settle when transport energy decreases."
+},
+{
+"id": "geo_mc_47",
+"category": "Geomorphology",
+"question": "Which environment produces the most physical weathering?",
+"choices": ["Cold climates", "Tropical climates", "Marine environments", "Wetlands"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Freeze-thaw cycles dominate in cold climates, enhancing mechanical breakdown."
+},
+{
+"id": "geo_mc_48",
+"category": "Geomorphology",
+"question": "Which process moves sediment along the ground surface?",
+"choices": ["Traction", "Saltation", "Suspension", "Solution"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Traction rolls or slides larger particles along the bed."
+},
+{
+"id": "geo_mc_49",
+"category": "Geomorphology",
+"question": "Which feature forms when a river cuts into its floodplain?",
+"choices": ["Terrace", "Delta", "Fan", "Dune"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Terraces represent former floodplain levels after downcutting."
+},
+{
+"id": "geo_mc_50",
+"category": "Geomorphology",
+"question": "Which process removes dissolved material from rock?",
+"choices": ["Dissolution", "Abrasion", "Compaction", "Oxidation"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Dissolution removes minerals by chemical reaction with water."
+}
+]

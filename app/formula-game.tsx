@@ -39,7 +39,7 @@ function shuffle<T>(arr: T[]): T[] {
   return copy;
 }
 
-/* ---------------- NORMALIZE ---------------- */
+/* ---------------- SAFE NORMALIZE ---------------- */
 
 function normalize(data: any[]): any[] {
   const safe: any[] = [];
@@ -62,7 +62,7 @@ function normalize(data: any[]): any[] {
   return safe;
 }
 
-/* ---------------- GENERATE QUESTIONS ---------------- */
+/* ---------------- GENERATOR ---------------- */
 
 function generateQuestions(all: any[]): FormulaGameQuestion[] {
   const normalized = normalize(all);
@@ -70,11 +70,13 @@ function generateQuestions(all: any[]): FormulaGameQuestion[] {
   return shuffle(normalized)
     .map((q) => {
       const correct = q.choices[q.correctAnswer];
+
       if (!correct || typeof correct !== "string") return null;
 
       const parts = correct.match(/[A-Z][a-z]*\d*/g);
       if (!parts || parts.length === 0) return null;
 
+      // WRONG PARTS POOL
       const pool = normalized.flatMap((qq) =>
         qq.choices.flatMap((c: string) =>
           c.match(/[A-Z][a-z]*\d*/g) || []
@@ -125,7 +127,9 @@ export default function FormulaGame() {
   const [result, setResult] = useState<"correct" | "wrong" | null>(null);
   const [combo, setCombo] = useState(0);
 
+  const scaleAnim = useRef(new Animated.Value(1)).current;
   const shakeAnim = useRef(new Animated.Value(0)).current;
+  const glowAnim = useRef(new Animated.Value(0)).current;
 
   const q = questions[index];
 
@@ -145,16 +149,10 @@ export default function FormulaGame() {
 
   function triggerCorrect() {
     setCombo((prev) => prev + 1);
-  }
-
-  function triggerWrong() {
-    setCombo(0);
 
     Animated.sequence([
-      Animated.timing(shakeAnim, { toValue: 10, duration: 50, useNativeDriver: true }),
-      Animated.timing(shakeAnim, { toValue: -10, duration: 50, useNativeDriver: true }),
-      Animated.timing(shakeAnim, { toValue: 10, duration: 50, useNativeDriver: true }),
-      Animated.timing(shakeAnim, { toValue: 0, duration: 50, useNativeDriver: true }),
+      Animated.timing(glowAnim, { toValue: 1, duration: 200, useNativeDriver: false }),
+      Animated.timing(glowAnim, { toValue: 0, duration: 200, useNativeDriver: false }),
     ]).start();
   }
 
@@ -165,39 +163,46 @@ export default function FormulaGame() {
     setIndex((prev) => (prev + 1) % questions.length);
   }
 
-  /* ---------------- CHECK BUILDER ---------------- */
+  /* ---------------- CHECKS ---------------- */
 
   function checkBuilder() {
-    if (q.type !== "builder") return;
-
     const correct =
-      selected.length === q.target.length &&
-      selected.every((item) => q.target.includes(item));
+   function checkBuilder() {
+  if (q.type !== "builder") return; // ✅ TYPE GUARD
 
-    if (correct) {
-      triggerCorrect();
+  const correct =
+    selected.length === q.target.length &&
+    selected.every((item) => q.target.includes(item));
+}
+
+    if (!correct) {
+      Animated.sequence([
+        Animated.timing(shakeAnim, { toValue: 10, duration: 50, useNativeDriver: true }),
+        Animated.timing(shakeAnim, { toValue: -10, duration: 50, useNativeDriver: true }),
+        Animated.timing(shakeAnim, { toValue: 10, duration: 50, useNativeDriver: true }),
+        Animated.timing(shakeAnim, { toValue: 0, duration: 50, useNativeDriver: true }),
+      ]).start();
+      setCombo(0);
     } else {
-      triggerWrong();
+      triggerCorrect();
     }
 
     trackActivity("formula");
     setTimeout(next, 500);
   }
 
-  /* ---------------- CHECK INPUT ---------------- */
+function checkInput() {
+  if (q.type !== "input") return; // ✅ TYPE GUARD
 
-  function checkInput() {
-    if (q.type !== "input") return;
-
-    const isCorrect =
-      input.toLowerCase().trim() === q.answer.toLowerCase();
+  const isCorrect =
+    input.toLowerCase().trim() === q.answer.toLowerCase();
 
     if (isCorrect) {
       setResult("correct");
       triggerCorrect();
     } else {
       setResult("wrong");
-      triggerWrong();
+      setCombo(0);
     }
 
     trackActivity("formula");
@@ -223,14 +228,13 @@ export default function FormulaGame() {
           {q.mineral}
         </Text>
 
-        <Text style={{ textAlign: "center", color: "#f59e0b", marginTop: 10 }}>
+        <Text style={{ textAlign: "center", color: "#f59e0b" }}>
           🔥 Combo: {combo}
         </Text>
 
-        {/* BUILDER MODE */}
+        {/* BUILDER */}
         {q.type === "builder" && (
           <>
-            {/* SLOTS */}
             <View style={{ flexDirection: "row", justifyContent: "center", marginVertical: 20 }}>
               {q.target.map((_, i) => (
                 <View
@@ -244,7 +248,6 @@ export default function FormulaGame() {
                     borderRadius: 8,
                     alignItems: "center",
                     justifyContent: "center",
-                    backgroundColor: "#1e293b",
                   }}
                 >
                   <Text style={{ color: "white" }}>{selected[i]}</Text>
@@ -252,16 +255,13 @@ export default function FormulaGame() {
               ))}
             </View>
 
-            {/* OPTIONS */}
             <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
               {q.options.map((item, i) => (
                 <Pressable
                   key={i}
                   onPress={() =>
                     setSelected((prev) =>
-                      prev.includes(item) || prev.length >= q.target.length
-                        ? prev
-                        : [...prev, item]
+                      prev.length < q.target.length ? [...prev, item] : prev
                     )
                   }
                 >
@@ -272,28 +272,22 @@ export default function FormulaGame() {
               ))}
             </View>
 
-            <Pressable
-              onPress={checkBuilder}
-              style={{ marginTop: 20, backgroundColor: "#0ea5e9", padding: 15 }}
-            >
-              <Text style={{ textAlign: "center", color: "white" }}>
-                Check
-              </Text>
+            <Pressable onPress={checkBuilder} style={{ marginTop: 20, backgroundColor: "#0ea5e9", padding: 15 }}>
+              <Text style={{ textAlign: "center", color: "white" }}>Check</Text>
             </Pressable>
           </>
         )}
 
-        {/* INPUT MODE */}
+        {/* INPUT */}
         {q.type === "input" && (
           <>
             <Text style={{ textAlign: "center", color: theme.colors.text }}>
-              {result ? q.display.replace("_", q.answer) : q.display}
+              {q.display}
             </Text>
 
             <TextInput
               value={input}
               onChangeText={setInput}
-              placeholder="Enter missing part"
               style={{
                 marginTop: 20,
                 padding: 15,
@@ -303,13 +297,8 @@ export default function FormulaGame() {
               }}
             />
 
-            <Pressable
-              onPress={checkInput}
-              style={{ marginTop: 20, backgroundColor: "#0ea5e9", padding: 15 }}
-            >
-              <Text style={{ textAlign: "center", color: "white" }}>
-                Check
-              </Text>
+            <Pressable onPress={checkInput} style={{ marginTop: 20, backgroundColor: "#0ea5e9", padding: 15 }}>
+              <Text style={{ textAlign: "center", color: "white" }}>Check</Text>
             </Pressable>
           </>
         )}

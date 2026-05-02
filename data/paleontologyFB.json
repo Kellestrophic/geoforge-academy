@@ -1,0 +1,615 @@
+[
+{
+"id": "paleo_fb_1",
+"category": "Paleontology",
+"question": "Paleontology is the study of ancient ______ preserved in the rock record.",
+"answer": "life",
+"type": "input",
+"explanation": "Paleontology reconstructs past life using fossil evidence."
+},
+{
+"id": "paleo_fb_2",
+"category": "Paleontology",
+"question": "Fossils are most commonly preserved in ______ rocks.",
+"answer": "sedimentary",
+"type": "input",
+"explanation": "Sedimentary rocks form under conditions that allow preservation."
+},
+{
+"id": "paleo_fb_3",
+"category": "Paleontology",
+"question": "The preservation of original hard parts like shells is called ______ fossilization.",
+"answer": "body",
+"type": "input",
+"explanation": "Body fossils preserve physical remains of organisms."
+},
+{
+"id": "paleo_fb_4",
+"category": "Paleontology",
+"question": "Tracks, burrows, and trails are examples of ______ fossils.",
+"answer": "trace",
+"type": "input",
+"explanation": "Trace fossils record organism behavior."
+},
+{
+"id": "paleo_fb_5",
+"category": "Paleontology",
+"question": "Rapid ______ is essential for fossil preservation.",
+"answer": "burial",
+"type": "input",
+"explanation": "Burial protects remains from decay and scavengers."
+},
+
+{
+"id": "paleo_fb_6",
+"category": "Paleontology",
+"question": "Permineralization occurs when minerals fill ______ spaces.",
+"answer": "pore",
+"type": "input",
+"explanation": "Minerals fill pores and preserve structure."
+},
+{
+"id": "paleo_fb_7",
+"category": "Paleontology",
+"question": "Carbonization leaves behind a thin film of ______.",
+"answer": "carbon",
+"type": "input",
+"explanation": "Carbon residue preserves outlines of organisms."
+},
+{
+"id": "paleo_fb_8",
+"category": "Paleontology",
+"question": "A hollow impression of an organism is called a ______.",
+"answer": "mold",
+"type": "input",
+"explanation": "Molds form after the organism dissolves."
+},
+{
+"id": "paleo_fb_9",
+"category": "Paleontology",
+"question": "When a mold is filled with minerals, it forms a ______.",
+"answer": "cast",
+"type": "input",
+"explanation": "Casts replicate the original organism."
+},
+{
+"id": "paleo_fb_10",
+"category": "Paleontology",
+"question": "Fossils destroyed by heat and pressure occur during ______.",
+"answer": "metamorphism",
+"type": "input",
+"explanation": "Metamorphism alters or destroys fossils."
+},
+
+{
+"id": "paleo_fb_11",
+"category": "Paleontology",
+"question": "Index fossils must be widespread and ______-lived.",
+"answer": "short",
+"type": "input",
+"explanation": "Short time range allows precise dating."
+},
+{
+"id": "paleo_fb_12",
+"category": "Paleontology",
+"question": "Ammonites are commonly used as ______ fossils.",
+"answer": "index",
+"type": "input",
+"explanation": "They evolved rapidly and were widespread."
+},
+{
+"id": "paleo_fb_13",
+"category": "Paleontology",
+"question": "The Age of Dinosaurs is the ______ era.",
+"answer": "Mesozoic",
+"type": "input",
+"explanation": "The Mesozoic includes Triassic, Jurassic, Cretaceous."
+},
+{
+"id": "paleo_fb_14",
+"category": "Paleontology",
+"question": "The Age of Mammals is the ______ era.",
+"answer": "Cenozoic",
+"type": "input",
+"explanation": "Mammals diversified after dinosaur extinction."
+},
+{
+"id": "paleo_fb_15",
+"category": "Paleontology",
+"question": "The extinction of dinosaurs occurred at the end of the ______ period.",
+"answer": "Cretaceous",
+"type": "input",
+"explanation": "The K-Pg boundary marks this extinction."
+},
+
+{
+"id": "paleo_fb_16",
+"category": "Paleontology",
+"question": "Microfossils are studied in ______paleontology.",
+"answer": "micro",
+"type": "input",
+"explanation": "Micropaleontology focuses on microscopic fossils."
+},
+{
+"id": "paleo_fb_17",
+"category": "Paleontology",
+"question": "Foraminifera shells are composed of ______ ______.",
+"answer": ["calcium", "carbonate"],
+"type": "input_multi",
+"explanation": "Forams build CaCO₃ shells."
+},
+{
+"id": "paleo_fb_18",
+"category": "Paleontology",
+"question": "Diatoms are composed of ______.",
+"answer": "silica",
+"type": "input",
+"explanation": "Diatoms have siliceous frustules."
+},
+{
+"id": "paleo_fb_19",
+"category": "Paleontology",
+"question": "Radiolarians are marine plankton with ______ skeletons.",
+"answer": "silica",
+"type": "input",
+"explanation": "Their intricate silica forms preserve well."
+},
+{
+"id": "paleo_fb_20",
+"category": "Paleontology",
+"question": "Conodonts are tooth-like fossils from early ______.",
+"answer": "vertebrates",
+"type": "input",
+"explanation": "Conodonts are linked to primitive vertebrates."
+},
+
+{
+"id": "paleo_fb_21",
+"category": "Paleontology",
+"question": "Foraminifera are widely used in ______ exploration.",
+"answer": "petroleum",
+"type": "input",
+"explanation": "They help identify oil-bearing strata."
+},
+{
+"id": "paleo_fb_22",
+"category": "Paleontology",
+"question": "The study of fossil pollen is called ______.",
+"answer": "palynology",
+"type": "input",
+"explanation": "Palynology reconstructs past vegetation and climate."
+},
+{
+"id": "paleo_fb_23",
+"category": "Paleontology",
+"question": "Microfossils are useful because they are abundant and ______.",
+"answer": "widespread",
+"type": "input",
+"explanation": "Wide distribution allows correlation."
+},
+{
+"id": "paleo_fb_24",
+"category": "Paleontology",
+"question": "Oxygen isotopes in foraminifera indicate past ______.",
+"answer": "temperature",
+"type": "input",
+"explanation": "Isotope ratios reflect climate conditions."
+},
+{
+"id": "paleo_fb_25",
+"category": "Paleontology",
+"question": "Siliceous fossils dissolve more easily in ______ ocean conditions.",
+"answer": "deep",
+"type": "input",
+"explanation": "Deep ocean chemistry promotes silica dissolution."
+},
+
+{
+"id": "paleo_fb_26",
+"category": "Paleontology",
+"question": "Fossils preserved in limestone are typically ______ in composition.",
+"answer": "calcareous",
+"type": "input",
+"explanation": "Limestone forms from CaCO₃ materials."
+},
+{
+"id": "paleo_fb_27",
+"category": "Paleontology",
+"question": "Diatoms are commonly found in ______ and marine environments.",
+"answer": "freshwater",
+"type": "input",
+"explanation": "They exist in both freshwater and marine settings."
+},
+{
+"id": "paleo_fb_28",
+"category": "Paleontology",
+"question": "Silica-based fossils are more resistant than ______ fossils.",
+"answer": "calcareous",
+"type": "input",
+"explanation": "Silica resists dissolution better than CaCO₃ in some settings."
+},
+{
+"id": "paleo_fb_29",
+"category": "Paleontology",
+"question": "Conodonts are important index fossils for ______ rocks.",
+"answer": "Paleozoic",
+"type": "input",
+"explanation": "They are widely used in Paleozoic stratigraphy."
+},
+{
+"id": "paleo_fb_30",
+"category": "Paleontology",
+"question": "Foraminifera can indicate past ______ levels in marine environments.",
+"answer": "salinity",
+"type": "input",
+"explanation": "Different species prefer specific salinity ranges."
+},
+
+{
+"id": "paleo_fb_31",
+"category": "Paleontology",
+"question": "Microfossils are useful for reconstructing ______ environments.",
+"answer": "paleo",
+"type": "input",
+"explanation": "They reveal past environmental conditions."
+},
+{
+"id": "paleo_fb_32",
+"category": "Paleontology",
+"question": "Changes to fossils after burial are called ______.",
+"answer": "diagenesis",
+"type": "input",
+"explanation": "Diagenesis alters fossil composition."
+},
+{
+"id": "paleo_fb_33",
+"category": "Paleontology",
+"question": "Floating foraminifera are called ______ forams.",
+"answer": "planktonic",
+"type": "input",
+"explanation": "Planktonic forms live in the water column."
+},
+{
+"id": "paleo_fb_34",
+"category": "Paleontology",
+"question": "Seafloor-dwelling foraminifera are called ______ forams.",
+"answer": "benthic",
+"type": "input",
+"explanation": "Benthic species live on or in sediment."
+},
+{
+"id": "paleo_fb_35",
+"category": "Paleontology",
+"question": "Microfossils are sensitive indicators of environmental ______.",
+"answer": "change",
+"type": "input",
+"explanation": "They respond rapidly to environmental shifts."
+},
+
+{
+"id": "paleo_fb_36",
+"category": "Paleontology",
+"question": "Two major fossil types are ______ and ______ fossils.",
+"answer": ["body", "trace"],
+"type": "input_multi",
+"explanation": "Body fossils preserve remains; trace fossils preserve activity."
+},
+{
+"id": "paleo_fb_37",
+"category": "Paleontology",
+"question": "The preservation of soft-bodied organisms is considered ______.",
+"answer": "rare",
+"type": "input",
+"explanation": "Soft tissues decay quickly."
+},
+{
+"id": "paleo_fb_38",
+"category": "Paleontology",
+"question": "Radiolarians are most common in ______ marine environments.",
+"answer": "deep",
+"type": "input",
+"explanation": "They dominate deep-sea sediments."
+},
+{
+"id": "paleo_fb_39",
+"category": "Paleontology",
+"question": "Diatoms indicate ______ productivity in oceans.",
+"answer": "high",
+"type": "input",
+"explanation": "They thrive in nutrient-rich conditions."
+},
+{
+"id": "paleo_fb_40",
+"category": "Paleontology",
+"question": "Replacement fossilization involves mineral ______ of original material.",
+"answer": "substitution",
+"type": "input",
+"explanation": "Original material is replaced atom by atom."
+},
+
+{
+"id": "paleo_fb_41",
+"category": "Paleontology",
+"question": "Index fossils help determine ______ age of rocks.",
+"answer": "relative",
+"type": "input",
+"explanation": "They establish order, not exact dates."
+},
+{
+"id": "paleo_fb_42",
+"category": "Paleontology",
+"question": "The most important factor for fossil preservation is rapid ______.",
+"answer": "burial",
+"type": "input",
+"explanation": "Protects remains from destruction."
+},
+{
+"id": "paleo_fb_43",
+"category": "Paleontology",
+"question": "Siliceous fossils are composed of ______ dioxide.",
+"answer": "silicon",
+"type": "input",
+"explanation": "Silica = SiO₂."
+},
+{
+"id": "paleo_fb_44",
+"category": "Paleontology",
+"question": "Calcareous fossils are composed of calcium ______.",
+"answer": "carbonate",
+"type": "input",
+"explanation": "CaCO₃ forms shells and skeletons."
+},
+{
+"id": "paleo_fb_45",
+"category": "Paleontology",
+"question": "The study of ancient life forms is called ______.",
+"answer": "paleontology",
+"type": "input",
+"explanation": "It integrates biology and geology."
+},
+
+{
+"id": "paleo_fb_46",
+"category": "Paleontology",
+"question": "Microfossils are typically observed using a ______.",
+"answer": "microscope",
+"type": "input",
+"explanation": "They are too small for naked-eye observation."
+},
+{
+"id": "paleo_fb_47",
+"category": "Paleontology",
+"question": "The base of marine food chains is often represented by ______.",
+"answer": "plankton",
+"type": "input",
+"explanation": "Many microfossils are planktonic organisms."
+},
+{
+"id": "paleo_fb_48",
+"category": "Paleontology",
+"question": "Fossil assemblages reflect past ______ conditions.",
+"answer": "environmental",
+"type": "input",
+"explanation": "Assemblages indicate climate and habitat."
+},
+{
+"id": "paleo_fb_49",
+"category": "Paleontology",
+"question": "Diatomaceous earth is composed of fossilized ______.",
+"answer": "diatoms",
+"type": "input",
+"explanation": "Accumulated diatom shells form this material."
+},
+{
+"id": "paleo_fb_50",
+"category": "Paleontology",
+"question": "Radiolarian fossils are most commonly found in deep-sea ______.",
+"answer": "sediments",
+"type": "input",
+"explanation": "They accumulate on the ocean floor over time."
+},
+{
+"id": "paleo_fb_51",
+"category": "Paleontology",
+"question": "Trilobites are an extinct group of marine ______ that were abundant during the Paleozoic.",
+"answer": "arthropods",
+"type": "input",
+"explanation": "Trilobites belong to the arthropod phylum, characterized by segmented bodies and exoskeletons, and their dominance in Paleozoic seas makes them key fossil indicators."
+},
+{
+"id": "paleo_fb_52",
+"category": "Paleontology",
+"question": "Brachiopods have symmetry through the ______ rather than between shells.",
+"answer": "shell",
+"type": "input",
+"explanation": "Unlike bivalves, brachiopods are bilaterally symmetrical through each valve, a key diagnostic feature used in fossil identification."
+},
+{
+"id": "paleo_fb_53",
+"category": "Paleontology",
+"question": "Reef-building organisms like corals secrete skeletons made primarily of calcium ______.",
+"answer": "carbonate",
+"type": "input",
+"explanation": "Corals produce CaCO₃ skeletons, which accumulate to form limestone and reef structures in shallow marine environments."
+},
+{
+"id": "paleo_fb_54",
+"category": "Paleontology",
+"question": "Ammonites are known for their coiled ______ shells.",
+"answer": "spiral",
+"type": "input",
+"explanation": "Ammonite shells are typically planispiral (coiled in a flat plane), and their changing morphology is key for stratigraphic correlation."
+},
+{
+"id": "paleo_fb_55",
+"category": "Paleontology",
+"question": "Trace fossils record the ______ of organisms rather than their bodies.",
+"answer": "behavior",
+"type": "input",
+"explanation": "Trace fossils such as tracks and burrows provide insight into movement, feeding, and other biological activities."
+},
+
+{
+"id": "paleo_fb_56",
+"category": "Paleontology",
+"question": "The Permian mass extinction marked the end of the ______ era.",
+"answer": "Paleozoic",
+"type": "input",
+"explanation": "The Permian extinction (~252 Ma) eliminated many marine species and marks the boundary between Paleozoic and Mesozoic."
+},
+{
+"id": "paleo_fb_57",
+"category": "Paleontology",
+"question": "Coal forms from the accumulation and alteration of buried ______ material.",
+"answer": "plant",
+"type": "input",
+"explanation": "Coal originates from plant remains buried in swampy, anoxic conditions and transformed through compaction and carbonization."
+},
+{
+"id": "paleo_fb_58",
+"category": "Paleontology",
+"question": "Coral fossils indicate deposition in warm, shallow ______ environments.",
+"answer": "marine",
+"type": "input",
+"explanation": "Corals require sunlight and clear water, so they are restricted to shallow marine settings within the photic zone."
+},
+{
+"id": "paleo_fb_59",
+"category": "Paleontology",
+"question": "The extinction of non-avian dinosaurs occurred at the ______-Pg boundary.",
+"answer": "K",
+"type": "input",
+"explanation": "The K-Pg boundary (formerly K-T) marks the end-Cretaceous mass extinction caused by an asteroid impact and environmental disruption."
+},
+{
+"id": "paleo_fb_60",
+"category": "Paleontology",
+"question": "Brachiopods were especially abundant in ______ marine environments during the Paleozoic.",
+"answer": "shallow",
+"type": "input",
+"explanation": "Brachiopods thrived in shallow marine shelves where conditions favored filter-feeding organisms."
+},
+
+{
+"id": "paleo_fb_61",
+"category": "Paleontology",
+"question": "Trilobites possessed a hard outer covering known as an ______.",
+"answer": "exoskeleton",
+"type": "input",
+"explanation": "The exoskeleton provided protection and is commonly preserved in the fossil record."
+},
+{
+"id": "paleo_fb_62",
+"category": "Paleontology",
+"question": "Plant fossils are most commonly preserved in fine-grained rocks like ______.",
+"answer": "shale",
+"type": "input",
+"explanation": "Shale forms in low-energy environments where delicate plant material can settle and be preserved."
+},
+{
+"id": "paleo_fb_63",
+"category": "Paleontology",
+"question": "Fossil assemblages can be used to reconstruct past ______ conditions.",
+"answer": "environmental",
+"type": "input",
+"explanation": "Groups of fossils reflect the climate, water depth, and ecological conditions of the time."
+},
+{
+"id": "paleo_fb_64",
+"category": "Paleontology",
+"question": "Ammonites are commonly used as ______ fossils for dating rock layers.",
+"answer": "index",
+"type": "input",
+"explanation": "Their rapid evolution and wide distribution allow precise correlation between rock units."
+},
+{
+"id": "paleo_fb_65",
+"category": "Paleontology",
+"question": "Trace fossils like footprints are often preserved in ______ environments.",
+"answer": "terrestrial",
+"type": "input",
+"explanation": "Tracks form on exposed surfaces such as floodplains or deserts and are later preserved by burial."
+},
+
+{
+"id": "paleo_fb_66",
+"category": "Paleontology",
+"question": "The main component of limestone formed by fossils is calcium ______.",
+"answer": "carbonate",
+"type": "input",
+"explanation": "Limestone is primarily composed of CaCO₃ derived from skeletal remains of marine organisms."
+},
+{
+"id": "paleo_fb_67",
+"category": "Paleontology",
+"question": "Fossil preservation is enhanced in environments with low ______ levels.",
+"answer": "oxygen",
+"type": "input",
+"explanation": "Low oxygen slows decomposition and prevents scavenging, improving preservation potential."
+},
+{
+"id": "paleo_fb_68",
+"category": "Paleontology",
+"question": "The study of fossil organisms and their interactions is called ______ecology.",
+"answer": "paleo",
+"type": "input",
+"explanation": "Paleoecology reconstructs ancient ecosystems and organism relationships."
+},
+{
+"id": "paleo_fb_69",
+"category": "Paleontology",
+"question": "Molds form when the original organism dissolves, leaving an ______ in the rock.",
+"answer": "impression",
+"type": "input",
+"explanation": "Molds are negative imprints of organisms left after dissolution of original material."
+},
+{
+"id": "paleo_fb_70",
+"category": "Paleontology",
+"question": "Casts form when minerals fill a mold and create a ______ of the organism.",
+"answer": "replica",
+"type": "input",
+"explanation": "Casts are three-dimensional reproductions formed from filled molds."
+},
+
+{
+"id": "paleo_fb_71",
+"category": "Paleontology",
+"question": "Fossils found in desert dunes are often preserved as ______ fossils such as tracks.",
+"answer": "trace",
+"type": "input",
+"explanation": "Dry, exposed environments favor preservation of movement-related features rather than body remains."
+},
+{
+"id": "paleo_fb_72",
+"category": "Paleontology",
+"question": "The fossil record is incomplete due to processes like ______ and metamorphism.",
+"answer": "erosion",
+"type": "input",
+"explanation": "Erosion removes rock layers, destroying fossils and creating gaps in the record."
+},
+{
+"id": "paleo_fb_73",
+"category": "Paleontology",
+"question": "Organisms that lived on land are referred to as ______ organisms.",
+"answer": "terrestrial",
+"type": "input",
+"explanation": "Terrestrial fossils indicate non-marine depositional environments."
+},
+{
+"id": "paleo_fb_74",
+"category": "Paleontology",
+"question": "The rapid burial of organisms prevents ______ and enhances preservation.",
+"answer": "decay",
+"type": "input",
+"explanation": "Quick burial isolates remains from oxygen and scavengers, slowing decomposition."
+},
+{
+"id": "paleo_fb_75",
+"category": "Paleontology",
+"question": "Fossils that indicate the age of rock layers without giving exact dates provide ______ dating.",
+"answer": "relative",
+"type": "input",
+"explanation": "Relative dating uses fossil succession to determine the order of events rather than absolute ages."
+}
+]

@@ -1,0 +1,411 @@
+[
+{
+"id": "geo_fb_1",
+"category": "Geomorphology",
+"question": "________ is the process of breaking rock into smaller pieces without moving it.",
+"answer": "weathering",
+"type": "input",
+"explanation": "Weathering breaks rock in place, unlike erosion which involves movement."
+},
+{
+"id": "geo_fb_2",
+"category": "Geomorphology",
+"question": "Running water primarily causes ________ of sediment.",
+"answer": "erosion",
+"type": "input",
+"explanation": "Water removes and transports sediment through erosion."
+},
+{
+"id": "geo_fb_3",
+"category": "Geomorphology",
+"question": "A U-shaped valley is typically formed by ________ activity.",
+"answer": "glacial",
+"type": "input",
+"explanation": "Glaciers carve wide U-shaped valleys through abrasion and plucking."
+},
+{
+"id": "geo_fb_4",
+"category": "Geomorphology",
+"question": "________ weathering changes the chemical composition of minerals.",
+"answer": "chemical",
+"type": "input",
+"explanation": "Chemical weathering alters minerals through reactions like oxidation and hydrolysis."
+},
+{
+"id": "geo_fb_5",
+"category": "Geomorphology",
+"question": "Mass wasting is driven primarily by the force of ________.",
+"answer": "gravity",
+"type": "input",
+"explanation": "Gravity causes material to move downslope in all mass wasting processes."
+},
+
+{
+"id": "geo_fb_6",
+"category": "Geomorphology",
+"question": "The slow movement of soil downhill is called ________.",
+"answer": "creep",
+"type": "input",
+"explanation": "Creep is gradual and often caused by expansion-contraction cycles."
+},
+{
+"id": "geo_fb_7",
+"category": "Geomorphology",
+"question": "Wind-driven sediment transport is called ________ processes.",
+"answer": "aeolian",
+"type": "input",
+"explanation": "Aeolian processes dominate in deserts and dry environments."
+},
+{
+"id": "geo_fb_8",
+"category": "Geomorphology",
+"question": "A river deposits sediment at its mouth forming a ________.",
+"answer": "delta",
+"type": "input",
+"explanation": "Deltas form when water velocity decreases at a river’s end."
+},
+{
+"id": "geo_fb_9",
+"category": "Geomorphology",
+"question": "The outer bend of a meander is a ________ bank.",
+"answer": "cut",
+"type": "input",
+"explanation": "Cut banks are zones of erosion due to faster water flow."
+},
+{
+"id": "geo_fb_10",
+"category": "Geomorphology",
+"question": "The inner bend of a river forms a ________ bar.",
+"answer": "point",
+"type": "input",
+"explanation": "Point bars form where water slows and deposits sediment."
+},
+
+{
+"id": "geo_fb_11",
+"category": "Geomorphology",
+"question": "Frost wedging occurs when water freezes and ________ in cracks.",
+"answer": "expands",
+"type": "input",
+"explanation": "Expansion of ice exerts pressure that breaks rock apart."
+},
+{
+"id": "geo_fb_12",
+"category": "Geomorphology",
+"question": "Large sediment moving along the riverbed is transported by ________.",
+"answer": "traction",
+"type": "input",
+"explanation": "Traction involves rolling or sliding of large particles."
+},
+{
+"id": "geo_fb_13",
+"category": "Geomorphology",
+"question": "Particles that bounce along a surface move by ________.",
+"answer": "saltation",
+"type": "input",
+"explanation": "Saltation is a hopping motion caused by fluid flow."
+},
+{
+"id": "geo_fb_14",
+"category": "Geomorphology",
+"question": "Fine particles carried within water are transported in ________.",
+"answer": "suspension",
+"type": "input",
+"explanation": "Suspension keeps fine sediments like clay afloat in water."
+},
+{
+"id": "geo_fb_15",
+"category": "Geomorphology",
+"question": "Dissolved minerals are carried in solution during ________ transport.",
+"answer": "solution",
+"type": "input",
+"explanation": "Solution transport carries ions dissolved in water."
+},
+
+{
+"id": "geo_fb_16",
+"category": "Geomorphology",
+"question": "Glacial deposits of unsorted material are called ________.",
+"answer": "moraines",
+"type": "input",
+"explanation": "Moraines contain mixed sediment sizes deposited by glaciers."
+},
+{
+"id": "geo_fb_17",
+"category": "Geomorphology",
+"question": "A bowl-shaped depression formed by glaciers is a ________.",
+"answer": "cirque",
+"type": "input",
+"explanation": "Cirques form at the head of glaciers from erosion."
+},
+{
+"id": "geo_fb_18",
+"category": "Geomorphology",
+"question": "A streamlined hill formed by glaciers is called a ________.",
+"answer": "drumlin",
+"type": "input",
+"explanation": "Drumlins align with glacier movement direction."
+},
+{
+"id": "geo_fb_19",
+"category": "Geomorphology",
+"question": "An alluvial ________ forms where streams exit mountains.",
+"answer": "fan",
+"type": "input",
+"explanation": "Fans form as water slows and deposits sediment."
+},
+{
+"id": "geo_fb_20",
+"category": "Geomorphology",
+"question": "Repeated flooding builds a ________ plain.",
+"answer": "flood",
+"type": "input",
+"explanation": "Floodplains form from periodic sediment deposition."
+},
+
+{
+"id": "geo_fb_21",
+"category": "Geomorphology",
+"question": "Chemical weathering is most intense in ________ climates.",
+"answer": "tropical",
+"type": "input",
+"explanation": "Warm, wet climates accelerate chemical reactions."
+},
+{
+"id": "geo_fb_22",
+"category": "Geomorphology",
+"question": "Rock breakdown caused by plant roots is ________ weathering.",
+"answer": "biological",
+"type": "input",
+"explanation": "Roots physically break rock while also aiding chemical weathering."
+},
+{
+"id": "geo_fb_23",
+"category": "Geomorphology",
+"question": "Wave erosion commonly forms coastal ________.",
+"answer": "cliffs",
+"type": "input",
+"explanation": "Cliffs form from repeated wave undercutting."
+},
+{
+"id": "geo_fb_24",
+"category": "Geomorphology",
+"question": "Wind erosion can create elongated ridges called ________.",
+"answer": "yardangs",
+"type": "input",
+"explanation": "Yardangs form from persistent wind abrasion."
+},
+{
+"id": "geo_fb_25",
+"category": "Geomorphology",
+"question": "Sediment deposition occurs when transport energy ________.",
+"answer": "decreases",
+"type": "input",
+"explanation": "Lower energy conditions cause particles to settle."
+},
+
+{
+"id": "geo_fb_26",
+"category": "Geomorphology",
+"question": "River downcutting creates deep valleys called ________.",
+"answer": "canyons",
+"type": "input",
+"explanation": "Canyons form through prolonged vertical erosion."
+},
+{
+"id": "geo_fb_27",
+"category": "Geomorphology",
+"question": "A rotational slope failure is called a ________.",
+"answer": "slump",
+"type": "input",
+"explanation": "Slumps move along curved surfaces."
+},
+{
+"id": "geo_fb_28",
+"category": "Geomorphology",
+"question": "Sediment rounding occurs through ________ during transport.",
+"answer": "abrasion",
+"type": "input",
+"explanation": "Particles collide and smooth each other."
+},
+{
+"id": "geo_fb_29",
+"category": "Geomorphology",
+"question": "Glacial meltwater deposits form an ________ plain.",
+"answer": "outwash",
+"type": "input",
+"explanation": "Outwash plains consist of sorted sediment from meltwater."
+},
+{
+"id": "geo_fb_30",
+"category": "Geomorphology",
+"question": "Soil layers formed by weathering are called soil ________.",
+"answer": "horizons",
+"type": "input",
+"explanation": "Horizons develop through weathering and biological processes."
+},
+
+{
+"id": "geo_fb_31",
+"category": "Geomorphology",
+"question": "Sediment moving downslope without a fluid is called ________ wasting.",
+"answer": "mass",
+"type": "input",
+"explanation": "Mass wasting is gravity-driven movement."
+},
+{
+"id": "geo_fb_32",
+"category": "Geomorphology",
+"question": "A river terrace represents an older ________ level.",
+"answer": "floodplain",
+"type": "input",
+"explanation": "Terraces form when rivers cut into previous floodplains."
+},
+{
+"id": "geo_fb_33",
+"category": "Geomorphology",
+"question": "Wind-deposited hills of sand are called ________.",
+"answer": "dunes",
+"type": "input",
+"explanation": "Dunes form from accumulation of wind-blown sand."
+},
+{
+"id": "geo_fb_34",
+"category": "Geomorphology",
+"question": "The process of dissolving minerals in water is called ________.",
+"answer": "dissolution",
+"type": "input",
+"explanation": "Dissolution removes soluble minerals from rock."
+},
+{
+"id": "geo_fb_35",
+"category": "Geomorphology",
+"question": "Rock expansion from heating is known as ________ expansion.",
+"answer": "thermal",
+"type": "input",
+"explanation": "Temperature changes cause expansion and contraction."
+},
+
+{
+"id": "geo_fb_36",
+"category": "Geomorphology",
+"question": "Glacial scratches on rock surfaces are called ________.",
+"answer": "striations",
+"type": "input",
+"explanation": "Striations indicate glacier movement direction."
+},
+{
+"id": "geo_fb_37",
+"category": "Geomorphology",
+"question": "River bends increase due to ________ processes.",
+"answer": "meandering",
+"type": "input",
+"explanation": "Erosion and deposition create curved river paths."
+},
+{
+"id": "geo_fb_38",
+"category": "Geomorphology",
+"question": "Sediment transported in dissolved form is called ________ load.",
+"answer": "solution",
+"type": "input",
+"explanation": "Solution load consists of dissolved ions."
+},
+{
+"id": "geo_fb_39",
+"category": "Geomorphology",
+"question": "The breaking of rock by pressure release is called ________.",
+"answer": "exfoliation",
+"type": "input",
+"explanation": "Exfoliation causes outer layers to peel away."
+},
+{
+"id": "geo_fb_40",
+"category": "Geomorphology",
+"question": "Water saturation reduces friction and increases slope ________.",
+"answer": "failure",
+"type": "input",
+"explanation": "Water increases instability and promotes mass wasting."
+},
+
+{
+"id": "geo_fb_41",
+"category": "Geomorphology",
+"question": "Flowing ________ can transport sediment long distances.",
+"answer": "water",
+"type": "input",
+"explanation": "Water is the most effective sediment transport agent."
+},
+{
+"id": "geo_fb_42",
+"category": "Geomorphology",
+"question": "Glacial ice reshapes landscapes through ________ and plucking.",
+"answer": "abrasion",
+"type": "input",
+"explanation": "Abrasion scrapes rock surfaces under glaciers."
+},
+{
+"id": "geo_fb_43",
+"category": "Geomorphology",
+"question": "Sediment deposited along riverbanks forms natural ________.",
+"answer": "levees",
+"type": "input",
+"explanation": "Levees form from repeated flood deposits."
+},
+{
+"id": "geo_fb_44",
+"category": "Geomorphology",
+"question": "Wave action can create sea ________ through erosion.",
+"answer": "arches",
+"type": "input",
+"explanation": "Arches form when waves erode weaker rock sections."
+},
+{
+"id": "geo_fb_45",
+"category": "Geomorphology",
+"question": "The movement of ions in water is part of ________ weathering.",
+"answer": "chemical",
+"type": "input",
+"explanation": "Chemical weathering involves ion exchange and reactions."
+},
+
+{
+"id": "geo_fb_46",
+"category": "Geomorphology",
+"question": "Gravity-driven movement of saturated soil is called a ________ flow.",
+"answer": "mud",
+"type": "input",
+"explanation": "Mudflows occur when water content is high."
+},
+{
+"id": "geo_fb_47",
+"category": "Geomorphology",
+"question": "The loosening of rock particles by roots is ________ weathering.",
+"answer": "biological",
+"type": "input",
+"explanation": "Organisms contribute to physical breakdown of rock."
+},
+{
+"id": "geo_fb_48",
+"category": "Geomorphology",
+"question": "Sediment dropped when water slows is called ________.",
+"answer": "deposition",
+"type": "input",
+"explanation": "Deposition occurs when transport energy decreases."
+},
+{
+"id": "geo_fb_49",
+"category": "Geomorphology",
+"question": "Large rock fragments falling freely down a slope are called rock ________.",
+"answer": "falls",
+"type": "input",
+"explanation": "Rockfalls are rapid mass wasting events."
+},
+{
+"id": "geo_fb_50",
+"category": "Geomorphology",
+"question": "________ weathering is dominant in cold climates due to freeze-thaw cycles.",
+"answer": "mechanical",
+"type": "input",
+"explanation": "Mechanical weathering dominates where freezing occurs frequently."
+}
+]

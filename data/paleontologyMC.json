@@ -1,0 +1,689 @@
+[
+{
+"id": "paleo_mc_1",
+"category": "Paleontology",
+"question": "Paleontology is the study of ______.",
+"choices": ["Fossils", "Rocks", "Minerals", "Soils"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Paleontology focuses on fossils—preserved remains or traces of ancient life—to reconstruct biological evolution and past environments."
+},
+{
+"id": "paleo_mc_2",
+"category": "Paleontology",
+"question": "Which type of fossil preserves the actual remains of an organism?",
+"choices": ["Body fossil", "Trace fossil", "Cast fossil", "Mold fossil"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Body fossils include bones, shells, or tissues and provide direct biological information about organisms."
+},
+{
+"id": "paleo_mc_3",
+"category": "Paleontology",
+"question": "Footprints and burrows are examples of ______ fossils.",
+"choices": ["Trace", "Body", "Index", "Mold"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Trace fossils record behavior (movement, feeding), not the organism itself."
+},
+{
+"id": "paleo_mc_4",
+"category": "Paleontology",
+"question": "The process where minerals replace organic material is called ______.",
+"choices": ["Permineralization", "Carbonization", "Recrystallization", "Lithification"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Permineralization preserves fine internal structures by filling pores with minerals."
+},
+{
+"id": "paleo_mc_5",
+"category": "Paleontology",
+"question": "Which fossil type forms when organic material leaves a carbon residue?",
+"choices": ["Carbonization", "Permineralization", "Casting", "Molding"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Carbonization often preserves delicate features like leaves and soft tissues."
+},
+
+{
+"id": "paleo_mc_6",
+"category": "Paleontology",
+"question": "Which organisms are commonly used as index fossils?",
+"choices": ["Ammonites", "Dinosaurs", "Trees", "Mammals"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Ammonites evolved rapidly and were widespread, making them excellent for correlation."
+},
+{
+"id": "paleo_mc_7",
+"category": "Paleontology",
+"question": "Index fossils are useful because they are ______.",
+"choices": ["Widespread and short-lived", "Rare and long-lived", "Large and complex", "Hard to preserve"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Good index fossils existed for a short time but had wide geographic distribution."
+},
+{
+"id": "paleo_mc_8",
+"category": "Paleontology",
+"question": "Which era is known as the Age of Dinosaurs?",
+"choices": ["Mesozoic", "Paleozoic", "Cenozoic", "Precambrian"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "The Mesozoic Era includes the Triassic, Jurassic, and Cretaceous periods."
+},
+{
+"id": "paleo_mc_9",
+"category": "Paleontology",
+"question": "Which era is known as the Age of Mammals?",
+"choices": ["Cenozoic", "Mesozoic", "Paleozoic", "Archean"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Mammals diversified significantly after the extinction of dinosaurs."
+},
+{
+"id": "paleo_mc_10",
+"category": "Paleontology",
+"question": "Which type of fossil forms a hollow impression?",
+"choices": ["Mold", "Cast", "Trace", "Body"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "A mold forms when the original material dissolves, leaving an impression."
+},
+
+{
+"id": "paleo_mc_11",
+"category": "Paleontology",
+"question": "A cast fossil forms when ______.",
+"choices": ["Minerals fill a mold", "Organic material burns", "Sediments compress", "Bones decay"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Casts replicate the original organism’s shape."
+},
+{
+"id": "paleo_mc_12",
+"category": "Paleontology",
+"question": "Which fossilization condition is most favorable?",
+"choices": ["Rapid burial", "Exposure", "High oxygen", "Weathering"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Rapid burial protects remains from decay and scavengers."
+},
+{
+"id": "paleo_mc_13",
+"category": "Paleontology",
+"question": "Which environment best preserves fossils?",
+"choices": ["Sedimentary basins", "Mountain peaks", "Deserts only", "Volcano interiors"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Sedimentary environments allow burial and preservation."
+},
+{
+"id": "paleo_mc_14",
+"category": "Paleontology",
+"question": "Fossils are most commonly found in ______ rocks.",
+"choices": ["Sedimentary", "Igneous", "Metamorphic", "Plutonic"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Sedimentary rocks form at low temperatures that preserve fossils."
+},
+{
+"id": "paleo_mc_15",
+"category": "Paleontology",
+"question": "Which process destroys fossils?",
+"choices": ["Metamorphism", "Sedimentation", "Burial", "Compaction"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Heat and pressure during metamorphism can obliterate fossils."
+},
+
+{
+"id": "paleo_mc_16",
+"category": "Paleontology",
+"question": "Which type of fossil indicates past behavior?",
+"choices": ["Trace fossil", "Body fossil", "Index fossil", "Mold fossil"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Behavioral evidence like tracks or burrows is preserved in trace fossils."
+},
+{
+"id": "paleo_mc_17",
+"category": "Paleontology",
+"question": "Which fossil is best for dating rock layers?",
+"choices": ["Index fossil", "Trace fossil", "Body fossil", "Plant fossil"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Index fossils provide time constraints for rock layers."
+},
+{
+"id": "paleo_mc_18",
+"category": "Paleontology",
+"question": "Which period ended with the extinction of dinosaurs?",
+"choices": ["Cretaceous", "Jurassic", "Triassic", "Permian"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "The Cretaceous-Paleogene extinction event wiped out non-avian dinosaurs."
+},
+{
+"id": "paleo_mc_19",
+"category": "Paleontology",
+"question": "Which process forms fossils from compressed organic remains?",
+"choices": ["Carbonization", "Permineralization", "Replacement", "Recrystallization"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Carbon films preserve outlines of organisms."
+},
+{
+"id": "paleo_mc_20",
+"category": "Paleontology",
+"question": "Which fossil type is best for reconstructing soft-bodied organisms?",
+"choices": ["Carbonization fossils", "Cast fossils", "Trace fossils", "Body fossils"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Soft tissues are rarely preserved but may appear in carbon films."
+},
+{
+"id": "paleo_mc_21",
+"category": "Paleontology",
+"question": "Which microfossils are commonly used in petroleum exploration?",
+"choices": ["Foraminifera", "Diatoms", "Radiolarians", "Conodonts"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Foraminifera are excellent biostratigraphic markers and widely used in oil exploration due to rapid evolution and environmental sensitivity."
+},
+{
+"id": "paleo_mc_22",
+"category": "Paleontology",
+"question": "Foraminifera typically have shells made of ______.",
+"choices": ["Calcium carbonate", "Silica", "Iron oxide", "Organic matter"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Foraminifera produce calcareous tests (CaCO₃), making them useful in carbonate sediment analysis."
+},
+{
+"id": "paleo_mc_23",
+"category": "Paleontology",
+"question": "Diatoms are microfossils composed of ______.",
+"choices": ["Silica", "Calcium carbonate", "Carbon", "Phosphate"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Diatoms have siliceous frustules, making them resistant and useful in paleoenvironmental studies."
+},
+{
+"id": "paleo_mc_24",
+"category": "Paleontology",
+"question": "Radiolarians are similar to diatoms but are primarily ______.",
+"choices": ["Marine plankton", "Terrestrial plants", "Freshwater algae", "Fungi"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Radiolarians are marine plankton with intricate silica skeletons."
+},
+{
+"id": "paleo_mc_25",
+"category": "Paleontology",
+"question": "Conodonts are microfossils interpreted as parts of ______.",
+"choices": ["Early vertebrates", "Plants", "Mollusks", "Insects"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Conodont elements are tooth-like structures from early vertebrate organisms."
+},
+
+{
+"id": "paleo_mc_26",
+"category": "Paleontology",
+"question": "Which microfossil group is most useful for marine biostratigraphy?",
+"choices": ["Foraminifera", "Pollen", "Plant fossils", "Dinosaur bones"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Forams are abundant, rapidly evolving, and globally distributed in marine environments."
+},
+{
+"id": "paleo_mc_27",
+"category": "Paleontology",
+"question": "Pollen and spores are studied in ______.",
+"choices": ["Palynology", "Micropaleontology", "Sedimentology", "Stratigraphy"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Palynology focuses on microscopic organic particles like pollen and spores."
+},
+{
+"id": "paleo_mc_28",
+"category": "Paleontology",
+"question": "Microfossils are especially useful because they are ______.",
+"choices": ["Abundant and widespread", "Large and visible", "Rare and unique", "Hard to preserve"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Their abundance allows detailed correlation between rock layers."
+},
+{
+"id": "paleo_mc_29",
+"category": "Paleontology",
+"question": "Which microfossils indicate past ocean temperature?",
+"choices": ["Foraminifera", "Conodonts", "Trace fossils", "Molds"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Oxygen isotope ratios in foraminifera shells reflect temperature conditions."
+},
+{
+"id": "paleo_mc_30",
+"category": "Paleontology",
+"question": "Siliceous microfossils dissolve more easily in ______ conditions.",
+"choices": ["Deep ocean", "Shallow water", "Cold climates", "Dry environments"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Silica dissolution increases in deep ocean conditions due to pressure and chemistry."
+},
+
+{
+"id": "paleo_mc_31",
+"category": "Paleontology",
+"question": "Which fossil type is most likely to be preserved in limestone?",
+"choices": ["Calcareous fossils", "Siliceous fossils", "Organic fossils", "Trace fossils"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Limestone forms from calcium carbonate, preserving calcareous organisms."
+},
+{
+"id": "paleo_mc_32",
+"category": "Paleontology",
+"question": "Which microfossil group is most common in freshwater environments?",
+"choices": ["Diatoms", "Foraminifera", "Radiolarians", "Conodonts"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Diatoms thrive in both freshwater and marine environments."
+},
+{
+"id": "paleo_mc_33",
+"category": "Paleontology",
+"question": "Which microfossil is most resistant to dissolution?",
+"choices": ["Siliceous fossils", "Calcareous fossils", "Carbon fossils", "Organic remains"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Silica is more resistant than calcium carbonate in many environments."
+},
+{
+"id": "paleo_mc_34",
+"category": "Paleontology",
+"question": "Which fossil group is commonly used for dating Paleozoic rocks?",
+"choices": ["Conodonts", "Foraminifera", "Diatoms", "Radiolarians"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Conodonts are key index fossils for Paleozoic stratigraphy."
+},
+{
+"id": "paleo_mc_35",
+"category": "Paleontology",
+"question": "Which microfossils are used to interpret past salinity?",
+"choices": ["Foraminifera", "Trace fossils", "Dinosaur bones", "Plant fossils"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Different foram species prefer specific salinity ranges."
+},
+
+{
+"id": "paleo_mc_36",
+"category": "Paleontology",
+"question": "Which fossil type is most useful for reconstructing paleoecology?",
+"choices": ["Microfossils", "Trace fossils", "Igneous rocks", "Metamorphic rocks"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Microfossils reflect environmental conditions such as temperature, salinity, and depth."
+},
+{
+"id": "paleo_mc_37",
+"category": "Paleontology",
+"question": "Which process can alter fossil composition after burial?",
+"choices": ["Diagenesis", "Sedimentation", "Erosion", "Weathering"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Diagenesis includes chemical and physical changes after burial."
+},
+{
+"id": "paleo_mc_38",
+"category": "Paleontology",
+"question": "Which fossil group is planktonic?",
+"choices": ["Foraminifera", "Brachiopods", "Trilobites", "Bivalves"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Planktonic forams float in the water column."
+},
+{
+"id": "paleo_mc_39",
+"category": "Paleontology",
+"question": "Which microfossil group is benthic?",
+"choices": ["Foraminifera", "Radiolarians", "Diatoms", "Plankton"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Benthic forams live on the seafloor."
+},
+{
+"id": "paleo_mc_40",
+"category": "Paleontology",
+"question": "Which fossils are most sensitive to environmental change?",
+"choices": ["Microfossils", "Trace fossils", "Large vertebrates", "Plants"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Microfossils respond quickly to environmental shifts."
+},
+
+{
+"id": "paleo_mc_41",
+"category": "Paleontology",
+"question": "Which fossilization process preserves fine cellular detail?",
+"choices": ["Permineralization", "Carbonization", "Casting", "Molding"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Minerals fill pore spaces and preserve structure."
+},
+{
+"id": "paleo_mc_42",
+"category": "Paleontology",
+"question": "Which microfossil indicates high productivity oceans?",
+"choices": ["Diatoms", "Conodonts", "Trace fossils", "Molds"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Diatoms thrive in nutrient-rich waters."
+},
+{
+"id": "paleo_mc_43",
+"category": "Paleontology",
+"question": "Which fossil group helps reconstruct deep marine environments?",
+"choices": ["Radiolarians", "Plants", "Dinosaurs", "Mammals"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Radiolarians are common in deep ocean sediments."
+},
+{
+"id": "paleo_mc_44",
+"category": "Paleontology",
+"question": "Which fossil type is most useful for global correlation?",
+"choices": ["Index fossils", "Trace fossils", "Body fossils", "Molds"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Index fossils allow correlation across large areas."
+},
+{
+"id": "paleo_mc_45",
+"category": "Paleontology",
+"question": "Which factor controls fossil preservation most strongly?",
+"choices": ["Burial conditions", "Color", "Size", "Shape"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Rapid burial and low oxygen are critical for preservation."
+},
+
+{
+"id": "paleo_mc_46",
+"category": "Paleontology",
+"question": "Which microfossil group is silica-based and planktonic?",
+"choices": ["Radiolarians", "Foraminifera", "Conodonts", "Brachiopods"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Radiolarians are planktonic and composed of silica."
+},
+{
+"id": "paleo_mc_47",
+"category": "Paleontology",
+"question": "Which fossils indicate ancient climate conditions?",
+"choices": ["Microfossils", "Igneous rocks", "Metamorphic rocks", "Minerals"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Microfossils provide environmental proxies."
+},
+{
+"id": "paleo_mc_48",
+"category": "Paleontology",
+"question": "Which fossilization process involves mineral replacement?",
+"choices": ["Replacement", "Carbonization", "Molding", "Casting"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Original material is replaced molecule by molecule."
+},
+{
+"id": "paleo_mc_49",
+"category": "Paleontology",
+"question": "Which fossils are best for reconstructing food chains?",
+"choices": ["Microfossils", "Trace fossils", "Igneous rocks", "Sediments"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Microfossils represent base-level organisms in ecosystems."
+},
+{
+"id": "paleo_mc_50",
+"category": "Paleontology",
+"question": "Which field specifically studies microscopic fossils?",
+"choices": ["Micropaleontology", "Sedimentology", "Petrology", "Mineralogy"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Micropaleontology focuses on fossils too small to see without magnification."
+},
+{
+"id": "paleo_mc_51",
+"category": "Paleontology",
+"question": "Which fossil group dominated the Paleozoic seas?",
+"choices": ["Trilobites", "Dinosaurs", "Mammals", "Birds"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Trilobites were abundant marine arthropods that thrived throughout much of the Paleozoic."
+},
+{
+"id": "paleo_mc_52",
+"category": "Paleontology",
+"question": "Brachiopods differ from bivalves primarily in ______.",
+"choices": ["Shell symmetry", "Shell composition", "Habitat", "Size"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Brachiopods have symmetry through the shell, while bivalves are symmetrical between shells."
+},
+{
+"id": "paleo_mc_53",
+"category": "Paleontology",
+"question": "Which fossil group is most common in limestone deposits?",
+"choices": ["Corals", "Insects", "Plants", "Fish"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Corals contribute to reef-building and carbonate sediment formation."
+},
+{
+"id": "paleo_mc_54",
+"category": "Paleontology",
+"question": "Which organisms are responsible for reef building in ancient oceans?",
+"choices": ["Corals", "Trilobites", "Brachiopods", "Ammonites"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Corals build reef structures that become limestone."
+},
+{
+"id": "paleo_mc_55",
+"category": "Paleontology",
+"question": "Which fossil group is characterized by coiled shells?",
+"choices": ["Ammonites", "Brachiopods", "Corals", "Trilobites"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Ammonites had spiral shells and are key index fossils."
+},
+
+{
+"id": "paleo_mc_56",
+"category": "Paleontology",
+"question": "Which fossil group went extinct at the end of the Paleozoic?",
+"choices": ["Trilobites", "Ammonites", "Dinosaurs", "Mammals"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Trilobites disappeared during the Permian extinction."
+},
+{
+"id": "paleo_mc_57",
+"category": "Paleontology",
+"question": "Which environment best preserves plant fossils?",
+"choices": ["Swamps", "Deserts", "Mountains", "Volcanoes"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Swamps allow rapid burial and low oxygen conditions."
+},
+{
+"id": "paleo_mc_58",
+"category": "Paleontology",
+"question": "Which fossil group is commonly used to identify marine environments?",
+"choices": ["Corals", "Dinosaurs", "Plants", "Mammals"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Corals only live in marine settings."
+},
+{
+"id": "paleo_mc_59",
+"category": "Paleontology",
+"question": "Which fossil type provides evidence of organism movement?",
+"choices": ["Trace fossils", "Body fossils", "Index fossils", "Molds"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Trace fossils include tracks and trails."
+},
+{
+"id": "paleo_mc_60",
+"category": "Paleontology",
+"question": "Which fossil group is most associated with marine predators?",
+"choices": ["Ammonites", "Brachiopods", "Corals", "Plants"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Ammonites were active marine predators."
+},
+
+{
+"id": "paleo_mc_61",
+"category": "Paleontology",
+"question": "Which fossil group has segmented bodies and exoskeletons?",
+"choices": ["Trilobites", "Corals", "Brachiopods", "Plants"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Trilobites were arthropods with segmented bodies."
+},
+{
+"id": "paleo_mc_62",
+"category": "Paleontology",
+"question": "Which fossils indicate shallow marine conditions?",
+"choices": ["Corals", "Deep-sea fish", "Dinosaurs", "Plants"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Corals require sunlight and shallow waters."
+},
+{
+"id": "paleo_mc_63",
+"category": "Paleontology",
+"question": "Which fossil group resembles clams but is not closely related?",
+"choices": ["Brachiopods", "Ammonites", "Corals", "Trilobites"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Brachiopods look like clams but differ anatomically."
+},
+{
+"id": "paleo_mc_64",
+"category": "Paleontology",
+"question": "Which fossil group is most useful for identifying reef environments?",
+"choices": ["Corals", "Trilobites", "Plants", "Mammals"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Corals are key reef builders."
+},
+{
+"id": "paleo_mc_65",
+"category": "Paleontology",
+"question": "Which process forms coal from plant remains?",
+"choices": ["Compaction and carbonization", "Melting", "Crystallization", "Erosion"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Coal forms from buried plant material under pressure."
+},
+
+{
+"id": "paleo_mc_66",
+"category": "Paleontology",
+"question": "Which fossil group indicates terrestrial environments?",
+"choices": ["Plant fossils", "Corals", "Ammonites", "Brachiopods"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Plants indicate land-based environments."
+},
+{
+"id": "paleo_mc_67",
+"category": "Paleontology",
+"question": "Which fossil group is associated with mass extinction at the K-Pg boundary?",
+"choices": ["Dinosaurs", "Trilobites", "Corals", "Brachiopods"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Non-avian dinosaurs went extinct at the K-Pg boundary."
+},
+{
+"id": "paleo_mc_68",
+"category": "Paleontology",
+"question": "Which fossil group is most abundant in Paleozoic marine rocks?",
+"choices": ["Brachiopods", "Dinosaurs", "Birds", "Mammals"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Brachiopods were dominant marine organisms."
+},
+{
+"id": "paleo_mc_69",
+"category": "Paleontology",
+"question": "Which fossil indicates oxygen-poor conditions?",
+"choices": ["Well-preserved organic fossils", "Corals", "Ammonites", "Shell fossils"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Low oxygen slows decay and preserves organic material."
+},
+{
+"id": "paleo_mc_70",
+"category": "Paleontology",
+"question": "Which fossil group is most common in desert deposits?",
+"choices": ["Trace fossils", "Corals", "Brachiopods", "Ammonites"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Tracks and trails are common in dry environments."
+},
+
+{
+"id": "paleo_mc_71",
+"category": "Paleontology",
+"question": "Which fossil group is best for identifying predator-prey relationships?",
+"choices": ["Trace fossils", "Molds", "Casts", "Index fossils"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Trace fossils can show feeding and interaction behavior."
+},
+{
+"id": "paleo_mc_72",
+"category": "Paleontology",
+"question": "Which fossil group contributes most to carbonate rock formation?",
+"choices": ["Corals", "Plants", "Insects", "Dinosaurs"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Corals build carbonate structures like reefs."
+},
+{
+"id": "paleo_mc_73",
+"category": "Paleontology",
+"question": "Which fossil group is commonly preserved in shale?",
+"choices": ["Plant fossils", "Corals", "Brachiopods", "Ammonites"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Fine-grained shale preserves delicate plant remains."
+},
+{
+"id": "paleo_mc_74",
+"category": "Paleontology",
+"question": "Which fossil group shows evolutionary changes through shell shape?",
+"choices": ["Ammonites", "Corals", "Plants", "Trilobites"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Ammonite shell evolution is well documented."
+},
+{
+"id": "paleo_mc_75",
+"category": "Paleontology",
+"question": "Which fossil group is most useful for identifying marine sedimentary rocks?",
+"choices": ["Marine invertebrates", "Plants", "Dinosaurs", "Mammals"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Marine invertebrates indicate ocean depositional environments."
+}
+]

@@ -1,0 +1,410 @@
+
+[
+{
+"id": "eco_fb_1",
+"category": "Economic Geology",
+"question": "An ore is a rock that contains economically valuable ________.",
+"answer": "minerals",
+"type": "input",
+"explanation": "Ore must contain minerals in concentrations high enough to be mined profitably."
+},
+{
+"id": "eco_fb_2",
+"category": "Economic Geology",
+"question": "A deposit must be ________ to be considered an ore.",
+"answer": "economic",
+"type": "input",
+"explanation": "Economic viability depends on market price, extraction cost, and technology."
+},
+{
+"id": "eco_fb_3",
+"category": "Economic Geology",
+"question": "The main ore mineral of iron is ________.",
+"answer": "hematite",
+"type": "input",
+"explanation": "Hematite (Fe₂O₃) is a primary source of iron worldwide."
+},
+{
+"id": "eco_fb_4",
+"category": "Economic Geology",
+"question": "Copper is commonly extracted from the mineral ________.",
+"answer": "chalcopyrite",
+"type": "input",
+"explanation": "Chalcopyrite (CuFeS₂) is the most important copper ore."
+},
+{
+"id": "eco_fb_5",
+"category": "Economic Geology",
+"question": "Hydrothermal deposits form from hot, ________ fluids.",
+"answer": "aqueous",
+"type": "input",
+"explanation": "Hydrothermal fluids carry dissolved metals and deposit them in fractures."
+},
+
+{
+"id": "eco_fb_6",
+"category": "Economic Geology",
+"question": "Gold is often concentrated in river sediments called ________ deposits.",
+"answer": "placer",
+"type": "input",
+"explanation": "Placer deposits form by mechanical concentration of heavy minerals."
+},
+{
+"id": "eco_fb_7",
+"category": "Economic Geology",
+"question": "Bauxite is the primary ore of ________.",
+"answer": "aluminum",
+"type": "input",
+"explanation": "Bauxite forms in tropical climates through intense weathering."
+},
+{
+"id": "eco_fb_8",
+"category": "Economic Geology",
+"question": "The process of separating valuable minerals from waste is called ________.",
+"answer": "beneficiation",
+"type": "input",
+"explanation": "Beneficiation improves ore grade before extraction."
+},
+{
+"id": "eco_fb_9",
+"category": "Economic Geology",
+"question": "Magmatic segregation forms deposits as minerals ________ from magma.",
+"answer": "crystallize",
+"type": "input",
+"explanation": "Dense minerals settle out during cooling of magma."
+},
+{
+"id": "eco_fb_10",
+"category": "Economic Geology",
+"question": "Evaporite deposits form when water ________ and leaves minerals behind.",
+"answer": "evaporates",
+"type": "input",
+"explanation": "Evaporation concentrates dissolved salts into solid deposits."
+},
+
+{
+"id": "eco_fb_11",
+"category": "Economic Geology",
+"question": "The ore mineral galena is a major source of ________.",
+"answer": "lead",
+"type": "input",
+"explanation": "Galena (PbS) is the primary lead ore."
+},
+{
+"id": "eco_fb_12",
+"category": "Economic Geology",
+"question": "Sphalerite is the main ore mineral of ________.",
+"answer": "zinc",
+"type": "input",
+"explanation": "Sphalerite (ZnS) is widely mined for zinc."
+},
+{
+"id": "eco_fb_13",
+"category": "Economic Geology",
+"question": "A vein deposit forms when minerals precipitate in ________.",
+"answer": "fractures",
+"type": "input",
+"explanation": "Veins form as fluids deposit minerals in cracks in rock."
+},
+{
+"id": "eco_fb_14",
+"category": "Economic Geology",
+"question": "Coal forms from compacted ________ material.",
+"answer": "plant",
+"type": "input",
+"explanation": "Coal originates from accumulated plant debris."
+},
+{
+"id": "eco_fb_15",
+"category": "Economic Geology",
+"question": "Petroleum accumulates in porous rocks called ________ rocks.",
+"answer": "reservoir",
+"type": "input",
+"explanation": "Reservoir rocks store hydrocarbons due to porosity and permeability."
+},
+
+{
+"id": "eco_fb_16",
+"category": "Economic Geology",
+"question": "An impermeable layer that traps oil is called a ________.",
+"answer": "cap",
+"type": "input",
+"explanation": "Cap rocks prevent hydrocarbons from escaping."
+},
+{
+"id": "eco_fb_17",
+"category": "Economic Geology",
+"question": "The concentration of a metal in ore is called its ________.",
+"answer": "grade",
+"type": "input",
+"explanation": "Ore grade determines economic viability."
+},
+{
+"id": "eco_fb_18",
+"category": "Economic Geology",
+"question": "Mining near the surface is known as ________ mining.",
+"answer": "surface",
+"type": "input",
+"explanation": "Surface mining is used when ore is close to the surface."
+},
+{
+"id": "eco_fb_19",
+"category": "Economic Geology",
+"question": "Deep underground extraction is called ________ mining.",
+"answer": "underground",
+"type": "input",
+"explanation": "Underground mining is used for deeper ore bodies."
+},
+{
+"id": "eco_fb_20",
+"category": "Economic Geology",
+"question": "The waste material left after processing ore is called ________.",
+"answer": "tailings",
+"type": "input",
+"explanation": "Tailings often contain fine-grained waste minerals."
+},
+
+{
+"id": "eco_fb_21",
+"category": "Economic Geology",
+"question": "Sulfur deposits often form from volcanic ________ activity.",
+"answer": "hydrothermal",
+"type": "input",
+"explanation": "Hydrothermal systems transport sulfur-rich fluids."
+},
+{
+"id": "eco_fb_22",
+"category": "Economic Geology",
+"question": "The process of extracting metal using heat is called ________.",
+"answer": "smelting",
+"type": "input",
+"explanation": "Smelting separates metal from ore using high temperatures."
+},
+{
+"id": "eco_fb_23",
+"category": "Economic Geology",
+"question": "The mineral halite is mined for ________.",
+"answer": "salt",
+"type": "input",
+"explanation": "Halite (NaCl) is used as table salt and industrial material."
+},
+{
+"id": "eco_fb_24",
+"category": "Economic Geology",
+"question": "Gypsum is commonly used in ________ production.",
+"answer": "cement",
+"type": "input",
+"explanation": "Gypsum controls the setting time of cement."
+},
+{
+"id": "eco_fb_25",
+"category": "Economic Geology",
+"question": "Phosphate deposits are essential for making ________.",
+"answer": "fertilizer",
+"type": "input",
+"explanation": "Phosphates are key nutrients in agriculture."
+},
+
+{
+"id": "eco_fb_26",
+"category": "Economic Geology",
+"question": "Nickel deposits are often associated with ________ rocks.",
+"answer": "ultramafic",
+"type": "input",
+"explanation": "Ultramafic rocks are rich in magnesium and iron."
+},
+{
+"id": "eco_fb_27",
+"category": "Economic Geology",
+"question": "Diamond forms under high pressure in the Earth's ________.",
+"answer": "mantle",
+"type": "input",
+"explanation": "Diamonds form deep in the mantle and are brought up by kimberlite."
+},
+{
+"id": "eco_fb_28",
+"category": "Economic Geology",
+"question": "Kimberlite pipes are major sources of ________.",
+"answer": "diamonds",
+"type": "input",
+"explanation": "Kimberlite eruptions transport diamonds to the surface."
+},
+{
+"id": "eco_fb_29",
+"category": "Economic Geology",
+"question": "The enrichment of metals near the surface is called ________ enrichment.",
+"answer": "secondary",
+"type": "input",
+"explanation": "Secondary enrichment increases ore grade by redeposition."
+},
+{
+"id": "eco_fb_30",
+"category": "Economic Geology",
+"question": "Iron formations deposited in ancient oceans are called ________ iron formations.",
+"answer": "banded",
+"type": "input",
+"explanation": "Banded iron formations (BIFs) are major iron sources."
+},
+
+{
+"id": "eco_fb_31",
+"category": "Economic Geology",
+"question": "The main component of natural gas is ________.",
+"answer": "methane",
+"type": "input",
+"explanation": "Methane (CH₄) is the dominant hydrocarbon in natural gas."
+},
+{
+"id": "eco_fb_32",
+"category": "Economic Geology",
+"question": "Oil and gas accumulate in structural traps like ________.",
+"answer": "anticlines",
+"type": "input",
+"explanation": "Anticlines create upward arching traps for hydrocarbons."
+},
+{
+"id": "eco_fb_33",
+"category": "Economic Geology",
+"question": "The extraction of metals from ore is called ________.",
+"answer": "mining",
+"type": "input",
+"explanation": "Mining removes ore from the Earth for processing."
+},
+{
+"id": "eco_fb_34",
+"category": "Economic Geology",
+"question": "A rock containing valuable minerals but not economically viable is called ________.",
+"answer": "resource",
+"type": "input",
+"explanation": "Resources may become ores if conditions change."
+},
+{
+"id": "eco_fb_35",
+"category": "Economic Geology",
+"question": "Open pit mining creates large surface ________.",
+"answer": "excavations",
+"type": "input",
+"explanation": "Open pits are used for shallow ore bodies."
+},
+
+{
+"id": "eco_fb_36",
+"category": "Economic Geology",
+"question": "The concentration of heavy minerals by water is called ________ concentration.",
+"answer": "placer",
+"type": "input",
+"explanation": "Placer concentration sorts minerals by density."
+},
+{
+"id": "eco_fb_37",
+"category": "Economic Geology",
+"question": "Fluids that deposit metals often originate from ________ systems.",
+"answer": "magmatic",
+"type": "input",
+"explanation": "Magmatic fluids transport metals from cooling magma."
+},
+{
+"id": "eco_fb_38",
+"category": "Economic Geology",
+"question": "The process of dissolving metals and redepositing them is called ________ enrichment.",
+"answer": "secondary",
+"type": "input",
+"explanation": "Secondary processes upgrade ore near the surface."
+},
+{
+"id": "eco_fb_39",
+"category": "Economic Geology",
+"question": "Salt domes can trap ________ deposits.",
+"answer": "oil",
+"type": "input",
+"explanation": "Salt structures create impermeable barriers."
+},
+{
+"id": "eco_fb_40",
+"category": "Economic Geology",
+"question": "A mineral deposit formed from seawater evaporation is called an ________ deposit.",
+"answer": "evaporite",
+"type": "input",
+"explanation": "Evaporites include halite and gypsum."
+},
+
+{
+"id": "eco_fb_41",
+"category": "Economic Geology",
+"question": "The economic value of a deposit depends on ________ and cost.",
+"answer": "price",
+"type": "input",
+"explanation": "Market price determines profitability."
+},
+{
+"id": "eco_fb_42",
+"category": "Economic Geology",
+"question": "Copper deposits often form in ________ systems.",
+"answer": "porphyry",
+"type": "input",
+"explanation": "Porphyry copper deposits are large and low-grade."
+},
+{
+"id": "eco_fb_43",
+"category": "Economic Geology",
+"question": "The waste rock removed during mining is called ________.",
+"answer": "overburden",
+"type": "input",
+"explanation": "Overburden must be removed to access ore."
+},
+{
+"id": "eco_fb_44",
+"category": "Economic Geology",
+"question": "An increase in metal concentration due to weathering is called ________ enrichment.",
+"answer": "supergene",
+"type": "input",
+"explanation": "Supergene enrichment occurs near Earth's surface."
+},
+{
+"id": "eco_fb_45",
+"category": "Economic Geology",
+"question": "Hydrothermal veins commonly contain ________ minerals.",
+"answer": ["sulfide"],
+"type": "input"
+},
+
+{
+"id": "eco_fb_46",
+"category": "Economic Geology",
+"question": "Gold is highly valued due to its resistance to ________.",
+"answer": "corrosion",
+"type": "input",
+"explanation": "Gold does not easily oxidize or tarnish."
+},
+{
+"id": "eco_fb_47",
+"category": "Economic Geology",
+"question": "Economic deposits of uranium are used for ________ generation.",
+"answer": "energy",
+"type": "input",
+"explanation": "Uranium fuels nuclear power plants."
+},
+{
+"id": "eco_fb_48",
+"category": "Economic Geology",
+"question": "The mining method that removes entire mountain tops is called ________ removal.",
+"answer": "mountaintop",
+"type": "input",
+"explanation": "Mountaintop removal is used in coal mining."
+},
+{
+"id": "eco_fb_49",
+"category": "Economic Geology",
+"question": "Ore deposits associated with seawater circulation are called ________ massive sulfides.",
+"answer": ["seafloor"],
+"type": "input"
+},
+{
+"id": "eco_fb_50",
+"category": "Economic Geology",
+"question": "The profitability of a mine depends on grade, size, and ________ costs.",
+"answer": "extraction",
+"type": "input",
+"explanation": "High extraction costs can make a deposit uneconomic."
+}
+]

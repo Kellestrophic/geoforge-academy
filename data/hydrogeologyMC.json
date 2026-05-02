@@ -1,0 +1,461 @@
+[
+{
+"id": "hydro_mc_1",
+"category": "Hydrogeology",
+"question": "What is the primary zone where groundwater is stored?",
+"choices": ["Zone of saturation", "Zone of aeration", "Vadose zone", "Capillary fringe"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "The zone of saturation is where all pore spaces are completely filled with water."
+},
+{
+"id": "hydro_mc_2",
+"category": "Hydrogeology",
+"question": "The upper surface of the saturated zone is called the ______.",
+"choices": ["Water table", "Aquifer", "Recharge zone", "Permeability layer"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "The water table marks the boundary between saturated and unsaturated zones."
+},
+{
+"id": "hydro_mc_3",
+"category": "Hydrogeology",
+"question": "Which property describes a rock's ability to transmit water?",
+"choices": ["Permeability", "Porosity", "Density", "Hardness"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Permeability measures how easily fluids can move through rock or sediment."
+},
+{
+"id": "hydro_mc_4",
+"category": "Hydrogeology",
+"question": "Which property describes the amount of void space in a material?",
+"choices": ["Porosity", "Permeability", "Viscosity", "Gradient"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Porosity is the percentage of pore space in a rock or sediment."
+},
+{
+"id": "hydro_mc_5",
+"category": "Hydrogeology",
+"question": "Which material typically has the highest permeability?",
+"choices": ["Gravel", "Clay", "Silt", "Shale"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Gravel has large, well-connected pores allowing water to flow easily."
+},
+
+{
+"id": "hydro_mc_6",
+"category": "Hydrogeology",
+"question": "An aquifer is best described as:",
+"choices": ["A rock that stores and transmits water", "A rock that blocks water", "A dry rock layer", "A sediment deposit"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Aquifers store groundwater and allow it to flow."
+},
+{
+"id": "hydro_mc_7",
+"category": "Hydrogeology",
+"question": "A layer that restricts groundwater flow is called:",
+"choices": ["Aquitard", "Aquifer", "Recharge zone", "Water table"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Aquitards have low permeability and limit water movement."
+},
+{
+"id": "hydro_mc_8",
+"category": "Hydrogeology",
+"question": "Which aquifer type is confined between impermeable layers?",
+"choices": ["Confined aquifer", "Unconfined aquifer", "Perched aquifer", "Fractured aquifer"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Confined aquifers are trapped between layers of low permeability."
+},
+{
+"id": "hydro_mc_9",
+"category": "Hydrogeology",
+"question": "Water entering the ground is called:",
+"choices": ["Recharge", "Discharge", "Evaporation", "Condensation"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Recharge occurs when water infiltrates into the subsurface."
+},
+{
+"id": "hydro_mc_10",
+"category": "Hydrogeology",
+"question": "Water leaving groundwater systems is called:",
+"choices": ["Discharge", "Recharge", "Infiltration", "Runoff"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Discharge occurs at springs, streams, or wells."
+},
+
+{
+"id": "hydro_mc_11",
+"category": "Hydrogeology",
+"question": "Darcy's Law relates flow rate to:",
+"choices": ["Hydraulic gradient", "Temperature", "Rock color", "Pressure only"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Darcy’s Law shows flow depends on hydraulic gradient and permeability."
+},
+{
+"id": "hydro_mc_12",
+"category": "Hydrogeology",
+"question": "The driving force of groundwater flow is:",
+"choices": ["Hydraulic gradient", "Gravity only", "Temperature", "Wind"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Water flows from high hydraulic head to low hydraulic head."
+},
+{
+"id": "hydro_mc_13",
+"category": "Hydrogeology",
+"question": "Which direction does groundwater flow?",
+"choices": ["High head to low head", "Low to high", "Random", "Only downward"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Groundwater flows from areas of high energy to low energy."
+},
+{
+"id": "hydro_mc_14",
+"category": "Hydrogeology",
+"question": "Which aquifer is directly connected to the surface?",
+"choices": ["Unconfined aquifer", "Confined aquifer", "Perched aquifer", "Artesian aquifer"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Unconfined aquifers are open to atmospheric pressure."
+},
+{
+"id": "hydro_mc_15",
+"category": "Hydrogeology",
+"question": "A well that flows without pumping is called:",
+"choices": ["Artesian well", "Dry well", "Recharge well", "Injection well"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Artesian wells occur when pressure forces water to the surface."
+},
+
+{
+"id": "hydro_mc_16",
+"category": "Hydrogeology",
+"question": "The cone-shaped depression around a pumping well is:",
+"choices": ["Cone of depression", "Recharge zone", "Water table", "Hydraulic dome"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Pumping lowers the water table locally, forming a cone."
+},
+{
+"id": "hydro_mc_17",
+"category": "Hydrogeology",
+"question": "Which rock type is typically a good aquifer?",
+"choices": ["Sandstone", "Shale", "Granite (unfractured)", "Clay"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Sandstone often has good porosity and permeability."
+},
+{
+"id": "hydro_mc_18",
+"category": "Hydrogeology",
+"question": "Which material has high porosity but low permeability?",
+"choices": ["Clay", "Gravel", "Sand", "Limestone"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Clay holds water but does not allow it to flow easily."
+},
+{
+"id": "hydro_mc_19",
+"category": "Hydrogeology",
+"question": "Karst systems develop primarily in:",
+"choices": ["Limestone", "Granite", "Basalt", "Sandstone"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Limestone dissolves easily, forming caves and karst systems."
+},
+{
+"id": "hydro_mc_20",
+"category": "Hydrogeology",
+"question": "Sinkholes are commonly associated with:",
+"choices": ["Karst terrain", "Deserts", "Glaciers", "Volcanoes"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Sinkholes form due to collapse in karst regions."
+},
+
+{
+"id": "hydro_mc_21",
+"category": "Hydrogeology",
+"question": "The rate at which water enters soil is:",
+"choices": ["Infiltration", "Recharge", "Permeability", "Discharge"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Infiltration is the process of water entering the ground."
+},
+{
+"id": "hydro_mc_22",
+"category": "Hydrogeology",
+"question": "Groundwater contamination moves fastest in:",
+"choices": ["Gravel", "Clay", "Silt", "Shale"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "High permeability materials allow rapid contaminant transport."
+},
+{
+"id": "hydro_mc_23",
+"category": "Hydrogeology",
+"question": "Which factor decreases permeability?",
+"choices": ["Poor sorting", "Large grain size", "Fracturing", "High porosity"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Poor sorting fills pore spaces, reducing flow paths."
+},
+{
+"id": "hydro_mc_24",
+"category": "Hydrogeology",
+"question": "The capillary fringe lies:",
+"choices": ["Above the water table", "Below the aquifer", "In bedrock", "At the surface"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Water rises slightly above the water table due to capillary action."
+},
+{
+"id": "hydro_mc_25",
+"category": "Hydrogeology",
+"question": "Which process removes groundwater?",
+"choices": ["Discharge", "Recharge", "Infiltration", "Condensation"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Discharge removes groundwater through springs and streams."
+},
+
+{
+"id": "hydro_mc_26",
+"category": "Hydrogeology",
+"question": "Hydraulic conductivity depends on:",
+"choices": ["Permeability and fluid properties", "Only temperature", "Only pressure", "Rock color"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "It depends on both rock permeability and fluid viscosity."
+},
+{
+"id": "hydro_mc_27",
+"category": "Hydrogeology",
+"question": "Groundwater flow velocity is generally:",
+"choices": ["Slow", "Fast", "Instant", "Zero"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Groundwater moves slowly compared to surface water."
+},
+{
+"id": "hydro_mc_28",
+"category": "Hydrogeology",
+"question": "Which condition increases recharge?",
+"choices": ["Permeable soil", "Impermeable rock", "Urban pavement", "Clay layers"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Permeable materials allow water to infiltrate easily."
+},
+{
+"id": "hydro_mc_29",
+"category": "Hydrogeology",
+"question": "A perched aquifer forms when:",
+"choices": ["Water is trapped above an impermeable layer", "Water reaches bedrock", "Water evaporates", "Water freezes"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Perched aquifers sit above the main water table."
+},
+{
+"id": "hydro_mc_30",
+"category": "Hydrogeology",
+"question": "Which factor increases porosity?",
+"choices": ["Good sorting", "Compaction", "Cementation", "Pressure"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Well-sorted sediments have more open space."
+},
+
+{
+"id": "hydro_mc_31",
+"category": "Hydrogeology",
+"question": "Which decreases porosity?",
+"choices": ["Cementation", "Sorting", "Fracturing", "Weathering"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Cementation fills pore spaces, reducing porosity."
+},
+{
+"id": "hydro_mc_32",
+"category": "Hydrogeology",
+"question": "Water stored underground is called:",
+"choices": ["Groundwater", "Surface water", "Runoff", "Atmospheric water"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Groundwater is stored in pores and fractures below the surface."
+},
+{
+"id": "hydro_mc_33",
+"category": "Hydrogeology",
+"question": "Which rock type stores water in fractures?",
+"choices": ["Bedrock", "Clay", "Silt", "Sand"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Fractured bedrock can store and transmit groundwater."
+},
+{
+"id": "hydro_mc_34",
+"category": "Hydrogeology",
+"question": "Groundwater eventually discharges into:",
+"choices": ["Rivers and oceans", "Only lakes", "Only wells", "Only aquifers"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Groundwater contributes to surface water bodies."
+},
+{
+"id": "hydro_mc_35",
+"category": "Hydrogeology",
+"question": "The slope of the water table is the:",
+"choices": ["Hydraulic gradient", "Pressure gradient", "Temperature gradient", "Slope angle"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Hydraulic gradient drives groundwater flow."
+},
+
+{
+"id": "hydro_mc_36",
+"category": "Hydrogeology",
+"question": "Which factor affects groundwater flow speed?",
+"choices": ["Permeability", "Color", "Rock age", "Elevation only"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Permeability controls how fast water moves."
+},
+{
+"id": "hydro_mc_37",
+"category": "Hydrogeology",
+"question": "Aquifers recharge fastest in:",
+"choices": ["Wet climates", "Deserts", "Glaciers", "Mountains only"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "High rainfall increases recharge."
+},
+{
+"id": "hydro_mc_38",
+"category": "Hydrogeology",
+"question": "Contaminants move with groundwater due to:",
+"choices": ["Advection", "Radiation", "Condensation", "Evaporation"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Advection is the movement of solutes with flowing water."
+},
+{
+"id": "hydro_mc_39",
+"category": "Hydrogeology",
+"question": "Diffusion refers to movement due to:",
+"choices": ["Concentration gradient", "Pressure gradient", "Temperature gradient", "Flow velocity"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Diffusion spreads solutes from high to low concentration."
+},
+{
+"id": "hydro_mc_40",
+"category": "Hydrogeology",
+"question": "Which factor increases groundwater contamination risk?",
+"choices": ["High permeability", "Low rainfall", "Deep aquifers", "Thick clay"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "High permeability allows contaminants to spread quickly."
+},
+
+{
+"id": "hydro_mc_41",
+"category": "Hydrogeology",
+"question": "Groundwater is part of the ______ cycle.",
+"choices": ["Hydrologic", "Rock", "Carbon", "Plate"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Groundwater is a key part of the hydrologic cycle."
+},
+{
+"id": "hydro_mc_42",
+"category": "Hydrogeology",
+"question": "Water stored temporarily above the water table is:",
+"choices": ["Perched water", "Confined water", "Deep water", "Ocean water"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Perched water occurs above the main water table."
+},
+{
+"id": "hydro_mc_43",
+"category": "Hydrogeology",
+"question": "Which type of aquifer has pressure greater than atmospheric?",
+"choices": ["Confined aquifer", "Unconfined aquifer", "Perched aquifer", "Shallow aquifer"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Confined aquifers are pressurized."
+},
+{
+"id": "hydro_mc_44",
+"category": "Hydrogeology",
+"question": "Water that flows out naturally due to pressure is:",
+"choices": ["Artesian flow", "Runoff", "Evaporation", "Infiltration"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Artesian flow occurs in confined systems."
+},
+{
+"id": "hydro_mc_45",
+"category": "Hydrogeology",
+"question": "Which process reduces groundwater?",
+"choices": ["Overpumping", "Recharge", "Infiltration", "Precipitation"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Excessive pumping lowers groundwater levels."
+},
+
+{
+"id": "hydro_mc_46",
+"category": "Hydrogeology",
+"question": "Saltwater intrusion occurs when:",
+"choices": ["Freshwater is overdrawn", "Rainfall increases", "Recharge increases", "Temperature rises"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Overpumping allows saltwater to invade freshwater aquifers."
+},
+{
+"id": "hydro_mc_47",
+"category": "Hydrogeology",
+"question": "Which zone lies above the water table?",
+"choices": ["Vadose zone", "Saturated zone", "Aquifer", "Confined zone"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "The vadose zone is unsaturated."
+},
+{
+"id": "hydro_mc_48",
+"category": "Hydrogeology",
+"question": "Groundwater moves through rocks via:",
+"choices": ["Pores and fractures", "Crystals only", "Solid mass", "Air pockets only"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Water travels through connected voids."
+},
+{
+"id": "hydro_mc_49",
+"category": "Hydrogeology",
+"question": "Which condition creates the best aquifer?",
+"choices": ["High porosity and permeability", "Low porosity and permeability", "High porosity only", "Low permeability only"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Both storage and flow are required for a good aquifer."
+},
+{
+"id": "hydro_mc_50",
+"category": "Hydrogeology",
+"question": "Groundwater eventually returns to the surface through:",
+"choices": ["Springs", "Only evaporation", "Only infiltration", "Only precipitation"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Springs are natural discharge points for groundwater."
+}
+]

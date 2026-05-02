@@ -1,0 +1,461 @@
+[
+{
+"id": "arch_mc_1",
+"category": "Archaeology",
+"question": "What is the primary goal of archaeology?",
+"choices": ["Study past human cultures through material remains", "Study living organisms", "Analyze climate patterns", "Map tectonic plates"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Archaeology focuses on reconstructing past human behavior using artifacts, structures, and environmental evidence."
+},
+{
+"id": "arch_mc_2",
+"category": "Archaeology",
+"question": "What is an artifact?",
+"choices": ["A human-made object", "A natural rock", "A fossilized bone", "A mineral deposit"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Artifacts are objects made or modified by humans and are key evidence in archaeology."
+},
+{
+"id": "arch_mc_3",
+"category": "Archaeology",
+"question": "Which method determines the age of organic material?",
+"choices": ["Radiocarbon dating", "Relative dating", "Stratigraphy", "Dendrology"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Radiocarbon dating measures carbon-14 decay to estimate age of organic remains."
+},
+{
+"id": "arch_mc_4",
+"category": "Archaeology",
+"question": "Which principle states that deeper layers are older?",
+"choices": ["Law of superposition", "Uniformitarianism", "Cross-cutting relationships", "Faunal succession"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "The law of superposition states that lower layers were deposited first."
+},
+{
+"id": "arch_mc_5",
+"category": "Archaeology",
+"question": "What is stratigraphy?",
+"choices": ["Study of layered deposits", "Study of fossils", "Study of climate", "Study of minerals"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Stratigraphy analyzes layers of soil and rock to understand chronological order."
+},
+
+{
+"id": "arch_mc_6",
+"category": "Archaeology",
+"question": "Which dating method uses tree rings?",
+"choices": ["Dendrochronology", "Radiocarbon dating", "Thermoluminescence", "Potassium-argon"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Dendrochronology uses annual tree ring patterns to date events."
+},
+{
+"id": "arch_mc_7",
+"category": "Archaeology",
+"question": "What is a feature in archaeology?",
+"choices": ["Non-movable evidence like structures", "Portable objects", "Fossils", "Minerals"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Features include hearths, walls, and pits that cannot be moved without destruction."
+},
+{
+"id": "arch_mc_8",
+"category": "Archaeology",
+"question": "Which process preserves organic remains in dry environments?",
+"choices": ["Desiccation", "Fossilization", "Freezing", "Mineralization"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Desiccation removes moisture, preventing decay."
+},
+{
+"id": "arch_mc_9",
+"category": "Archaeology",
+"question": "Which dating method measures trapped electrons in minerals?",
+"choices": ["Thermoluminescence", "Radiocarbon", "Relative dating", "Stratigraphy"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Thermoluminescence dates when minerals were last heated."
+},
+{
+"id": "arch_mc_10",
+"category": "Archaeology",
+"question": "Which term describes the original place where an artifact is found?",
+"choices": ["Provenience", "Context", "Stratigraphy", "Matrix"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Provenience is the exact 3D location of an artifact."
+},
+
+{
+"id": "arch_mc_11",
+"category": "Archaeology",
+"question": "What is context in archaeology?",
+"choices": ["Relationship between artifacts and surroundings", "Object size", "Material composition", "Age only"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Context provides meaning to artifacts through their associations."
+},
+{
+"id": "arch_mc_12",
+"category": "Archaeology",
+"question": "Which tool is commonly used in excavation?",
+"choices": ["Trowel", "Hammer drill", "Chainsaw", "Bulldozer"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Trowels allow careful removal of soil."
+},
+{
+"id": "arch_mc_13",
+"category": "Archaeology",
+"question": "Which remains are preserved through freezing?",
+"choices": ["Organic remains", "Metal artifacts", "Ceramics", "Stone tools"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Cold conditions prevent decomposition of organic materials."
+},
+{
+"id": "arch_mc_14",
+"category": "Archaeology",
+"question": "Which dating method is absolute?",
+"choices": ["Radiocarbon dating", "Stratigraphy", "Typology", "Seriation"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Absolute dating provides numerical age estimates."
+},
+{
+"id": "arch_mc_15",
+"category": "Archaeology",
+"question": "Which material is most commonly preserved?",
+"choices": ["Stone", "Wood", "Cloth", "Food"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Stone is durable and resists decay."
+},
+
+{
+"id": "arch_mc_16",
+"category": "Archaeology",
+"question": "What is seriation?",
+"choices": ["Ordering artifacts by style changes", "Measuring soil layers", "Dating rocks", "Mapping sites"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Seriation uses stylistic changes over time to establish chronology."
+},
+{
+"id": "arch_mc_17",
+"category": "Archaeology",
+"question": "Which remains are considered ecofacts?",
+"choices": ["Natural remains used by humans", "Tools", "Buildings", "Jewelry"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Ecofacts include seeds, bones, and pollen."
+},
+{
+"id": "arch_mc_18",
+"category": "Archaeology",
+"question": "Which principle helps date layers disturbed by faults?",
+"choices": ["Cross-cutting relationships", "Superposition", "Uniformitarianism", "Stratigraphy"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Cross-cutting features are younger than what they cut."
+},
+{
+"id": "arch_mc_19",
+"category": "Archaeology",
+"question": "What is a midden?",
+"choices": ["Trash deposit", "Burial site", "Temple", "Road"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Middens contain waste materials and provide cultural information."
+},
+{
+"id": "arch_mc_20",
+"category": "Archaeology",
+"question": "Which method analyzes pollen?",
+"choices": ["Palynology", "Stratigraphy", "Lithology", "Seriation"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Palynology studies pollen to reconstruct environments."
+},
+{
+"id": "arch_mc_21",
+"category": "Archaeology",
+"question": "Which dating method is used for volcanic rock?",
+"choices": ["Potassium-argon dating", "Radiocarbon dating", "Dendrochronology", "Seriation"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Potassium-argon dating measures radioactive decay in volcanic materials."
+},
+{
+"id": "arch_mc_22",
+"category": "Archaeology",
+"question": "Which term describes soil surrounding artifacts?",
+"choices": ["Matrix", "Context", "Feature", "Layer"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Matrix is the material embedding artifacts."
+},
+{
+"id": "arch_mc_23",
+"category": "Archaeology",
+"question": "Which archaeological method studies ancient human diets through plant remains?",
+"choices": ["Paleoethnobotany", "Palynology", "Sedimentology", "Lithology"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Paleoethnobotany examines plant remains to understand past diets and environments."
+},
+{
+"id": "arch_mc_24",
+"category": "Archaeology",
+"question": "Which remains are studied in zooarchaeology?",
+"choices": ["Animal bones", "Plant remains", "Artifacts", "Soil layers"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Zooarchaeology focuses on animal remains to understand diet and domestication."
+},
+{
+"id": "arch_mc_25",
+"category": "Archaeology",
+"question": "Which method arranges artifacts based on frequency changes over time?",
+"choices": ["Seriation", "Stratigraphy", "Radiocarbon dating", "Typology"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Seriation tracks stylistic changes to build relative chronologies."
+},
+{
+"id": "arch_mc_26",
+"category": "Archaeology",
+"question": "Which dating method is used for fired pottery?",
+"choices": ["Thermoluminescence", "Radiocarbon dating", "Dendrochronology", "Potassium-argon"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Thermoluminescence dates the last time materials were heated."
+},
+{
+"id": "arch_mc_27",
+"category": "Archaeology",
+"question": "Which principle assumes processes today operated similarly in the past?",
+"choices": ["Uniformitarianism", "Superposition", "Cross-cutting", "Stratigraphy"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Uniformitarianism is the idea that 'the present is the key to the past.'"
+},
+
+{
+"id": "arch_mc_28",
+"category": "Archaeology",
+"question": "Which material is most likely to decay quickly?",
+"choices": ["Wood", "Stone", "Ceramic", "Metal"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Organic materials like wood decompose rapidly unless preserved."
+},
+{
+"id": "arch_mc_29",
+"category": "Archaeology",
+"question": "Which technique uses aerial imaging to detect buried structures?",
+"choices": ["Remote sensing", "Excavation", "Stratigraphy", "Seriation"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Remote sensing includes aerial photography and satellite imaging."
+},
+{
+"id": "arch_mc_30",
+"category": "Archaeology",
+"question": "Which geophysical method detects subsurface anomalies using magnetism?",
+"choices": ["Magnetometry", "Ground-penetrating radar", "Seismic survey", "Resistivity"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Magnetometry identifies buried features based on magnetic differences."
+},
+
+{
+"id": "arch_mc_31",
+"category": "Archaeology",
+"question": "Which method measures resistance to electrical current in soil?",
+"choices": ["Electrical resistivity", "Magnetometry", "GPR", "Seismic reflection"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Resistivity surveys reveal buried structures by measuring soil moisture differences."
+},
+{
+"id": "arch_mc_32",
+"category": "Archaeology",
+"question": "Which remains are considered most reliable for absolute dating?",
+"choices": ["Organic remains", "Stone tools", "Metal objects", "Ceramics"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Organic materials can be directly dated using radiocarbon."
+},
+{
+"id": "arch_mc_33",
+"category": "Archaeology",
+"question": "Which term describes disturbance of archaeological layers?",
+"choices": ["Bioturbation", "Stratification", "Seriation", "Context"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Bioturbation occurs when organisms disturb sediments."
+},
+{
+"id": "arch_mc_34",
+"category": "Archaeology",
+"question": "Which tool is used for fine excavation work?",
+"choices": ["Trowel", "Shovel", "Pickaxe", "Drill"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Trowels allow precise removal of soil layers."
+},
+
+{
+"id": "arch_mc_35",
+"category": "Archaeology",
+"question": "Which method helps identify cultural phases based on artifact styles?",
+"choices": ["Typology", "Stratigraphy", "Radiocarbon dating", "Remote sensing"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Typology groups artifacts by shared characteristics and styles."
+},
+{
+"id": "arch_mc_36",
+"category": "Archaeology",
+"question": "Which preservation condition involves low oxygen environments?",
+"choices": ["Waterlogging", "Desiccation", "Freezing", "Burning"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Waterlogged conditions slow decay by limiting oxygen."
+},
+{
+"id": "arch_mc_37",
+"category": "Archaeology",
+"question": "Which feature is associated with cooking activities?",
+"choices": ["Hearth", "Midden", "Wall", "Posthole"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Hearths are fire-related features used for cooking and heating."
+},
+{
+"id": "arch_mc_38",
+"category": "Archaeology",
+"question": "Which dating technique is best for volcanic ash layers?",
+"choices": ["Potassium-argon dating", "Radiocarbon dating", "Dendrochronology", "Seriation"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Volcanic materials contain isotopes suitable for K-Ar dating."
+},
+
+{
+"id": "arch_mc_39",
+"category": "Archaeology",
+"question": "Which factor most affects artifact preservation?",
+"choices": ["Environment", "Color", "Size", "Shape"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Environmental conditions control decay and preservation."
+},
+{
+"id": "arch_mc_40",
+"category": "Archaeology",
+"question": "Which type of dating provides numerical ages?",
+"choices": ["Absolute dating", "Relative dating", "Seriation", "Stratigraphy"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Absolute dating gives specific age estimates in years."
+},
+
+{
+"id": "arch_mc_41",
+"category": "Archaeology",
+"question": "Which process can move artifacts from their original location?",
+"choices": ["Erosion", "Sedimentation", "Compaction", "Lithification"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Erosion can transport artifacts away from their original context."
+},
+{
+"id": "arch_mc_42",
+"category": "Archaeology",
+"question": "Which method uses radar waves to image subsurface features?",
+"choices": ["Ground-penetrating radar", "Magnetometry", "Resistivity", "Seismic"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "GPR sends radar pulses into the ground and records reflections."
+},
+{
+"id": "arch_mc_43",
+"category": "Archaeology",
+"question": "Which evidence type includes seeds and pollen?",
+"choices": ["Ecofacts", "Artifacts", "Features", "Structures"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Ecofacts are natural materials used or affected by humans."
+},
+{
+"id": "arch_mc_44",
+"category": "Archaeology",
+"question": "Which method studies ancient climates using sediment layers?",
+"choices": ["Geoarchaeology", "Typology", "Seriation", "Dendrochronology"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Geoarchaeology applies geological methods to archaeological problems."
+},
+
+{
+"id": "arch_mc_45",
+"category": "Archaeology",
+"question": "Which factor determines stratigraphic sequence?",
+"choices": ["Layer position", "Artifact size", "Color", "Material type"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Stratigraphy is based on layer order and position."
+},
+{
+"id": "arch_mc_46",
+"category": "Archaeology",
+"question": "Which preservation condition involves extremely dry environments?",
+"choices": ["Desiccation", "Freezing", "Waterlogging", "Carbonization"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Dry conditions preserve organic materials by preventing decay."
+},
+{
+"id": "arch_mc_47",
+"category": "Archaeology",
+"question": "Which artifact type is most useful for relative dating?",
+"choices": ["Pottery", "Stone tools", "Bones", "Metal objects"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Pottery styles change over time and are useful for dating."
+},
+{
+"id": "arch_mc_48",
+"category": "Archaeology",
+"question": "Which method identifies buried walls by soil resistance differences?",
+"choices": ["Resistivity", "GPR", "Magnetometry", "Seismic"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Resistivity highlights contrasts in moisture and material."
+},
+{
+"id": "arch_mc_49",
+"category": "Archaeology",
+"question": "Which process turns organic remains into charcoal?",
+"choices": ["Carbonization", "Desiccation", "Freezing", "Mineralization"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Carbonization preserves remains as charred material."
+},
+{
+"id": "arch_mc_50",
+"category": "Archaeology",
+"question": "Which type of dating relies on artifact style comparison?",
+"choices": ["Relative dating", "Absolute dating", "Radiometric dating", "Isotopic dating"],
+"correctAnswer": 0,
+"type": "multiple_choice",
+"explanation": "Relative dating compares artifacts without giving exact ages."
+}
+]

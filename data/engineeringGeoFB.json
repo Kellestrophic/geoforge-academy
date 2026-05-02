@@ -1,0 +1,410 @@
+[
+{
+"id": "eng_fb_1",
+"category": "Engineering Geology",
+"question": "The ability of soil to transmit water is called _______.",
+"answer": "permeability",
+"type": "input",
+"explanation": "Permeability controls how easily fluids move through soil and affects drainage and stability."
+},
+{
+"id": "eng_fb_2",
+"category": "Engineering Geology",
+"question": "Clay soils have very ______ permeability due to small pore spaces.",
+"answer": "low",
+"type": "input",
+"explanation": "Small pore spaces restrict water movement in clay."
+},
+{
+"id": "eng_fb_3",
+"category": "Engineering Geology",
+"question": "The ratio of void space to total volume is called _______.",
+"answer": "porosity",
+"type": "input",
+"explanation": "Porosity determines how much water or air a material can hold."
+},
+{
+"id": "eng_fb_4",
+"category": "Engineering Geology",
+"question": "Slope stability is greatly reduced by increased ______ content.",
+"answer": "water",
+"type": "input",
+"explanation": "Water reduces friction and increases pore pressure."
+},
+{
+"id": "eng_fb_5",
+"category": "Engineering Geology",
+"question": "A ______ wall is used to hold back soil on slopes.",
+"answer": "retaining",
+"type": "input",
+"explanation": "Retaining walls resist lateral earth pressure."
+},
+
+{
+"id": "eng_fb_6",
+"category": "Engineering Geology",
+"question": "Loose, water-saturated sand may undergo ______ during earthquakes.",
+"answer": "liquefaction",
+"type": "input",
+"explanation": "Liquefaction causes soil to behave like a fluid."
+},
+{
+"id": "eng_fb_7",
+"category": "Engineering Geology",
+"question": "Deep foundations transfer loads to ______ soil layers.",
+"answer": "stronger",
+"type": "input",
+"explanation": "They bypass weak surface soils."
+},
+{
+"id": "eng_fb_8",
+"category": "Engineering Geology",
+"question": "The Atterberg limits define soil ______ properties.",
+"answer": "plasticity",
+"type": "input",
+"explanation": "They describe how soil behaves with changing moisture."
+},
+{
+"id": "eng_fb_9",
+"category": "Engineering Geology",
+"question": "Very slow downslope soil movement is called ______.",
+"answer": "creep",
+"type": "input",
+"explanation": "Creep occurs gradually over long periods."
+},
+{
+"id": "eng_fb_10",
+"category": "Engineering Geology",
+"question": "Gravel has ______ permeability compared to clay.",
+"answer": "high",
+"type": "input",
+"explanation": "Large pore spaces allow rapid flow."
+},
+
+{
+"id": "eng_fb_11",
+"category": "Engineering Geology",
+"question": "The ______ test is used to measure soil shear strength.",
+"answer": "shear",
+"type": "input",
+"explanation": "Shear strength determines resistance to sliding."
+},
+{
+"id": "eng_fb_12",
+"category": "Engineering Geology",
+"question": "Clay expands when ______ and shrinks when dry.",
+"answer": "wet",
+"type": "input",
+"explanation": "Water absorption causes swelling."
+},
+{
+"id": "eng_fb_13",
+"category": "Engineering Geology",
+"question": "Sinkholes commonly form in ______ terrain.",
+"answer": "karst",
+"type": "input",
+"explanation": "Karst forms in soluble rocks like limestone."
+},
+{
+"id": "eng_fb_14",
+"category": "Engineering Geology",
+"question": "______ stress pulls rocks apart.",
+"answer": "tension",
+"type": "input",
+"explanation": "Tension causes extension and fracturing."
+},
+{
+"id": "eng_fb_15",
+"category": "Engineering Geology",
+"question": "______ stress pushes rocks together.",
+"answer": "compression",
+"type": "input",
+"explanation": "Compression shortens and thickens rocks."
+},
+
+{
+"id": "eng_fb_16",
+"category": "Engineering Geology",
+"question": "Water freezing in soil can cause ______ heave.",
+"answer": "frost",
+"type": "input",
+"explanation": "Frozen water expands and lifts soil."
+},
+{
+"id": "eng_fb_17",
+"category": "Engineering Geology",
+"question": "Soil resistance to deformation is called ______.",
+"answer": "strength",
+"type": "input",
+"explanation": "Strength determines load-bearing capacity."
+},
+{
+"id": "eng_fb_18",
+"category": "Engineering Geology",
+"question": "The most stable foundation material is ______.",
+"answer": "bedrock",
+"type": "input",
+"explanation": "Bedrock provides strong support."
+},
+{
+"id": "eng_fb_19",
+"category": "Engineering Geology",
+"question": "Slope stability improves with ______ growth.",
+"answer": "vegetation",
+"type": "input",
+"explanation": "Roots bind soil together."
+},
+{
+"id": "eng_fb_20",
+"category": "Engineering Geology",
+"question": "Water moving through soil is controlled by ______ and porosity.",
+"answer": "permeability",
+"type": "input",
+"explanation": "Both determine groundwater movement."
+},
+
+{
+"id": "eng_fb_21",
+"category": "Engineering Geology",
+"question": "Rockfalls are a ______ type of mass movement.",
+"answer": "rapid",
+"type": "input",
+"explanation": "They occur suddenly with high velocity."
+},
+{
+"id": "eng_fb_22",
+"category": "Engineering Geology",
+"question": "The compaction of soil depends heavily on ______ content.",
+"answer": "moisture",
+"type": "input",
+"explanation": "Optimal moisture improves compaction."
+},
+{
+"id": "eng_fb_23",
+"category": "Engineering Geology",
+"question": "A ______ foundation transfers loads deep underground.",
+"answer": "pile",
+"type": "input",
+"explanation": "Pile foundations reach stable layers."
+},
+{
+"id": "eng_fb_24",
+"category": "Engineering Geology",
+"question": "Limestone is easily dissolved by ______ water.",
+"answer": "acidic",
+"type": "input",
+"explanation": "Carbonic acid dissolves carbonate minerals."
+},
+{
+"id": "eng_fb_25",
+"category": "Engineering Geology",
+"question": "The gradual breaking down of rock into soil is called ______.",
+"answer": "weathering",
+"type": "input",
+"explanation": "Weathering is the process that breaks down rock at Earth's surface into smaller particles, eventually forming soil."
+},
+{
+"id": "eng_fb_26",
+"category": "Engineering Geology",
+"question": "Sediment movement down a slope due to gravity is called ______ movement.",
+"answer": "mass",
+"type": "input",
+"explanation": "Mass movement refers to downslope movement driven by gravity."
+},
+{
+"id": "eng_fb_27",
+"category": "Engineering Geology",
+"question": "Loose sand is more prone to ______ during seismic shaking.",
+"answer": "liquefaction",
+"type": "input",
+"explanation": "Loose, saturated sands can lose strength under vibration."
+},
+{
+"id": "eng_fb_28",
+"category": "Engineering Geology",
+"question": "The ______ angle is the steepest slope at which material remains stable.",
+"answer": "angle of repose",
+"type": "input",
+"explanation": "Angle of repose reflects internal friction and stability."
+},
+{
+"id": "eng_fb_29",
+"category": "Engineering Geology",
+"question": "In engineering geology, ______ pressure refers to fluid pressure within soil pores.",
+"answer": "pore",
+"type": "input",
+"explanation": "Pore pressure reduces effective stress and stability."
+},
+{
+"id": "eng_fb_30",
+"category": "Engineering Geology",
+"question": "______ and ______ are the two main factors reducing slope stability when water increases.",
+"answer": ["friction", "cohesion"],
+"type": "input_multi",
+"explanation": "Water reduces both friction and cohesion between particles."
+},
+
+{
+"id": "eng_fb_31",
+"category": "Engineering Geology",
+"question": "A rock mass with many fractures has lower ______ strength.",
+"answer": "shear",
+"type": "input",
+"explanation": "Fractures weaken resistance to sliding."
+},
+{
+"id": "eng_fb_32",
+"category": "Engineering Geology",
+"question": "The process of soil settling under load is called ______.",
+"answer": "settlement",
+"type": "input",
+"explanation": "Settlement occurs when soil compresses under weight."
+},
+{
+"id": "eng_fb_33",
+"category": "Engineering Geology",
+"question": "______ soils are most compressible and prone to settlement.",
+"answer": "clay",
+"type": "input",
+"explanation": "Clay compresses easily due to fine grains."
+},
+{
+"id": "eng_fb_34",
+"category": "Engineering Geology",
+"question": "Water infiltration into soil increases ______ pressure.",
+"answer": "pore",
+"type": "input",
+"explanation": "More water raises pore pressure and reduces stability."
+},
+{
+"id": "eng_fb_35",
+"category": "Engineering Geology",
+"question": "The process of removing soil by water or wind is called ______.",
+"answer": "erosion",
+"type": "input",
+"explanation": "Erosion transports material away from its source."
+},
+
+{
+"id": "eng_fb_36",
+"category": "Engineering Geology",
+"question": "A slope failure where material rotates along a curved surface is called a ______.",
+"answer": "slump",
+"type": "input",
+"explanation": "Slumps involve rotational movement along curved planes."
+},
+{
+"id": "eng_fb_37",
+"category": "Engineering Geology",
+"question": "The resistance of soil to flow is called ______ strength.",
+"answer": "shear",
+"type": "input",
+"explanation": "Shear strength determines resistance to deformation."
+},
+{
+"id": "eng_fb_38",
+"category": "Engineering Geology",
+"question": "Groundwater movement is controlled by ______ and hydraulic gradient.",
+"answer": "permeability",
+"type": "input",
+"explanation": "Permeability dictates ease of water flow."
+},
+{
+"id": "eng_fb_39",
+"category": "Engineering Geology",
+"question": "______ soils drain quickly but have low cohesion.",
+"answer": "sandy",
+"type": "input",
+"explanation": "Sands have high permeability but low cohesion."
+},
+{
+"id": "eng_fb_40",
+"category": "Engineering Geology",
+"question": "A ______ is a tabular igneous intrusion that cuts across layers.",
+"answer": "dike",
+"type": "input",
+"explanation": "Dikes cross-cut existing rock structures."
+},
+
+{
+"id": "eng_fb_41",
+"category": "Engineering Geology",
+"question": "The ability of soil to resist sliding depends on ______ and friction.",
+"answer": "cohesion",
+"type": "input",
+"explanation": "Cohesion holds particles together."
+},
+{
+"id": "eng_fb_42",
+"category": "Engineering Geology",
+"question": "In soil mechanics, effective stress equals total stress minus ______ pressure.",
+"answer": "pore",
+"type": "input",
+"explanation": "Pore pressure reduces effective stress."
+},
+{
+"id": "eng_fb_43",
+"category": "Engineering Geology",
+"question": "The downward force acting on soil is called ______.",
+"answer": "gravity",
+"type": "input",
+"explanation": "Gravity drives mass movement."
+},
+{
+"id": "eng_fb_44",
+"category": "Engineering Geology",
+"question": "Slope stabilization can be improved by reducing ______ content.",
+"answer": "water",
+"type": "input",
+"explanation": "Less water means higher friction and stability."
+},
+{
+"id": "eng_fb_45",
+"category": "Engineering Geology",
+"question": "______ and ______ are commonly used to stabilize slopes.",
+"answer": ["retaining walls", "drainage"],
+"type": "input_multi",
+"explanation": "Walls support slopes, drainage removes water."
+},
+
+{
+"id": "eng_fb_46",
+"category": "Engineering Geology",
+"question": "The sudden collapse of underground cavities forms ______.",
+"answer": "sinkholes",
+"type": "input",
+"explanation": "Sinkholes occur in soluble rock terrains."
+},
+{
+"id": "eng_fb_47",
+"category": "Engineering Geology",
+"question": "The process of compacting soil reduces ______ space.",
+"answer": "void",
+"type": "input",
+"explanation": "Compaction decreases pore space."
+},
+{
+"id": "eng_fb_48",
+"category": "Engineering Geology",
+"question": "The most common trigger for landslides is heavy ______.",
+"answer": "rainfall",
+"type": "input",
+"explanation": "Rain increases weight and reduces stability."
+},
+{
+"id": "eng_fb_49",
+"category": "Engineering Geology",
+"question": "______ strength is reduced when soils become saturated.",
+"answer": "shear",
+"type": "input",
+"explanation": "Water reduces interparticle friction."
+},
+{
+"id": "eng_fb_50",
+"category": "Engineering Geology",
+"question": "Soil stability depends on both ______ and ______ properties.",
+"answer": ["mechanical", "hydrological"],
+"type": "input_multi",
+"explanation": "Mechanical strength and water behavior both control stability."
+}
+]

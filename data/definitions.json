@@ -1,0 +1,317 @@
+[
+  { "id": "archaeology", "term": "Archaeology", "definition": "The scientific study of past human life and culture through the analysis of material remains such as artifacts, structures, and environmental evidence." },
+  { "id": "artifact", "term": "Artifact", "definition": "Any object made, used, or modified by humans that provides insight into past human behavior and culture." },
+  { "id": "assemblage", "term": "Assemblage", "definition": "A group of artifacts found together at a site that reflects a specific time period or human activity." },
+  { "id": "aerial", "term": "Aerial Survey", "definition": "A remote sensing method using photographs or imagery taken from the air to identify archaeological features not visible from the ground." },
+  { "id": "bioturbation", "term": "Bioturbation", "definition": "The disturbance of soil layers caused by living organisms such as plants, animals, or microbes, which can disrupt archaeological context." },
+  { "id": "burning", "term": "Carbonization (Burning)", "definition": "A preservation process where organic material is transformed into charcoal through burning, allowing it to survive in the archaeological record." },
+  { "id": "chronological", "term": "Chronological Order", "definition": "The arrangement of events or materials in the sequence in which they occurred in time, used in relative dating methods." },
+  { "id": "context", "term": "Context", "definition": "The relationship between an artifact and its surrounding environment, including its position, associations, and conditions of discovery." },
+  { "id": "cultures", "term": "Culture", "definition": "The behaviors, beliefs, technologies, and social practices of a group of people, reconstructed in archaeology through material remains." },
+  { "id": "desiccation", "term": "Desiccation", "definition": "A preservation process in which organic materials are dried out, preventing decay due to the absence of moisture." },
+  { "id": "dendrochronology", "term": "Dendrochronology", "definition": "A dating method that uses the pattern of tree ring growth to determine the age of wooden materials and past environmental conditions." },
+  { "id": "diagnostic", "term": "Diagnostic Artifacts", "definition": "Artifacts with distinct characteristics that allow archaeologists to identify a specific time period or cultural phase." },
+  { "id": "documentation", "term": "Documentation", "definition": "The systematic recording of archaeological data, including artifact location, context, and characteristics, to preserve information for analysis." },
+  { "id": "ecofacts", "term": "Ecofacts", "definition": "Natural materials such as plant remains, bones, or seeds that provide information about human activity and environmental conditions." },
+  { "id": "environmental", "term": "Environmental Archaeology", "definition": "The study of past environments and how humans interacted with and adapted to them using biological and geological evidence." },
+  { "id": "evidence", "term": "Archaeological Evidence", "definition": "All material remains, including artifacts and ecofacts, that provide information about past human behavior and environments." },
+  { "id": "excavation", "term": "Excavation", "definition": "The controlled and systematic removal of soil to uncover, record, and study archaeological materials and features." },
+  { "id": "features", "term": "Features", "definition": "Non-portable archaeological remains, such as hearths or walls, that cannot be removed without being destroyed." },
+  { "id": "freezing", "term": "Freezing Preservation", "definition": "A preservation process where organic materials are protected from decay by cold temperatures, often in ice or permafrost." },
+  { "id": "geoarchaeology", "term": "Geoarchaeology", "definition": "An interdisciplinary field that applies geological techniques to understand archaeological sites and formation processes." },
+  { "id": "hearth", "term": "Hearth", "definition": "A fixed structure used for fire-related activities such as cooking or heating, often indicating human occupation." },
+  { "id": "magnetism", "term": "Magnetometry", "definition": "A geophysical survey method that detects variations in soil magnetism to locate buried archaeological features." },
+  { "id": "matrix", "term": "Matrix", "definition": "The surrounding soil or sediment in which an artifact is embedded, providing important contextual information." },
+  { "id": "midden", "term": "Midden", "definition": "A deposit of refuse or waste left by humans, often containing artifacts and ecofacts that reveal daily life and diet." },
+  { "id": "numerical", "term": "Numerical Age", "definition": "An absolute age expressed in years, obtained through scientific dating methods such as radiometric dating." },
+  { "id": "organic", "term": "Organic Material", "definition": "Material derived from living organisms, such as wood or bone, that can be dated using radiocarbon techniques." },
+  { "id": "oxygen", "term": "Low Oxygen Conditions", "definition": "An environment lacking oxygen, which slows decomposition and aids in the preservation of organic materials." },
+  { "id": "palynology", "term": "Palynology", "definition": "The study of pollen and spores to reconstruct past vegetation, climates, and environmental conditions." },
+  { "id": "past", "term": "Past Environments", "definition": "Ancient environmental conditions reconstructed using geological, biological, and archaeological evidence." },
+  { "id": "potassium-argon", "term": "Potassium-Argon Dating", "definition": "A radiometric dating method used to determine the age of volcanic rocks by measuring the decay of potassium into argon." },
+  { "id": "primary", "term": "Primary Context", "definition": "The original, undisturbed location where an artifact was deposited, preserving its relationship with surrounding materials." },
+  { "id": "provenience", "term": "Provenience", "definition": "The exact three-dimensional location where an artifact is found, including its depth and spatial coordinates." },
+  { "id": "radio", "term": "Ground-Penetrating Radar", "definition": "A remote sensing method that uses radio waves to detect and map subsurface archaeological features." },
+  { "id": "resistance", "term": "Electrical Resistivity", "definition": "A geophysical method that measures how strongly soil resists electrical current to identify buried structures." },
+  { "id": "secondary", "term": "Secondary Context", "definition": "A disturbed context in which artifacts have been moved from their original position." },
+  { "id": "seriation", "term": "Seriation", "definition": "A relative dating method that orders artifacts based on changes in style or frequency over time." },
+  { "id": "stone", "term": "Stone Preservation", "definition": "The tendency of stone materials to survive in the archaeological record due to their resistance to weathering and decay." },
+  { "id": "stratigraphy", "term": "Stratigraphy", "definition": "The study of layered deposits to determine the chronological sequence of events at an archaeological site." },
+  { "id": "subsurface", "term": "Subsurface Feature", "definition": "A buried archaeological feature located below the ground surface, often detected through geophysical methods." },
+  { "id": "superposition", "term": "Law of Superposition", "definition": "A principle stating that in undisturbed layers, older deposits lie beneath younger ones." },
+  { "id": "survey", "term": "Survey", "definition": "The systematic examination of a landscape to locate and record archaeological sites before excavation." },
+  { "id": "typology", "term": "Typology", "definition": "The classification of artifacts into groups based on shared characteristics such as form, function, or style." },
+  { "id": "uniformitarianism", "term": "Uniformitarianism", "definition": "The principle that the same natural processes observed today operated in the past in similar ways." },
+  { "id": "zooarchaeology", "term": "Zooarchaeology", "definition": "The study of animal remains to understand human diet, behavior, and environmental conditions." },
+  { "id": "paleoethnobotany", "term": "Paleoethnobotany", "definition": "The study of ancient plant remains to reconstruct past diets, agriculture, and environments." },
+  { "id": "relative-dating", "term": "Relative Dating", "definition": "A method used to determine the sequence of events or artifacts without assigning exact ages." },
+  { "id": "absolute-dating", "term": "Absolute Dating", "definition": "A method used to determine the exact age of materials in years, often through radiometric techniques." },
+  { "id": "ore", "term": "Ore", "definition": "A rock that contains valuable minerals in concentrations high enough to be mined profitably." },
+  { "id": "economic", "term": "Economic Deposit", "definition": "A mineral deposit that can be extracted at a profit based on current market prices, technology, and costs." },
+
+  { "id": "aqueous", "term": "Hydrothermal Fluids", "definition": "Hot, water-based fluids that transport dissolved metals and deposit them in fractures to form mineral deposits." },
+
+  { "id": "aluminum", "term": "Aluminum (Bauxite Ore)", "definition": "A metal primarily obtained from bauxite, formed through intense weathering in tropical environments." },
+  { "id": "beneficiation", "term": "Beneficiation", "definition": "The process of separating valuable minerals from waste material to improve ore quality before extraction." },
+  { "id": "crystallization", "term": "Magmatic Crystallization", "definition": "The process by which minerals solidify from cooling magma, often forming concentrated mineral deposits." },
+  { "id": "evaporation", "term": "Evaporation Process", "definition": "The removal of water from a solution, leaving behind dissolved minerals that form evaporite deposits." },
+
+  { "id": "lead", "term": "Lead (Galena)", "definition": "A metal commonly extracted from the mineral galena (PbS), widely used in batteries and shielding." },
+  { "id": "zinc", "term": "Zinc (Sphalerite)", "definition": "A metal primarily obtained from sphalerite (ZnS), used in galvanizing and alloys." },
+  { "id": "vein", "term": "Vein Deposit", "definition": "A mineral deposit formed when minerals precipitate from fluids within fractures in rock." },
+  { "id": "coal", "term": "Coal Formation", "definition": "A fossil fuel formed from compacted and altered plant material over millions of years." },
+  { "id": "reservoir-rock", "term": "Reservoir Rock", "definition": "A porous and permeable rock that stores hydrocarbons such as oil and natural gas." },
+
+  { "id": "cap-rock", "term": "Cap Rock", "definition": "An impermeable rock layer that traps oil and gas, preventing them from escaping to the surface." },
+  { "id": "grade", "term": "Ore Grade", "definition": "The concentration of a valuable metal within an ore, determining its economic value." },
+  { "id": "surface-mining", "term": "Surface Mining", "definition": "A mining method used when ore is close to the Earth's surface, involving removal of overlying material." },
+  { "id": "underground-mining", "term": "Underground Mining", "definition": "A method of extracting ore from deep beneath the surface using tunnels and shafts." },
+  { "id": "tailings", "term": "Tailings", "definition": "The waste material left over after valuable minerals have been extracted from ore." },
+
+  { "id": "smelting", "term": "Smelting", "definition": "A process that uses high temperatures to extract metals from ore by melting and separating them from impurities." },
+
+  { "id": "fertilizer", "term": "Phosphate Fertilizer", "definition": "A product made from phosphate deposits, essential for plant growth and agriculture." },
+
+  { "id": "ultramafic", "term": "Ultramafic Rocks", "definition": "Igneous rocks rich in magnesium and iron, often associated with nickel and chromium deposits." },
+  { "id": "mantle", "term": "Mantle Formation (Diamonds)", "definition": "Diamonds form under high pressure and temperature conditions deep within the Earth's mantle." },
+  { "id": "kimberlite", "term": "Kimberlite Pipes", "definition": "Volcanic structures that transport diamonds from deep in the mantle to the Earth's surface." },
+
+  { "id": "banded-iron", "term": "Banded Iron Formation", "definition": "Ancient layered sedimentary deposits rich in iron oxides, formed in early Earth's oceans." },
+  { "id": "methane", "term": "Methane", "definition": "The primary component of natural gas (CH₄), used as a major energy source." },
+  { "id": "anticline", "term": "Anticline Trap", "definition": "A folded rock structure that traps oil and gas at its crest due to its arch-like shape." },
+  { "id": "mining", "term": "Mining", "definition": "The process of extracting valuable minerals or resources from the Earth." },
+  { "id": "resource", "term": "Resource", "definition": "A concentration of minerals that may become economically valuable if conditions change." },
+
+  { "id": "open-pit", "term": "Open Pit Mining", "definition": "A surface mining method that creates large excavations to extract shallow ore deposits." },
+  { "id": "magmatic", "term": "Magmatic System", "definition": "A geological system where molten rock and associated fluids transport and concentrate metals." },
+  { "id": "oil-trap", "term": "Oil Trap", "definition": "A geological structure that prevents oil and gas from escaping, allowing them to accumulate." },
+  { "id": "evaporite", "term": "Evaporite Deposit", "definition": "A mineral deposit formed from the evaporation of water, leaving behind salts like halite and gypsum." },
+
+  { "id": "price", "term": "Market Price", "definition": "The value of a mineral resource in the market, which determines whether a deposit is economically viable." },
+  { "id": "porphyry", "term": "Porphyry Deposit", "definition": "A large, low-grade mineral deposit formed from magmatic fluids, commonly associated with copper." },
+  { "id": "overburden", "term": "Overburden", "definition": "The layer of soil and rock covering an ore deposit that must be removed before mining." },
+  { "id": "supergene", "term": "Supergene Enrichment", "definition": "A near-surface process where metals are dissolved and reprecipitated, increasing ore concentration." },
+
+  { "id": "corrosion", "term": "Corrosion Resistance (Gold)", "definition": "Gold is highly valued because it resists oxidation and chemical weathering." },
+  { "id": "uranium-energy", "term": "Uranium Energy", "definition": "Uranium is used as fuel in nuclear power plants to generate electricity." },
+  { "id": "mountaintop-removal", "term": "Mountaintop Removal", "definition": "A mining method that removes entire mountaintops to access coal seams." },
+  { "id": "seafloor-sulfide", "term": "Seafloor Massive Sulfides", "definition": "Mineral deposits formed on the ocean floor from hydrothermal vent activity." },
+  { "id": "extraction-cost", "term": "Extraction Cost", "definition": "The cost associated with removing and processing ore, a key factor in determining profitability." },
+  { "id": "permeability", "term": "Permeability", "definition": "The ability of a soil or rock to transmit water or fluids through its pore spaces or fractures." },
+  { "id": "porosity", "term": "Porosity", "definition": "The proportion of void space in a material, determining how much water or air it can store." },
+  { "id": "water-content", "term": "Water Content", "definition": "The amount of water present in soil, which strongly affects slope stability and strength." },
+  { "id": "retaining-wall", "term": "Retaining Wall", "definition": "A structure designed to hold back soil and resist lateral earth pressure on slopes." },
+
+  { "id": "liquefaction", "term": "Liquefaction", "definition": "A process in which saturated soil temporarily loses strength and behaves like a liquid during seismic shaking." },
+  { "id": "deep-foundation", "term": "Deep Foundation", "definition": "A foundation system that transfers structural loads to deeper, stronger soil or rock layers." },
+  { "id": "plasticity", "term": "Soil Plasticity", "definition": "The ability of soil to change shape without cracking, controlled by moisture content and measured by Atterberg limits." },
+  { "id": "creep", "term": "Soil Creep", "definition": "A very slow, gradual downslope movement of soil driven by gravity over long periods." },
+
+  { "id": "shear-strength", "term": "Shear Strength", "definition": "The resistance of soil or rock to sliding or deformation along a plane." },
+  { "id": "expansive-clay", "term": "Expansive Clay", "definition": "Clay that swells when wet and shrinks when dry, causing structural instability." },
+  { "id": "karst", "term": "Karst Terrain", "definition": "A landscape formed by the dissolution of soluble rocks like limestone, often featuring sinkholes and caves." },
+  { "id": "tension-stress", "term": "Tension Stress", "definition": "A force that pulls materials apart, causing stretching and fracturing." },
+  { "id": "compression-stress", "term": "Compression Stress", "definition": "A force that pushes materials together, causing shortening and thickening." },
+
+  { "id": "frost-heave", "term": "Frost Heave", "definition": "The upward movement of soil caused by the expansion of water as it freezes." },
+  { "id": "soil-strength", "term": "Soil Strength", "definition": "The ability of soil to resist deformation and support loads." },
+  { "id": "bedrock", "term": "Bedrock", "definition": "Solid, unweathered rock beneath soil that provides the most stable foundation for construction." },
+  { "id": "vegetation-stabilization", "term": "Vegetation Stabilization", "definition": "The use of plant roots to bind soil and improve slope stability." },
+
+  { "id": "mass-movement", "term": "Mass Movement", "definition": "The downslope movement of soil and rock under the influence of gravity." },
+  { "id": "moisture-content", "term": "Moisture Content", "definition": "The amount of water in soil, which influences compaction, strength, and stability." },
+  { "id": "pile-foundation", "term": "Pile Foundation", "definition": "A deep foundation that transfers loads through vertical columns to stable subsurface layers." },
+  { "id": "acidic-water", "term": "Acidic Water Weathering", "definition": "The chemical breakdown of rocks, especially limestone, by acidic water such as carbonic acid." },
+
+  { "id": "weathering", "term": "Weathering", "definition": "The breakdown of rocks at Earth's surface into smaller particles through physical, chemical, or biological processes." },
+  { "id": "angle-of-repose", "term": "Angle of Repose", "definition": "The steepest angle at which loose material remains stable without sliding." },
+  { "id": "pore-pressure", "term": "Pore Pressure", "definition": "The pressure exerted by water within soil pores, which reduces effective stress and stability." },
+  { "id": "friction", "term": "Friction (Soil)", "definition": "The resistance between soil particles that helps prevent sliding." },
+  { "id": "cohesion", "term": "Cohesion", "definition": "The force that binds soil particles together, contributing to shear strength." },
+
+  { "id": "settlement", "term": "Settlement", "definition": "The gradual sinking or compression of soil under a load, which can affect structures." },
+  { "id": "clay-soil", "term": "Clay Soil", "definition": "Fine-grained soil with low permeability and high compressibility, prone to expansion and contraction." },
+  { "id": "erosion", "term": "Erosion", "definition": "The removal and transport of soil or rock by water, wind, or gravity." },
+  { "id": "slump", "term": "Slump", "definition": "A type of mass movement where material rotates downward along a curved surface." },
+
+  { "id": "sandy-soil", "term": "Sandy Soil", "definition": "Soil with large particles that drains quickly but has low cohesion and stability." },
+  { "id": "dike", "term": "Dike", "definition": "A tabular igneous intrusion that cuts across existing rock layers." },
+
+  { "id": "effective-stress", "term": "Effective Stress", "definition": "The stress carried by soil particles, equal to total stress minus pore water pressure." },
+  { "id": "gravity", "term": "Gravity (Geology)", "definition": "The force that drives mass movement and controls the stability of slopes." },
+
+  { "id": "sinkhole", "term": "Sinkhole", "definition": "A depression formed by the collapse of underground cavities, common in karst regions." },
+  { "id": "void-space", "term": "Void Space", "definition": "Empty spaces within soil or rock that can hold water or air." },
+  { "id": "rainfall-trigger", "term": "Rainfall Trigger", "definition": "Heavy rainfall that increases water content and often triggers landslides." },
+
+  { "id": "mechanical-properties", "term": "Mechanical Properties", "definition": "The physical characteristics of soil or rock that determine strength and deformation behavior." },
+  { "id": "hydrological-properties", "term": "Hydrological Properties", "definition": "The water-related characteristics of soil or rock, including permeability and water retention." },
+  { "id": "glacial-erosion", "term": "Glacial Erosion", "definition": "The process by which glaciers shape the landscape through abrasion and plucking, often forming U-shaped valleys." },
+  { "id": "chemical-weathering", "term": "Chemical Weathering", "definition": "The breakdown of minerals through chemical reactions such as oxidation, hydrolysis, and dissolution." },
+  { "id": "aeolian-processes", "term": "Aeolian Processes", "definition": "Wind-driven processes that transport, erode, and deposit sediment, especially in arid environments." },
+
+  { "id": "delta", "term": "Delta", "definition": "A landform created by the deposition of sediment where a river enters a body of water and slows down." },
+  { "id": "cut-bank", "term": "Cut Bank", "definition": "The outer edge of a river bend where erosion occurs due to faster water flow." },
+  { "id": "point-bar", "term": "Point Bar", "definition": "A depositional feature formed on the inner bend of a river where water velocity decreases." },
+
+  { "id": "frost-wedging", "term": "Frost Wedging", "definition": "A mechanical weathering process where water freezes, expands, and breaks rock apart." },
+  { "id": "traction", "term": "Traction", "definition": "The movement of large sediment particles along a surface by rolling or sliding due to flowing water or wind." },
+  { "id": "saltation", "term": "Saltation", "definition": "A transport process in which sediment particles bounce or hop along a surface." },
+  { "id": "suspension", "term": "Suspension", "definition": "The transport of fine particles that remain floating within a fluid like water or air." },
+  { "id": "solution-transport", "term": "Solution Transport", "definition": "The movement of dissolved minerals carried within water as ions." },
+
+  { "id": "moraines", "term": "Moraines", "definition": "Unsorted glacial deposits made up of a mixture of sediment sizes left behind by glaciers." },
+  { "id": "cirque", "term": "Cirque", "definition": "A bowl-shaped depression formed by glacial erosion at the head of a glacier." },
+  { "id": "drumlin", "term": "Drumlin", "definition": "A streamlined hill formed beneath a glacier, aligned in the direction of ice movement." },
+  { "id": "alluvial-fan", "term": "Alluvial Fan", "definition": "A fan-shaped deposit of sediment formed where a stream exits a mountainous area and slows down." },
+  { "id": "floodplain", "term": "Floodplain", "definition": "A flat area adjacent to a river that is periodically flooded and built up by sediment deposition." },
+
+  { "id": "tropical-weathering", "term": "Tropical Weathering", "definition": "Intense chemical weathering that occurs in warm, humid climates due to abundant moisture and high temperatures." },
+  { "id": "biological-weathering", "term": "Biological Weathering", "definition": "The breakdown of rock caused by living organisms such as plant roots and microorganisms." },
+  { "id": "coastal-cliff", "term": "Coastal Cliff", "definition": "A steep rock face along a shoreline formed by wave erosion." },
+  { "id": "yardang", "term": "Yardang", "definition": "An elongated ridge formed by wind erosion, typically aligned with prevailing wind direction." },
+  { "id": "deposition-process", "term": "Deposition-Process", "definition": "The natural or human-driven process by which sediments or materials are laid down over time, forming archaeological layers. The settling of sediment when the transporting medium loses energy." },
+
+  { "id": "canyon", "term": "Canyon", "definition": "A deep valley with steep sides formed by prolonged river erosion." },
+  { "id": "abrasion", "term": "Abrasion", "definition": "The process of sediment particles scraping and wearing down rock surfaces during transport." },
+  { "id": "outwash-plain", "term": "Outwash Plain", "definition": "A flat area of sorted sediment deposited by glacial meltwater streams." },
+  { "id": "soil-horizons", "term": "Soil Horizons", "definition": "Distinct layers within soil formed through weathering and biological processes." },
+
+  { "id": "river-terrace", "term": "River Terrace", "definition": "A step-like landform representing a former floodplain that has been left behind as a river cuts downward." },
+  { "id": "dunes", "term": "Sand Dunes", "definition": "Mounds or ridges of sand formed by wind deposition." },
+  { "id": "dissolution", "term": "Dissolution", "definition": "The process by which minerals are dissolved in water, often contributing to chemical weathering." },
+  { "id": "thermal-expansion", "term": "Thermal Expansion", "definition": "The expansion and contraction of rock due to temperature changes, leading to mechanical weathering." },
+
+  { "id": "striations", "term": "Glacial Striations", "definition": "Scratches or grooves on rock surfaces created by rocks embedded in moving glacier ice." },
+  { "id": "meandering", "term": "Meandering", "definition": "The process by which rivers develop winding curves due to erosion and deposition." },
+  { "id": "solution-load", "term": "Solution Load", "definition": "The portion of a river’s load that consists of dissolved ions." },
+  { "id": "exfoliation", "term": "Exfoliation", "definition": "A type of mechanical weathering where outer layers of rock peel away due to pressure release." },
+  { "id": "slope-failure", "term": "Slope Failure", "definition": "The collapse or movement of soil and rock down a slope when stability is exceeded." },
+
+  { "id": "levees", "term": "Levees", "definition": "Natural embankments formed along riverbanks by repeated flooding and sediment deposition." },
+  { "id": "sea-arches", "term": "Sea Arches", "definition": "Rock formations created when waves erode through a headland, forming an arch." },
+
+  { "id": "mudflow", "term": "Mudflow", "definition": "A rapid flow of water-saturated soil and debris down a slope." },
+  { "id": "rockfall", "term": "Rockfall", "definition": "A rapid mass movement where rock fragments fall freely from a steep slope." },
+  { "id": "mechanical-weathering", "term": "Mechanical Weathering", "definition": "The physical breakdown of rock into smaller pieces without changing its chemical composition." },
+  { "id": "confined-aquifer", "term": "Confined Aquifer", "definition": "An aquifer bounded above and below by impermeable layers, where groundwater is under pressure." },
+  { "id": "hydraulic-gradient", "term": "Hydraulic Gradient", "definition": "The change in hydraulic head per unit distance, which drives groundwater flow." },
+  { "id": "unsaturated-zone", "term": "Unsaturated Zone (Vadose Zone)", "definition": "The zone above the water table where pore spaces contain both air and water." },
+  { "id": "hydraulic-head", "term": "Hydraulic Head", "definition": "The total energy of groundwater, combining elevation and pressure, which determines flow direction." },
+
+  { "id": "impermeable-surface", "term": "Impermeable Surface", "definition": "A surface that prevents water from infiltrating into the ground, such as asphalt or concrete." },
+  { "id": "percolation", "term": "Percolation", "definition": "The downward movement of water through soil and rock layers under gravity." },
+  { "id": "pore-connectivity", "term": "Pore Connectivity", "definition": "The degree to which pore spaces are connected, allowing fluids to move through a material." },
+  { "id": "water-table", "term": "Water Table", "definition": "The upper surface of the saturated zone where all pore spaces are filled with water." },
+
+  { "id": "aquitard", "term": "Aquitard", "definition": "A geologic layer that stores water but transmits it very slowly due to low permeability." },
+  { "id": "groundwater-flow", "term": "Groundwater Flow", "definition": "The movement of water through subsurface materials, typically much slower than surface water flow." },
+  { "id": "artesian-flow", "term": "Artesian Flow", "definition": "Groundwater flow driven by pressure in a confined aquifer, sometimes rising above the surface without pumping." },
+  { "id": "head-difference", "term": "Head Difference", "definition": "The difference in hydraulic head between two points, which drives groundwater movement." },
+
+  { "id": "aquifer-recharge", "term": "Aquifer Recharge", "definition": "The process by which groundwater is replenished, usually through precipitation infiltrating into the ground." },
+  { "id": "spring", "term": "Spring", "definition": "A natural discharge point where groundwater flows to the Earth's surface." },
+  { "id": "carbonate-dissolution", "term": "Carbonate Dissolution", "definition": "The chemical process where calcium carbonate rocks dissolve in acidic water, forming karst features." },
+  { "id": "karst-features", "term": "Karst Features", "definition": "Landforms such as caves and sinkholes formed by the dissolution of soluble rocks like limestone." },
+
+  { "id": "infiltration", "term": "Infiltration", "definition": "The process by which water enters the soil surface and begins moving downward." },
+  { "id": "rock-structure", "term": "Rock Structure (Hydrology)", "definition": "The arrangement of fractures, bedding, and faults that influence groundwater flow paths." },
+  { "id": "perched-water", "term": "Perched Water", "definition": "Groundwater that accumulates above the main water table due to a local impermeable layer." },
+  { "id": "topography-control", "term": "Topographic Control", "definition": "The influence of surface elevation on groundwater flow and water table shape." },
+
+  { "id": "water-table-decline", "term": "Water Table Decline", "definition": "A lowering of groundwater levels due to excessive pumping or reduced recharge." },
+  { "id": "saltwater-intrusion", "term": "Saltwater Intrusion", "definition": "The movement of seawater into freshwater aquifers, often caused by overpumping near coastlines." },
+  { "id": "capillary-fringe", "term": "Capillary Fringe", "definition": "The zone just above the water table where water is drawn upward by capillary action." },
+
+  { "id": "diffusion", "term": "Diffusion", "definition": "The movement of dissolved substances from areas of high concentration to low concentration." },
+  { "id": "potentiometric-surface", "term": "Potentiometric Surface", "definition": "An imaginary surface representing the pressure level of groundwater in a confined aquifer." },
+
+  { "id": "hydraulic-conductivity", "term": "Hydraulic Conductivity", "definition": "A measure of how easily a fluid can move through a porous material, influenced by both permeability and fluid properties." },
+  { "id": "flow-resistance", "term": "Flow Resistance", "definition": "The opposition to groundwater movement due to material properties and flow pathways." },
+  { "id": "flow-pathways", "term": "Flow Pathways", "definition": "The routes through which groundwater travels, often controlled by fractures and pore networks." },
+
+  { "id": "hydrologic-cycle", "term": "Hydrologic Cycle", "definition": "The continuous movement of water between the atmosphere, surface, and subsurface environments." },
+  { "id": "secondary-porosity", "term": "Secondary Porosity", "definition": "Porosity formed after rock formation, typically through fracturing or dissolution." },
+  { "id": "specific-yield", "term": "Specific Yield", "definition": "The amount of water that can drain freely from soil or rock under gravity." },
+  { "id": "specific-retention", "term": "Specific Retention", "definition": "The portion of water that remains bound to soil particles and cannot drain under gravity." },
+
+  { "id": "flow-direction", "term": "Groundwater Flow Direction", "definition": "The direction in which groundwater moves, determined by the slope of the hydraulic head." },
+  { "id": "flow-velocity", "term": "Groundwater Velocity", "definition": "The rate at which groundwater moves through subsurface materials." },
+
+  { "id": "cone-of-depression", "term": "Cone of Depression", "definition": "A cone-shaped lowering of the water table around a pumping well." },
+  { "id": "induced-recharge", "term": "Induced Recharge", "definition": "The process by which surface water is drawn into an aquifer due to pumping." },
+  { "id": "advection", "term": "Advection", "definition": "The transport of substances by the bulk movement of flowing groundwater." },
+  { "id": "capillary-water", "term": "Capillary Water", "definition": "Water held in soil pores by surface tension, typically above the water table." },
+
+  { "id": "groundwater-discharge", "term": "Groundwater Discharge", "definition": "The release of groundwater to the surface, such as into streams, lakes, or oceans." },
+  { "id": "aquifer-transmissivity", "term": "Aquifer Transmissivity", "definition": "The ability of an aquifer to transmit water, combining permeability and thickness." },
+  { "id": "quartz", "term": "Quartz (SiO₂)", "definition": "A very common silicate mineral composed of silicon dioxide, known for its hardness and resistance to weathering." },
+  { "id": "calcite", "term": "Calcite (CaCO₃)", "definition": "A carbonate mineral that reacts with acid and is the primary component of limestone." },
+  { "id": "pyrite", "term": "Pyrite (FeS₂)", "definition": "An iron sulfide mineral often called 'fool’s gold' due to its metallic luster and color." },
+  { "id": "halite-mineral", "term": "Halite (NaCl)", "definition": "A mineral composed of sodium chloride, commonly known as rock salt." },
+  { "id": "hematite-mineral", "term": "Hematite (Fe₂O₃)", "definition": "An iron oxide mineral and one of the most important sources of iron ore." },
+  { "id": "magnetite", "term": "Magnetite (Fe₃O₄)", "definition": "A magnetic iron oxide mineral that is an important iron ore." },
+
+  { "id": "gypsum-mineral", "term": "Gypsum (CaSO₄·2H₂O)", "definition": "A soft sulfate mineral used in drywall and cement production." },
+  { "id": "fluorite", "term": "Fluorite (CaF₂)", "definition": "A mineral composed of calcium fluoride, often used in industrial processes." },
+  { "id": "dolomite", "term": "Dolomite (CaMg(CO₃)₂)", "definition": "A carbonate mineral composed of calcium magnesium carbonate." },
+
+  { "id": "orthoclase", "term": "Orthoclase (KAlSi₃O₈)", "definition": "A potassium feldspar mineral commonly found in igneous rocks." },
+  { "id": "albite", "term": "Albite (NaAlSi₃O₈)", "definition": "A sodium-rich feldspar mineral found in igneous and metamorphic rocks." },
+  { "id": "anorthite", "term": "Anorthite (CaAl₂Si₂O₈)", "definition": "A calcium-rich feldspar mineral, part of the plagioclase series." },
+
+  { "id": "olivine", "term": "Olivine ((Mg,Fe)₂SiO₄)", "definition": "A magnesium-iron silicate mineral common in mantle rocks." },
+  { "id": "muscovite", "term": "Muscovite", "definition": "A light-colored mica mineral known for its sheet-like structure and cleavage." },
+  { "id": "biotite", "term": "Biotite", "definition": "A dark mica mineral rich in iron and magnesium with excellent sheet cleavage." },
+
+  { "id": "talc", "term": "Talc (Mg₃Si₄O₁₀(OH)₂)", "definition": "The softest mineral on the Mohs scale, commonly used in powders and cosmetics." },
+  { "id": "kaolinite", "term": "Kaolinite", "definition": "A clay mineral formed from the weathering of feldspar, used in ceramics." },
+  { "id": "garnet", "term": "Garnet", "definition": "A group of silicate minerals commonly used as gemstones and abrasives." },
+
+  { "id": "chalcopyrite-mineral", "term": "Chalcopyrite (CuFeS₂)", "definition": "The most important ore mineral of copper." },
+  { "id": "galena", "term": "Galena (PbS)", "definition": "The primary ore of lead, known for its metallic luster and cubic crystals." },
+  { "id": "sphalerite", "term": "Sphalerite (ZnS)", "definition": "The most important ore mineral of zinc." },
+
+  { "id": "corundum", "term": "Corundum (Al₂O₃)", "definition": "A very hard mineral used as an abrasive and gemstone (ruby, sapphire)." },
+  { "id": "apatite", "term": "Apatite", "definition": "A phosphate mineral important for fertilizers and biological systems." },
+
+  { "id": "barite", "term": "Barite (BaSO₄)", "definition": "A dense sulfate mineral used in drilling fluids and industrial applications." },
+  { "id": "anhydrite", "term": "Anhydrite (CaSO₄)", "definition": "A sulfate mineral similar to gypsum but lacking water." },
+  { "id": "sylvite", "term": "Sylvite (KCl)", "definition": "A potassium chloride mineral used as fertilizer." },
+
+  { "id": "graphite", "term": "Graphite (C)", "definition": "A soft form of carbon used in pencils and as a lubricant." },
+  { "id": "diamond", "term": "Diamond (C)", "definition": "The hardest known natural mineral, composed of carbon." },
+
+  { "id": "ilmenite", "term": "Ilmenite (FeTiO₃)", "definition": "An iron titanium oxide mineral and a major source of titanium." },
+  { "id": "rutile", "term": "Rutile (TiO₂)", "definition": "A titanium dioxide mineral used in pigments and coatings." },
+
+  { "id": "goethite", "term": "Goethite (FeO(OH))", "definition": "An iron hydroxide mineral commonly found in weathered deposits." },
+  { "id": "limonite", "term": "Limonite", "definition": "A mixture of hydrated iron oxides, often forming from weathering." },
+
+  { "id": "malachite", "term": "Malachite", "definition": "A green copper carbonate mineral used as an ore and gemstone." },
+  { "id": "azurite", "term": "Azurite", "definition": "A blue copper carbonate mineral often associated with malachite." },
+
+  { "id": "serpentine", "term": "Serpentine", "definition": "A group of magnesium silicate minerals formed during metamorphism." },
+  { "id": "augite", "term": "Augite", "definition": "A common pyroxene mineral found in igneous rocks." },
+  { "id": "hornblende", "term": "Hornblende", "definition": "A common amphibole mineral in igneous and metamorphic rocks." },
+
+  { "id": "enstatite", "term": "Enstatite", "definition": "A magnesium silicate mineral belonging to the pyroxene group." },
+  { "id": "ferrosilite", "term": "Ferrosilite", "definition": "An iron-rich pyroxene mineral." },
+
+  { "id": "spinel", "term": "Spinel (MgAl₂O₄)", "definition": "A mineral used as a gemstone and refractory material." },
+  { "id": "chromite", "term": "Chromite", "definition": "The primary ore mineral of chromium." },
+
+  { "id": "bauxite", "term": "Bauxite", "definition": "The main ore of aluminum, formed by intense weathering." },
+
+  { "id": "ulexite", "term": "Ulexite", "definition": "A borate mineral sometimes called 'TV rock' due to its optical properties." },
+  { "id": "colemanite", "term": "Colemanite", "definition": "A borate mineral used in industrial applications." },
+
+  { "id": "smithsonite", "term": "Smithsonite", "definition": "A zinc carbonate mineral used as an ore of zinc." },
+  { "id": "siderite", "term": "Siderite", "definition": "An iron carbonate mineral." },
+  { "id": "rhodochrosite", "term": "Rhodochrosite", "definition": "A manganese carbonate mineral often used as a gemstone." },
+
+  { "id": "aragonite", "term": "Aragonite", "definition": "A polymorph of calcium carbonate, often found in marine environments." },
+
+  { "id": "periclase", "term": "Periclase (MgO)", "definition": "A magnesium oxide mineral formed in high-temperature environments." },
+  { "id": "brucite", "term": "Brucite (Mg(OH)₂)", "definition": "A magnesium hydroxide mineral often formed during metamorphism." }
+]
