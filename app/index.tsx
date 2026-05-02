@@ -1,11 +1,26 @@
+import { ensureUser } from "@/lib/auth";
 import { theme } from "@/lib/theme";
 import { router } from "expo-router";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Image, Pressable, Text, View } from "react-native";
+
 
 export default function HomeScreen() {
   const tapLock = useRef(false);
+  const [ready, setReady] = useState(false);
+useEffect(() => {
+  const init = async () => {
+    try {
+      await ensureUser();
+    } catch (e) {
+      console.log("AUTH INIT ERROR:", e);
+    }
+    setReady(true);
+  };
 
+  // 🔥 CRITICAL DELAY (prevents TestFlight crash)
+  setTimeout(init, 300);
+}, []);
   function safeNav(path: string) {
     if (tapLock.current) return;
     tapLock.current = true;
@@ -16,7 +31,9 @@ export default function HomeScreen() {
       tapLock.current = false;
     }, 400);
   }
-
+if (!ready) {
+  return null;
+}
   return (
     <View
       style={{

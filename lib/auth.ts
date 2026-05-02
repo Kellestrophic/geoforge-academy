@@ -8,6 +8,9 @@ export async function ensureUser() {
       return sessionData.session.user;
     }
 
+    // 🔥 SAFE DELAY BEFORE SIGN IN
+    await new Promise((res) => setTimeout(res, 200));
+
     const { data, error } = await supabase.auth.signInAnonymously();
 
     if (error) {
