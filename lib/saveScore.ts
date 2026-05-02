@@ -1,7 +1,10 @@
-import { supabase } from "./supabase";
-
 export async function saveScore(score: number, type: string) {
   try {
+    const { getSupabase } = await import("./supabase");
+    const supabase = getSupabase();
+
+    if (!supabase) return;
+
     const { data } = await supabase.auth.getUser();
     const userId = data?.user?.id;
 

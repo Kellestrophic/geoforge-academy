@@ -1,8 +1,9 @@
-import { supabase } from "@/lib/supabase";
-
 const testSupabase = async () => {
   try {
     console.log("TEST START");
+
+    // 🔥 LAZY LOAD (THIS FIXES CRASH)
+    const { supabase } = await import("@/lib/supabase");
 
     const { error } = await supabase
       .from("exam_history")

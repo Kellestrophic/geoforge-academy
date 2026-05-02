@@ -1,7 +1,10 @@
-import { supabase } from "./supabase";
-
 export async function ensureUser() {
   try {
+    const { getSupabase } = await import("./supabase");
+    const supabase = getSupabase();
+
+    if (!supabase) return null;
+
     // 1. check existing session
     const { data: sessionData } = await supabase.auth.getSession();
 
