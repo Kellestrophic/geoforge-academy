@@ -1,30 +1,38 @@
-import { supabase } from "./supabase";
-
 export async function initUser() {
   console.log("🔐 INIT USER START");
 
-  const { data: sessionData } = await supabase.auth.getSession();
+  try {
+    const { getSupabase } = await import("./supabase");
+    const supabase = getSupabase();
 
-  if (sessionData?.session?.user) {
-    console.log("✅ EXISTING USER:", sessionData.session.user.id);
-    return sessionData.session.user;
-  }
+    if (!supabase) return null;
 
-  console.log("🚨 NO SESSION → CREATING USER");
+    const { data: sessionData } = await supabase.auth.getSession();
 
-  const { data, error } = await supabase.auth.signInAnonymously();
+    if (sessionData?.session?.user) {
+      console.log("✅ EXISTING USER:", sessionData.session.user.id);
+      return sessionData.session.user;
+    }
 
-  if (error) {
-    console.log("❌ SIGN IN ERROR:", error);
+    console.log("🚨 NO SESSION → CREATING USER");
+
+    const { data, error } = await supabase.auth.signInAnonymously();
+
+    if (error) {
+      console.log("❌ SIGN IN ERROR:", error);
+      return null;
+    }
+
+    if (!data?.user) {
+      console.log("❌ NO USER RETURNED");
+      return null;
+    }
+
+    console.log("🔥 CREATED USER:", data.user.id);
+
+    return data.user;
+  } catch (e) {
+    console.log("❌ AUTH CRASH:", e);
     return null;
   }
-
-  if (!data?.user) {
-    console.log("❌ NO USER RETURNED");
-    return null;
-  }
-
-  console.log("🔥 CREATED USER:", data.user.id);
-
-  return data.user;
 }

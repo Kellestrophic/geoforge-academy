@@ -3,7 +3,8 @@ const testSupabase = async () => {
     console.log("TEST START");
 
     // 🔥 LAZY LOAD (THIS FIXES CRASH)
-    const { supabase } = await import("@/lib/supabase");
+   const { getSupabase } = await import("@/lib/supabase");
+const supabase = getSupabase();
 
     const { error } = await supabase
       .from("exam_history")
