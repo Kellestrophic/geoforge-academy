@@ -1,22 +1,9 @@
-const testSupabase = async () => {
-  try {
-    console.log("TEST START");
+import { Text, View } from "react-native";
 
-    // 🔥 LAZY LOAD (THIS FIXES CRASH)
-   const { getSupabase } = await import("@/lib/supabase");
-const supabase = getSupabase();
-
-    const { error } = await supabase
-      .from("exam_history")
-      .select("id")
-      .limit(1);
-
-    if (error) {
-      console.log("SAFE ERROR:", error.message);
-    } else {
-      console.log("SAFE SUCCESS");
-    }
-  } catch (e) {
-    console.log("SAFE CRASH:", e);
-  }
-};
+export default function ProfileScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text>Profile Safe</Text>
+    </View>
+  );
+}
