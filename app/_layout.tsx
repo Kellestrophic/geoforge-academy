@@ -1,36 +1,10 @@
-import { ensureUser } from "@/lib/auth";
 import { theme } from "@/lib/theme";
 import { Stack } from "expo-router";
-import { useEffect } from "react";
 import "react-native-gesture-handler";
 import "react-native-reanimated";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function Layout() {
-  useEffect(() => {
-  let mounted = true;
-
-  const init = async () => {
-    try {
-      // slight delay prevents Hermes crash on cold boot
-      await new Promise((res) => setTimeout(res, 300));
-
-      const user = await ensureUser();
-
-      if (mounted) {
-        console.log("✅ USER READY:", user?.id);
-      }
-    } catch (e) {
-      console.log("❌ INIT ERROR:", e);
-    }
-  };
-
-  init();
-
-  return () => {
-    mounted = false;
-  };
-}, []);
   return (
     <SafeAreaProvider>
       <Stack
@@ -55,12 +29,18 @@ export default function Layout() {
         <Stack.Screen name="modes" options={{ title: "Modes" }} />
         <Stack.Screen name="practice" options={{ title: "Practice" }} />
         <Stack.Screen name="topics" options={{ title: "Topics" }} />
-        <Stack.Screen name="review" options={{ title: "Review" }} />
+                <Stack.Screen
+  name="review"
+  options={{
+    title: "Review",
+    gestureEnabled: false,
+  }}
+/>
         <Stack.Screen name="exam-pg" options={{ title: "PG Exam" }} />
         <Stack.Screen name="exam-topic" options={{ title: "Topic Exam" }} />
         <Stack.Screen name="exam" options={{ title: "Exam" }} />
         <Stack.Screen name="exam-random" options={{ title: "Random Exam" }} />
-       <Stack.Screen
+          <Stack.Screen
   name="profile"
   options={{
     title: "Results",

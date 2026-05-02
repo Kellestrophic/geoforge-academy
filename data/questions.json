@@ -1713,277 +1713,197 @@
   {
     "id": "q101",
     "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "Poisson's ratio (v)",
+    "question": "Poisson's ratio (ν)",
     "choices": [
-      "A theory that forecasts location and magnitude of future earthquakes based on the absense of earthquakes in one area as compared to the presence of earthquakes adjacent to the gap.",
-      "The line on the plasticity chart that divides clays from silts. Equation of the line is horizontal at PI = 4 to LL 25.5, then PI = 0.73 (LL - 20)",
-      "An elastic constant (does not exceed 0.5). The ratio of the lateral unit strain to the longitudinal unit strain in a body that has been stressed longitudinally within its elastic limit.",
-      "The movement of an unsupported cliff or stream bank toward the free face during an earthquake. A series of more or less parallel cracks are formed, separating the ground into blocks."
+      "The ratio of lateral strain to longitudinal strain in a material under stress.",
+      "The ratio of stress to strain in elastic deformation.",
+      "The ratio of shear stress to shear strain.",
+      "The ratio of void space to total volume."
     ],
-    "correctAnswer": 2,
-    "explanation": "Poisson's Ratio = Change in Length / Change in Diameter",
-    "difficulty": "hard",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Poisson’s ratio describes how much a material contracts laterally when stretched longitudinally. It is defined as lateral strain divided by axial (longitudinal) strain. Most soils and rocks have values between 0 and 0.5."
   },
   {
     "id": "q102",
     "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "Poorly Graded",
+    "question": "Poorly Graded Soil",
     "choices": [
-      "The uneven lowering of different parts of an engineered structure, often resulting in damage to the structure.",
-      "A soil with most grain sizes present in one size range. Equivalent to the geologist's \"well sorted",
-      "The gradual downward movement of an engineered structure due to compression of the soil below the foundation.",
-      "A graphic representation of the results of a sieve analysis plotted as percent passing vs. grain size."
+      "A soil with particles concentrated in a narrow size range (well sorted).",
+      "A soil with a wide range of grain sizes.",
+      "A soil missing intermediate particle sizes.",
+      "A soil dominated by clay minerals."
     ],
-    "correctAnswer": 1,
-    "explanation": "A soil with most grain sizes present in one size range. Equivalent to the geologist's \"well sorted",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Poorly graded soils have a narrow range of grain sizes, meaning they are well sorted. This is opposite of well-graded soils, which contain a wide variety of particle sizes."
   },
   {
     "id": "q103",
     "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Quick Condition",
     "choices": [
-      "The sides of a stream channel or a structure that supports the end of a dam or bridge. Sides of the abutment are viewed facing downstream.",
-      "The condition of soil in which a decrease in intergranular pressure allows water to flow upward with sufficient velocity to reduce significantly the soil's bearing capacity.",
-      "Areas within the dam where excavated materials are placed. A random zone is paced where permeability and sheaer strength are not critical and where weight is important.",
-      "Rock or soil that increases in volume when excavaated. Volume increase is usually caused by the presence of clay minerals with a high swelling capacity."
+      "Soil behaves like a fluid due to upward seepage reducing effective stress.",
+      "Soil compacts rapidly under vibration.",
+      "Soil expands when wetted.",
+      "Soil loses strength due to drying."
     ],
-    "correctAnswer": 1,
-    "explanation": "Basically quicksand.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Quick condition occurs when upward seepage reduces effective stress to near zero. Without effective stress, soil grains lose contact and the soil behaves like a fluid (quicksand)."
   },
   {
     "id": "q104",
     "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Relative Density (R.D)",
     "choices": [
-      "The ratio of the volume of water to the total volume of void space. The value of SR can range from zero for a completely dry soil to one (or 100%) for a fully saturated soil.",
-      "The ratio of the difference between the void ratio of a cohesionless soil in the loosest state and any given void ratio to the difference between its void ratios in the loosest and in the densest states.",
-      "A dry mixture of Portland cement and sand, forced by compressed air through a special hose, with water applied at the nozzel and sprayed onto mine timbers, tunnel supports, and roadways to seal and fireproof them.",
-      "A measure of the stability of a slope in which the resisting forces are compared to the driving forces. If the resisting force is equal to or less than the driving force, then the slope will fail."
+      "A measure of how dense a granular soil is compared to its loosest and densest states.",
+      "The ratio of water volume to total void volume.",
+      "The ratio of stress to strain.",
+      "The amount of water retained in soil."
     ],
-    "correctAnswer": 1,
-    "explanation": "R.D. = (emax - e) / (emax - emin)",
-    "difficulty": "hard",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Relative density compares the current void ratio of a soil to its maximum and minimum possible void ratios. It indicates how compact or loose a granular soil is."
   },
   {
     "id": "q105",
     "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Relative Compaction",
     "choices": [
-      "A loose assemblage of broken rocks used for foundations or slope protection.",
-      "Water content at which the soil volume is at its lower limit.",
-      "Mo = Shear Modulus x Fault Area x Average Slip Along Fault",
-      "The amount of compaction relative to the moisture-density curve or compaction curve."
+      "The dry density compared to the maximum dry density from lab compaction.",
+      "The ratio of void space to total volume.",
+      "The amount of water lost during drainage.",
+      "The stress applied to a soil mass."
     ],
-    "correctAnswer": 3,
-    "explanation": "Relative Compaction = Dry Density / Maximum Dry Density",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Relative compaction is used in engineering to compare field compaction to laboratory maximum density. It ensures soils are compacted adequately for construction."
   },
   {
     "id": "q106",
     "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [
-      "Hydrogeology"
-    ],
     "question": "Seepage",
     "choices": [
-      "The load per unit area which the ground can safely support without excessive yield.",
-      "The movement of water or other fluid through a porous material such as soil.",
-      "The property of a soil that is able to absorb stress by plastic deformation.",
-      "A group of clay minerals that expand when they absorb large quantites of water."
+      "The movement of water through soil or porous media.",
+      "The evaporation of groundwater.",
+      "The downward movement of soil under load.",
+      "The lateral movement of soil on slopes."
     ],
-    "correctAnswer": 1,
-    "explanation": "The movement of water or other fluid through a porous material such as soil.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Seepage refers specifically to groundwater flow through pores in soil or rock, driven by hydraulic gradients."
   },
   {
     "id": "q107",
     "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Settlement",
     "choices": [
-      "The internal resistance of a soil to shear stress consisting of a combination of friction and cohesion.",
-      "The uneven lowering of different parts of an engineered structure, often resulting in damage to the structure.",
-      "The gradual downward movement of an engineered structure due to compression of the soil below the foundation.",
-      "A graphic representation of the results of a sieve analysis plotted as percent passing vs. grain size."
+      "The gradual downward movement of a structure due to soil compression.",
+      "Sudden collapse of soil due to liquefaction.",
+      "Sideways movement of soil.",
+      "Expansion of soil when wetted."
     ],
-    "correctAnswer": 2,
-    "explanation": "The gradual downward movement of an engineered structure due to compression of the soil below the foundation.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Settlement occurs when soil compresses under load, causing structures above to sink. It can be immediate or occur over time (consolidation)."
   },
   {
     "id": "q108",
     "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "Shear Modulus (G) / Rigidity Modulus",
+    "question": "Shear Modulus (G)",
     "choices": [
-      "The ratio of the density of the soild particles to the density of water at 4 degrees C.",
-      "A modulus of elasticity in shear. It measures the shear strain resulting from shear stress on a plane.",
-      "A more or less continuous motion in the Earth unrelated to earthqueks, with a period of 1-9 seconds.",
-      "The uneven lowering of different parts of an engineered structure, often resulting in damage to the structure."
+      "The ratio of shear stress to shear strain.",
+      "The ratio of stress to axial strain.",
+      "The resistance to volumetric change.",
+      "The ratio of pressure to volume."
     ],
-    "correctAnswer": 1,
-    "explanation": "Shear Modulus (G) = Shear Stress / Shear Strain",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Shear modulus measures stiffness in shear deformation. It is defined as shear stress divided by shear strain."
   },
   {
     "id": "q109",
     "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "Shear Strength (s)",
+    "question": "Shear Strength",
     "choices": [
-      "The gradual downward movement of an engineered structure due to compression of the soil below the foundation.",
-      "The uneven lowering of different parts of an engineered structure, often resulting in damage to the structure.",
-      "A graphic representation of the results of a sieve analysis plotted as percent passing vs. grain size.",
-      "The internal resistance of a soil to shear stress consisting of a combination of friction and cohesion."
+      "Resistance to shear combining cohesion and friction.",
+      "Resistance to compression only.",
+      "Ability to transmit fluids.",
+      "Resistance to tensile stress."
     ],
-    "correctAnswer": 3,
-    "explanation": "The internal resistance of a soil to shear stress consisting of a combination of friction and cohesion.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Shear strength is controlled by cohesion (c) and internal friction (φ), commonly expressed as τ = c + σ tanφ."
   },
   {
     "id": "q110",
     "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "Shear Stress (t)",
+    "question": "Shear Stress (τ)",
     "choices": [
-      "The floor or bottom of a closed conduit, such as a tunnel, aquaduct, or drain.",
-      "A reduction in the amplitude of seismic waves produced by divergence, scattering, reflection, and absorption.",
-      "The component of stress that acts along a plane through any point in the body.",
-      "A statement of elastic deformation - the strain is linearly proportional to the applied stress."
+      "Stress acting parallel to a plane.",
+      "Stress acting perpendicular to a plane.",
+      "Pressure in pore water.",
+      "Weight per unit volume."
     ],
-    "correctAnswer": 2,
-    "explanation": "The component of stress that acts along a plane through any point in the body.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Shear stress acts along the surface of a material, causing deformation parallel to that surface."
   },
   {
     "id": "q111",
     "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Shrinkage Limit",
     "choices": [
-      "Magnitude of an earthquake as estimated from the apmplitude of body waves.",
-      "A loose assemblage of broken rocks used for foundations or slope protection.",
-      "Water content at which the soil volume is at its lower limit.",
-      "Mo = Shear Modulus x Fault Area x Average Slip Along Fault"
+      "Water content at which soil stops shrinking when dried further.",
+      "Water content where soil begins to flow.",
+      "Water content at full saturation.",
+      "Water content at maximum density."
     ],
-    "correctAnswer": 2,
-    "explanation": "Water content at which the soil volume is at its lower limit.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "The shrinkage limit marks the boundary between semi-solid and solid states, where further drying does not reduce volume."
   },
   {
     "id": "q112",
     "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [
-      "Mineralogy",
-      "Petrology"
-    ],
     "question": "Smectites",
     "choices": [
-      "A group of clay minerals that expand when they absorb large quantites of water.",
-      "The average time interval between earthquake occurrences of equal magnitude on the same fault.",
-      "The load per unit area which the ground can safely support without excessive yield.",
-      "The property of a soil that is able to absorb stress by plastic deformation."
+      "Clay minerals that expand significantly when wet.",
+      "Non-expanding quartz grains.",
+      "Carbonate minerals.",
+      "Heavy minerals."
     ],
     "correctAnswer": 0,
-    "explanation": "A group of clay minerals that expand when they absorb large quantites of water.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Smectites (like montmorillonite) are expansive clays that absorb water and swell significantly."
   },
   {
     "id": "q113",
     "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Specific Gravity",
     "choices": [
-      "A more or less continuous motion in the Earth unrelated to earthqueks, with a period of 1-9 seconds.",
-      "The ratio of the density of the soild particles to the density of water at 4 degrees C.",
-      "A modulus of elasticity in shear. It measures the shear strain resulting from shear stress on a plane.",
-      "The uneven lowering of different parts of an engineered structure, often resulting in damage to the structure."
+      "Ratio of solid particle density to water density.",
+      "Ratio of void space to total volume.",
+      "Ratio of stress to strain.",
+      "Ratio of pressure to flow."
     ],
-    "correctAnswer": 1,
-    "explanation": "Gs = Ms / (Vs x Pw) ... [Specific Gravity = Solid Mass / Solid Volume x Water Density)",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Specific gravity compares the density of soil particles to water at 4°C. It is dimensionless."
   },
   {
     "id": "q114",
     "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "Strain (epsilon)",
+    "question": "Strain (ε)",
     "choices": [
-      "Rock or soil that increases in volume when excavaated. Volume increase is usually caused by the presence of clay minerals with a high swelling capacity.",
-      "Disintegration of rock or soil when submerged in water. Outcrops of sound rock when subjected to a shrink swell cycle crumble into flakes or particles.",
-      "The sides of a stream channel or a structure that supports the end of a dam or bridge. Sides of the abutment are viewed facing downstream.",
-      "Change in the shape or volume of a body as a result of stress, defined as the ratio of the change to the original shape."
+      "Change in shape or length relative to original dimensions.",
+      "Force per unit area.",
+      "Volume of voids.",
+      "Mass per unit volume."
     ],
-    "correctAnswer": 3,
-    "explanation": "The deformation due to an applied stress.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Strain measures deformation and is defined as the ratio of change in length to original length."
   },
   {
     "id": "q115",
     "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "Stress (sigma)",
+    "question": "Stress (σ)",
     "choices": [
-      "Soil that flows into a tunnel from the floor, roof, or wals of a tunnel driven by water seepage. The flow typically consists of cohesionaless soil below the water table.",
-      "Erosion by percolating waters or seepage in a layer of subsoil resulting in caving and the formation of tunnels or pipes through which the soluble or granular material is removed.",
-      "A theory that forecasts location and magnitude of future earthquakes based on the absense of earthquakes in one area as compared to the presence of earthquakes adjacent to the gap.",
-      "The force per unit area. The symbol sigma is used to denote the overall stress as well as the component of stress that acts normal to the plane (normal stress)"
+      "Force applied per unit area.",
+      "Deformation per unit length.",
+      "Flow rate per unit time.",
+      "Volume per unit mass."
     ],
-    "correctAnswer": 3,
-    "explanation": "Stress = F / A",
-    "difficulty": "hard",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Stress is defined as force divided by area and represents internal forces within materials."
   },
   {
     "id": "q116",
