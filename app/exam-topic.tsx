@@ -64,7 +64,14 @@ export default function ExamTopicSetup() {
         {TOPIC_LIST.map((topic) => (
           <Pressable
             key={topic}
-            onPress={() => setSelectedTopic(topic)}
+            onPress={() => {
+  const displayName =
+    topic === "MineralFormulas"
+      ? "Mineral Formulas"
+      : topic;
+
+  setSelectedTopic(displayName);
+}}
             style={{
               padding: 16,
               borderRadius: 12,

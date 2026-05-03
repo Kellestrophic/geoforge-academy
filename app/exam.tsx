@@ -1,3 +1,5 @@
+import archaeologyFBRaw from "@/data/archaeologyFB.json";
+import archaeologyMCRaw from "@/data/archaeologyMC.json";
 import mineralFormulasRaw from "@/data/mineralFormulas.json";
 import mineralogyFBRaw from "@/data/mineralogyFB.json";
 import mineralogyMCRaw from "@/data/mineralogyMC.json";
@@ -6,6 +8,24 @@ import petrologyMCRaw from "@/data/petrologyMC.json";
 import questionsData from "@/data/questions.json";
 import sedimentologyFBRaw from "@/data/sedimentologyFB.json";
 import sedimentologyMCRaw from "@/data/sedimentologyMC.json";
+
+import economicGeoFBRaw from "@/data/economicGeoFB.json";
+import economicGeoMCRaw from "@/data/economicGeoMC.json";
+
+import engineeringGeoFBRaw from "@/data/engineeringGeoFB.json";
+import engineeringGeoMCRaw from "@/data/engineeringGeoMC.json";
+
+import geomorphologyFBRaw from "@/data/geomorphologyFB.json";
+import geomorphologyMCRaw from "@/data/geomorphologyMC.json";
+
+import hydrogeologyFBRaw from "@/data/hydrogeologyFB.json";
+import hydrogeologyMCRaw from "@/data/hydrogeologyMC.json";
+
+import paleontologyFBRaw from "@/data/paleontologyFB.json";
+import paleontologyMCRaw from "@/data/paleontologyMC.json";
+
+import structuralFBRaw from "@/data/structuralFB.json";
+import structuralMCRaw from "@/data/structuralMC.json";
 import { trackActivity } from "@/lib/activity";
 import { saveExam } from "@/lib/saveExam";
 import { theme } from "@/lib/theme";
@@ -23,7 +43,26 @@ const petrologyFB = petrologyFBRaw as any[];
 const petrologyMC = petrologyMCRaw as any[];
 const sedimentologyFB = sedimentologyFBRaw as any[];
 const sedimentologyMC = sedimentologyMCRaw as any[];
+const archaeologyFB = archaeologyFBRaw as any[];
+const archaeologyMC = archaeologyMCRaw as any[];
 
+const economicGeoFB = economicGeoFBRaw as any[];
+const economicGeoMC = economicGeoMCRaw as any[];
+
+const engineeringGeoFB = engineeringGeoFBRaw as any[];
+const engineeringGeoMC = engineeringGeoMCRaw as any[];
+
+const geomorphologyFB = geomorphologyFBRaw as any[];
+const geomorphologyMC = geomorphologyMCRaw as any[];
+
+const hydrogeologyFB = hydrogeologyFBRaw as any[];
+const hydrogeologyMC = hydrogeologyMCRaw as any[];
+
+const paleontologyFB = paleontologyFBRaw as any[];
+const paleontologyMC = paleontologyMCRaw as any[];
+
+const structuralFB = structuralFBRaw as any[];
+const structuralMC = structuralMCRaw as any[];
 /* ---------------- HELPERS ---------------- */
 
 function clean(str: string) {
@@ -99,6 +138,13 @@ useEffect(() => {
         Petrology: [...petrologyMC, ...petrologyFB],
         Sedimentology: [...sedimentologyMC, ...sedimentologyFB],
         "Mineral Formulas": [...mineralFormulas],
+        Archaeology: [...archaeologyMC, ...archaeologyFB],
+        "Economic Geology": [...economicGeoMC, ...economicGeoFB],
+        "Engineering Geology": [...engineeringGeoMC, ...engineeringGeoFB],
+        "Geomorphology": [...geomorphologyMC, ...geomorphologyFB],
+        "Hydrogeology": [...hydrogeologyMC, ...hydrogeologyFB],
+        "Paleontology": [...paleontologyMC, ...paleontologyFB],
+        "Structural Geology": [...structuralMC, ...structuralFB],
       };
 
       let pool: any[] = [];
@@ -157,7 +203,7 @@ useEffect(() => {
       console.log("❌ BUILD CRASH", e);
       return [];
     }
-  }, [mode, selectedTopic, count]);
+ }, [mode, selectedTopic, count, isPractice]);
 
   const question = questions[index];
 
