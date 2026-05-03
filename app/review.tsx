@@ -11,34 +11,34 @@ export default function ReviewMenu() {
         backgroundColor: theme.colors.background,
       }}
     >
-<View
-  style={{
-    flex: 1,
-    padding: 20,
-    backgroundColor: theme.colors.background,
-  }}
->
-<Text
-  style={{
-    color: theme.colors.text,
-    fontSize: 26,
-    fontWeight: "bold",
-    marginBottom: 10,
-    marginTop: 10, // 🔥 add this
-  }}
->
-  Review Mode
-</Text>
+      <View
+        style={{
+          flex: 1,
+          padding: 20,
+        }}
+      >
+        <Text
+          style={{
+            color: theme.colors.text,
+            fontSize: 26,
+            fontWeight: "bold",
+            marginBottom: 10,
+            marginTop: 10,
+          }}
+        >
+          Review Mode
+        </Text>
 
-<Text
-  style={{
-    color: theme.colors.subtext,
-    marginBottom: 30,
-  }}
->
-  Review your missed questions
-</Text>
+        <Text
+          style={{
+            color: theme.colors.subtext,
+            marginBottom: 30,
+          }}
+        >
+          Review your missed questions
+        </Text>
 
+        {/* QUIZ */}
         <Pressable
           onPress={() => router.push("/review-quiz")}
           style={{
@@ -57,6 +57,7 @@ export default function ReviewMenu() {
           </Text>
         </Pressable>
 
+        {/* LIST */}
         <Pressable
           onPress={() => router.push("/review-list")}
           style={{

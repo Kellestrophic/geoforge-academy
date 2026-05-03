@@ -87,12 +87,16 @@ export default function ModesScreen() {
       />
 
       {/* 🔒 LOCKED REVIEW MODE */}
-      <ModeCard
-        title="Review Mode (Coming Soon)"
-        subtitle="Practice your missed questions"
-        onPress={() => {}}
-        disabled // ✅ THIS LOCKS IT
-      />
+     <ModeCard
+  title="Review Mode"
+  subtitle="Practice your missed questions"
+  onPress={() => {
+    if (tapLock.current) return;
+    tapLock.current = true;
+    router.push("/review");
+    setTimeout(() => (tapLock.current = false), 400);
+  }}
+/>
 
       <ModeCard
         title="Exam Mode"

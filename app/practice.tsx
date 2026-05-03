@@ -29,6 +29,7 @@ import structuralFBRaw from "@/data/structuralFB.json";
 import structuralMCRaw from "@/data/structuralMC.json";
 
 import { trackActivity } from "@/lib/activity";
+import { saveWrongQuestion } from "@/lib/saveWrongQuestion";
 import { theme } from "@/lib/theme";
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useMemo, useState } from "react";
@@ -250,18 +251,23 @@ return shuffle(processed).slice(0, count);    } catch (e) {
   function calculateScore() {
     let correct = 0;
 
-    questions.forEach((q, i) => {
-      const user = answers[i];
+   questions.forEach((q, i) => {
+  const user = answers[i];
 
-      if (q.type === "multiple_choice") {
-        const correctText = q.choices[q.correctAnswer];
-        if (user === correctText) correct++;
-      } else {
-        const correctAnswer = q.answer?.[0] ?? "";
-        if (clean(user) === clean(correctAnswer)) correct++;
-      }
-    });
+  let correct = false;
 
+  if (q.type === "multiple_choice") {
+    const correctText = q.choices[q.correctAnswer];
+    correct = user === correctText;
+  } else {
+    const correctAnswer = q.answer?.[0] ?? "";
+    correct = clean(user) === clean(correctAnswer);
+  }
+
+  if (!correct) {
+    saveWrongQuestion(q); // 🔥 SAVE WRONG
+  }
+});
     return correct;
   }
 
@@ -351,7 +357,7 @@ useEffect(() => {
           question.choices.map((c: string, i: number) => (
             <Pressable
               key={i}
-       onPress={() => {
+       onPress={async () => {
   if (!isPractice) {
     setAnswers((prev: any) => ({
       ...prev,
@@ -364,9 +370,14 @@ useEffect(() => {
 
   setSelected(i);
 
-  const correct = i === question.correctAnswer;
-  setIsCorrect(correct);
-  setShowResult(true);
+const correct = i === question.correctAnswer;
+
+if (!correct) {
+  await saveWrongQuestion(question); // 🔥 ADD THIS
+}
+
+setIsCorrect(correct);
+setShowResult(true);
 }}
      style={{
   marginTop: 10,
@@ -444,9 +455,13 @@ useEffect(() => {
           )}
   {isPractice && question.type === "input" && !showResult && (
   <Pressable
-   onPress={() => {
-  const correct =
-    clean(input) === clean(question.answer?.[0] || "");
+   onPress={async () => {
+const correct =
+  clean(input) === clean(question.answer?.[0] || "");
+
+if (!correct) {
+  await saveWrongQuestion(question); // 🔥 ADD THIS
+}
 
   setIsCorrect(correct);
   setShowResult(true);

@@ -28,12 +28,12 @@ import structuralFBRaw from "@/data/structuralFB.json";
 import structuralMCRaw from "@/data/structuralMC.json";
 import { trackActivity } from "@/lib/activity";
 import { saveExam } from "@/lib/saveExam";
+import { saveWrongQuestion } from "@/lib/saveWrongQuestion";
 import { theme } from "@/lib/theme";
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useMemo, useState } from "react";
 import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
 /* ---------------- DATA ---------------- */
 
 const mineralFormulas = mineralFormulasRaw as any[];
@@ -141,26 +141,28 @@ useEffect(() => {
         Archaeology: [...archaeologyMC, ...archaeologyFB],
         "Economic Geology": [...economicGeoMC, ...economicGeoFB],
         "Engineering Geology": [...engineeringGeoMC, ...engineeringGeoFB],
-        "Geomorphology": [...geomorphologyMC, ...geomorphologyFB],
-        "Hydrogeology": [...hydrogeologyMC, ...hydrogeologyFB],
-        "Paleontology": [...paleontologyMC, ...paleontologyFB],
-        "Structural Geology": [...structuralMC, ...structuralFB],
+        Geomorphology: [...geomorphologyMC, ...geomorphologyFB],
+        Hydrogeology: [...hydrogeologyMC, ...hydrogeologyFB],
+        Paleontology: [...paleontologyMC, ...paleontologyFB],
+        Structural: [...structuralMC, ...structuralFB],
       };
 
-      let pool: any[] = [];
+  let pool: any[] = [];
 
-      if (mode === "pg") {
-        pool = Array.isArray(questionsData) ? questionsData : [];
-      } else if (mode === "random") {
-        pool = [
-          ...topicMap.Mineralogy,
-          ...topicMap.Petrology,
-          ...topicMap.Sedimentology,
-          ...topicMap["Mineral Formulas"],
-        ];
-      } else if (mode === "topic" && selectedTopic) {
-        pool = topicMap[selectedTopic] ?? [];
-      }
+// 🔥 ALWAYS USE TOPIC FIRST (THIS FIXES EVERYTHING)
+if (selectedTopic && topicMap[selectedTopic]) {
+  pool = topicMap[selectedTopic];
+}
+
+// PG mode
+else if (mode === "pg") {
+  pool = Array.isArray(questionsData) ? questionsData : [];
+}
+
+// Random mode (ALL topics)
+else {
+  pool = Object.values(topicMap).flat();
+}
 
       const safe: any[] = [];
 
@@ -212,17 +214,23 @@ useEffect(() => {
   function calculateScore() {
     let correct = 0;
 
-    questions.forEach((q, i) => {
-      const user = answers[i];
+questions.forEach((q, i) => {
+  const user = answers[i];
 
-      if (q.type === "multiple_choice") {
-        const correctText = q.choices[q.correctAnswer];
-        if (user === correctText) correct++;
-      } else {
-        const correctAnswer = q.answer?.[0] ?? "";
-        if (clean(user) === clean(correctAnswer)) correct++;
-      }
-    });
+  let correct = false;
+
+  if (q.type === "multiple_choice") {
+    const correctText = q.choices[q.correctAnswer];
+    correct = user === correctText;
+  } else {
+    const correctAnswer = q.answer?.[0] ?? "";
+    correct = clean(user) === clean(correctAnswer);
+  }
+
+  if (!correct) {
+    saveWrongQuestion(q); // 🔥 SAVE WRONG
+  }
+});
 
     return correct;
   }
