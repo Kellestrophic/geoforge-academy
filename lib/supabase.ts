@@ -1,5 +1,5 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createClient } from "@supabase/supabase-js";
-
 let supabaseInstance: any = null;
 
 export function getSupabase() {
@@ -15,16 +15,17 @@ export function getSupabase() {
 
   console.log("🔥 SUPABASE FORCED INIT");
 
-  supabaseInstance = createClient(supabaseUrl, supabaseAnonKey, {
-    auth: {
-      persistSession: false,
-      autoRefreshToken: false,
-      detectSessionInUrl: false,
-    },
-    global: {
-      fetch: (...args) => fetch(...args),
-    },
-  });
+supabaseInstance = createClient(supabaseUrl, supabaseAnonKey, {
+  auth: {
+    persistSession: true,
+    autoRefreshToken: true,
+    detectSessionInUrl: false,
+    storage: AsyncStorage, // 🔥 REQUIRED
+  },
+  global: {
+    fetch: (...args) => fetch(...args),
+  },
+});
 
   return supabaseInstance;
 }
