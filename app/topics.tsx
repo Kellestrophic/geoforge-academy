@@ -26,20 +26,21 @@ export default function TopicsScreen() {
         {TOPIC_LIST.map((topic) => (
           <Pressable
             key={topic}
-            onPress={() => {
-              const displayName =
-                topic === "MineralFormulas"
-                  ? "Mineral Formulas"
-                  : topic;
+          onPress={() => {
+  const displayName =
+    topic === "MineralFormulas"
+      ? "Mineral Formulas"
+      : topic;
 
-              router.push({
-                pathname: "/exam", // ✅ USE MAIN ENGINE
-                params: {
-                  mode: "practice", // ✅ PRACTICE MODE (NO TIMER)
-                  topic: displayName,
-                },
-              });
-            }}
+  router.push({
+    pathname: "/exam",
+    params: {
+      mode: "practice",     // 🔥 FORCE PRACTICE MODE
+      topic: displayName,   // 🔥 FILTER TOPIC
+      type: "all",          // 🔥 IMPORTANT (prevents MC/FB filter bugs)
+    },
+  });
+}}
             style={{
               padding: 16,
               borderRadius: 12,

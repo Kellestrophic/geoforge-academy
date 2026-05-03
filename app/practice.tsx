@@ -514,9 +514,9 @@ if (!correct) {
             padding: 14,
           }}
         >
-          <Text style={{ color: "white", textAlign: "center" }}>
-            Next
-          </Text>
+     <Text style={{ color: "white", textAlign: "center" }}>
+  {isPractice ? "Next Question" : "Next"}
+</Text>
         </Pressable>
 
 {/* SUBMIT */}
