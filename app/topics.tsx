@@ -26,18 +26,20 @@ export default function TopicsScreen() {
         {TOPIC_LIST.map((topic) => (
           <Pressable
             key={topic}
-onPress={() => {
-  const displayName =
-    topic === "MineralFormulas" ? "Mineral Formulas" : topic;
+            onPress={() => {
+              const displayName =
+                topic === "MineralFormulas"
+                  ? "Mineral Formulas"
+                  : topic;
 
-  router.push({
-    pathname: "/practice",
-    params: {
-      mode: "topic",   // 🔥 REQUIRED
-      topic: displayName,
-    },
-  });
-}}
+              router.push({
+                pathname: "/exam", // ✅ USE MAIN ENGINE
+                params: {
+                  mode: "practice", // ✅ PRACTICE MODE (NO TIMER)
+                  topic: displayName,
+                },
+              });
+            }}
             style={{
               padding: 16,
               borderRadius: 12,
@@ -49,7 +51,9 @@ onPress={() => {
             }}
           >
             <Text style={{ color: "white", fontSize: 16 }}>
-              {topic === "MineralFormulas" ? "Mineral Formulas" : topic}
+              {topic === "MineralFormulas"
+                ? "Mineral Formulas"
+                : topic}
             </Text>
           </Pressable>
         ))}

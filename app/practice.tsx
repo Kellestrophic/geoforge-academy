@@ -176,9 +176,15 @@ useEffect(() => {
 
       for (const topic in topicMap) {
         // ✅ TOPIC FILTER
-        if (mode === "topic") {
-          if (!selectedTopic || topic !== selectedTopic) continue;
-        }
+  if (mode === "topic") {
+  if (!selectedTopic) continue;
+
+  const normalized = selectedTopic.toLowerCase().replace(/\s/g, "");
+
+  const topicKey = topic.toLowerCase().replace(/\s/g, "");
+
+  if (topicKey !== normalized) continue;
+}
 
         const list = topicMap[topic];
 

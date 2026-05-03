@@ -189,7 +189,10 @@ useEffect(() => {
   const run = async () => {
     try {
       const score = calculateScore();
-      const percent = Math.round((score / questions.length) * 100);
+     const percent =
+  questions.length === 0
+    ? 0
+    : Math.round((score / questions.length) * 100);
 
       console.log("📊 Saving:", percent, mode, selectedTopic);
 
