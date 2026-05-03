@@ -9,7 +9,7 @@ export default function ProfileScreen() {
     safeLoad();
   }, []);
 
-  async function safeLoad() {
+ async function safeLoad() {
   try {
     console.log("👤 PROFILE LOAD START");
 
@@ -21,46 +21,44 @@ export default function ProfileScreen() {
       return;
     }
 
-    // 🔥 CHECK SESSION
-    let { data: sessionData } = await supabase.auth.getSession();
-    let user = sessionData?.session?.user;
+    // ✅ ONLY GET USER (NO CREATION)
+    const { data } = await supabase.auth.getUser();
+    const user = data?.user;
 
-    // 🔥 CREATE USER IF NONE
     if (!user) {
-      console.log("🚨 NO USER → CREATING");
-
-      const { data, error } = await supabase.auth.signInAnonymously();
-
-      if (error) {
-        console.log("❌ SIGN IN ERROR:", error);
-        setStatus("Auth error");
-        return;
-      }
-
-      user = data.user;
-    }
-
-    console.log("✅ USER READY:", user.id);
-
-    // 🔥 TEST QUERY
-    const { error: testError } = await supabase
-      .from("exam_history")
-      .select("id")
-      .limit(1);
-
-    if (testError) {
-      console.log("❌ QUERY ERROR:", testError);
-      setStatus("Query error");
+      console.log("❌ NO USER (this is the issue)");
+      setStatus("No user");
       return;
     }
 
-    setStatus("✅ FULLY WORKING");
+    console.log("✅ USING USER:", user.id);
+
+    // ✅ LOAD REAL DATA
+    const { data: exams, error } = await supabase
+      .from("exam_history")
+      .select("*")
+      .eq("user_id", user.id);
+
+    if (error) {
+      console.log("❌ LOAD ERROR:", error);
+      setStatus("Load error");
+      return;
+    }
+
+    console.log("📊 EXAMS:", exams);
+
+    if (!exams || exams.length === 0) {
+      setStatus("No exams found");
+      return;
+    }
+
+    setStatus(`Loaded ${exams.length} exams`);
 
   } catch (e) {
     console.log("🔥 PROFILE CRASH:", e);
     setStatus("CRASH");
   }
-}
+} 
 
   return (
     <View

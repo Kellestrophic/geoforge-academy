@@ -1,10 +1,15 @@
+import { ensureUser } from "@/lib/auth";
 import { theme } from "@/lib/theme";
 import { Stack } from "expo-router";
+import { useEffect } from "react";
 import "react-native-gesture-handler";
 import "react-native-reanimated";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function Layout() {
+  useEffect(() => {
+    ensureUser();
+  }, []);
   return (
     <SafeAreaProvider>
       <Stack

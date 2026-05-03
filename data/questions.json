@@ -2918,1397 +2918,903 @@
   },
   {
     "id": "q191",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Subsidence",
     "choices": [
-      "Wells drilled at the toe of the dam to reduce the uplift pressure and prevent piping.",
-      "Rock or soil that drops out of the roof or walls of a tunnel over time.",
-      "A localized mass movement that involves the gradual downwards settling or sinking of the Earth's surface.",
-      "A measure of the grain size uniformity using the ratio of particles sizes D60 to D10"
+      "Sudden collapse of a slope due to failure",
+      "Gradual sinking or settling of the ground surface",
+      "Erosion caused by flowing water",
+      "Expansion of soil due to moisture"
     ],
-    "correctAnswer": 2,
-    "explanation": "A localized mass movement that involves the gradual downwards settling or sinking of the Earth's surface.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 1,
+    "explanation": "Subsidence is the gradual downward movement of the Earth's surface, often due to groundwater withdrawal or compaction."
   },
   {
     "id": "q192",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [
-      "Soil Classification"
-    ],
-    "question": "Toe",
+    "question": "Toe (landslide)",
     "choices": [
-      "The outermost maergin of displaced landslide material.",
-      "Sigma 1 - The maximum stress axis.",
-      "Sigma 3 - The minimum stress axis.",
-      "n = e / (1 + e)"
+      "Outermost edge of displaced landslide material",
+      "Uppermost part of the slope",
+      "Point of maximum shear stress",
+      "Base of bedrock contact"
     ],
     "correctAnswer": 0,
-    "explanation": "The outermost maergin of displaced landslide material.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "The toe is the lowest and furthest extent of a landslide mass."
   },
   {
     "id": "q193",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [
-      "Soil Classification"
-    ],
-    "question": "M",
+    "question": "USCS Symbol: M",
     "choices": [
       "Silt",
-      "Shrinkage",
-      "Sand",
-      "well-graded"
-    ],
-    "correctAnswer": 0,
-    "explanation": "Silt",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
-  },
-  {
-    "id": "q194",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [
-      "Soil Classification"
-    ],
-    "question": "G",
-    "choices": [
-      "well-graded",
-      "Shrinkage",
+      "Clay",
       "Sand",
       "Gravel"
     ],
-    "correctAnswer": 3,
-    "explanation": "Gravel",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "M stands for silt (from the German word ‘Mehl’)."
+  },
+  {
+    "id": "q194",
+    "question": "USCS Symbol: G",
+    "choices": [
+      "Sand",
+      "Gravel",
+      "Clay",
+      "Silt"
+    ],
+    "correctAnswer": 1,
+    "explanation": "G represents gravel in the Unified Soil Classification System."
   },
   {
     "id": "q195",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [
-      "Soil Classification"
-    ],
-    "question": "S",
+    "question": "USCS Symbol: S",
     "choices": [
-      "Shrinkage",
-      "Gravel",
-      "well-graded",
-      "Sand"
+      "Silt",
+      "Sand",
+      "Clay",
+      "Gravel"
     ],
-    "correctAnswer": 3,
-    "explanation": "Sand",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 1,
+    "explanation": "S stands for sand."
   },
   {
     "id": "q196",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [
-      "Soil Classification"
-    ],
-    "question": "H",
+    "question": "USCS Symbol: H",
     "choices": [
-      "Silty Sand",
-      ">190 mi",
-      "1000 Kg/m^3",
-      "High Plasticity"
+      "High permeability",
+      "Heavy soil",
+      "High plasticity",
+      "Hard soil"
     ],
-    "correctAnswer": 3,
-    "explanation": "High Plasticity",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 2,
+    "explanation": "H indicates high plasticity (e.g., CH = clay, high plasticity)."
   },
   {
     "id": "q197",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [
-      "Soil Classification"
-    ],
-    "question": "L",
+    "question": "USCS Symbol: L",
     "choices": [
-      "Silty Sand",
-      "1000 Kg/m^3",
-      ">190 mi",
-      "Low Plasticity"
+      "Low density",
+      "Low plasticity",
+      "Light soil",
+      "Loose soil"
     ],
-    "correctAnswer": 3,
-    "explanation": "Low Plasticity",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 1,
+    "explanation": "L indicates low plasticity."
   },
   {
     "id": "q198",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [
-      "Soil Classification"
-    ],
-    "question": "C",
+    "question": "USCS Symbol: C",
     "choices": [
-      "Sand",
-      "Shrinkage",
-      "well-graded",
-      "Clay"
+      "Clay",
+      "Coarse soil",
+      "Compact soil",
+      "Cemented soil"
     ],
-    "correctAnswer": 3,
-    "explanation": "Clay",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "C represents clay."
   },
   {
     "id": "q199",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [
-      "Soil Classification"
-    ],
-    "question": "CH",
+    "question": "USCS Symbol: CH",
     "choices": [
-      "Less than 4.",
-      "2 x theta",
-      "Clay- high plasticity",
-      "The Shear Stress."
+      "Clay, low plasticity",
+      "Clay, high plasticity",
+      "Silt, high plasticity",
+      "Organic clay"
     ],
-    "correctAnswer": 2,
-    "explanation": "Clay- high plasticity",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 1,
+    "explanation": "CH = clay with high plasticity."
   },
   {
     "id": "q200",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [
-      "Soil Classification"
-    ],
-    "question": "SM",
+    "question": "USCS Symbol: SM",
     "choices": [
-      "1000 Kg/m^3",
-      "Clayey Sands",
-      ">190 mi",
-      "Silty Sand"
+      "Silty sand",
+      "Clayey sand",
+      "Well-graded sand",
+      "Poorly graded sand"
     ],
-    "correctAnswer": 3,
-    "explanation": "Silty Sand",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "SM = sand with silt."
   },
   {
     "id": "q201",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [
-      "Soil Classification"
-    ],
-    "question": "OL",
+    "question": "USCS Symbol: OL",
     "choices": [
-      "Organic silts and organic silt-clays of low plasticity",
-      "Boards which are joined, side-by-side, lining an excavation.",
-      "Water clinging to mineral grains through surface tension.",
-      "The density of soil when it's completely dry."
+      "Organic silt or clay, low plasticity",
+      "Organic clay, high plasticity",
+      "Peat",
+      "Organic sand"
     ],
     "correctAnswer": 0,
-    "explanation": "Organic silts and organic silt-clays of low plasticity",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "OL = organic silt/clay with low plasticity."
   },
   {
     "id": "q202",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [
-      "Soil Classification"
-    ],
-    "question": "Pt",
+    "question": "USCS Symbol: Pt",
     "choices": [
-      "Vs = Sqrt(shear modulus / density)",
-      "sigma(stress) = Z(depth) x Unit Weight(lambda)",
-      "Peat & other highly organic soils",
-      "The flat top of a dam."
+      "Peat",
+      "Poorly graded soil",
+      "Plastic clay",
+      "Silty soil"
     ],
-    "correctAnswer": 2,
-    "explanation": "Peat & other highly organic soils",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Pt represents peat and highly organic soils."
   },
   {
     "id": "q203",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [
-      "Soil Classification"
-    ],
-    "question": "SW",
+    "question": "USCS Symbol: SW",
     "choices": [
-      "The component of stress that acts perpendicular to the plane.",
-      "Well-graded sand (or gravelly sands - little or no fines)",
-      "Shear Strength = Normal Stress x (tan(Internal Angle of Friction))",
-      "The point on the Earth's surface directly above the focus."
+      "Well-graded sand",
+      "Poorly graded sand",
+      "Silty sand",
+      "Clayey sand"
     ],
-    "correctAnswer": 1,
-    "explanation": "Well-graded sand (or gravelly sands - little or no fines)",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "SW = well-graded sand."
   },
   {
     "id": "q204",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [
-      "Soil Classification"
-    ],
-    "question": "SC",
+    "question": "USCS Symbol: SC",
     "choices": [
-      ">190 mi",
-      "1000 Kg/m^3",
-      "Silty Sand",
-      "Clayey Sands"
+      "Clayey sand",
+      "Silty sand",
+      "Well-graded sand",
+      "Poorly graded sand"
     ],
-    "correctAnswer": 3,
-    "explanation": "Clayey Sands",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "SC = sand with clay."
   },
   {
     "id": "q205",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [
-      "Soil Classification"
-    ],
-    "question": "SP",
+    "question": "USCS Symbol: SP",
     "choices": [
-      "Silty Sand",
-      "Poorly-graded sands",
-      "1000 Kg/m^3",
-      ">190 mi"
+      "Poorly graded sand",
+      "Well-graded sand",
+      "Silty sand",
+      "Clayey sand"
     ],
-    "correctAnswer": 1,
-    "explanation": "Poorly-graded sands",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "SP = poorly graded sand."
   },
   {
     "id": "q206",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [
-      "Soil Classification"
-    ],
-    "question": "W",
+    "question": "USCS Symbol: W",
     "choices": [
-      "Sand",
-      "Gravel",
-      "Shrinkage",
-      "well-graded"
+      "Well-graded",
+      "Wet",
+      "Weathered",
+      "Washed"
     ],
-    "correctAnswer": 3,
-    "explanation": "well-graded",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "W indicates well-graded soil."
   },
   {
     "id": "q207",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "P",
+    "question": "USCS Symbol: P",
     "choices": [
-      "Shrinkage",
-      "Sand",
-      "well-graded",
-      "Poorly-graded"
+      "Poorly graded",
+      "Plastic",
+      "Permeable",
+      "Partially saturated"
     ],
-    "correctAnswer": 3,
-    "explanation": "Poorly-graded",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "P indicates poorly graded soil."
   },
   {
     "id": "q208",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "CI",
+    "question": "USCS Symbol: CI",
     "choices": [
-      "Counterclockwise from sigma 3.",
-      "The Shear Stress.",
-      "A channel for reservoir overflow.",
-      "Clay - intermediate plasticity"
+      "Clay, intermediate plasticity",
+      "Clay, low plasticity",
+      "Clay, high plasticity",
+      "Silt, intermediate plasticity"
     ],
-    "correctAnswer": 3,
-    "explanation": "Clay - intermediate plasticity",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "CI = clay with intermediate plasticity."
   },
   {
     "id": "q209",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Topple",
     "choices": [
-      "Slope movement due to forces that cause an overturning moment about a pivot point below the center of gravity of the unit.",
-      "Bedrock or soil on a ridge top that has been thoroughly pulverized due to high accelerations over many cycles of earthquake shattering.",
-      "The lower limit of the plastic state. Water content at which the soil begins to crumble when rolled out into thin threads.",
-      "Gradual or slow reduction in volume and increase in density of a soil mass in response to increased load or compressive stress."
+      "Forward rotation of rock/soil about a pivot point",
+      "Sliding along a planar surface",
+      "Flow-like movement downslope",
+      "Vertical collapse due to subsidence"
     ],
     "correctAnswer": 0,
-    "explanation": "Slope movement due to forces that cause an overturning moment about a pivot point below the center of gravity of the unit.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Toppling occurs when blocks rotate forward about a pivot point."
   },
   {
     "id": "q210",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
     "question": "Translational Slide",
     "choices": [
-      "A laboratory test to measure the shear strength of a soil.",
-      "The gradual, steady downhill movement of soil and loose rock material.",
-      "Landslide movement that occurs predominantly along planar or gently undulating surfaces.",
-      "A theory proposed by Reid to explain the cause of earthquakes."
+      "Movement along a planar or slightly curved surface",
+      "Movement along a concave-up surface",
+      "Flow-like movement",
+      "Rockfall from steep slopes"
     ],
-    "correctAnswer": 2,
-    "explanation": "Landslide movement that occurs predominantly along planar or gently undulating surfaces.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Translational slides occur along relatively flat surfaces."
   },
   {
     "id": "q211",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "What is the depth of a shallow earthquake?",
+    "question": "Depth of a shallow earthquake",
     "choices": [
-      ">190 mi",
-      "1000 Kg/m^3",
-      "Silty Sand",
-      "0-44 mi"
+      "0–70 km",
+      "70–300 km",
+      "300–700 km",
+      ">700 km"
     ],
-    "correctAnswer": 3,
-    "explanation": "0-44 mi",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Shallow earthquakes occur from 0–70 km depth."
   },
   {
     "id": "q212",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "What is the depth of an intermediate earthquake?",
+    "question": "Depth of an intermediate earthquake",
     "choices": [
-      ">190 mi",
-      "1000 Kg/m^3",
-      "Silty Sand",
-      "44-190 mi"
+      "0–70 km",
+      "70–300 km",
+      "300–700 km",
+      ">700 km"
     ],
-    "correctAnswer": 3,
-    "explanation": "44-190 mi",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 1,
+    "explanation": "Intermediate earthquakes occur from 70–300 km depth."
   },
   {
     "id": "q213",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "What is the depth of a deep earthquake?",
+    "question": "Depth of a deep earthquake",
     "choices": [
-      "Silty Sand",
-      ">190 mi",
-      "1000 Kg/m^3",
-      "Clayey Sands"
+      "0–70 km",
+      "70–300 km",
+      "300–700 km",
+      ">700 km"
     ],
-    "correctAnswer": 1,
-    "explanation": ">190 mi",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 2,
+    "explanation": "Deep earthquakes occur from 300–700 km depth."
   },
   {
     "id": "q214",
-    "type": "formula",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "What is the S-wave velocity equation?",
+    "question": "S-wave velocity equation",
     "choices": [
-      "The flat top of a dam.",
-      "Peat & other highly organic soils",
-      "Vs = Sqrt(shear modulus / density)",
-      "sigma(stress) = Z(depth) x Unit Weight(lambda)"
+      "Vs = √(G / ρ)",
+      "Vs = √(K / ρ)",
+      "Vs = σ / ε",
+      "Vs = √(E / ρ)"
     ],
-    "correctAnswer": 2,
-    "explanation": "Vs = Sqrt(shear modulus / density)",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Shear wave velocity depends on shear modulus (G) and density (ρ)."
   },
   {
     "id": "q215",
-    "type": "formula",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "What is the P-wave velocity equation?",
+    "question": "P-wave velocity equation",
     "choices": [
-      "Vp = sqrt(bulk modulus + [4/3shear modulus] / density)",
-      "The process whereby soils collapse when they are wetted.",
-      "A relatively narrow, horizontal bench built along an embankment.",
-      "A thrust fault that does not reach the surface."
+      "Vp = √((K + 4/3G) / ρ)",
+      "Vp = √(G / ρ)",
+      "Vp = σ / ε",
+      "Vp = √(E / ρ)"
     ],
     "correctAnswer": 0,
-    "explanation": "Vp = sqrt(bulk modulus + [4/3shear modulus] / density)",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "P-wave velocity depends on both bulk modulus (K), shear modulus (G), and density (ρ)."
   },
   {
     "id": "q216",
-    "type": "formula",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "What is the seismic moment, Mo equation?",
+    "question": "Seismic Moment (Mo)",
     "choices": [
-      "Magnitude of an earthquake as estimated from the apmplitude of body waves.",
-      "Mo = Shear Modulus x Fault Area x Average Slip Along Fault",
-      "A loose assemblage of broken rocks used for foundations or slope protection.",
-      "Water content at which the soil volume is at its lower limit."
+      "Mo = stress × strain",
+      "Mo = shear modulus × fault area × average slip",
+      "Mo = density × velocity²",
+      "Mo = force × distance"
     ],
     "correctAnswer": 1,
-    "explanation": "Mo = Shear Modulus x Fault Area x Average Slip Along Fault",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Seismic moment quantifies earthquake size: Mo = μ × A × D (shear modulus × fault area × slip)."
   },
   {
     "id": "q217",
-    "type": "formula",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "What is the Factor of Safety equation?",
+    "question": "Factor of Safety (FoS)",
     "choices": [
-      "A measure of the grain size uniformity using the ratio of particles sizes D60 to D10",
-      "Rock or soil that drops out of the roof or walls of a tunnel over time.",
-      "A localized mass movement that involves the gradual downwards settling or sinking of the Earth's surface.",
-      "Factor of Safety = cohesion + (normal stress x tan[internal angle of friction]) / shear stress"
+      "FoS = driving forces / resisting forces",
+      "FoS = resisting forces / driving forces",
+      "FoS = stress / strain",
+      "FoS = cohesion × friction angle"
     ],
-    "correctAnswer": 3,
-    "explanation": "Factor of Safety = Resisting Forces / Driving Forces",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 1,
+    "explanation": "Factor of Safety compares stability: FoS = resisting forces / driving forces."
   },
   {
     "id": "q218",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "What is the horizontal axis on a Mohr circle diagram?",
+    "question": "Mohr Circle horizontal axis represents:",
     "choices": [
-      "The Normal Stress.",
-      "Less than 4.",
-      "2 x theta",
-      "The Shear Stress."
+      "Normal stress",
+      "Shear stress",
+      "Strain",
+      "Displacement"
     ],
     "correctAnswer": 0,
-    "explanation": "The Normal Stress.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "The horizontal axis is normal stress (σ)."
   },
   {
     "id": "q219",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "What is the right-most plotted point on the y-axis of a Mohr circle diagram?",
+    "question": "Right-most point on a Mohr circle represents:",
     "choices": [
-      "The outermost maergin of displaced landslide material.",
-      "Sigma 3 - The minimum stress axis.",
-      "Sigma 1 - The maximum stress axis.",
-      "n = e / (1 + e)"
+      "σ3 (minimum stress)",
+      "τmax",
+      "σ1 (maximum stress)",
+      "Mean stress"
     ],
     "correctAnswer": 2,
-    "explanation": "Sigma 1 - The maximum stress axis.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "The right-most point is σ1, the maximum principal stress."
   },
   {
     "id": "q220",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "What is the left-most plotted point on the y-axis of a Mohr circle diagram?",
+    "question": "Left-most point on a Mohr circle represents:",
     "choices": [
-      "The outermost maergin of displaced landslide material.",
-      "n = e / (1 + e)",
-      "Sigma 3 - The minimum stress axis.",
-      "Sigma 1 - The maximum stress axis."
+      "σ1",
+      "τmax",
+      "σ3",
+      "Shear stress"
     ],
     "correctAnswer": 2,
-    "explanation": "Sigma 3 - The minimum stress axis.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "The left-most point is σ3, the minimum principal stress."
   },
   {
     "id": "q221",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "Where is theta, the internal angle of friction, measured on a Mohr circle diagram?",
+    "question": "Internal friction angle (θ) is measured on a Mohr circle:",
     "choices": [
-      "Counterclockwise from sigma 3.",
-      "A channel for reservoir overflow.",
-      "The Shear Stress.",
-      "Clay - intermediate plasticity"
+      "From σ3, counterclockwise",
+      "From σ1, clockwise",
+      "From center of circle",
+      "Along the shear axis"
     ],
     "correctAnswer": 0,
-    "explanation": "Counterclockwise from sigma 3.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "θ is measured from σ3 to the failure envelope (Mohr-Coulomb)."
   },
   {
     "id": "q222",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "What expression is actually plotted on a Mohr circle diagram to represent the internal angle of friction?",
+    "question": "Angle shown on a Mohr circle equals:",
     "choices": [
-      "2 x theta",
-      "e = wGs",
-      "The Shear Stress.",
-      "Less than 4."
+      "2θ",
+      "θ",
+      "θ/2",
+      "tan θ"
     ],
     "correctAnswer": 0,
-    "explanation": "2 x theta",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Angles on a Mohr circle are doubled, so it shows 2θ."
   },
   {
     "id": "q223",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "In a Markland wedge analysis, is the shaded portion on the stereonet the stable or unstable area?",
+    "question": "Markland wedge analysis shaded area represents:",
     "choices": [
-      "A channel for reservoir overflow.",
-      "Peat & other highly organic soils",
-      "The roof of a mine.",
-      "It is the unstable area."
+      "Stable region",
+      "Neutral region",
+      "Failure surface",
+      "Unstable region"
     ],
     "correctAnswer": 3,
-    "explanation": "It is the unstable area.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "The shaded region represents potential failure (unstable zone)."
   },
   {
     "id": "q224",
-    "type": "formula",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "What expression do we use to evaluate shear strength for a dry, cohesionless soil?",
+    "question": "Shear strength (cohesionless soil)",
     "choices": [
-      "The component of stress that acts perpendicular to the plane.",
-      "The point on the Earth's surface directly above the focus.",
-      "Well-graded sand (or gravelly sands - little or no fines)",
-      "Shear Strength = Normal Stress x (tan(Internal Angle of Friction))"
+      "τ = c + σ tanφ",
+      "τ = σ tanφ",
+      "τ = σ / tanφ",
+      "τ = c × σ"
     ],
-    "correctAnswer": 3,
-    "explanation": "Shear Strength = Normal Stress x (tan(Internal Angle of Friction))",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 1,
+    "explanation": "For cohesionless soil (c = 0): τ = σ tanφ."
   },
   {
     "id": "q225",
-    "type": "formula",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "What expression is used to model cohesion?",
+    "question": "Cohesion (c) represents:",
     "choices": [
-      "Peat & other highly organic soils",
-      "C = 1/2 x Normal Stress",
-      "Vs = Sqrt(shear modulus / density)",
-      "The flat top of a dam."
+      "Internal friction resistance",
+      "Shear resistance independent of normal stress",
+      "Density of soil",
+      "Water pressure"
     ],
     "correctAnswer": 1,
-    "explanation": "C = 1/2 x Normal Stress",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Cohesion is shear strength independent of normal stress (interparticle bonding)."
   },
   {
     "id": "q226",
-    "type": "formula",
-    "category": "Conversion Factor",
-    "subcategory": [],
-    "question": "What is the unit weight of water in lbs/ft^3?",
+    "question": "Unit weight of water",
     "choices": [
-      "62.4 lbs/ft^3",
-      "5280 ft",
-      "640 acres.",
-      "325,829 gallons are in one acre-foot."
+      "62.4 lb/ft³",
+      "9.81 lb/ft³",
+      "100 lb/ft³",
+      "32.2 lb/ft³"
     ],
     "correctAnswer": 0,
-    "explanation": "62.4 lbs/ft^3",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Standard unit weight of water is 62.4 lb/ft³."
   },
   {
     "id": "q227",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "In a Markland wedge analysis, is the shaded portion on the stereonet the stable or unstable area?",
+    "question": "Markland wedge shaded area indicates:",
     "choices": [
-      "A channel for reservoir overflow.",
-      "The roof of a mine.",
-      "It is the unstable area.",
-      "Peat & other highly organic soils"
+      "Stable region",
+      "Failure region",
+      "Elastic zone",
+      "Compaction zone"
     ],
-    "correctAnswer": 2,
-    "explanation": "It is the unstable area.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 1,
+    "explanation": "Duplicate concept: shaded area = unstable/failure region."
   },
   {
     "id": "q228",
-    "type": "multiple_choice",
-    "category": "Engineering Geology",
-    "subcategory": [],
-    "question": "How do you get the volume of something if just given it's weight?",
+    "question": "Volume from weight is calculated by:",
     "choices": [
-      "The final void ratio at ultimate strength achieved by loose and dense samples of the same soil after shearing.",
-      "A measure of the intactness of rock core, relating the percentage of intact core to the total core run.",
-      "Take the weight, and divide it by the unit weight of that substance. That leaves you with the volume.",
-      "The process of increasing the density of a soil (usually fill) by rolling, tamping, vibrating or other mechanical means."
+      "Weight × density",
+      "Weight / unit weight",
+      "Density × volume",
+      "Mass × gravity"
     ],
-    "correctAnswer": 2,
-    "explanation": "Take the weight, and divide it by the unit weight of that substance. That leaves you with the volume.",
-    "difficulty": "hard",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 1,
+    "explanation": "Volume = weight ÷ unit weight."
   },
   {
     "id": "q229",
-    "type": "formula",
-    "category": "Economic Geology",
-    "subcategory": [],
-    "question": "Archie's Law",
+    "question": "Archie’s Law relates:",
     "choices": [
-      "An empirical relationship between well log resistivity and water saturation... And ultimately to hydrocarbon saturation.",
-      "They're moderate to large, high pressure formations that range from 700 to 1500 degrees C.",
-      "A current is sent through the ground, shut off, then the remnant current is measured.",
-      "Kimberlites are carrot shaped, ultramafic and diamond rich deposits that form deep in the Earth."
+      "Resistivity and water saturation",
+      "Stress and strain",
+      "Porosity and permeability",
+      "Velocity and density"
     ],
     "correctAnswer": 0,
-    "explanation": "An empirical relationship between well log resistivity and water saturation... And ultimately to hydrocarbon saturation.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Archie’s Law relates electrical resistivity to water saturation in rocks."
   },
   {
     "id": "q230",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
     "question": "Assay",
     "choices": [
-      "An analysis of the proportions of metal in an ore. Composition, purity, weight, or other properties of economic interest are tested.",
-      "A specific oil and gas trap that has been identified. Once drilled, it becomes either a dry hole or producing field.",
-      "The chemical product of exhalation; a deposit formed by the interaction of volcanically heated water, convecting seawater, and subjacent igneous rocks.",
-      "Extraction of ore in an underground mine by working laterally in a series of levels in the plane of the vein."
+      "Chemical analysis of ore composition",
+      "Mining extraction method",
+      "Rock classification system",
+      "Ore transport method"
     ],
     "correctAnswer": 0,
-    "explanation": "An analysis of the proportions of metal in an ore. Composition, purity, weight, or other properties of economic interest are tested.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Assay determines metal content and quality of ore."
   },
   {
     "id": "q231",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
     "question": "Average Grade",
     "choices": [
-      "The average quantity or percentage of ore mineral content in an ore body.",
-      "Portion of identified resource that meets minimum criteria (grade, quality, thickness, depth).",
-      "A type of underground mining that excavates rooms leaving pillars for support.",
-      "A geographic area where common geologic factors exist (e.g. stratigraphy to create petroleum accumulation."
+      "Average metal concentration in ore",
+      "Economic value of ore",
+      "Mining recovery rate",
+      "Ore thickness"
     ],
     "correctAnswer": 0,
-    "explanation": "The average quantity or percentage of ore mineral content in an ore body.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Average grade is the mean concentration of valuable material."
   },
   {
     "id": "q232",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
     "question": "Base Metal",
     "choices": [
-      "A common and chemically active metal (it oxidizes or corrodes easily)",
-      "An ore deposit that originates later that the enclosing host rocks.",
-      "The degree of progressive diagenesis or metamorphism of peat (coalification).",
-      "Mining of the support pillars while retreating from the mine."
+      "Chemically reactive metal (e.g., Cu, Pb)",
+      "Rare earth element",
+      "Precious metal",
+      "Radioactive element"
     ],
     "correctAnswer": 0,
-    "explanation": "Examples: Lead or Copper",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Base metals oxidize easily (e.g., copper, lead)."
   },
   {
     "id": "q233",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
     "question": "Block Caving",
     "choices": [
-      "A mining technique that takes advantage of naturally occurring fractures by blasting and collecting the blocks.",
-      "They're moderate to large, high pressure formations that range from 700 to 1500 degrees C.",
-      "Excavation of the shortwall vs the longwall allows for greater stability... Allowing mining for unstable sites.",
-      "Kimberlites are carrot shaped, ultramafic and diamond rich deposits that form deep in the Earth."
+      "Mining using natural rock fracture collapse",
+      "Surface mining technique",
+      "Hydraulic mining method",
+      "Selective ore extraction"
     ],
     "correctAnswer": 0,
-    "explanation": "A mining technique that takes advantage of naturally occurring fractures by blasting and collecting the blocks.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Block caving relies on gravity and natural fracturing."
   },
   {
     "id": "q234",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
-    "question": "Cut-Off Grade",
+    "question": "Cut-off Grade",
     "choices": [
-      "An igneous rock that contains phenocrysts in a fine-grained groundmass.",
-      "The degree of progressive diagenesis or metamorphism of peat (coalification).",
-      "The value of grade below which the deposit is uneconomic.",
-      "Mining of the support pillars while retreating from the mine."
+      "Minimum economic grade",
+      "Maximum ore thickness",
+      "Mining depth limit",
+      "Processing efficiency"
     ],
-    "correctAnswer": 2,
-    "explanation": "The value of grade below which the deposit is uneconomic.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Below cut-off grade = not economically mineable."
   },
   {
     "id": "q235",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [
-      "Sedimentology"
-    ],
     "question": "Diagenesis",
     "choices": [
-      "The process of practically simultaneous solution and deposition of a new mineral in an old mineral by means of interstitial fluids. The replacement occurs at constant volume with little disturbance or structural or textural features.",
-      "When a soluble ore component is transported in solution or as a colloid to where chemical conditions allow from the precipitation of an insoluble compound.",
-      "The chemical, physical, or biological change undergone by sediments after its original deposition and during and after compaction and lithification at pressures <1 kilobar and temperatures between 100-300 degrees C. It does not include weathering or metamorphism.",
-      "The widespread area where there's a higher concentration of ore elements than the country rock, but less concentrated than the primary halo. The ore elements are present, but sparesly placed."
+      "Surface weathering",
+      "Metamorphism at high pressure",
+      "Post-depositional sediment changes",
+      "Igneous crystallization"
     ],
     "correctAnswer": 2,
-    "explanation": "The chemical, physical, or biological change undergone by sediments after its original deposition and during and after compaction and lithification at pressures <1 kilobar and temperatures between 100-300 degrees C. It does not include weathering or metamorphism.",
-    "difficulty": "hard",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Diagenesis = physical, chemical, biological changes after deposition (< metamorphism)."
   },
   {
     "id": "q236",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
     "question": "Dispersion",
     "choices": [
-      "A type of underground mining that excavates rooms leaving pillars for support.",
-      "They occur in close relationship to deep faults along old rift zones.",
-      "The process by which elements move away from the enriched ore zone.",
-      "Portion of identified resource that meets minimum criteria (grade, quality, thickness, depth)."
+      "Movement of elements away from an ore body",
+      "Concentration of metals into ore zones",
+      "Mechanical sorting of sediments",
+      "Metamorphic recrystallization"
     ],
-    "correctAnswer": 2,
-    "explanation": "The process by which elements move away from the enriched ore zone.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Dispersion refers to the spread of elements outward from an ore deposit, forming geochemical halos."
   },
   {
     "id": "q237",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
     "question": "Dolomitization",
     "choices": [
-      "The process by which limestone is converted to dolomite by the replacement of calcium carbonate by magnesium carbonate.",
-      "A special type of stratabound deposit in which the ore constitutes a layer or layers in the rock.",
-      "Ore can be completely extracted, the roof rock can be almost completely caved, and surface subsidence is very uniform.",
-      "Teethlike interlocking projections at a contact in carbonate rocks that often form a vertical impermeable barrier to petroleum migration."
+      "Replacement of calcite by dolomite (MgCO₃)",
+      "Formation of quartz veins",
+      "Weathering of limestone",
+      "Deposition of evaporites"
     ],
     "correctAnswer": 0,
-    "explanation": "The process by which limestone is converted to dolomite by the replacement of calcium carbonate by magnesium carbonate.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Dolomitization occurs when Mg replaces Ca in limestone, forming dolomite."
   },
   {
     "id": "q238",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
     "question": "Eh",
     "choices": [
-      "A type of underground mining that excavates rooms leaving pillars for support.",
-      "Portion of identified resource that meets minimum criteria (grade, quality, thickness, depth).",
-      "They occur in close relationship to deep faults along old rift zones.",
-      "Oxidation potential; the measurement of the potential of a substance to oxidize."
+      "Oxidation-reduction potential",
+      "pH of a solution",
+      "Temperature gradient",
+      "Pressure of fluids"
     ],
-    "correctAnswer": 3,
-    "explanation": "Oxidation potential; the measurement of the potential of a substance to oxidize.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Eh measures oxidation potential—controls mineral stability and ore formation."
   },
   {
     "id": "q239",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
-    "question": "Epigenetic",
+    "question": "Epigenetic Deposit",
     "choices": [
-      "Mining of the support pillars while retreating from the mine.",
-      "An ore deposit that originates later that the enclosing host rocks.",
-      "The degree of progressive diagenesis or metamorphism of peat (coalification).",
-      "A common and chemically active metal (it oxidizes or corrodes easily)"
+      "Forms after host rock formation",
+      "Forms simultaneously with host rock",
+      "Forms only in igneous rocks",
+      "Forms only at surface"
     ],
-    "correctAnswer": 1,
-    "explanation": "An ore deposit that originates later that the enclosing host rocks.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Epigenetic deposits form later than the surrounding rock, typically via fluid movement."
   },
   {
     "id": "q240",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
     "question": "Epithermal",
     "choices": [
-      "Crude Oil",
-      "Placers.",
-      "Shallow hydrothermal.",
-      ": 50%"
+      "Shallow, low-temperature hydrothermal",
+      "Deep mantle-derived deposits",
+      "High-pressure metamorphic deposits",
+      "Sedimentary deposits"
     ],
-    "correctAnswer": 2,
-    "explanation": "Shallow hydrothermal.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Epithermal deposits form near the surface at relatively low temperatures."
   },
   {
     "id": "q241",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
     "question": "Exhalite",
     "choices": [
-      "A specific oil and gas trap that has been identified. Once drilled, it becomes either a dry hole or producing field.",
-      "An analysis of the proportions of metal in an ore. Composition, purity, weight, or other properties of economic interest are tested.",
-      "The chemical product of exhalation; a deposit formed by the interaction of volcanically heated water, convecting seawater, and subjacent igneous rocks.",
-      "Extraction of ore in an underground mine by working laterally in a series of levels in the plane of the vein."
+      "Chemical sediment from hydrothermal venting",
+      "Igneous intrusive rock",
+      "Weathered surface deposit",
+      "Coal seam"
     ],
-    "correctAnswer": 2,
-    "explanation": "The chemical product of exhalation; a deposit formed by the interaction of volcanically heated water, convecting seawater, and subjacent igneous rocks.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Exhalites form when hydrothermal fluids discharge into seawater and precipitate minerals."
   },
   {
     "id": "q242",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [
-      "Mineralogy",
-      "Petrology"
-    ],
-    "question": "Give some examples of ore deposits which are epigenetic deposits of doubtful igneous origin (deposits created after host rock was deposited).",
+    "question": "Examples of epigenetic deposits",
     "choices": [
-      "Mining of the support pillars while retreating from the mine.",
-      "Mississippi Valley Deposits, Western states uranium, and Athabascan-type unconformity related.",
-      "The value of grade below which the deposit is uneconomic.",
-      "The degree of progressive diagenesis or metamorphism of peat (coalification)."
+      "Mississippi Valley-type, uranium, unconformity deposits",
+      "Basalt flows",
+      "Coal seams",
+      "Glacial till"
     ],
-    "correctAnswer": 1,
-    "explanation": "Mississippi Valley Deposits, Western states uranium, and Athabascan-type unconformity related.",
-    "difficulty": "hard",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "These deposits form after host rocks and are fluid-related, not primary deposition."
   },
   {
     "id": "q243",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
     "question": "Gangue",
     "choices": [
-      "Mining of the support pillars while retreating from the mine.",
-      "The degree of progressive diagenesis or metamorphism of peat (coalification).",
-      "Valueless rock or mineral aggregates in an ore; econmically undesirable.",
-      "The value of grade below which the deposit is uneconomic."
+      "Waste minerals in ore",
+      "Valuable ore minerals",
+      "Hydrothermal fluid",
+      "Host rock only"
     ],
-    "correctAnswer": 2,
-    "explanation": "Valueless rock or mineral aggregates in an ore; econmically undesirable.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Gangue is the non-economic material associated with ore."
   },
   {
     "id": "q244",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
     "question": "Longwall Mining",
     "choices": [
-      "A mining technique that shears off the coal from the longest wall of the room.",
-      "A current is sent through the ground, shut off, then the remnant current is measured.",
-      "Kimberlites are carrot shaped, ultramafic and diamond rich deposits that form deep in the Earth.",
-      "They're moderate to large, high pressure formations that range from 700 to 1500 degrees C."
+      "Mining along a continuous coal face",
+      "Room-and-pillar mining",
+      "Surface strip mining",
+      "Open pit mining"
     ],
     "correctAnswer": 0,
-    "explanation": "A mining technique that shears off the coal from the longest wall of the room.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Longwall mining removes coal along a long continuous wall using mechanized shearers."
   },
   {
     "id": "q245",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
     "question": "Metasomatism",
     "choices": [
-      "The widespread area where there's a higher concentration of ore elements than the country rock, but less concentrated than the primary halo. The ore elements are present, but sparesly placed.",
-      "The process of practically simultaneous solution and deposition of a new mineral in an old mineral by means of interstitial fluids. The replacement occurs at constant volume with little disturbance or structural or textural features.",
-      "The chemical, physical, or biological change undergone by sediments after its original deposition and during and after compaction and lithification at pressures <1 kilobar and temperatures between 100-300 degrees C. It does not include weathering or metamorphism.",
-      "When a soluble ore component is transported in solution or as a colloid to where chemical conditions allow from the precipitation of an insoluble compound."
+      "Chemical alteration via fluid exchange",
+      "Mechanical weathering",
+      "Igneous crystallization",
+      "Sediment compaction"
     ],
-    "correctAnswer": 1,
-    "explanation": "The Important Part -> Simultaneous Solution and Deposition",
-    "difficulty": "hard",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Metasomatism involves fluid-driven mineral replacement with little structural change."
   },
   {
     "id": "q246",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
-    "question": "Pathfinder",
+    "question": "Pathfinder Element",
     "choices": [
-      "Teethlike interlocking projections at a contact in carbonate rocks that often form a vertical impermeable barrier to petroleum migration.",
-      "The chemical product of exhalation; a deposit formed by the interaction of volcanically heated water, convecting seawater, and subjacent igneous rocks.",
-      "A specific oil and gas trap that has been identified. Once drilled, it becomes either a dry hole or producing field.",
-      "A relatively mobile element whose geochemical properties are used to more easily find a deposit of greater importance or value."
+      "Indicator element used to locate ore",
+      "Main ore metal",
+      "Waste mineral",
+      "Rock-forming mineral"
     ],
-    "correctAnswer": 3,
-    "explanation": "A relatively mobile element whose geochemical properties are used to more easily find a deposit of greater importance or value.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Pathfinders are mobile elements that signal nearby valuable deposits."
   },
   {
     "id": "q247",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
-    "question": "Play",
+    "question": "Play (petroleum)",
     "choices": [
-      "They're moderate to large, high pressure formations that range from 700 to 1500 degrees C.",
-      "Kimberlites are carrot shaped, ultramafic and diamond rich deposits that form deep in the Earth.",
-      "A current is sent through the ground, shut off, then the remnant current is measured.",
-      "A geographic area where common geologic factors exist (e.g. stratigraphy to create petroleum accumulation."
+      "Region with shared geologic conditions for hydrocarbons",
+      "Single drilled well",
+      "Reservoir rock only",
+      "Fault zone"
     ],
-    "correctAnswer": 3,
-    "explanation": "Environments where petroleum occurs.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "A play is a region with favorable geology for oil/gas accumulation."
   },
   {
     "id": "q248",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
     "question": "Porphyry",
     "choices": [
-      "Mining of the support pillars while retreating from the mine.",
-      "The degree of progressive diagenesis or metamorphism of peat (coalification).",
-      "An igneous rock that contains phenocrysts in a fine-grained groundmass.",
-      "The value of grade below which the deposit is uneconomic."
+      "Igneous rock with phenocrysts in fine matrix",
+      "Metamorphic rock",
+      "Sedimentary rock",
+      "Evaporite"
     ],
-    "correctAnswer": 2,
-    "explanation": "An igneous rock that contains phenocrysts in a fine-grained groundmass.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Porphyritic texture = large crystals (phenocrysts) in fine groundmass."
   },
   {
     "id": "q249",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
     "question": "Prospect",
     "choices": [
-      "Extraction of ore in an underground mine by working laterally in a series of levels in the plane of the vein.",
-      "An analysis of the proportions of metal in an ore. Composition, purity, weight, or other properties of economic interest are tested.",
-      "A specific oil and gas trap that has been identified. Once drilled, it becomes either a dry hole or producing field.",
-      "The chemical product of exhalation; a deposit formed by the interaction of volcanically heated water, convecting seawater, and subjacent igneous rocks."
+      "Identified potential deposit before drilling",
+      "Producing mine",
+      "Waste rock pile",
+      "Refined ore"
     ],
-    "correctAnswer": 2,
-    "explanation": "A specific oil and gas trap that has been identified. Once drilled, it becomes either a dry hole or producing field.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "A prospect is an identified potential resource that may be developed."
   },
   {
     "id": "q250",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
-    "question": "Rank",
+    "question": "Coal Rank",
     "choices": [
-      "Mining of the support pillars while retreating from the mine.",
-      "The value of grade below which the deposit is uneconomic.",
-      "An igneous rock that contains phenocrysts in a fine-grained groundmass.",
-      "The degree of progressive diagenesis or metamorphism of peat (coalification)."
+      "Degree of coalification",
+      "Coal thickness",
+      "Coal depth",
+      "Mining method"
     ],
-    "correctAnswer": 3,
-    "explanation": "The degree of progressive diagenesis or metamorphism of peat (coalification).",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Coal rank measures maturity: peat → lignite → bituminous → anthracite."
   },
   {
     "id": "q251",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
     "question": "Recovery",
     "choices": [
-      "An alternating current is introduced into the ground, where the generated electromagnetic field is then measured. Usedful for highly conductive sulfide deposits.",
-      "a). The percentage of the total ore that is recovered. b). The amount of oil obtained by primary, secondary, or tertiary means.",
-      "A specific oil and gas trap that has been identified. Once drilled, it becomes either a dry hole or producing field.",
-      "The chemical product of exhalation; a deposit formed by the interaction of volcanically heated water, convecting seawater, and subjacent igneous rocks."
+      "Total ore originally present",
+      "Percentage of resource extracted",
+      "Waste material removed",
+      "Metal concentration in ore"
     ],
     "correctAnswer": 1,
-    "explanation": "The amount of a resource taken from a host source.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Recovery is the % of resource actually extracted from the total available."
   },
   {
     "id": "q252",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
     "question": "Retreat Mining",
     "choices": [
-      "Mining of the support pillars while retreating from the mine.",
-      "The value of grade below which the deposit is uneconomic.",
-      "The degree of progressive diagenesis or metamorphism of peat (coalification).",
-      "An igneous rock that contains phenocrysts in a fine-grained groundmass."
+      "Removing pillars while exiting mine",
+      "Surface strip mining",
+      "Open pit mining",
+      "Hydraulic mining"
     ],
     "correctAnswer": 0,
-    "explanation": "Mining of the support pillars while retreating from the mine.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Retreat mining removes support pillars, allowing controlled collapse behind workers."
   },
   {
     "id": "q253",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
-    "question": "Room and Pillar",
+    "question": "Room and Pillar Mining",
     "choices": [
-      "A type of underground mining that excavates rooms leaving pillars for support.",
-      "Portion of identified resource that meets minimum criteria (grade, quality, thickness, depth).",
-      "The process by which elements move away from the enriched ore zone.",
-      "They occur in close relationship to deep faults along old rift zones."
+      "Rooms excavated with pillars left for support",
+      "Continuous wall mining",
+      "Vertical shaft mining",
+      "Surface mining method"
     ],
     "correctAnswer": 0,
-    "explanation": "A type of underground mining that excavates rooms leaving pillars for support.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Rooms are mined while pillars are left to support the roof."
   },
   {
     "id": "q254",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
     "question": "Silicification",
     "choices": [
-      "Underground openings from which ore is extracted.",
-      "The introduction of, or replacement by, silica.",
-      "Iron-bearing weathered product overlying a sulfide deposit.",
-      "From highest to lowest, gas, oil, water."
+      "Replacement by silica",
+      "Oxidation of sulfides",
+      "Carbonate dissolution",
+      "Clay formation"
     ],
-    "correctAnswer": 1,
-    "explanation": "The introduction of, or replacement by, silica.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Silicification is the addition or replacement of material by silica (SiO₂)."
   },
   {
     "id": "q255",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [
-      "Mineralogy",
-      "Petrology"
-    ],
     "question": "Skarn",
     "choices": [
-      "Kimberlites are carrot shaped, ultramafic and diamond rich deposits that form deep in the Earth.",
-      "They're moderate to large, high pressure formations that range from 700 to 1500 degrees C.",
-      "A current is sent through the ground, shut off, then the remnant current is measured.",
-      "Silicate rocks of complex, metamorphic-metasomatic mineralogy formed in carbonate rocks in a contact metamorphic aureola."
+      "Contact metamorphic rock in carbonates",
+      "Igneous intrusive rock",
+      "Sedimentary deposit",
+      "Coal seam"
     ],
-    "correctAnswer": 3,
-    "explanation": "A type of metamorphic silicate rock that forms in carbonate rocks.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Skarns form where intrusions react with carbonate rocks, producing calc-silicate minerals."
   },
   {
     "id": "q256",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
     "question": "Stoping",
     "choices": [
-      "A specific oil and gas trap that has been identified. Once drilled, it becomes either a dry hole or producing field.",
-      "Extraction of ore in an underground mine by working laterally in a series of levels in the plane of the vein.",
-      "An analysis of the proportions of metal in an ore. Composition, purity, weight, or other properties of economic interest are tested.",
-      "The chemical product of exhalation; a deposit formed by the interaction of volcanically heated water, convecting seawater, and subjacent igneous rocks."
+      "Extraction of ore along a vein underground",
+      "Surface mining method",
+      "Drilling exploration technique",
+      "Ore processing method"
     ],
-    "correctAnswer": 1,
-    "explanation": "Horizontal excavation of a vein plane.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Stoping removes ore from underground veins, typically along levels."
   },
   {
     "id": "q257",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
     "question": "Stratabound",
     "choices": [
-      "Mining of the support pillars while retreating from the mine.",
-      "Compaction, cementation, reworking, authigenesis, leaching, hydration, and replacement.",
-      "A mineral deposit confined to a single stratigraphic unit.",
-      "The estimated amount of resources that are economically recoverable."
+      "Confined to a specific stratigraphic layer",
+      "Cross-cutting all layers",
+      "Igneous-only deposit",
+      "Surface weathering zone"
     ],
-    "correctAnswer": 2,
-    "explanation": "A mineral deposit confined to a single stratigraphic unit.",
-    "difficulty": "easy",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Stratabound deposits are limited to one stratigraphic unit."
   },
   {
     "id": "q258",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
     "question": "Stratiform",
     "choices": [
-      "The process by which limestone is converted to dolomite by the replacement of calcium carbonate by magnesium carbonate.",
-      "Teethlike interlocking projections at a contact in carbonate rocks that often form a vertical impermeable barrier to petroleum migration.",
-      "Ore can be completely extracted, the roof rock can be almost completely caved, and surface subsidence is very uniform.",
-      "A special type of stratabound deposit in which the ore constitutes a layer or layers in the rock."
+      "Layered ore parallel to bedding",
+      "Cross-cutting veins",
+      "Igneous intrusion",
+      "Random distribution"
     ],
-    "correctAnswer": 3,
-    "explanation": "A special type of stratabound deposit in which the ore constitutes a layer or layers in the rock.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Stratiform deposits form as continuous layers parallel to bedding."
   },
   {
     "id": "q259",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
     "question": "Supergene Enrichment",
     "choices": [
-      "A near-surface process of mineral deposition in which metals are leached by acidic solutions, carried downward, and re-precipitated, enriching the sulfied minerals already present.",
-      "When a soluble ore component is transported in solution or as a colloid to where chemical conditions allow from the precipitation of an insoluble compound.",
-      "1) Accumulation of organic materials. 2) Compaction, removal of oxygen, increase in temperature, time passes. 3) Upwards migration of oil and gas until trapped.",
-      "An alternating current is introduced into the ground, where the generated electromagnetic field is then measured. Usedful for highly conductive sulfide deposits."
+      "Downward leaching and reprecipitation of metals",
+      "Primary magmatic crystallization",
+      "Metamorphic recrystallization",
+      "Surface erosion process"
     ],
     "correctAnswer": 0,
-    "explanation": "When acids dissolve metals near the surface, get drawn downward, then precipitate on existing lower deposits.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "Surface weathering dissolves metals, which redeposit below, enriching ore."
   },
   {
     "id": "q260",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
-    "question": "Syngenetic",
+    "question": "Syngenetic Deposit",
     "choices": [
-      "They're moderate to large, high pressure formations that range from 700 to 1500 degrees C.",
-      "Silicate rocks of complex, metamorphic-metasomatic mineralogy formed in carbonate rocks in a contact metamorphic aureola.",
-      "A mineral deposit formed contemporaneously with, and by the same processes as, the enclosing rocks.",
-      "A current is sent through the ground, shut off, then the remnant current is measured."
+      "Forms at same time as host rock",
+      "Forms after host rock",
+      "Forms only at surface",
+      "Forms from metamorphism"
     ],
-    "correctAnswer": 2,
-    "explanation": "A mineral deposit formed contemporaneously with, and by the same processes as, the enclosing rocks.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Syngenetic deposits form simultaneously with the surrounding rock."
   },
   {
     "id": "q261",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [
-      "Mineralogy",
-      "Petrology"
-    ],
-    "question": "What are the size / temperature / pressure conditions for mafic magmatic segregation deposits?",
+    "question": "Mafic Magmatic Segregation Deposits",
     "choices": [
-      "They're moderate to large, high pressure formations that range from 700 to 1500 degrees C.",
-      "Kimberlites are carrot shaped, ultramafic and diamond rich deposits that form deep in the Earth.",
-      "Silicate rocks of complex, metamorphic-metasomatic mineralogy formed in carbonate rocks in a contact metamorphic aureola.",
-      "A current is sent through the ground, shut off, then the remnant current is measured."
+      "High temperature, high pressure magmatic systems",
+      "Low temperature sedimentary deposits",
+      "Surface weathering deposits",
+      "Hydrothermal vein systems"
     ],
     "correctAnswer": 0,
-    "explanation": "They're moderate to large, high pressure formations that range from 700 to 1500 degrees C.",
-    "difficulty": "hard",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "explanation": "These deposits form at high T/P from magma differentiation (e.g., chromite)."
   },
   {
     "id": "q262",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
-    "question": "How do Layered Mafic Intrusions (LMI) form?",
+    "question": "Layered Mafic Intrusions form by:",
     "choices": [
-      "Compaction, cementation, reworking, authigenesis, leaching, hydration, and replacement.",
-      "High pressures from 250 to 700 degrees C.",
-      "They form from the crystal settling of melt.",
-      "Low to moderate pressures from 300-800 degrees C."
+      "Crystal settling from magma",
+      "Surface weathering",
+      "Metamorphic deformation",
+      "Hydrothermal circulation"
     ],
-    "correctAnswer": 2,
-    "explanation": "They form from the crystal settling of melt.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Dense minerals settle out of magma, forming layered deposits."
   },
   {
     "id": "q263",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
-    "question": "Where do anorthosites occur?",
+    "question": "Anorthosites occur:",
     "choices": [
-      "Portion of identified resource that meets minimum criteria (grade, quality, thickness, depth).",
-      "They occur in close relationship to deep faults along old rift zones.",
-      "The process by which elements move away from the enriched ore zone.",
-      "A type of underground mining that excavates rooms leaving pillars for support."
+      "Near deep faults and rift zones",
+      "Only in subduction zones",
+      "Only at mid-ocean ridges",
+      "Only in sedimentary basins"
     ],
-    "correctAnswer": 1,
-    "explanation": "They occur in close relationship to deep faults along old rift zones.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Anorthosites are often associated with rift-related tectonic settings."
   },
   {
     "id": "q264",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [
-      "Mineralogy",
-      "Petrology"
-    ],
-    "question": "What are kimberlites and where do they form?",
+    "question": "Kimberlites",
     "choices": [
-      "They're moderate to large, high pressure formations that range from 700 to 1500 degrees C.",
-      "A current is sent through the ground, shut off, then the remnant current is measured.",
-      "Kimberlites are carrot shaped, ultramafic and diamond rich deposits that form deep in the Earth.",
-      "Silicate rocks of complex, metamorphic-metasomatic mineralogy formed in carbonate rocks in a contact metamorphic aureola."
+      "Diamond-bearing ultramafic pipes",
+      "Basaltic lava flows",
+      "Sedimentary deposits",
+      "Metamorphic rocks"
     ],
-    "correctAnswer": 2,
-    "explanation": "Kimberlites are carrot shaped, ultramafic and diamond rich deposits that form deep in the Earth.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Kimberlites are deep-origin, carrot-shaped pipes that can contain diamonds."
   },
   {
     "id": "q265",
-    "type": "multiple_choice",
-    "category": "Economic Geology",
-    "subcategory": [],
-    "question": "When did many of the North American calc-alkaline systems form?",
+    "question": "North American calc-alkaline systems formed during:",
     "choices": [
-      "From highest to lowest, gas, oil, water.",
-      "During the Mesozoic or Cenozoic orogenies.",
-      "The introduction of, or replacement by, silica.",
-      "Underground openings from which ore is extracted."
+      "Mesozoic–Cenozoic orogenies",
+      "Precambrian only",
+      "Glacial periods",
+      "Modern tectonics only"
     ],
-    "correctAnswer": 1,
-    "explanation": "During the Mesozoic or Cenozoic orogenies.",
-    "difficulty": "medium",
-    "examRelevant": true,
-    "verifiedStatus": "reviewed"
+    "correctAnswer": 0,
+    "explanation": "Most formed during subduction-related mountain building in Mesozoic–Cenozoic."
   },
   {
     "id": "q266",
