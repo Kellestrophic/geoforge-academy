@@ -25,7 +25,15 @@ export default function PracticeMenu() {
 
       {/* ALL */}
       <Pressable
-        onPress={() => router.push("/practice?mode=all")}
+      onPress={() =>
+  router.push({
+    pathname: "/practice",
+    params: {
+      mode: "practice",
+      type: "all",
+    },
+  })
+}
  style={{
   backgroundColor: "#243247", // 🔥 filled dark card
   borderWidth: 2,
@@ -45,8 +53,16 @@ export default function PracticeMenu() {
 
       {/* MC */}
       <Pressable
-        onPress={() => router.push("/practice?mode=mc")}
-       style={{
+        onPress={() =>
+          router.push({
+            pathname: "/practice",
+            params: {
+              mode: "practice",
+              type: "mc",
+            },
+          })
+        }
+        style={{
   backgroundColor: "#243247", // 🔥 filled dark card
   borderWidth: 2,
   borderColor: "#38bdf8", // 🔥 bright blue outline
@@ -65,8 +81,16 @@ export default function PracticeMenu() {
 
       {/* FB */}
       <Pressable
-        onPress={() => router.push("/practice?mode=fb")}
- style={{
+        onPress={() =>
+          router.push({
+            pathname: "/practice",
+            params: {
+              mode: "practice",
+              type: "fb",
+            },
+          })
+        }
+        style={{
   backgroundColor: "#243247", // 🔥 filled dark card
   borderWidth: 2,
   borderColor: "#38bdf8", // 🔥 bright blue outline

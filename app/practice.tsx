@@ -77,7 +77,7 @@ function shuffle(arr: any[]) {
 
 export default function ExamScreen() {
   const params = useLocalSearchParams();
-
+const rawType = Array.isArray(params.type) ? params.type[0] : params.type;
   const rawMode = Array.isArray(params.mode) ? params.mode[0] : params.mode;
 const isPractice = rawMode === "practice";
   const selectedTopic = Array.isArray(params.topic)
@@ -218,7 +218,17 @@ useEffect(() => {
       }
 
 if (isPractice) {
-  return shuffle(processed); // 🔥 NO LIMIT
+  let filtered = processed;
+
+  if (rawType === "mc") {
+    filtered = processed.filter((q) => q.type === "multiple_choice");
+  }
+
+  if (rawType === "fb") {
+    filtered = processed.filter((q) => q.type === "input");
+  }
+
+  return shuffle(filtered);
 }
 
 return shuffle(processed).slice(0, count);    } catch (e) {

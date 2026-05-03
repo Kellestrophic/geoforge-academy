@@ -7,7 +7,7 @@ import petrologyFBRaw from "@/data/petrologyFB.json";
 import petrologyMCRaw from "@/data/petrologyMC.json";
 import sedimentologyFBRaw from "@/data/sedimentologyFB.json";
 import sedimentologyMCRaw from "@/data/sedimentologyMC.json";
-
+import { saveExam } from "@/lib/saveExam";
 import { theme } from "@/lib/theme";
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useMemo, useState } from "react";
@@ -29,7 +29,6 @@ const sedimentologyMC = sedimentologyMCRaw as any[];
 function clean(str: string) {
   return String(str).toLowerCase().replace(/[^a-z0-9]/g, "");
 }
-
 function shuffle(arr: any[]) {
   const copy = [...arr];
   for (let i = copy.length - 1; i > 0; i--) {
@@ -42,18 +41,28 @@ function shuffle(arr: any[]) {
 /* ---------------- SCREEN ---------------- */
 
 export default function ExamScreen() {
-  const params = useLocalSearchParams();
+const params = useLocalSearchParams();
 
-  const rawMode = Array.isArray(params.mode) ? params.mode[0] : params.mode;
-  const selectedTopic = Array.isArray(params.topic)
-    ? params.topic[0]
-    : params.topic;
+const rawMode = Array.isArray(params.mode) ? params.mode[0] : params.mode;
+const rawType = Array.isArray(params.type) ? params.type[0] : params.type;
 
-  const mode: "random" | "topic" | "pg" =
-    rawMode === "topic" || rawMode === "pg" ? rawMode : "random";
+const selectedTopic = Array.isArray(params.topic)
+  ? params.topic[0]
+  : params.topic;
 
-  const count = Number(params.count) || 20;
-  const timeLimit = Number(params.time) || 30;
+// 🔥 THIS FIXES PRACTICE MODE (including topic practice)
+const isPractice =
+  rawMode === "practice" ||
+  rawMode === "all" ||
+  rawMode === "mc" ||
+  rawMode === "fb" ||
+  (!!selectedTopic && rawMode !== "topic" && rawMode !== "pg");
+
+const mode: "random" | "topic" | "pg" =
+  rawMode === "topic" || rawMode === "pg" ? rawMode : "random";
+
+const count = isPractice ? 9999 : Number(params.count) || 20;
+const timeLimit = isPractice ? 0 : Number(params.time) || 30;
 
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<any>({});
@@ -62,23 +71,25 @@ export default function ExamScreen() {
 
   /* ---------------- TIMER ---------------- */
 
-  useEffect(() => {
-    if (finished) return;
+useEffect(() => {
+  if (isPractice) return; // 🔥 HARD STOP
+  if (finished) return;
 
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev <= 1) {
-          clearInterval(timer);
-          setFinished(true);
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
+  setTimeLeft(timeLimit * 60);
 
-    return () => clearInterval(timer);
-  }, [finished]);
+  const timer = setInterval(() => {
+    setTimeLeft((prev) => {
+      if (prev <= 1) {
+        clearInterval(timer);
+        setFinished(true);
+        return 0;
+      }
+      return prev - 1;
+    });
+  }, 1000);
 
+  return () => clearInterval(timer);
+}, [finished, isPractice]);
   /* ---------------- BUILD QUESTIONS ---------------- */
 
   const questions = useMemo(() => {
@@ -172,6 +183,24 @@ export default function ExamScreen() {
 
   /* ---------------- RESULT ---------------- */
 
+useEffect(() => {
+  if (!finished) return;
+
+  const run = async () => {
+    try {
+      const score = calculateScore();
+      const percent = Math.round((score / questions.length) * 100);
+
+      console.log("📊 Saving:", percent, mode, selectedTopic);
+
+      await saveExam(percent, mode, selectedTopic);
+    } catch (e) {
+      console.log("SAVE FAIL:", e);
+    }
+  };
+
+  run();
+}, [finished]);
   if (finished) {
     const score = calculateScore();
 
@@ -235,10 +264,13 @@ export default function ExamScreen() {
       <ScrollView contentContainerStyle={{ padding: 20 }}>
 
         {/* TIMER */}
-        <Text style={{ color: theme.colors.subtext }}>
+        {!isPractice && (
+  <Text style={{ color: theme.colors.subtext }}>
           Time Left: {Math.floor(timeLeft / 60)}:
           {(timeLeft % 60).toString().padStart(2, "0")}
+          
         </Text>
+        )}
 
         <Text style={{ color: theme.colors.text, fontSize: 20 }}>
           {question.question}
