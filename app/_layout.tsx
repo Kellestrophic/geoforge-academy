@@ -37,7 +37,16 @@ export default function Layout() {
         <Stack.Screen name="review" options={{ title: "Review" }} />
         <Stack.Screen name="exam-pg" options={{ title: "PG Exam" }} />
         <Stack.Screen name="exam-topic" options={{ title: "Topic Exam" }} />
-        <Stack.Screen name="exam" options={{ title: "Exam" }} />
+       <Stack.Screen
+  name="exam"
+  options={({ route }: any) => {
+    const mode = route?.params?.mode;
+
+    return {
+      title: mode === "practice" ? "Practice" : "Exam",
+    };
+  }}
+/>
         <Stack.Screen name="exam-random" options={{ title: "Random Exam" }} />
         <Stack.Screen name="profile" options={{ title: "Results" }} />
         <Stack.Screen name="review-list" options={{ title: "Study Answers" }} />

@@ -90,12 +90,7 @@ const selectedTopic = Array.isArray(params.topic)
   : params.topic;
 
 // 🔥 THIS FIXES PRACTICE MODE (including topic practice)
-const isPractice =
-  rawMode === "practice" ||
-  rawMode === "all" ||
-  rawMode === "mc" ||
-  rawMode === "fb" ||
-  (!!selectedTopic && rawMode !== "topic" && rawMode !== "pg");
+const isPractice = rawMode === "practice";
 
 const mode: "random" | "topic" | "pg" =
   rawMode === "topic" || rawMode === "pg" ? rawMode : "random";

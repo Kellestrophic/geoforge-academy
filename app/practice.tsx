@@ -248,31 +248,38 @@ return shuffle(processed).slice(0, count);    } catch (e) {
 
   /* ---------------- SCORE ---------------- */
 
-  function calculateScore() {
-    let correct = 0;
+function calculateScore() {
+  let correctCount = 0;
 
-   questions.forEach((q, i) => {
-  const user = answers[i];
+  questions.forEach((q, i) => {
+    const user = answers[i];
 
-  let correct = false;
+    let isCorrect = false;
 
-  if (q.type === "multiple_choice") {
-    const correctText = q.choices[q.correctAnswer];
-    correct = user === correctText;
-  } else {
-    const correctAnswer = q.answer?.[0] ?? "";
-    correct = clean(user) === clean(correctAnswer);
-  }
+    if (q.type === "multiple_choice") {
+      const correctText = q.choices[q.correctAnswer];
+      isCorrect = user === correctText;
+    } else {
+      const correctAnswer = q.answer?.[0] ?? "";
+      isCorrect = clean(user) === clean(correctAnswer);
+    }
 
-  if (!correct) {
-    saveWrongQuestion(q); // 🔥 SAVE WRONG
-  }
-});
-    return correct;
-  }
+    if (!isCorrect) {
+      saveWrongQuestion(q);
+    } else {
+      correctCount++; // ✅ THIS WAS MISSING
+    }
+  });
+
+  return correctCount;
+}
 
   /* ---------------- RESULT ---------------- */
+useEffect(() => {
+  if (!finished) return;
 
+  trackActivity("exam", Math.max(5, Math.floor(questions.length / 2)));
+}, [finished]);
   if (finished) {
     const score = calculateScore();
 
@@ -296,11 +303,7 @@ return shuffle(processed).slice(0, count);    } catch (e) {
                 ? user === correctText
                 : clean(user) === clean(correctText);
 // 🔥 TRACK EXAM ACTIVITY ONCE
-useEffect(() => {
-  if (!finished) return;
 
-  trackActivity("exam", Math.max(5, Math.floor(questions.length / 2)));
-}, [finished]);
             return (
               <View key={i} style={{ marginTop: 15 }}>
                 <Text style={{ color: theme.colors.text }}>
