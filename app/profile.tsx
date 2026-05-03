@@ -136,7 +136,7 @@ export default function ProfileScreen() {
   const spacing =
     examDays.length > 1 ? 300 / (examDays.length - 1) : 0;
 
- const groupedPoints: Record<string, any[]> = {};
+const groupedPoints: Record<string, any[]> = {};
 
 examDays.forEach((day, dayIndex) => {
   const examsForDay = groupedByDay[day];
@@ -146,31 +146,26 @@ examDays.forEach((day, dayIndex) => {
 
     if (!groupedPoints[key]) groupedPoints[key] = [];
 
-    groupedPoints[key].push({
-      exam,
-      dayIndex,
-    });
+    groupedPoints[key].push(exam);
   });
 });
 
 const points: any[] = [];
 
-Object.values(groupedPoints).forEach((group: any[]) => {
-  group.forEach((item, stackIndex) => {
-    const yBase = 200 - item.exam.score * 1.5;
+Object.entries(groupedPoints).forEach(([key, examsGroup]) => {
+  const [day, score] = key.split("-");
 
-    points.push({
-      x: 30 + item.dayIndex * spacing,
+  const dayIndex = examDays.indexOf(day);
+  const yBase = 200 - Number(score) * 1.5;
 
-      // 🔥 STACK SAME SCORE
-      y: yBase - stackIndex * 10,
+  points.push({
+    x: 30 + dayIndex * spacing,
+    y: yBase,
 
-      color: COLORS[item.exam.type] || "white",
+    color: COLORS[examsGroup[0].type] || "white",
 
-      // 🔥 STORE FULL GROUP
-      exams: group.map((g) => g.exam),
-      exam: item.exam,
-    });
+    // 🔥 store ALL exams for that dot
+    exams: examsGroup,
   });
 });
 
@@ -310,7 +305,7 @@ Object.values(groupedPoints).forEach((group: any[]) => {
           </Svg>
           </View>
         </View>
-        
+
 {selectedExam && (
   <View style={{ marginTop: 10 }}>
     <Text style={{ color: "white", marginBottom: 5 }}>

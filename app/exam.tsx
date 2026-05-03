@@ -1,12 +1,12 @@
-import questionsData from "@/data/questions.json";
-
 import mineralFormulasRaw from "@/data/mineralFormulas.json";
 import mineralogyFBRaw from "@/data/mineralogyFB.json";
 import mineralogyMCRaw from "@/data/mineralogyMC.json";
 import petrologyFBRaw from "@/data/petrologyFB.json";
 import petrologyMCRaw from "@/data/petrologyMC.json";
+import questionsData from "@/data/questions.json";
 import sedimentologyFBRaw from "@/data/sedimentologyFB.json";
 import sedimentologyMCRaw from "@/data/sedimentologyMC.json";
+import { trackActivity } from "@/lib/activity";
 import { saveExam } from "@/lib/saveExam";
 import { theme } from "@/lib/theme";
 import { useLocalSearchParams } from "expo-router";
@@ -194,6 +194,7 @@ useEffect(() => {
       console.log("📊 Saving:", percent, mode, selectedTopic);
 
       await saveExam(percent, mode, selectedTopic);
+      await trackActivity("exam", questions.length / 2);
     } catch (e) {
       console.log("SAVE FAIL:", e);
     }

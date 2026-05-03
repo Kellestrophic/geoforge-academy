@@ -28,12 +28,12 @@ import paleontologyMCRaw from "@/data/paleontologyMC.json";
 import structuralFBRaw from "@/data/structuralFB.json";
 import structuralMCRaw from "@/data/structuralMC.json";
 
+import { trackActivity } from "@/lib/activity";
 import { theme } from "@/lib/theme";
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useMemo, useState } from "react";
 import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
 /* ---------------- DATA ---------------- */
 
 const mineralFormulas = mineralFormulasRaw as any[];
@@ -283,7 +283,12 @@ return shuffle(processed).slice(0, count);    } catch (e) {
               q.type === "multiple_choice"
                 ? user === correctText
                 : clean(user) === clean(correctText);
+// 🔥 TRACK EXAM ACTIVITY ONCE
+useEffect(() => {
+  if (!finished) return;
 
+  trackActivity("exam", Math.max(5, Math.floor(questions.length / 2)));
+}, [finished]);
             return (
               <View key={i} style={{ marginTop: 15 }}>
                 <Text style={{ color: theme.colors.text }}>
@@ -433,13 +438,16 @@ return shuffle(processed).slice(0, count);    } catch (e) {
           )}
   {isPractice && question.type === "input" && !showResult && (
   <Pressable
-    onPress={() => {
-      const correct =
-        clean(input) === clean(question.answer?.[0] || "");
+   onPress={() => {
+  const correct =
+    clean(input) === clean(question.answer?.[0] || "");
 
-      setIsCorrect(correct);
-      setShowResult(true);
-    }}
+  setIsCorrect(correct);
+  setShowResult(true);
+
+  // 🔥 TRACK INPUT PRACTICE
+  trackActivity("practice", 1);
+}}
     style={{
       marginTop: 10,
       backgroundColor: "#2563eb",
@@ -456,18 +464,21 @@ return shuffle(processed).slice(0, count);    } catch (e) {
         <Pressable
      onPress={() => {
   if (isPractice) {
-    if (!showResult) return;
+  if (!showResult) return;
 
-    setSelected(null);
-    setInput("");
-    setShowResult(false);
+  // 🔥 TRACK PRACTICE ACTIVITY
+  trackActivity("practice", 1);
 
-    setIndex((prev) =>
-      prev + 1 >= questions.length ? 0 : prev + 1
-    );
+  setSelected(null);
+  setInput("");
+  setShowResult(false);
 
-    return;
-  }
+  setIndex((prev) =>
+    prev + 1 >= questions.length ? 0 : prev + 1
+  );
+
+  return;
+}
 
   setIndex((prev) =>
     prev + 1 >= questions.length ? prev : prev + 1
