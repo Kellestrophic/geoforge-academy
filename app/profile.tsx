@@ -10,55 +10,57 @@ export default function ProfileScreen() {
   }, []);
 
   async function safeLoad() {
-    try {
-      console.log("👤 PROFILE LOAD START");
+  try {
+    console.log("👤 PROFILE LOAD START");
 
-      // 🔥 SAFE IMPORT (prevents crash)
-      const { getSupabase } = await import("@/lib/supabase");
-      const supabase = getSupabase();
+    const { getSupabase } = await import("@/lib/supabase");
+    const supabase = getSupabase();
 
-      if (!supabase) {
-        setStatus("❌ No Supabase");
-        return;
-      }
+    if (!supabase) {
+      setStatus("❌ No Supabase");
+      return;
+    }
 
-      // 🔥 SAFE AUTH CALL
-      const { data, error } = await supabase.auth.getSession();
+    // 🔥 CHECK SESSION
+    let { data: sessionData } = await supabase.auth.getSession();
+    let user = sessionData?.session?.user;
+
+    // 🔥 CREATE USER IF NONE
+    if (!user) {
+      console.log("🚨 NO USER → CREATING");
+
+      const { data, error } = await supabase.auth.signInAnonymously();
 
       if (error) {
-        console.log("❌ SESSION ERROR:", error);
-        setStatus("Session Error");
+        console.log("❌ SIGN IN ERROR:", error);
+        setStatus("Auth error");
         return;
       }
 
-      const user = data?.session?.user;
-
-      if (!user) {
-        setStatus("No user");
-        return;
-      }
-
-      console.log("✅ USER:", user.id);
-
-      // 🔥 SAFE QUERY
-      const { error: testError } = await supabase
-        .from("exam_history")
-        .select("id")
-        .limit(1);
-
-      if (testError) {
-        console.log("❌ QUERY ERROR:", testError);
-        setStatus("Query error");
-        return;
-      }
-
-      setStatus("✅ Supabase Working");
-
-    } catch (e) {
-      console.log("🔥 PROFILE CRASH:", e);
-      setStatus("CRASH");
+      user = data.user;
     }
+
+    console.log("✅ USER READY:", user.id);
+
+    // 🔥 TEST QUERY
+    const { error: testError } = await supabase
+      .from("exam_history")
+      .select("id")
+      .limit(1);
+
+    if (testError) {
+      console.log("❌ QUERY ERROR:", testError);
+      setStatus("Query error");
+      return;
+    }
+
+    setStatus("✅ FULLY WORKING");
+
+  } catch (e) {
+    console.log("🔥 PROFILE CRASH:", e);
+    setStatus("CRASH");
   }
+}
 
   return (
     <View
