@@ -1,7 +1,12 @@
 import { theme } from "@/lib/theme";
 import { useEffect, useState } from "react";
 import { ScrollView, Text, View } from "react-native";
-import Svg, { Circle, Line, Text as SvgText } from "react-native-svg";
+import Svg, {
+  Circle,
+  Line,
+  Rect,
+  Text as SvgText,
+} from "react-native-svg";
 
 /* ---------------- TYPES ---------------- */
 
@@ -24,9 +29,15 @@ const COLORS: Record<string, string> = {
 
 export default function ProfileScreen() {
   const [status, setStatus] = useState("Loading...");
+
   const [exams, setExams] = useState<Exam[]>([]);
-  const [selectedExam, setSelectedExam] = useState<Exam | null>(null);
-  const [filter, setFilter] = useState<"all" | "pg" | "random" | "topic">("all");
+ const [selectedExam, setSelectedExam] = useState<Exam[] | null>(null);
+  const [filter, setFilter] = useState<
+    "all" | "pg" | "random" | "topic"
+  >("all");
+
+  const [activity, setActivity] = useState<any[]>([]);
+  const [selectedDay, setSelectedDay] = useState<any | null>(null);
 
   useEffect(() => {
     safeLoad();
@@ -52,47 +63,65 @@ export default function ProfileScreen() {
         return;
       }
 
-      const { data: examData, error } = await supabase
+      console.log("✅ USER:", user.id);
+
+      /* ---------------- LOAD EXAMS ---------------- */
+
+      const { data: examData, error: examError } = await supabase
         .from("exam_history")
         .select("*")
         .eq("user_id", user.id)
         .order("created_at", { ascending: true });
 
-      if (error) {
-        setStatus("Load error");
-        return;
+      if (examError) {
+        console.log("❌ EXAM LOAD ERROR:", examError);
       }
 
-      if (!examData || examData.length === 0) {
-        setStatus("No exams found");
-        return;
+      const formattedExams: Exam[] =
+        examData?.map((e: any) => ({
+          score: e.score,
+          type: e.type,
+          topic: e.topic,
+          date: e.created_at,
+        })) || [];
+
+      setExams(formattedExams);
+
+      /* ---------------- LOAD ACTIVITY ---------------- */
+
+      const { data: activityData, error: activityError } =
+        await supabase
+          .from("daily_activity")
+          .select("*")
+          .eq("user_id", user.id)
+          .order("created_at", { ascending: true });
+
+      if (activityError) {
+        console.log("❌ ACTIVITY ERROR:", activityError);
       }
 
-      // 🔥 FORMAT FOR GRAPH
-      const formatted: Exam[] = examData.map((e: any) => ({
-        score: e.score,
-        type: e.type,
-        topic: e.topic,
-        date: e.created_at,
-      }));
+      const formattedActivity =
+        activityData?.map((a: any) => ({
+          date: a.created_at,
+          minutes: a.minutes ?? 1,
+          mode: a.mode ?? "practice",
+        })) || [];
 
-      setExams(formatted);
+      setActivity(formattedActivity);
+
       setStatus("Loaded");
-
     } catch (e) {
       console.log("🔥 PROFILE CRASH:", e);
       setStatus("CRASH");
     }
   }
 
-  /* ---------------- FILTER ---------------- */
+  /* ---------------- EXAM GRAPH ---------------- */
 
   const filteredExams = exams.filter((e) => {
     if (filter === "all") return true;
     return e.type === filter;
   });
-
-  /* ---------------- GROUP ---------------- */
 
   const groupedByDay: Record<string, Exam[]> = {};
 
@@ -107,24 +136,79 @@ export default function ProfileScreen() {
   const spacing =
     examDays.length > 1 ? 300 / (examDays.length - 1) : 0;
 
-  const points: any[] = [];
+ const groupedPoints: Record<string, any[]> = {};
 
-  examDays.forEach((day, dayIndex) => {
-    const examsForDay = groupedByDay[day];
+examDays.forEach((day, dayIndex) => {
+  const examsForDay = groupedByDay[day];
 
-    examsForDay.forEach((exam, stackIndex) => {
-      const yBase = 200 - exam.score * 1.5;
+  examsForDay.forEach((exam) => {
+    const key = `${day}-${exam.score}`;
 
-      points.push({
-        x: 30 + dayIndex * spacing,
-        y: yBase - stackIndex * 8,
-        color: COLORS[exam.type] || "white",
-        exam,
-      });
+    if (!groupedPoints[key]) groupedPoints[key] = [];
+
+    groupedPoints[key].push({
+      exam,
+      dayIndex,
     });
   });
+});
 
-  /* ---------------- UI ---------------- */
+const points: any[] = [];
+
+Object.values(groupedPoints).forEach((group: any[]) => {
+  group.forEach((item, stackIndex) => {
+    const yBase = 200 - item.exam.score * 1.5;
+
+    points.push({
+      x: 30 + item.dayIndex * spacing,
+
+      // 🔥 STACK SAME SCORE
+      y: yBase - stackIndex * 10,
+
+      color: COLORS[item.exam.type] || "white",
+
+      // 🔥 STORE FULL GROUP
+      exams: group.map((g) => g.exam),
+      exam: item.exam,
+    });
+  });
+});
+
+  /* ---------------- ACTIVITY GRAPH ---------------- */
+
+  const grouped: Record<string, any[]> = {};
+
+  activity.forEach((a) => {
+    const day = new Date(a.date).toDateString();
+    if (!grouped[day]) grouped[day] = [];
+    grouped[day].push(a);
+  });
+
+  const days = Object.keys(grouped);
+
+  const barWidth = 40;
+
+  const bars = days.map((day, i) => {
+    const dayData = grouped[day];
+
+    const total = dayData.reduce(
+      (sum, a) => sum + (a.minutes || 1),
+      0
+    );
+
+    return {
+      x: i * (barWidth + 20) + 20,
+      height: Math.min(total * 3, 150),
+      date: day,
+      breakdown: dayData,
+      total,
+    };
+  });
+
+  const barGraphWidth =
+    days.length * (barWidth + 20) + 40;
+
+  /* ---------------- LOADING ---------------- */
 
   if (status !== "Loaded") {
     return (
@@ -142,6 +226,8 @@ export default function ProfileScreen() {
       </View>
     );
   }
+
+  /* ---------------- UI ---------------- */
 
   return (
     <ScrollView
@@ -161,7 +247,8 @@ export default function ProfileScreen() {
               marginRight: 10,
               padding: 8,
               borderRadius: 8,
-              backgroundColor: filter === f ? "#22c55e" : "#1e293b",
+              backgroundColor:
+                filter === f ? "#22c55e" : "#1e293b",
               color: "white",
             }}
           >
@@ -174,11 +261,9 @@ export default function ProfileScreen() {
         Exams: {exams.length}
       </Text>
 
-      {/* GRAPH */}
+      {/* ---------------- EXAM GRAPH ---------------- */}
       <View style={{ marginTop: 20 }}>
         <View style={{ flexDirection: "row" }}>
-          
-          {/* Y AXIS */}
           <Svg height={220} width={50}>
             {[0, 25, 50, 75, 100].map((val, i) => (
               <SvgText
@@ -190,12 +275,11 @@ export default function ProfileScreen() {
               >
                 {val}%
               </SvgText>
+              
             ))}
           </Svg>
 
-          {/* GRAPH */}
           <Svg height={240} width={320}>
-            
             {points.map((p, i) => {
               if (i === 0) return null;
               const prev = points[i - 1];
@@ -218,34 +302,99 @@ export default function ProfileScreen() {
                 key={i}
                 cx={p.x}
                 cy={p.y}
-                r={6}
+                r={9}
                 fill={p.color}
-                onPress={() => setSelectedExam(p.exam)}
+              onPress={() => setSelectedExam(p.exams)}
               />
             ))}
           </Svg>
+          </View>
         </View>
+        
+{selectedExam && (
+  <View style={{ marginTop: 10 }}>
+    <Text style={{ color: "white", marginBottom: 5 }}>
+      {selectedExam.length} exam(s)
+    </Text>
 
-        {/* INFO */}
-        {selectedExam && (
+    {selectedExam.map((exam, i) => (
+      <View key={i} style={{ marginBottom: 8 }}>
+        <Text style={{ color: "white" }}>
+          Score: {exam.score}%
+        </Text>
+
+        <Text style={{ color: "#94a3b8" }}>
+          Mode: {exam.type}
+        </Text>
+
+        <Text style={{ color: "#94a3b8" }}>
+          {new Date(exam.date).toLocaleDateString()}
+        </Text>
+
+        {exam.topic && (
+          <Text style={{ color: "#94a3b8" }}>
+            Topic: {exam.topic}
+          </Text>
+        )}
+      </View>
+    ))}
+  </View>
+)}
+
+      {/* ---------------- ACTIVITY GRAPH ---------------- */}
+      <View style={{ marginTop: 30 }}>
+        <Text
+          style={{ color: theme.colors.text, fontSize: 20 }}
+        >
+          Daily Activity
+        </Text>
+
+        <Svg height={180} width={barGraphWidth}>
+          {bars.map((b, i) => (
+            <Rect
+              key={i}
+              x={b.x}
+              y={180 - b.height}
+              width={barWidth}
+              height={b.height}
+              fill="#3b82f6"
+              onPress={() => setSelectedDay(b)}
+            />
+          ))}
+        </Svg>
+
+        {selectedDay && (
           <View style={{ marginTop: 10 }}>
             <Text style={{ color: "white" }}>
-              Score: {selectedExam.score}%
+              Date: {selectedDay.date}
             </Text>
 
-            <Text style={{ color: "#94a3b8" }}>
-              Mode: {selectedExam.type}
+            <Text
+              style={{
+                color: "#94a3b8",
+                marginBottom: 5,
+              }}
+            >
+              Total: {selectedDay.total} min
             </Text>
 
-            <Text style={{ color: "#94a3b8" }}>
-              Date:{" "}
-              {new Date(selectedExam.date).toLocaleDateString()}
-            </Text>
+            {selectedDay.breakdown.map(
+              (a: any, i: number) => {
+                const percent = Math.round(
+                  ((a.minutes || 1) /
+                    selectedDay.total) *
+                    100
+                );
 
-            {selectedExam.topic && (
-              <Text style={{ color: "#94a3b8" }}>
-                Topic: {selectedExam.topic}
-              </Text>
+                return (
+                  <Text
+                    key={i}
+                    style={{ color: "#94a3b8" }}
+                  >
+                    {a.mode}: {percent}%
+                  </Text>
+                );
+              }
             )}
           </View>
         )}
